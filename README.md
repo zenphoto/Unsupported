@@ -1,0 +1,4 @@
+Unsupported
+===========
+
+Unsupported Zenphoto scripts
