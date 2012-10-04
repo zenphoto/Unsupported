@@ -1,0 +1,207 @@
+/*
+Cascading Style Sheet
+CSS file created for 'Clouds' theme for ZenPhoto (http://www.zenphoto.org)
+Created by Darrell Dudics (a.k.a. GameDudeX)
+/*
+
+/* SHARED CSS */
+/* ********************************************************************** */
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #000;
+	color: #676B6A;
+}
+
+a:link, a:visited {
+	color: #D7BBC9;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #FFF;
+}
+
+a img {
+	border: 0;
+}
+
+#header {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#header h2 {
+	font: italic bold 1.5em "Times New Roman", Times, serif;
+	margin: 1.5% 0 1.5% 2.5%;
+	color: #676B6A;
+}
+
+#img_header_bg {
+	background: transparent url(images/clouds_bg.jpg) repeat-y top right;
+	width: 100%;
+	padding: 3px 0;
+	margin: 1em 0;
+}
+
+#img_header {
+	height: 80px;
+	width: 100%;
+	background: transparent url(images/clouds.jpg) no-repeat top right;
+}
+
+#navigation {
+	width: 100%;
+	text-align: left;
+	font: italic bold 1.5em "Times New Roman", Times, serif;
+}
+
+#navigation ul {
+	list-style-type: none;
+	margin: 0 0 0 1em;
+	padding: 0;
+}
+
+#navigation ul li {
+	display: inline;
+}
+
+#navigation ul li a {
+	padding: 0 .5em;
+	color: #D7BBC9;
+	background-color: #676B6A;
+}
+
+#navigation ul li a:hover {
+	background-color: #D7BBC9;
+	color: #676B6A;
+}
+
+#navigation .current a {
+	background-color: #D7BBC9;
+	color: #676B6A;
+}
+
+.image {
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin: 0 1% 1% 0;
+	padding: 5px;
+	background: transparent url(images/clouds_bg.jpg) repeat-y center center;
+}
+
+#text {
+	width: 43%;
+	height: 320px;
+	margin: 3% 0 0 2%;
+	padding: 0 15px;
+}
+
+#text div {
+	text-align: justify;
+}
+
+#footer {
+	position: absolute;
+	clear: right;
+	bottom: 10px;
+	right: 10px;
+	color: #D7BBC9;
+	text-align: right;
+}
+
+#options, #info {
+	font: normal normal .7em arial, helvetica, sans-serif;
+}
+
+/* GALLERY PAGE CSS */
+/* ********************************************************************** */
+#albumList {
+	margin: 3% 0 0 0;
+	float: right;
+	width: 50%;
+}
+
+/* ALBUM PAGE CSS */
+/* ********************************************************************** */
+#imageList {
+	margin: 3% 0 0 0;
+	float: right;
+	width: 50%;
+}
+
+/* IMAGE PAGE CSS */
+/* ********************************************************************** */
+#text #comments {
+	margin: 15px 0;
+	padding: 15px 15px 0 15px;
+	border: 1px solid #676B6A;
+}
+
+#commentControl {
+	margin: 0 0 15px 0;
+}
+
+#commentControl p {
+	display:inline;
+	font: normal normal .7em arial, helvetica, sans-serif;
+}
+
+#commentForm {
+	font: italic bold .8em "Times New Roman", Times, serif;
+	width: 100%;
+	margin: 0 0 15px 0;
+}
+
+#commentForm table {
+	width: 100%;
+}
+
+#commentForm table td. {
+	width: 100%;
+}
+
+#commentForm table input, textarea {
+	border: 0;
+	width: 100%;
+}
+
+#commentList {
+	margin-bottom: 15px;
+	height: 150px;
+	overflow: auto;
+}
+
+#commentList .commentbody {
+	margin-bottom: 5px;
+	background-color: #676B6A;
+	color: #D7BBC9;
+}
+/* Admin Toolbox
+------------------------------ */
+#admin, #admin_data{
+	position: fixed;
+    _position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 120px;
+	border-bottom: 1px solid #444;
+	border-left: 1px solid #444;
+	background: #222;
+    z-index: 2;
+}
+#admin_data{
+	top: 0px;
+	padding-top: 20px;
+	z-index: 1;
+	line-height: 1.6em;
+}
+#admin h3 {
+	font-weight: normal;
+	color: #aaa;
+	margin:0;
+	padding:0;
+}
+#admin h3:hover { color: #86a1b6; }

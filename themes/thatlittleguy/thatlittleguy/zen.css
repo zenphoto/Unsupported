@@ -1,0 +1,431 @@
+/*
+
+	thatlittleguy green
+	modded from the ZP original
+	
+*/
+
+/* Basics
+------------------------------ */
+html {
+	/* IE */
+	overflow-y: scroll; 
+	/* Moz */
+	height: 100%;
+	margin-bottom: 0.1em;
+}
+
+/* Main Layout
+------------------------------ */
+body {
+	/* ---OLD --- background: #F5F5F3; ----*/
+	background: #ffffff;
+	margin: 0px;
+	padding: 0px 0px 50px;
+	text-align: center;
+}
+#main {
+	text-align: left;
+	margin: 20px auto;
+	width: 600px;
+	background: #fff;
+	padding: 10px;
+	}
+#credit {
+	margin: 0 auto;
+	width: 640px;
+	font-size: 85%;
+	color: #96967E;
+	text-align: right;
+	clear: both;
+}
+#credit a {
+	text-decoration: none;
+	color: #96967E;
+	border-bottom: 1px dotted #96967E;
+}
+#credit a:hover {
+	color: #BDBDAE;
+	border-bottom: 1px solid #BDBDAE;
+	text-decoration: none;
+}
+#gallerytitle {
+	background: #333 url(images/header_bar.jpg) repeat-x;
+	height:100px;
+	padding:0px;
+	margin:0px;
+}
+
+
+/* Text Styles
+------------------------------ */
+body {
+	font-family:"Helvetica Neue", helvetica, sans-serif;
+	font-size:12px;
+	color: #5A5A4B;
+}
+h2 {
+font-weight: bold;
+letter-spacing: 0px;
+font-family: helvetica, sans-serif;
+font-size:18px;
+margin:0px;
+color:#FFFFFF;
+padding: 40px 10px 0px 10px;
+}
+h2 a:link, h2 a:visited, h2 span {
+font-weight: bold;
+letter-spacing: 0px;
+font-family: helvetica, sans-serif;
+font-size:18px;
+color:#FFFFFF;
+}
+h3 {
+font-weight: bold;
+letter-spacing: 0px;
+font-family: helvetica, sans-serif;
+font-size:18px;
+color:#373435;
+}
+
+
+/* Link Styles
+------------------------------ */
+a:link, a:active { text-decoration: none; color: #373435; }
+a:visited { text-decoration: none; color: #373435; }
+a:hover, a:focus { text-decoration: underline; color: #373435; }
+
+
+/* Miscellaneous
+------------------------------ */
+hr {
+	clear: both;
+	height: 0;
+	border: 0;
+	border-top: 1px solid #E6E6DF;
+	margin: 0 0 12px 0;
+	padding: 0;
+}
+img {
+	border: 0;
+}
+blockquote {
+	border-left: 1px dotted #96967E;
+	margin-left: 20px;
+	padding-left: 20px;
+	color: #363630;
+}
+
+
+/* Page Navigation
+------------------------------ */
+ul.pagelist {
+	clear: both;
+	padding: 0;
+	margin: 20px 0 0 0;
+	list-style-type: none;
+}
+ul.pagelist li {
+	display: inline;
+}
+ul.pagelist li a, ul.pagelist span.disabledlink {
+	padding: 4px;
+}
+ul.pagelist li.current a {
+	font-weight: bold;
+	text-decoration: none;
+	cursor: default;
+	color: #5A5A4B;
+}
+ul.pagelist li.prev {
+	margin-right: 10px;
+}
+ul.pagelist li.next {
+	margin-left: 10px;
+}
+.disabledlink {
+	color: #ddd;
+	cursor: default;
+}
+.pagenav {
+	clear: both;
+}
+
+
+/* AJAX
+------------------------------ */
+#albumDescEditable {
+	margin-bottom: 12px;
+}
+#imageDescEditable {
+	margin-top: 24px;
+}
+
+/* Image Thumbnails
+------------------------------ */
+.imagethumb a {
+	display: block;
+	padding: 10px;
+	margin: 8px;
+	border: 1px solid #92BED3;
+	background: #DDEAF0;
+	line-height: 0px;
+}
+.imagethumb a:visited {
+	border: 1px solid #D3E4ED;
+	background: #F2F7F9;
+}
+.imagethumb a:hover {
+	border: 1px solid #62A0BF;
+	background: #F4F9FB;
+}
+.imagethumb {
+	float: left;
+}
+
+#image_box {
+float:left;
+background: #D2F2B1 url(images/album_box.jpg) no-repeat;
+padding:8px 8px 0px 8px;
+margin:8px 0px 0px 8px;
+width:110px;
+height:110px;
+}
+
+#image_position{
+position:relative;
+top:4px;
+left:4px;
+padding:0px;
+margin:0px;
+width:85px;
+height:85px;
+}
+
+#images_tlg{
+background: #D2F2B1;
+border-top:20px solid #AEE772;
+padding:5px;
+margin:10px 0px 5px 0px;
+}
+
+#smaller_tlg{
+background: #D2F2B1;
+border-top:10px solid #AEE772;
+padding:5px;
+margin:10px 0px 5px 0px;
+}
+
+#imgnav_tlg{
+background: #D2F2B1;
+padding:10px 5px 5px 5px;
+margin:10px 0px;
+}
+
+
+
+/* Album Thumbnails
+------------------------------ */
+
+#album_desc_interior{
+background: #D2F2B1;
+border-top:20px solid #AEE772;
+padding:10px 5px 5px 5px;
+margin:10px 0px 5px 0px;
+}
+
+
+
+
+.album {
+	padding: 0px;
+    margin:10px 0px 0px 0px;
+	clear: both;
+	background: #D2F2B1;
+}
+
+#album_box {
+float:left;
+background: #D2F2B1 url(images/album_box.jpg) no-repeat;
+padding:8px 8px 0px 8px;
+margin:8px 0px 0px 8px;
+width:110px;
+height:110px;
+}
+
+#album_position {
+position:relative;
+top:4px;
+left:4px;
+padding:0px;
+margin:0px;
+width:85px;
+height:85px;
+}
+
+.albumtitle{
+padding: 3px 0px 0px 13px;
+margin:0px;
+background: #AEE772;
+}
+
+.album img {
+	float: left;
+}
+.album h3 {
+	padding: 0;
+	margin: 0;
+}
+.album h3 a {
+	display: block;
+	width: 340px;
+	padding: 3px 0 6px 0;
+}
+.albumdesc p {
+	margin:0px;
+	padding:15px 0px 0px 0px;
+	font-weight: normal;
+letter-spacing: 0px;
+font-family: helvetica, sans-serif;
+font-size:12px;
+color:#373435;
+}
+.albumdesc {
+	float: right;
+	width: 380px;
+	margin:0px;
+	padding:0px;
+}
+
+
+
+/* Individual Image
+------------------------------ */
+.image { 
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#image {
+	text-align: center;
+	line-height: 0;
+	margin:0px;
+	padding:0px;
+}
+.imgnav {
+	float: right;
+	width: 140px;
+	text-align: center;
+	border: 1px solid #D5E6EE;
+	background: #EEF5F9;
+	margin-top: 13px;
+	_margin-top: 8px; /* IE Only */
+}
+.imgnav .imgprevious a, .imgnav .imgnext a {
+	display: block;
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 4px 0;
+	font-size: 120%;
+	text-decoration: none;
+	line-height: 200%;
+	color: #237898;
+}
+.imgnav .imgprevious a:hover, .imgnav .imgnext a:hover {
+	background-color: #fff;
+	text-decoration: none;
+	color: #002E5B;
+}
+.imgnav .imgprevious a {
+	float: left;
+}
+.imgnav .imgnext a {
+	float: right;
+}
+#narrow {
+	margin: 0 auto;
+	width: 440px;
+}
+
+
+/* Comments
+------------------------------ */
+#comments {
+	clear: both;
+}
+.error { 
+  color: #C33; 
+  font-weight: bold; 
+}
+.comment {
+	padding: 10px;
+	border: 1px solid #E7F0F5;
+	background: #FBFCFD;
+	margin-bottom: 12px;
+}
+.commentmeta {
+	margin-bottom: 12px;
+}
+.commentauthor {
+	font-weight: bold;
+}
+.commentdate {
+	margin-top: 12px;
+	color: #8DB8CF;
+	font-size: 85%;
+}
+
+
+/* Forms
+------------------------------ */
+.inputbox {
+	width: 250px;
+	padding: 2px;
+}
+textarea {
+	padding: 4px;
+	width: 100%;
+	color: #5A5A4B;
+	font: 100%/200% "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.checkbox {
+	cursor: pointer;
+}
+.pushbutton {
+	cursor: pointer;
+	padding: 5px 10px;
+}
+label {
+	cursor: pointer;
+}
+label:hover {
+	color: #000;
+}
+
+/* Admin Toolbox
+------------------------------ */
+#admin, #admin_data{
+	position: fixed;
+    _position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 130px;
+	border-bottom: 1px solid #E6E6DF;
+	border-left: 1px solid #E6E6DF;
+	background: #fff;
+    z-index: 2;
+}
+#admin_data{
+	top: 0px;
+	padding-top: 20px;
+	z-index: 1;
+	line-height: 1.6em;
+}
+#admin h3 {
+	font-weight: normal;
+	color: #999;
+	margin:0;
+	padding:0;
+}
+#admin h3:hover { color: #036; }

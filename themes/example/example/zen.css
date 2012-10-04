@@ -1,0 +1,474 @@
+/* These styles are just for the test template. Make some better ones. And yes, I know it's messy ;-) */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	text-align: center;
+}
+
+img {
+	border: none
+}
+
+#main {
+	width: 600px;
+	margin: 0px auto;
+	text-align: left;
+}
+
+#gallerytitle h2 {
+	font-size: 11pt;
+}
+
+#gallerytitle span {
+	font-weight: normal;
+	color: #CCC;
+	text-decoration: none;
+}
+
+#gallerytitle A:link,#gallerytitle A:visited {
+	text-decoration: underline;
+	color: #999;
+}
+
+.albumthumb img {
+	border: 0px;
+	float: left;
+	margin-right: 10px;
+}
+
+.imagethumb img,.image img {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.image {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+
+hr {
+	clear: both;
+	height: 0px;
+	border: 0px;
+	border-top: 1px solid #ccc;
+	margin-top: 0px;
+	padding: 0px;
+}
+
+.imgnav {
+	margin-bottom: 4px;
+	font-size: 15pt;
+	font-weight: normal;
+	color: #CCC;
+	text-align: center;
+}
+
+.imgnav a {
+	display: block;
+	height: 1em;
+	width: 46%;
+	padding: 2%;
+	color: #999 !important;
+	background-color: #fbfbfb;
+}
+
+.imgnav a.prev {
+	float: left;
+}
+
+.imgnav a.next {
+	float: right;
+}
+
+.imgnav a:hover,.imagenav a:active {
+	background-color: #eee;
+	color: #F60 !important;
+	text-decoration: none !important;
+}
+
+#images {
+	margin: 5px 0px 10px;
+	clear: both;
+}
+
+#albums {
+	clear: both;
+	margin: 5px 0px 10px;
+	padding: 0px;
+}
+
+.pagenav {
+	margin: 5px 0px 5px;
+	font-size: 8pt;
+	font-weight: bold;
+	color: #CCC;
+	clear: both;
+}
+
+.pagenav A:link,.pagenav A:visited {
+	color: #333;
+	text-decoration: none;
+}
+
+.disabled_nav {
+	visibility: hidden;
+}
+
+.disabledlink {
+	color: #ddd;
+	cursor: default;
+}
+
+.albumtitle H3 {
+	margin: 0px;
+	padding: 0px;
+}
+
+A:link,A:visited {
+	text-decoration: none;
+	color: #3366CC;
+}
+
+A:hover,A:active,#gallerytitle A:hover,#gallerytitle A:active,.pagenav A:hover,.pagenav A:active
+	{
+	text-decoration: underline;
+	color: #FF6600;
+	background-color: #FFFCF4;
+}
+
+UL.pagelist {
+	padding: 0px;
+	margin: 5px 0px 5px;
+	list-style-type: none;
+	height: 2em;
+}
+
+UL.pagelist LI {
+	display: inline;
+	font-weight: bold;
+}
+
+UL.pagelist LI A,UL.pagelist LI span.disabledlink {
+	display: block;
+	float: left;
+	padding: 2px 4px;
+	background-color: #FFF6EC;
+	text-decoration: none;
+	color: #555;
+}
+
+UL.pagelist LI span.disabledlink {
+	background-color: #fff;
+	color: #ddd;
+	cursor: default;
+}
+
+UL.pagelist LI A:hover {
+	background-color: #FFCC99;
+	color: black;
+}
+
+UL.pagelist LI.current A {
+	background-color: #FF6600;
+	color: #FFF;
+	cursor: default;
+}
+
+#comments {
+	border: 1px solid #f0f0f0;
+	padding: 15px 20px;
+	margin: 15px 0px;
+	width: 360px;
+	display: block;
+	clear: both;
+	padding-top: 10px;
+}
+
+.comment {
+	margin: 15px 0px;
+	padding: 10px 10px;
+	border: 1px solid #f0f0f0;
+	background-color: #f8f8f8;
+}
+
+.commentcount {
+	font-weight: normal;
+	font-size: 11pt;
+	margin-top: 10px;
+}
+
+.commentmeta {
+	color: #999;
+}
+
+.commentauthor {
+	font-weight: bold;
+}
+
+.commentbody {
+	margin: 5px 0px;
+	line-height: 1.3em;
+}
+
+.commentform INPUT {
+	margin-top: 4px;
+	border: none;
+}
+
+.commentform TEXTAREA {
+	margin-top: 4px;
+	font-family: Arial, helvetica, verdana, sans-serif;
+	font-size: 10pt;
+	border: 1px solid #eee;
+}
+
+.error {
+	color: #C33;
+	font-weight: bold;
+}
+
+#admin, #admin_data {
+	position: fixed;
+	right: 0;
+	top: 0;
+	border-left: 1px solid #E6E6DF;
+	border-bottom: 1px solid #E6E6DF;
+	background: #fff;
+	width: 120px;
+}
+
+#admin, #admin_data ul {
+	text-align:center;
+	margin: 0;
+	padding: 0;
+}
+
+#admin_data {
+	top: 15px;
+}
+
+#admin h3 {
+	font: 100% "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	color: #000;
+	border-bottom: 1px dashed #E6E6DF;
+	margin: 0;
+	padding: 0;
+}
+
+#search {
+	float: right;
+	text-align:left;
+	margin-top: -15px;
+}
+
+#search #search_input {
+	width: 75px;
+}
+#search a {
+text-decoration: none;
+}
+#search ul {
+border: 1px solid #ccc; position:absolute; text-align:left; list-style: none; 
+height: 8em; width: 20em; overflow: auto;
+color: black;
+background:transparent;
+}
+
+.clear {
+	clear: both;
+	height: 10px;
+}
+
+#map {
+	margin-top: 25px;
+}
+
+#imagemetadata {
+	text-align: right;
+	position: relative;
+	display: none;
+}
+
+#imagemetadata table {
+	text-align: left;
+	line-height: 1em;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 2em;
+	right: 0;
+	background-color: #fafafa;
+}
+
+#imagemetadata table td {
+	border-bottom: 1px solid #f0f0f0;
+	background-color: #f8f8f8;
+	padding: 2px 5px;
+}
+
+#fullsize_download_link {
+	font-size: 8pt;
+	text-align: right;
+	float: right;
+}
+
+#meta_link {
+	font-size: 8pt;
+	text-align: left;
+	float: left;
+}
+
+#image_data {
+	margin-bottom: 15px;
+}
+
+/* Archive View  */
+#archive {
+	width: 300px;
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+ul.archive * {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+ul.archive .year {
+	margin-top: 10px;
+	text-align: center;
+	color: #FF6600;
+	margin-bottom: 5px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+ul.archive .month {
+	font-size: 14px;
+	list-style: none;
+	border-top: 2px solid #E6E6DF;
+	padding-top: 5px;
+}
+
+/* Tag Cloud */
+#tag_cloud {
+	text-align: center;
+	background: #eee;
+	margin-bottom: 15px;
+}
+
+#tag_cloud ul li {
+	display: inline;
+	list-style-type: none;
+}
+
+#tag_cloud p {
+	color: #FF6600;
+	padding: 10px 0;
+	margin: 20px 0;
+	background: #fff;
+	border-top: 3px solid #E6E6DF;
+	border-bottom: 3px solid #E6E6DF;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* Tags */
+.taglist ul {
+	display: inline;
+	list-style-type: none;
+}
+
+.taglist li {
+	background: url(tag.png) no-repeat left center;
+	list-style-type: none;
+	line-height: 18px;
+	padding-left: 18px;
+	float: left;
+	padding-right: 5px;
+}
+
+.taglist .tags_title {
+	background: none;
+	padding-right: 5px;
+	padding-left: 0;
+}
+
+.rating {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+/* Error Messages
+------------------------------ */
+.errorbox {
+	padding: 20px;
+	background-color: #FDD;
+	border-top: 1px solid #FAA;
+	border-left: 1px solid #FAA;
+	border-right: 1px solid #FAA;
+	border-bottom: 5px solid #FAA;
+	margin-bottom: 10px;
+	font-size: 100%;
+	color: #DD6666;
+}
+
+.errorbox h2 {
+	color: #DD6666;
+	font-size: 100%;
+	font-weight: bold;
+	margin: 0px;
+}
+
+/* Zenphoto link
+------------------------------ */
+
+#zen-part {
+ font-family: Arial, Helvetice, sans-serif;
+ font-size: 2em;
+ font-weight: 100;
+}
+
+#photo-part {
+font-family: Arial, Helvetice, sans-serif;
+ font-size: 0.9em;
+ font-weight: bold;
+}
+
+/* login form */
+table.password td.userlabel{
+	text-align:right;
+}
+table.password td.userinput{
+	text-align:left;
+}
+
+table.password td.userinput input, td.passwordinput input {
+	width: 15em;
+}
+
+/* login form */
+table.password td.passwordlabel{
+	text-align:right;
+}
+
+table.password td.passwordinput{
+	text-align:left;
+}
+
+table.password td.submit{
+	text-align:center;
+}
+
+table.password td.hint{
+	text-align:left;
+}
+.captchainputbox {
+	width: 6.8em;
+	padding: 2px;
+}

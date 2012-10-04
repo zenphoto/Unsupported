@@ -1,0 +1,6 @@
+# Zenphoto theme definition file
+name::Chili-Light2
+author::Daniel Frei
+version::1.1
+date::11/9/2007
+desc::The default theme, designed by Joen of <a href="http://www.noscope.com">noscope.com</a> with Lightbox.js v.2 added by ChiliFrei64 of <a href="http://www.chilifrei.net">chilifrei.net</a>

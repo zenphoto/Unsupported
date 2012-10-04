@@ -1,0 +1,40 @@
+body, h1, h2, h3, h4, h5, h6, input, textarea { text-transform:lowercase; font-style:italic; }
+body, input, textarea { font-family:georgia,times,serif; font-size:15px; }
+body { color:#222222; background:#333333 url(background.jpg) 0 0 repeat; }
+img { display:block; background:#000000; }
+a { color:#222222 }
+a:hover { text-decoration:none; color:#ffffff; }
+
+#wrapper { background:url(light.jpg) 0 -370px no-repeat; }
+#content .list img, #content .view #player { -o-box-shadow:5px 5px 10px #111111 -icab-box-shadow:5px 5px 10px #111111; -khtml-box-shadow:5px 5px 10px #111111; -moz-box-shadow:5px 5px 10px #111111; -webkit-box-shadow:5px 5px 10px #111111; box-shadow:5px 5px 10px #111111; }
+#header ul, #header li, #header a, #header span, #content .list span, #content .data, #content .data div, #content .data .box { padding:5px; }
+#header a, #content .data .box { background:rgba(255,255,255,.3); -o-box-shadow:0 0 5px #111111; -icab-box-shadow:0 0 5px #111111; -khtml-box-shadow:0 0 5px #111111; -moz-box-shadow:0 0 5px #111111; -webkit-box-shadow:0 0 5px #111111; box-shadow:0 0 5px #111111; }
+#header a, #content .data .box, #content .list span { -o-text-shadow:#666666 1px 1px 2px; -icab-text-shadow:#666666 1px 1px 2px; -khtml-text-shadow:#666666 1px 1px 2px; -moz-text-shadow:#666666 1px 1px 2px; -webkit-text-shadow:#666666 1px 1px 2px; text-shadow:#666666 1px 1px 2px; }
+#header .path li, #header .path a, #content .list li, #content .data .box { display:inline; float:left; }
+#header span, #footer p, #footer a { color:#444444; -o-text-shadow:#666666 1px 1px 2px; -icab-text-shadow:#666666 1px 1px 2px; -khtml-text-shadow:#666666 1px 1px 2px; -moz-text-shadow:#666666 1px 1px 2px; -webkit-text-shadow:#666666 1px 1px 2px; text-shadow:#000000 1px 1px 2px; }
+#header a:hover { -o-box-shadow:0 0 5px #ffffff; -icab-box-shadow:0 0 5px #ffffff; -khtml-box-shadow:0 0 5px #ffffff; -moz-box-shadow:0 0 5px #ffffff; -webkit-box-shadow:0 0 5px #ffffff; box-shadow:0 0 5px #ffffff; }
+#header { position:relative; padding:20px 160px 0; font-size:20px; }
+#header .move { position:absolute; top:70px; left:90px; z-index:10; width:60px; }
+#header .move a, #header span { display:block; }
+#content { padding:0 160px; }
+#content .list { width:960px; }
+#content .list li { position:relative; padding:10px; }
+#content .list img { border:1px solid #999999; }
+#content .list a:hover img { border:1px solid #ffffff; }
+#content .list .album { width:300px; height:180px; }
+#content .list .album img, #content .list .image a:hover img { width:298px; height:178px; }
+#content .list .album span { display:none; }
+#content .list .album a:hover span { position:absolute; bottom:11px; left:11px; width:288px; display:block; color:#000000; background:rgba(255,255,255,.7); }
+#content .list .image { width:140px; height:80px; }
+#content .list .image img { width:138px; height:78px; }
+#content .list .image a:hover img { position:absolute; top:-40px; left:-70px; z-index:10; }
+#content .view #player { margin:10px; border:5px solid #ffffff; }
+#content .data { width:60%; }
+#content .data .title { font-size:20px; font-style:italic; }
+#content .data div small { font-size:10px;  }
+#content .data div div { padding:5px 5px 0 5px; font-size:15px;  }
+#content .data div p { padding:0 0 5px 0; }
+#content .data div a { text-decoration:underline; }
+#footer { padding:160px 160px 20px; }
+#footer p { padding:10px 15px; }
+#footer a:hover { color:#666666; }

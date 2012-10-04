@@ -1,0 +1,241 @@
+* {
+	margin: 0;
+	padding: 0;
+	}
+
+html, body {
+	background: white;
+	color: #A2A2A2;
+	}
+
+body {
+	text-align: center;
+	font-size: 12px;
+	font-family: 'Lucida Grande', Verdana, Lucida, Arial, Helvetica, илнЊ, sans-serif;
+	padding: 0;
+	margin: 0;
+	line-height: 1.6em;
+	}
+
+html>body { 
+	font-size: 12px;
+	}
+
+#header {
+	margin: 0 auto; width: 800px;
+	padding: 50px 0 10px 0;
+	background-color: white;
+	font-family: times newroman, serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 40px;
+	text-align: left;
+	}
+#header a:hover {
+	text-decoration: none;
+	}
+
+#wrap {
+	width: 800px;
+	margin: 25px auto 0 auto; /* auto centers the div */
+	}
+	
+/*box around About and Search etc */
+
+#content {
+	text-align: left;
+	}
+
+#footer {
+	position: absolute;
+	top: 0;
+	margin: 0 auto;
+	width: 800px;
+	text-align: right;
+	position: absolute;
+	font-size: 0.9em;
+	}
+
+#footer a {
+	}
+
+#footer p {
+	padding: 0;
+	margin: 0;
+	}
+
+#footer_links {
+	text-align: left;
+	}
+	
+#footer_copy {
+	width: 800px;
+	margin: 0 auto;
+	top: 0;
+	text-align: right;
+	}
+
+h1, h2, h3, h4, h5, h6, p, re, fieldset, address, table {
+	margin: 0.8em 0;
+	}
+
+h1 {
+	color: #6D6D6D;
+	font-family: times newroman, serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 20px;
+	font-weight: normal;
+	}
+
+h2 {
+	color: #6D6D6D;
+	font-family: times newroman, serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	font-weight: normal;
+	}
+
+h3 {
+	font: 1.1em/120%
+	margin-bottom: .3em;
+	font-weight: normal;
+	}
+
+h4 {
+	font-size: 1.0em;
+	}
+
+h5 {
+	font: normal 0.8em;
+	}
+
+blockquote {
+	margin: 1em 0;
+	padding: 0 0 0 1.2em;
+	border-left: 4px solid black;
+	}
+
+img {
+	border: none;
+	}
+
+#content p {
+	text-align: left;
+	}
+
+#content form p {
+	text-align: left;
+	}
+
+#content img {
+	border: none;
+}
+
+.center {
+	text-align: center;
+	}
+
+ol {
+	margin-left: 3em;
+	}
+
+ul {
+	list-style-type: disc;
+	margin-left: 1.5em;
+	}
+
+a:link, a:visited {
+	
+	color: #6D6D6D;
+	text-decoration: none;
+	}
+
+a:hover, a:active {
+	text-decoration: none;
+	color: black;
+	outline: none;
+	}
+
+h2 a, h2 a:link, h2 a:visited, h2 a:hover, h2 a:active {
+	color: black;
+	text-decoration: none;
+	outline: none;
+	}
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+/* zenphoto */
+
+.album {
+float: left; 
+width: 390px; 
+padding-bottom: 20px;
+}
+.albumthumb {
+	float: left;
+	margin: 0 20px 0 0;
+	width: 140px;
+	cursor: pointer;
+}
+
+.imagethumb {
+	float: left;
+	margin: 20px 20px 0 0;
+	height: 200px;
+	width: 140px;
+	cursor: pointer;
+}
+
+.clear {
+	clear: both;
+}
+
+#back {
+	margin: 20px 0 0 0;
+	font-size: 0.9em;
+}
+
+#add{
+	margin: 10px 0 0 0;
+	font-size: 0.9em;
+	text-align: right;
+}
+
+.pagelist li {
+	display: inline;
+}
+
+/* Admin Toolbox
+------------------------------ */
+#admin, #admin_data{
+	position: fixed;
+    _position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 130px;
+	border-bottom: 1px solid #E6E6DF;
+	border-left: 1px solid #E6E6DF;
+	background: #fff;
+    z-index: 2;
+}
+#admin_data{
+	top: 0px;
+	padding-top: 20px;
+	z-index: 1;
+	line-height: 1.6em;
+}
+#admin h3 {
+	font-weight: normal;
+	color: #999;
+	margin:0;
+	padding:0;
+}
+#admin h3:hover { color: #036; }
