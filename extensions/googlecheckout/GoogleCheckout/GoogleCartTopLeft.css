@@ -1,0 +1,88 @@
+.override#googlecart-widget {
+/*The overall style of the widget.  Set location of widget here . */
+left: 0;
+}
+.override #googlecart-widget-head {
+/*The top bar of the widget which appearing above the list of items in the cart: clicking on this shows and hides that list.override . */
+}
+.override #googlecart-arrow {
+/*The arrow in the widget's top bar: this points right when the cart is closed and down otherwise.override . */
+}
+.override #googlecart-title {
+/*The message that appears in the header element.override . In English this is "View Cart".override . */
+}
+.override #googlecart-summary {
+/*A message displaying the number of items in the shopping cart */
+}
+.override #googlecart-widget-body {
+/*The portion of the widget that is hidden or shown when the customer clicks on the header */
+}
+.override #googlecart-widget-list {
+/*The list of items in the shopping cart */
+}
+.override .googlecart-widget-item {
+/*A row in the item list describing an item */
+}
+.override .googlecart-widget-quantity-column {
+/*The column of the item list in which the quantity of each item appears */
+}
+.override .googlecart-widget-quantity-box {
+/*The input box listing the quantity and in which the customer can type a new quantity */
+}
+.override .googlecart-widget-details-column {
+/*The column of the item list in which the name and description of each item appears */
+}
+.override .googlecart-widget-title {
+/*The name of a shopping cart item which appears in the list of items */
+}
+.override .googlecart-widget-short-details {
+/*The list of short descriptions for a shopping cart item */
+}
+.override .googlecart-widget-long-details {
+/*The list of long descriptions for a shopping cart item */
+}
+.override .googlecart-widget-removed-message {
+/*A message displayed only when the shopping cart item has been removed from the cart */
+}
+.override .googlecart-widget-image-column {
+/*The column of the item list in which a shopping cart preview image optionally appears */
+}
+.override .googlecart-widget-img {
+/*A picture of a shopping cart item which appears in the item list */ 
+}
+.override .googlecart-widget-price-column {
+/*The column of the item list in which the price appears */
+}
+.override .googlecart-widget-price {
+/*The price of the total quantity of shopping cart items in a row of the shopping cart item list */
+}
+.override .googlecart-widget-remove {
+/*A button to remove an item from the shopping cart */
+}
+.override .googlecart-widget-restore {
+/*A button to restore an item to the shopping cart which has been removed */
+}
+.override #googlecart-widget-emptymessage {
+/*A message that appears when the shopping cart has no items in it */
+}
+.override #googlecart-widget-foot {
+/*The portion of the widget appearing below the list of items in the shopping cart */
+}
+.override .googlecart-widget-footertext {
+/*The text that appears in the footer */
+}
+.override .googlecart-widget-totalmessage {
+/*A label for the total price of all items in the shopping cart */
+}
+.override .googlecart-widget-totalprice {
+/*The total price of all items in the cart */
+}
+.override .googlecart-widget-disclaimer {
+/*A disclaimer about the total cost being displayed */
+}
+.override .googlecart-widget-checkout {
+/*The graphical button on which the customer can click to post his or her cart to Checkout */
+}
+.override .googlecart-add-button{
+	padding-top: 20px;
+}

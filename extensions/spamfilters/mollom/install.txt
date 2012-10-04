@@ -1,0 +1,5 @@
+Installation instructions
+- Place the file "class-mollom.php" within the "zp-core" folder
+- Place the file "mollom.php" from the folder "captcha" within "zp-core/plugins/captcha"
+- Place the file "mollom.php" from the folder "spamfilter" within "zp-core/plugins/spamfilter"
+- Enable the mollom spamfilter on the comments configuration options

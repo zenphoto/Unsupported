@@ -1,0 +1,55 @@
+#GoogleCheckout {
+	background: #f7f7f7;
+	border:1px solid #ccc;
+	text-align: left;
+	padding: 10px;
+	margin: 0 0 10px;
+	width: 200px;
+}
+#GoogleCheckout input.checkout_button {
+	display:block;
+	clear:both;
+	text-align:center;
+	margin:10px auto 0;
+}
+
+/* Paypal price list */
+#GoogleCheckoutPricelist, GoogleCheckoutPricelist_data {
+	text-align: center;
+  position: relative;
+  display: block;
+}
+
+#GoogleCheckoutPricelist l1 {
+	vertical-align: top;
+}
+
+#GoogleCheckoutPricelist_data table {
+  line-height: 1em;
+  border: 1px solid #ccc;
+  top: 2em;
+  right: 0px;
+  background-color: #fafafa;
+  padding: 5px 8px;
+}
+
+#GoogleCheckoutPricelist_data th {
+	text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #f8f8f8;
+  padding: 5px 8px;
+}
+#GoogleCheckoutPricelist_data td {
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #f8f8f8;
+  padding: 5px 8px;
+}
+#GoogleCheckoutPricelist_data table .price {
+	text-align: right;
+}
+#GoogleCheckoutPricelist_data table .size {
+	text-align: center;
+}
+#GoogleCheckoutPricelist_data table .media {
+	text-align: left;
+}

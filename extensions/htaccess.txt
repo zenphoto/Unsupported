@@ -1,0 +1,35 @@
+# htaccess template file to protect (full image) files from hotlinking
+#
+# Rename the file to .htaccess, enter your domain where indicated and place it for rexample
+# within the root "albums" folder. 
+# You can of course place it also in the root "uploaded" folder as well but you will not be 
+# able to link directly to files for download then. 
+#
+# Generally you can also protect the cache folder but note that then search engines 
+# will find no images from your site at all.
+#
+# If your server is properly configured it should work by default.
+#
+# NOTE: Also this might not protect someone to download full images once shown on your 
+# Zenphoto gallery.
+# 
+# For detailed info see also http://www.htaccesstools.com/hotlink-protection/
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+	
+  # It is actually recommended to allow blank referers as some personal firewalls or anti virus tools clear the referrer.
+  # Uncomment the following line if you want to allow them.
+  #RewriteCond %{HTTP_REFERER} !^$
+
+  # Enter your domain here. Add more lines like this to allow more domains
+  # If you are using Zenphoto in a subdomain write subdomain.yourdomain.com instead (www\.)?yourdomain.com
+  RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yourdomain.com [NC] 
+
+  # Protect your full images in the albums folder  
+  RewriteRule \.(jpg|jpeg|png|gif|flv|mp4|mov|3gp)$ - [NC,F,L]
+	
+  # if you wish to show an replacement image for change the above line to look like this:
+  #RewriteRule \.(jpg|jpeg|png|gif|flv|mp4|mov|3gp)$ http://www.yourdomain.com/<your-replacement-image.suffix> [NC,F,L]
+ 
+</IfModule>

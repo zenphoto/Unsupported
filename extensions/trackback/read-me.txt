@@ -1,0 +1,4 @@
+Installation:
+- Place "trackback.php" in the root of your Zenphoto installation
+- Place "comment-trackback.php" in your root plugin folder.
+- Enable the plugin on the backend.
