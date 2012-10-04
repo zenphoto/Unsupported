@@ -1,0 +1,277 @@
+/*==================================================*/
+/*													*/
+/* 	This is a stylesheet created for Zenphoto v0.9	*/
+/*	---------------------------------------------- 	*/
+/* 	Author: 	Jason Hsu 							*/
+/* 	Theme: 		Killer Bee v1.0						*/
+/* 	Created: 	10/31/05 							*/
+/* 	Website: 	http://imagebaker.com 				*/
+/*													*/
+/*==================================================*/
+
+
+
+/* 01 GLOBAL */
+html {
+	/* IE */
+	overflow-y: scroll;
+	/* Moz */
+	height: 100%;
+	margin-bottom: 0.1em;
+	}
+body { 
+	background: #333/*gray-3*/ url(images/pattern.gif);
+	font-family: arial, helvetica, sans-serif; 
+	font-size: 62.5%; 
+	color: #eee/*white*/;
+	text-align: center; 
+	}
+a:link {
+	text-decoration: none;
+	color: #aaa/*gray-10*/;
+	}
+a:visited {
+	text-decoration: none;
+	color: #888/*gray-8*/;
+	}
+a:hover, 
+a:active {
+	text-decoration: underline;
+	color: #666/*gray-6*/;
+	}
+h1 {
+	font-size: 1.4em;
+	}
+h2 {
+	font-size: 1.2em;
+	}
+hr {
+	clear: both;
+	height: 0;
+	border: 0;
+	border-top: 1px solid #666/*gray-6*/; 
+	margin: 0 8px 12px 0;
+	padding: 0;
+	}
+img {
+	border: 0px;
+	}
+#title {
+	color: #ccc/*gray-12*/; 
+	}
+#title a:link,
+#title a:visited,
+#title a:hover,
+#title a:active { 
+	text-decoration: underline; 
+	}
+#title h1 {
+	margin: 10px;
+	float: left;
+	font-size: 1.2em;
+	}
+#title img {
+	float: right;
+	margin: 5px 28px 0 0;
+	}
+#header {
+	width: 508px; 
+	height: 13px;
+	margin: 20px auto 0; 
+	background-image: url(images/header.gif);
+	}
+#main {
+	width: 508px; 
+	margin: -8px auto 0; 
+	background-image: url(images/background.gif);
+	text-align: left; 
+	}
+#footer {
+	width: 508px; 
+	height: 13px;
+	margin: 0px auto; 
+	background-image: url(images/footer.gif);
+	} 
+.footnote {
+	width: 470px;
+	margin: 20px auto;
+	padding-right: 38px;
+	text-align: right;
+	font-size: .9em;
+	color: #555/*gray-5*/;
+	}
+.footnote a {
+	color: #666/*gray-6*/;
+	}
+/* 01 GLOBAL */
+
+
+
+/* 02 INDEX.PHP & ALBUM.PHP */
+ul.pagelist {
+	clear: both;
+	width: 360px;
+	height: 2em;
+	margin: 10px auto ;
+	padding: 0;
+	list-style-type: none;
+	}
+ul.pagelist li { 
+	display: inline; 
+	}
+ul.pagelist li a, 
+ul.pagelist li span.disabledlink {
+	display: block;
+	float: left;
+	padding: 2px 4px;
+	text-decoration: none;
+	}
+ul.pagelist li a {
+	color: #ee0/*yellow-14*/;
+	}
+ul.pagelist li a:hover { 
+	color: #888/*gray-8*/; 
+	}
+ul.pagelist li.current a { 
+	background-color: #cc0; 
+	color: #FFF/*white*/; 
+	cursor: default;
+	}
+.disabledlink {
+	color: #777/*gray-7*/; 
+	cursor: default; 
+	}
+.pagenav {
+	clear: both;
+	width: 360px; 
+	margin: 0 auto; 
+	padding: 10px 0;
+	color: #bb0/*yellow-11*/; 
+	}
+.pagenav a:link, 
+.pagenav a:visited { 
+	text-decoration: none; 
+	color: #ee0/*yellow-15*/; 
+	}
+.pagenav a:hover, 
+.pagenav a:active {
+	text-decoration: none; 
+	color: #888/*gray-8*/; 
+	}
+/* 02 INDEX.PHP & ALBUM.PHP */
+
+
+
+/* 03 INDEX.PHP */
+#index { 
+	width: 360px; 
+	margin: 16px auto 10px; 
+	}
+.indexcell {
+	float:left;
+	width:360px;
+	}
+.indexthumb {
+	float: left;
+	margin-bottom: 10px;
+	}
+.indexthumb a:hover {
+	border-bottom: 2px solid #ee0/*yellow-15*/;
+	}
+.indexcell h2 { 
+	margin-left: 100px;
+	font-size: 1.2em;
+	}
+#albumDescEditable {
+	margin-left: 100px;
+	font-size: 1em;
+	}
+/* 03 INDEX.PHP */
+
+
+/* 04 ALBUM.PHP */
+#albumDesc {
+	margin-bottom: 10px;
+	}
+#album {
+	clear: both; 
+	width: 360px; 
+	margin: 5px auto 10px; 
+	}
+.albumcell { 
+	float: left;
+	margin-right: 5px; 
+	}
+.albumthumb {
+float: left;
+margin-bottom: 10px;
+}
+.albumthumb a:hover{ 
+	border-bottom: 2px solid #ee0/*yellow-15*/;
+	}
+/* 04 ALBUM.PHP */
+
+
+
+/* 05 IMAGE.PHP */
+#imgnav {
+	margin: 10px 0; 
+	padding-left: 10px;
+	font-weight: bold; 
+	color: #ccc/*gray-12*/; 
+	}
+#imgnav .current {
+	color: #666/*gray-6*/;
+	}
+.image {
+	padding-bottom: 20px;
+	text-align: center;
+	}
+#imageDescEditable{
+	padding: 20px 20px 0;
+	text-align: left;
+}
+/*.description {
+	padding: 20px 20px 0;
+	text-align: left;
+	}*/
+#commentcontent {
+	clear: both;
+	padding-top: 20px;
+	margin: 0 auto;
+
+}
+
+#commentcontent table {
+text-align: left;
+
+margin: 0 auto;
+}
+
+/* Admin Toolbox
+------------------------------ */
+#admin, #admin_data{
+	position: fixed;
+    _position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 120px;
+	border-bottom: 1px solid #444;
+	border-left: 1px solid #444;
+	background: #222;
+    z-index: 2;
+}
+#admin_data{
+	top: 0px;
+	padding-top: 20px;
+	z-index: 1;
+	line-height: 1.6em;
+}
+#admin h3 {
+	font-weight: normal;
+	color: #aaa;
+	margin:0;
+	padding:0;
+}
+#admin h3:hover { color: #86a1b6; }
+/* 05 IMAGE.PHP */

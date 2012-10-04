@@ -1,0 +1,446 @@
+/*
+
+Bennos Chaotic Soul	
+*/
+
+/* Basics
+------------------------------ */
+html {
+	/* IE */
+	overflow-y: scroll; 
+	/* Moz */
+	height: 100%;
+	margin-bottom: 0.1em;
+}
+
+/* Main Layout
+------------------------------ */
+body {
+	background-color: #161410;
+	margin: 0px;
+	padding: 0px 0px 50px;
+	text-align: center;
+}
+
+#credit {
+	margin: 0 auto;
+	width: 640px;
+	font-size: 85%;
+	color: #96967E;
+	text-align: right;
+	clear: both;
+}
+#credit a {
+	text-decoration: none;
+	color: #96967E;
+	border-bottom: 1px dotted #96967E;
+}
+#credit a:hover {
+	color: #BDBDAE;
+	border-bottom: 1px solid #BDBDAE;
+	text-decoration: none;
+}
+#gallerytitle {
+	border-bottom: 1px solid #E6E6DF;
+	padding-bottom: 14px;
+	margin-bottom: 12px;
+	_margin-top: 40px; /* IE Only */
+}
+
+
+/* Text Styles
+------------------------------ */
+body {
+	color: #999;
+	font: 62.5%/125% 'Trebuchet MS', Tahoma, Arial, 			Helvetica, sans-serif;
+}
+h2 {
+	font: 120% "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #002E5B;
+	margin-top: 25px;
+}
+h2 a:link, h2 a:visited, h2 span {
+	color: #fff;
+}
+h3 {
+	font: 120% "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #002E5B;
+	margin-top: 30px;
+}
+
+
+/* Link Styles
+------------------------------ */
+a:link, a:visited, a:active { 
+	color: #d8d7d3; 
+	text-decoration: none; 
+	}
+a:hover { 
+	color: #FFFFFF; 
+	text-decoration: none; 
+	}
+
+/* Miscellaneous
+------------------------------ */
+hr {
+	clear: both;
+	height: 0;
+	border: 0;
+	border-top: 1px solid #E6E6DF;
+	margin: 0 0 12px 0;
+	padding: 0;
+}
+img {
+	border: 0;
+}
+blockquote {
+	border-left: 1px dotted #96967E;
+	margin-left: 20px;
+	padding-left: 20px;
+	color: #363630;
+}
+
+
+/* Page Navigation
+------------------------------ */
+ul.pagelist {
+	clear: both;
+	padding: 0;
+	margin: 20px 0 0 0;
+	list-style-type: none;
+}
+ul.pagelist li {
+	display: inline;
+}
+ul.pagelist li a, ul.pagelist span.disabledlink {
+	padding: 4px;
+}
+ul.pagelist li.current a {
+	font-weight: bold;
+	text-decoration: none;
+	cursor: default;
+	color: #5A5A4B;
+}
+ul.pagelist li.prev {
+	margin-right: 10px;
+}
+ul.pagelist li.next {
+	margin-left: 10px;
+}
+.disabledlink {
+	color: #ddd;
+	cursor: default;
+}
+.pagenav {
+	clear: both;
+}
+
+
+/* AJAX
+------------------------------ */
+#albumDescEditable {
+	margin-bottom: 12px;
+}
+#imageDescEditable {
+	margin-top: 24px;
+}
+
+/* Image Thumbnails
+------------------------------ */
+
+.imagethumb a {
+	display: block;
+	/* padding: 10px; */
+	/* margin: 6px; */
+	/* border: 1px solid #92BED3;
+	   background: #DDEAF0; */
+	line-height: 0px;
+}
+/* .imagethumb a:visited {
+	border: 1px solid #D3E4ED;
+	background: #F2F7F9;
+}
+.imagethumb a:hover {
+	border: 1px solid #62A0BF;
+	background: #F4F9FB; 
+} */
+.imagethumb {
+	float: left;
+}
+
+
+/* Album Thumbnails
+------------------------------ */
+.album {
+	padding: 10px;
+	margin-bottom: 12px;
+	margin-left: 5px;
+	height: 90px;
+	clear: both;
+	/* border: 1px solid #363430; */
+	background: #1b1814;
+}
+.album img {
+	float: left;
+}
+.album h3 {
+	padding: 0;
+	margin: 0;
+}
+.album h3 a {
+	display: block;
+	width: 340px;
+	padding: 3px 0 6px 0;
+}
+.album p {
+	margin: 0 0 4px 0;
+}
+.albumdesc {
+	float: left;
+	padding-left: 10px;
+	width: 480px;
+	text-align: left;
+}
+.albumdesc small {
+	margin-top: 8px;
+	line-height: 130%;
+	width: 120px;
+	float: right;
+	color: #8DB8CF;
+}
+
+
+/* Individual Image
+------------------------------ */
+.image { 
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#image {
+	text-align: left;
+	line-height: 0;
+	padding: 5px;
+	margin: 5px;
+	background: #22201d;
+	width: 600px;
+	
+}
+.imgnav {
+	/* float: right;*/ 
+	width: 140px;
+	color: #fff;
+	text-align: center;
+	border: 1px solid #bd934f;
+	background: #22201d;
+	margin-top: 13px;
+	margin-bottom: 10px;
+	margin-left: 297px;
+	_margin-top: 8px; /* IE Only */
+}
+.imgnav .imgprevious a, .imgnav .imgnext a{
+	display: block;
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 4px 0;
+	font-size: 120%;
+	text-decoration: none;
+	line-height: 200%;
+	color: #bd934f;
+}
+.imgnav .imgprevious a:hover, .imgnav .imgnext a:hover {
+	background-color: #fff;
+	text-decoration: none;
+	color: #002E5B;
+}
+.imgnav .imgprevious a {
+	float: left;
+}
+.imgnav .imgnext a {
+	float: right;
+}
+/*#narrow {
+	margin: 0 auto;
+	width: 440px;
+}*/
+
+
+/* Comments
+------------------------------ */
+#comments {
+	float: left;
+	padding-left: 10px;
+}
+.error { 
+  color: #C33; 
+  font-weight: bold; 
+}
+.comment {
+	padding: 10px;
+	border: 1px solid #E7F0F5;
+	/* background: #FBFCFD; */
+	margin-bottom: 12px;
+}
+.commentmeta {
+	margin-bottom: 12px;
+}
+.commentauthor {
+	font-weight: bold;
+}
+.commentdate {
+	margin-top: 12px;
+	color: #8DB8CF;
+	font-size: 85%;
+}
+
+
+/* Forms
+------------------------------ */
+.inputbox {
+	width: 250px;
+	padding: 2px;
+	color: #9C9890;
+	background-color: #161410;
+	border: 1px solid #363430;
+	}
+textarea {
+	padding: 4px;
+	width: 100%;
+	color: #9C9890;
+	background-color: #161410;
+	border: 1px solid #363430;
+	font: 100%/200% "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.checkbox {
+	cursor: pointer;
+}
+.pushbutton {
+	cursor: pointer;
+	padding: 5px 10px;
+}
+label {
+	cursor: pointer;
+}
+label:hover {
+	color: #000;
+}
+
+/* Bennno's header versuch
+----------------------------*/
+#page {
+	margin: 50px auto 25px;
+	padding: 0;
+	width: 760px;
+	}
+	
+#header {
+	text-align: center;
+	}
+
+
+
+.image {
+	background: #22201d url('images/image_left.png');
+	border: 1px solid #363430;
+	height: 149px;
+	width: 372px;	
+	}
+	
+	.bkgleft { background: url('images/image_left.jpg'); float: left; }
+	.bkgright { background: url('images/image_right.jpg'); float: right; }
+	
+/* #content {
+	border-left: 1px solid #363430;
+	} */
+
+
+/*  -----|  Miscellaneous  |------------------------------------------------  */
+
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+#wrapper {
+	border-left: 1px solid #35302a;
+	border-right: 1px solid #35302a;
+}
+	
+/*  -----|  Typography  |---------------------------------------------------  */
+
+h1, h2, h3, h4, h5, h6 { font-family: Georgia, 'Times New Roman', serif; font-weight: normal; }
+
+h1 { color: #fff; font-size: 2em; margin: 0 0 8px; }
+h1:before, h1:after { content: " . . "; color: #444; }
+h1 span { color: #bd934f; }
+
+h2 { color: #bd934f; font-size: 1.25em; margin: 0; padding: 1px 0; display: inline; border-bottom: 1px solid #35302a; }
+	.post h2 a { color: #bd934f; }
+	.post h2.first { font-size: 1.75em; }
+	
+	.widecolumn h2.title { 
+		display: block; 
+		padding: 13px 10px;
+		background: #1b1814;
+		margin: 0 0 15px; 
+		border-bottom: 1px solid #35302a; 
+		font-size: 1.75em; 
+		text-align: left;}
+
+.description { color: #666; font-weight: bold; }
+
+.comments h3 { margin: 0 0 10px 0; color: #bd934f; }
+.imgcommentform {width: 600px; margin: 0 auto;}
+
+
+/*--------| "Copied from" Globals  |--------*/
+
+hr {
+	background-color: #22201d;
+	border: 1px solid #363430;
+	height: 10px;
+	margin: 10px 0;
+	width: 760px;
+	}
+/*--------| Benno styles the inividual album page |------*/
+	
+div .zpimage {
+	float: left; 
+	background: #1b1814;
+    border: 1px solid #35302a;
+    margin: 5px 3px;
+    padding: 5px;
+    }
+    
+div #zpimages {
+	margin-left: 10px;
+	}
+	
+/* Admin Toolbox
+------------------------------ */
+#admin, #admin_data{
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	width: 120px;
+	border-bottom: 1px solid #444;
+	border-left: 1px solid #444;
+	background: #222;
+    z-index: 2;
+}
+#admin_data{
+	top: 0px;
+	padding-top: 20px;
+	z-index: 1;
+	line-height: 1.6em;
+}
+#admin h3 {
+	font-weight: normal;
+	color: #aaa;
+	margin:0;
+	padding:0;
+}
+#admin h3:hover { color: #86a1b6; }

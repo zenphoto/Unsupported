@@ -1,0 +1,9 @@
+################################################################################
+# Changelog for JoshuaInk Theme for ZenPhoto
+################################################################################
+
+Version 1.2
+04/13/2007
+
+	* changelog.txt added
+	* updated the theme to support pagination
