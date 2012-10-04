@@ -1,0 +1,395 @@
+/*
+
+	Zen Photo Default 1.0
+	
+*/
+
+/* Basics
+------------------------------ */
+html {
+	/* IE */
+	overflow-y: scroll; 
+	/* Moz */
+	height: 100%;
+	margin-bottom: 0.1em;
+}
+
+/* Main Layout
+------------------------------ */
+body {
+	background: #4b4b4b url('images/back.gif') repeat-x top;
+	margin: 0px;
+	padding: 0px 0px 0px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+#main {
+	text-align: left;
+	margin: 20px auto;
+	width: 600px;
+	background: #fff url('images/mainback.gif') repeat-x top;
+	padding: 20px 30px 70px;
+	border: 5px solid white;
+}
+#credit {
+	margin: 0 auto;
+	font-size: 85%;
+	color: #96967E;
+	text-align: center;
+	clear: both;
+	width: 600px;
+	background: #fff url('images/mainback.gif') repeat-x top;
+	padding: 0px 30px 0px;
+	border: 5px solid white;
+}
+#credit a {
+	text-decoration: none;
+	color: #96967E;
+	border-bottom: 1px dotted #96967E;
+}
+#credit a:hover {
+	color: #BDBDAE;
+	border-bottom: 1px solid #BDBDAE;
+	text-decoration: none;
+}
+#gallerytitle {
+	border-bottom: 1px solid #E6E6DF;
+	padding-bottom: 14px;
+	margin-bottom: 12px;
+	/*_margin-top: 40px; IE Only */
+}
+
+
+/* Text Styles
+------------------------------ */
+body {
+	font: normal 82%/200% "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #5A5A4B;
+}
+h2 {
+	font: 120% "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #002E5B;
+	margin-top: 25px;
+}
+h2#title {
+	font: 35px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #002E5B;
+	margin: 0px;
+	padding: 0px;
+	font-weight: 900;
+}
+h2#titlesub {
+	font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #002E5B;
+	margin: 0px;
+	padding: 0px;
+	font-weight: 100;
+}
+h2 a:link, h2 a:visited, h2 span {
+	color: #8DB8CF;
+	text-decoration: none;
+}
+h3 {
+	font: 120% "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #002E5B;
+	margin-top: 30px;
+}
+
+
+/* Link Styles
+------------------------------ */
+a:link, a:active { text-decoration: none; color: #17A; }
+a:visited { text-decoration: none; color: #035; }
+a:hover, a:focus { text-decoration: none; color: #6BD; }
+
+
+/* Miscellaneous
+------------------------------ */
+hr {
+	clear: both;
+	height: 0;
+	border: 0;
+	border-top: 1px solid #E6E6DF;
+	margin: 0 0 12px 0;
+	padding: 0;
+}
+img {
+	border: 0;
+}
+blockquote {
+	border-left: 1px dotted #96967E;
+	margin-left: 20px;
+	padding-left: 20px;
+	color: #363630;
+}
+
+
+/* Page Navigation
+------------------------------ */
+ul.pagelist {
+	clear: both;
+	padding: 0;
+	margin: 20px 0 0 0;
+	list-style-type: none;
+}
+ul.pagelist li {
+	display: inline;
+}
+ul.pagelist li a, ul.pagelist span.disabledlink {
+	padding: 4px;
+}
+ul.pagelist li.current a {
+	font-weight: bold;
+	text-decoration: none;
+	cursor: default;
+	color: #5A5A4B;
+}
+ul.pagelist li.prev {
+	margin-right: 10px;
+}
+ul.pagelist li.next {
+	margin-left: 10px;
+}
+.disabledlink {
+	color: #ddd;
+	cursor: default;
+}
+
+#sortlink {
+	text-decoration: none;
+	color: #96967E;
+	font-size: 10px;
+}
+.pagenav {
+	clear: both;
+}
+
+
+/* AJAX
+------------------------------ */
+#albumDescEditable {
+	margin-bottom: 12px;
+}
+#imageDescEditable {
+	margin-top: 24px;
+}
+
+/* Image Thumbnails
+------------------------------ */
+.imagethumb a {
+	display: block;
+	padding: 10px;
+	margin: 6px;
+	line-height: 0px;
+	border: 1px solid #dbdbdb;
+	background: #f1f1f1;
+}
+.imagethumb a:visited {
+}
+.imagethumb a:hover {
+	border: 1px solid #d8d8d8;
+	background: #eaeaea;
+}
+.imagethumb {
+	float: left;
+}
+
+
+/* Album Thumbnails
+------------------------------ */
+.album {
+	padding: 10px;
+	margin-bottom: 12px;
+	clear: both;
+	border: 1px solid #d8d8d8;
+	background: #eaeaea;
+	cursor: pointer;
+}
+.album img {
+	float: left;
+}
+.album h3 {
+	padding: 0;
+	margin: 0;
+}
+.album h3 a {
+	display: block;
+	width: 340px;
+	padding: 3px 0 6px 0;
+}
+.album p {
+	margin: 0 0 4px 0;
+}
+.albumdesc {
+	float: right;
+	width: 480px;
+}
+.albumdesc small {
+	margin-top: 8px;
+	line-height: 130%;
+	width: 120px;
+	float: right;
+	color: #8DB8CF;
+}
+
+
+/* Individual Image
+------------------------------ */
+.image { 
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#image {
+	text-align: center;
+	line-height: 0;
+}
+.imgnav {
+	float: right;
+	width: 110px;
+	text-align: center;
+	border: 0px solid #8dec05;
+	margin-top: 13px;
+	_margin-top: 8px; /* IE Only */
+}
+.imgnav .imgprevious a, .imgnav .imgnext a {
+	display: block;
+	width: 50%;
+	float: left;
+	padding: 4px 0;
+	font-size: 120%;
+	text-decoration: none;
+	color: #237898;
+}
+.imgnav .imgprevious a:hover, .imgnav .imgnext a:hover {
+}
+.imgnav .imgprevious a {
+	float: left;
+}
+.imgnav .imgnext a {
+	float: right;
+}
+#narrow {
+	margin: 0 auto;
+	width: 90%;
+}
+
+
+/* Comments
+------------------------------ */
+#comments {
+	clear: both;
+}
+.error { 
+  color: #C33; 
+  font-weight: bold; 
+}
+.comment {
+	padding: 10px;
+	border: 1px solid #E7F0F5;
+	background: #FBFCFD;
+	margin-bottom: 12px;
+}
+.commentmeta {
+	margin-bottom: 12px;
+}
+.commentauthor {
+	font-weight: bold;
+}
+.commentdate {
+	margin-top: 12px;
+	color: #8DB8CF;
+	font-size: 85%;
+}
+
+
+/* Forms
+------------------------------ */
+.imgcommentform {
+	margin: 0 auto;
+	width: 450px;
+}
+
+.inputbox {
+	width: 250px;
+	padding: 2px;
+	background: url('images/formbg.gif') no-repeat;
+	border: 1px solid #b9b9b9;
+}
+textarea {
+	padding: 4px;
+	width: 100%;
+	color: #5A5A4B;
+	font: 100%/200% "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: url('images/formbg.gif') no-repeat;
+	border: 1px solid #b9b9b9;
+}
+.checkbox {
+	cursor: pointer;
+}
+.pushbutton {
+	cursor: pointer;
+	border: 0px;
+	background: url('images/commentbutton.gif') no-repeat;
+	width: 129px;
+	height: 50px;
+}
+.moveover {
+	text-align: right;
+}
+.center {
+	text-align: center;
+}
+label {
+	cursor: pointer;
+}
+label:hover {
+	color: #000;
+}
+
+
+/* Tooltips
+------------------------------ */
+.tooltip {
+	width: 200px; 
+	color:#000;
+	font:lighter 11px/1.3 Arial,sans-serif;
+	text-decoration:none;
+	text-align:center;
+}
+.tooltip span.top {
+	padding: 30px 8px 0;
+    background: url('images/bt.gif') no-repeat top
+}
+.tooltip b.bottom {
+	padding:3px 8px 8px;
+	color: #548912;
+    background: url('images/bt.gif') no-repeat bottom
+}
+
+/* Admin Toolbox
+------------------------------ */
+#admin, #admin_data{
+	position: fixed;
+    _position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 120px;
+	border-bottom: 1px solid #444;
+	border-left: 1px solid #444;
+	background: #222;
+    z-index: 2;
+}
+#admin_data{
+	top: 0px;
+	padding-top: 20px;
+	z-index: 1;
+	line-height: 1.6em;
+}
+#admin h3 {
+	font-weight: normal;
+	color: #aaa;
+	margin:0;
+	padding:0;
+}
+#admin h3:hover { color: #86a1b6; }

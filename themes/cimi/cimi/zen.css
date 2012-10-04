@@ -1,0 +1,121 @@
+/*
+	cimi theme (zenphoto.org), version 1.1
+*/
+
+/* Main Layout */
+html, body{ height: 100%; }
+body { background: url(bambus.gif) #3B3A38 bottom left fixed repeat-x; font: 82%/1.4em "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #6F6860; margin: 0; padding: 0; text-align: center; }
+#framework { text-align: left; margin: 10px auto; width: 730px; }
+#framework #main{-moz-border-radius: 5px; background: #363634; padding: 10px; border: 1px solid #292927; float: left; width: 100%; }
+
+/* Text Styles */
+a { color: #B0B0A1; text-decoration: none; }
+a:hover, a:focus { color: #B0B0A1; text-decoration: underline; }
+blockquote { border-left: 1px dotted #292927; color: #292927; margin-left: 20px; padding-left: 20px; }
+h2 { color: #5E802A; font: italic 200% Georgia, "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing: 1px; margin-top: 15px; }
+h2 a, h2 a:hover { color: #5E802A; }
+h3 { color: #5E802A; font: 140% "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif; margin-top: 30px; }
+strong.title{ color: #5E802A; font: 140% "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif; margin-top: 30px; }
+hr { border: 0; border-top: 1px solid #292927; clear: both; height: 0; margin: 0 0 12px 0; padding: 0; }
+p{ padding: 0.3em 0 0.5em 0; }
+img { border: 0; }
+.light{ color: #6F6860 !important; }
+.dark{ color: #3B3A38 !important; }
+.desc{ font-size: 92%; }
+.padding{ padding: 10px; }
+.left{ float: left; }
+.right{ float: right; }
+
+#gallerytitle h2 { display: block; margin: 10px 0 10px 9px; padding: 0; }
+#credit { height: 2.5em; margin: 5px auto; display: block; width: 100%; font-size: 78%; color: #6F6860; text-align: right; clear: both; float: left; }
+#credit a { text-decoration: none; color: #6F6860; border-bottom: 1px dotted #6F6860; }
+#credit a:hover { color: #B0B0A1; text-decoration: none; }
+
+/* breadcrumb */
+#breadcrumb{ background: #292927; padding: 0 0 0 9px; margin: 0 0 5px 0; font-size: 92%; float: left; display: block; width: 100%;  }
+
+/* Page Navigation */
+#pagelist{ border-bottom: 1px #292927 solid; margin: 0 0 5px 0; height: 2.2em; float: left; display: block; width: 100%; }
+#pagelist .disabledlink { color: #6F6860; cursor: default; }
+#pagelist .pagenav { clear: both; }
+#pagelist ul { clear: both; list-style-type: none; margin: 0; padding: 2px 0 2px 9px; }
+#pagelist ul li { display: inline; font-size: 92%; }
+#pagelist ul li a, #pagelist ul span.disabledlink { padding: 0 1px 0 1px; }
+#pagelist ul li.current a { color: #5E802A; cursor: default; font-weight: bold; text-decoration: none; }
+#pagelist ul li.next { font: 155% Georgia, "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 0 0 0 1px; }
+#pagelist ul li.prev { font: 155% Georgia, "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 0 1px 0 0; }
+
+/* AJAX */
+#albumDescEditable { margin-bottom: 12px; }
+#imageDescEditable { margin-top: 24px; }
+
+/* Album Thumbnails */
+#albums a {-moz-border-radius: 5px; color: #6F6860; display: block; padding: 10px; float: left; text-decoration: none; width: 328px; margin: 5px; border: 1px solid #292927; background: #3B3A38;  }
+#albums a:hover { border-bottom: 1px solid #5E802A; color: #B0B0A1; background: #42413F; }
+#albums img { float: left; margin: 0 10px 0 0; border: 1px solid #292927; }
+#albums h3, #albums strong { padding: 0; margin: 0 0 5px 0; display: block; }
+#albums a .num { float: right; margin: -10px -10px 0 0; width: 20px; text-align: center; background: #292927; font-size: 92%; color: #3B3A38; }
+#albums a:hover .num { float: right; margin: -10px -10px 0 0; width: 20px; text-align: center; background: #292927; font-size: 92%; color: #5E802A; }
+#albums .albumdesc { float: right; width: auto; }
+#albums .albumdesc small { margin-top: 8px; float: right; color: #6F6860; }
+* html #albums .desc{ float: left; }
+
+/* Image Thumbnails */
+#images { padding: 0; border: 0; float: left; text-align: left; width: 100%; }
+#images a { float: left; padding: 10px; margin: 5px; border: 1px solid #292927; display: block; background: #3B3A38; -moz-border-radius: 5px; }
+#images a:hover { border-bottom: 1px solid #5E802A; background: #42413F; }
+#images img{ border: 1px solid #292927; }
+
+/* Individual Image */
+#image { text-align: left; }
+#image a{ float: left; border: 1px solid #292927; padding: 30px; /*background: #000000; border: 1px solid #232222;*/ }
+#image img{ border: 1px solid #292927; }
+#imgnav { float: right; width: 55px; text-align: center; font-size: 92%; }
+#imgnav a { background: #363634; height: 1.5em; width: 100%; float: right; margin: 0 0 1px 0; border: 1px #292927 solid; }
+#imgnav a:hover { background: #42413F;}
+#imgnav a span, #imgnav .block span{ display: none; }
+#imgnav .block{ background: #363634; height: 1.5em; width: 100%; float: right; margin: 0 0 1px 0; border: 1px #292927 solid; }
+#imgnav #prev { background-image: url(back.gif); background-position: center center; background-repeat: no-repeat; }
+#imgnav #forw{ background-image: url(forward.gif); background-position: center center; background-repeat: no-repeat; }
+#imgnav #play{ background-image: url(play.gif); background-position: center center; background-repeat: no-repeat; }
+#imgnav #stop{ background-image: url(stop.gif); background-position: center center; background-repeat: no-repeat; }
+
+#imgnav .end{ color: #5E802A; float: right;  }
+#narrow { width: 656px; float: left; padding: 0; margin: 1em 0 0 0; }
+#exif { border: 1px #292927 solid; background: #292927; padding: 0 6px 0 0; margin: 0 0 1em 0; width: 100%; float: left; color: #6F6860; font-size: 92%; color: #42413F; }
+#exif .model{ background: #363634; color: #292927; width: auto; padding: 1px 3px; float: left; }
+#exif .exif{ width: auto; padding: 1px 3px; float: left; margin: 0 0 0 20px;  }
+
+/* Comments */
+#comments { margin: 0; padding: 0; float: left; display: block; }
+#comments .comment { width: 660px; float: left; margin: 0 0 5px 0; border: 1px solid #292927; background: #363634; }
+#comments .commentauthor { float: left; padding: 0 0 0 5px; }
+#comments .commentdate { color: #6F6860; float: right; padding: 0 5px 0 0; }
+#comments .commentmeta { float: left; padding: 1px 0; background: #3B3A38; font-size: 85%; width: 100%; }
+#comments .commentbody { padding: 5px; float: left; }
+#comments .error { color: #CC3333; font-weight: bold; }
+
+/* Forms */
+#imgcommentform{ width: 53%; padding: 0 0 1em 0; float: left; margin: 0; }
+form#commentform input { width: auto; float: left; border: 1px #292927 solid; padding: 0.2em 0 0.2em 0.2em; color: #B0B0A1; font-size: 92%; }
+form#commentform p{ padding: 0.2em 0; margin: 0; width: 100%; float: left; display: block; }
+form#commentform{ width: 100%; }
+form#commentform .checkbox { cursor: pointer; }
+form#commentform .pushbutton { padding: 2px 4px; width: auto; float: right; background: #3B3A38; cursor: pointer; }
+form#commentform .pushbuttonl { padding: 2px 4px; width: auto; float: right; background: #6F6860; cursor: pointer; }
+form#commentform input { width: 70%; float: right; border: 1px #292927 solid; background: #3B3A38; }
+form#commentform label{ width: 25%; float: left; cursor: pointer; }
+form#commentform label:hover { color: #292927; }
+form#commentform textarea { width:99%; float: right; border: 1px #292927 solid; padding: 0.2em 0 0.2em 0.2em; background: #3B3A38; color: #B0B0A1; font-family: "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+form, #imagetitleeditable{ font-size: 100%; }
+
+#breadcrumb form{ float: left; display: block; width: 100%; clear: both; margin: 0; padding: 0;}
+#breadcrumb input { float: left; margin: 0 1em 0 0; color: #000000; }
+#desc{ margin: 0 0 1em 0; padding: 3px; border: #292927 1px solid; font-size: 92%; float: left; display: block; width: 100%;}
+#desc div{ margin: 0; padding: 0; float: left; }
+
+/* Admin Toolbox */
+#admin, #admin_data{position: fixed;_position: absolute;right: 0px;top: 0px;width: 120px;border-bottom: 1px solid #444;border-left: 1px solid #444;background: #222;z-index: 2;}
+#admin_data{top: 0px;padding-top: 20px;z-index: 1;line-height: 1.6em;}
+#admin h3 {font-weight: normal;color: #aaa;margin:0;padding:0;}
+#admin h3:hover { color: #86a1b6; }

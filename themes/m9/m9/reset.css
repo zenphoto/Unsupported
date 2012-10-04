@@ -1,0 +1,14 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;list-style:none;quotes:none;vertical-align:baseline;text-align:left;font-size:100%;background:transparent;}
+h1,h2,h3,h4,h5,h6,th,em,strong,b,u,i,q,blockquote{font-style:normal;font-variant:normal;font-weight:normal;}
+body{height:101%;line-height:1;}
+img {display:block;}
+legend{display:none;}label{cursor:pointer;}
+a{text-decoration:none;}a:hover{text-decoration:underline;}
+.c:after{clear:both;content:'.';display:block;visibility:hidden;height:0;}.c{display:inline-block;}*html.c{height:1%;}.c{display:block;}
+.c2{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0;}
+.dn{display:none;}.db{display:block;}.di{display:inline;}
+.vv{visibility:visible;}.vh{visibility:hidden;}
+.fl{display:inline;float:left;}.fr{display:inline;float:right;}
+.cl{clear:left;}.cr{clear:right;}.cb{clear:both;}.cn{clear:none;}
+.al{text-align:left;}.ar{text-align:right;}.ac{text-align:center;}.aj{text-align:justify;}
+.pa{position:absolute;}.pr{position:relative;}.ps{position:static;}.pf{position:fixed;}

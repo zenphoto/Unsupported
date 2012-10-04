@@ -1,0 +1,6 @@
+# Zenphoto theme definition file
+name::Pink Clouds
+author::<a href="http://www.darrelldudics.com">Darrell Dudics</a>
+version::1.1
+date::11/9/2007
+desc::A pink cloud theme for ZenPhoto. It uses the built-in script.aculo.us ajax library to create mouse-over fade effects.
