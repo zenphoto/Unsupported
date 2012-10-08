@@ -19,7 +19,7 @@ The folders in the "themes" folder are third party themes that are not hosted by
 These themes are also listed on our site's themes section:
 http://www.zenphoto.org/theme/
 
-Others
+Misc
 ------
 
-You will find miscellaneous other folders for extensions that do not fit the above categories. Readme files or script comments will describe their use.
+You will find miscellaneous other extensions that do not exactly fit the above categories. Readme files or script comments will describe their use.
