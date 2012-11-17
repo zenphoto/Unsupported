@@ -1,18 +1,20 @@
 <?php
 /**
- * Allows an under priviledged user to create a root level album. This album is then
+ * Allows an under-priviledged user to create a root level album. This album is then
  * assigned in the users managed albums list.
  *
- * The User interface appears on the user tab in the "custom data" area when an enabled user is logged in.
- * Candidate users must have Album and Upload rights. Users with Admin right or Manage all album rights
+ * The User interface appears on the user tab in the <i>custom data</i> area when an enabled user is logged in.
+ * Candidate users must have <var>Album</var> and <var>Upload</var> rights. Users with <var>Admin</var> right or <var>Manage all album</var> rights
  * can already make root level albums, so are excluded from this plugin.
  *
+ * @package plugins
+ * @subpackage demo
  */
 
 $plugin_is_filter = 9|ADMIN_PLUGIN;
 $plugin_description = gettext('Allow a user to create a root level album when he does not otherwise have rights to do so.');
 $plugin_author = "Stephen Billard (sbillard)";
-$plugin_version = '1.0';
+$plugin_version = '1.4.3';
 
 $option_interface = 'create_album';
 
@@ -62,27 +64,13 @@ class create_album {
  * HTML Header JS
  */
 function create_albumJS() {
-	global $_zp_admin_tab, $_zp_admin_subtab;
+	global $_zp_admin_tab, $_zp_admin_subtab, $_zp_gallery;
 	if ($_zp_admin_tab == 'users') {
-	$_zp_gallery = new Gallery();
 	$albums = $_zp_gallery->getAlbums(0);
-	$defaultjs = "
-		<script type=\"text/javascript\">
-			// <!-- <![CDATA[
-			function soejs(fname) {
-				fname = fname.replace(/[\!@#$\%\^&*()\~`\'\"]/g, '');
-				fname = fname.replace(/^\s+|\s+$/g, '');
-				fname = fname.replace(/[^a-zA-Z0-9]/g, '-');
-				fname = fname.replace(/--*/g, '-');
-				return fname;
-			}
-			// ]]> -->
-		</script>
-	";
-	echo zp_apply_filter('seoFriendly_js', $defaultjs)."\n";
 	?>
 	<script type="text/javascript">
 		// <!-- <![CDATA[
+		<?php seoFriendlyJS(); ?>
 		var albumArray = ['<?php echo implode("','", $albums)?>'];
 
 		function updateFolder(nameObj, folderID, checkboxID, msg1) {
@@ -94,7 +82,7 @@ function create_albumJS() {
 			var count = 1;
 			var errorDiv = document.getElementById("foldererror");
 			if (autogen && name != "") {
-				fname = soejs(name);
+				fname = seoFriendlyJS(name);
 				while (contains(albumArray, fname + fnamesuffix)) {
 					fnamesuffix = "-"+count;
 					count++;
@@ -140,7 +128,7 @@ function create_albumJS() {
  * @param $local_alterrights
  */
 function create_album_edit($html, $userobj, $id, $background, $current, $local_alterrights) {
-	global $_zp_current_admin_obj, $gallery;
+	global $_zp_current_admin_obj, $_zp_gallery;
 	$rights = $userobj->getRights();
 	$user = $userobj->getUser();
 	$enabled = getOption('create_album_admin_'.$user);
@@ -148,7 +136,7 @@ function create_album_edit($html, $userobj, $id, $background, $current, $local_a
 		$enabled = getOption('create_album_default');
 	}
 	if ($enabled && ($user == $_zp_current_admin_obj->getUser()) && ($rights & (ALBUM_RIGHTS | UPLOAD_RIGHTS | MANAGE_ALL_ALBUM_RIGHTS | ADMIN_RIGHTS)) == (ALBUM_RIGHTS | UPLOAD_RIGHTS)) {
-		if ($albpublish = $gallery->getAlbumPublish()) {
+		if ($albpublish = $_zp_gallery->getAlbumPublish()) {
 			$publishchecked = ' checked="checked"';
 		} else {
 			$publishchecked = '';
@@ -156,7 +144,6 @@ function create_album_edit($html, $userobj, $id, $background, $current, $local_a
 		ob_start();
 		?>
 		<tr <?php if(!$current) echo 'style="display:none;"'; ?> class="userextrainfo">
-			<td style="background-color:#ECF1F2;" valign="top"></td>
 			<td colspan="2"  style="background-color:#ECF1F2;" valign="top">
 				<div id="newalbumbox" style="margin-top: 5px;">
 				<input id="newalbumcheckbox" type="checkbox" name="createalbum" />
@@ -214,7 +201,7 @@ function create_album_save($updated, $userobj, $i, $alter) {
 					$_create_album_errors[$user] = sprintf(gettext('Folder %s already exists.'),$alb);
 				} else {
 					if (@mkdir_recursive($path,FOLDER_MOD)) {
-						$album = new Album(new Gallery(), $alb);
+						$album = new Album(NULL, $alb);
 						if (!isset($_POST['publishalbum'])) {
 							$album->setShow(false);
 						}
@@ -224,7 +211,7 @@ function create_album_save($updated, $userobj, $i, $alter) {
 						}
 						$album->save();
 						$sql = "INSERT INTO ".prefix('admin_to_object')." (adminid, objectid, type, edit) VALUES (".$userobj->getID().", ".$album->getID().", 'album', ".
-													(MANAGED_OBJECT_RIGHTS_EDIT | MANAGED_OBJECT_RIGHTS_UPLOAD).")";
+													(MANAGED_OBJECT_RIGHTS_EDIT | MANAGED_OBJECT_RIGHTS_UPLOAD | MANAGED_OBJECT_RIGHTS_VIEW).")";
 						$result = query($sql);
 					} else {
 						$_create_album_errors[$user] = sprintf(gettext('Unabel to create %s.'),$alb);
@@ -277,10 +264,10 @@ function create_album_admin_upload_process($folder) {
 			$targetPath = ALBUM_FOLDER_SERVERPATH.internalToFilesystem($folder);
 			if (!file_exists($targetPath)) {	//	and we do need to create it
 				mkdir_recursive($targetPath, FOLDER_MOD);
-				$album = new Album(new Gallery(), $folder);
+				$album = new Album(NULL, $folder);
 				$album->save();
 				$sql = "INSERT INTO ".prefix('admin_to_object')." (adminid, objectid, type, edit) VALUES (".$_zp_current_admin_obj->getID().", ".$album->getID().", 'album', ".
-									(MANAGED_OBJECT_RIGHTS_EDIT | MANAGED_OBJECT_RIGHTS_UPLOAD).")";
+									(MANAGED_OBJECT_RIGHTS_EDIT | MANAGED_OBJECT_RIGHTS_UPLOAD | MANAGED_OBJECT_RIGHTS_VIEW).")";
 				$result = query($sql);
 			}
 		}

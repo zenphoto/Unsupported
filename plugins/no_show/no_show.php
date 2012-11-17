@@ -3,8 +3,9 @@
  * Requrires Zenphoto v1.3.1.1 or later
  *
  * @package plugins
+ * @subpackage demo
  */
-$plugin_is_filter = 5;
+$plugin_is_filter = 5|THEME_PLUGIN;
 $plugin_description = gettext('Prevents guest viewers from viewing unpublished images albums.');
 $plugin_author = "Stephen Billard (sbillard)";
 $plugin_version = '1.4.3';

@@ -4,8 +4,9 @@
  * This plugin is intended as an example of the use of the album_filter and image_filter filters.
  *
  * @package plugins
+ * @subpackage media
  */
-$plugin_is_filter = CLASS_PLUGIN | 5;
+$plugin_is_filter = 5|CLASS_PLUGIN;
 $plugin_description = gettext("Filter out files from albums and image searches that we do not want shown. See the plugin options for configuration.");
 $plugin_author = "Stephen Billard (sbillard)";
 $plugin_version = '1.4.3';
@@ -50,8 +51,7 @@ class filter_file_searches_options {
 		$albums = array();
 
 		while ($dirname = readdir($dir)) {
-			if ((is_dir($albumdir.$dirname) && (substr($dirname, 0, 1) != '.')) ||
-			hasDynamicAlbumSuffix($dirname)) {
+			if ((is_dir($albumdir.$dirname) && (substr($dirname, 0, 1) != '.')) || hasDynamicAlbumSuffix($dirname)) {
 				$albums[] = filesystemToInternal($dirname);
 			}
 		}

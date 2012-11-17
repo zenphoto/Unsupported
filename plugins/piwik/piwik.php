@@ -19,6 +19,8 @@
  *
  *  Piwik aims to be an open source alternative to Google Analytics.
  *
+ * @package plugins
+ * @subpackage seo
  */
 $plugin_is_filter = 9|THEME_PLUGIN;
 $plugin_description = gettext('A plugin to insert your Piwik JavaScript tag into your theme pages.');
@@ -27,7 +29,7 @@ $plugin_version = '1.4.3';
 
 $option_interface = 'piwik_tag';
 
-if (!getOption('admintracking') || !zp_loggedin(ADMIN_RIGHTS)) {
+if (!getOption('piwik_admintracking') || !zp_loggedin(ADMIN_RIGHTS)) {
 	zp_register_filter('theme_body_close', 'piwik_tag::placeTag');
 }
 
@@ -42,7 +44,7 @@ class piwik_tag {
 								gettext('site id') => array('key' => 'piwik_id', 'type' => OPTION_TYPE_TEXTBOX,
 												'order' => 1,
 												'desc'=> gettext('Enter the site id assigned by Piwik.')),
-								gettext('Enable Admin tracking') => array ('key' => 'admintracking', 'type' => OPTION_TYPE_CHECKBOX,
+								gettext('Enable Admin tracking') => array ('key' => 'piwik_admintracking', 'type' => OPTION_TYPE_CHECKBOX,
 												'order' => 2,
 												'desc' => gettext('Controls if you want Piwik to track users with <code>Admin</code> rights.'))
 

@@ -5,6 +5,9 @@
  *
  * In its default configuration this plugin will prevent caching of all Zenphoto pages by
  * any caching agent in the path.
+ *
+ * @package plugins
+ * @subpackage demo
  */
 $plugin_is_filter = 9|ADMIN_PLUGIN|THEME_PLUGIN;
 $plugin_description = gettext('Outputs a "Cache-control" header with selected caching options for all Zenphoto pages.');

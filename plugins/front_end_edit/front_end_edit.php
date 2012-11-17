@@ -1,7 +1,8 @@
 <?php
-/* provides [very unsafe] editing on the Zenphoto front end..
+/** provides [very unsafe] editing on the Zenphoto front end..
  *
  * @package plugins
+ * @subpackage development
  */
 $plugin_is_filter = 5|THEME_PLUGIN;
 $plugin_description = gettext('Provides front-end editing capability.');
