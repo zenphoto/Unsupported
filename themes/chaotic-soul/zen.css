@@ -326,6 +326,18 @@ label:hover {
 	color: #000;
 }
 
+/* Login form
+------------------------------ */
+#padbox {
+	width: 100%;
+	margin-top: 30px;
+	}
+	
+#passwordform {
+	width: 350px;
+	margin: 0 auto;
+	}
+	
 /* Bennno's header versuch
 ----------------------------*/
 #page {

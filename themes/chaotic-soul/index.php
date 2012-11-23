@@ -1,6 +1,5 @@
 <?php
 if (!defined('WEBPATH')) die();
-$themeResult = getTheme($zenCSS, $themeColor, 'light');
 ?>
 <?php header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -9,14 +8,15 @@ $themeResult = getTheme($zenCSS, $themeColor, 'light');
 <head>
 	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?php echo  getAlbumTitle();?> | <?php echo  getImageTitle();?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
 </head>
 
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
+
 <div id="page">
 <?php include("header.php") ?>
-
-
 
 <div id="wrapper" class="clearfix">
 
@@ -52,6 +52,7 @@ $themeResult = getTheme($zenCSS, $themeColor, 'light');
 <hr />
 </div>
 <?php printAdminToolbox(); ?>
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 
 </html>
