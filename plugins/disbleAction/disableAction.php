@@ -26,62 +26,79 @@ class disableRight {
 	 */
 	static function disable($tab, $subtab) {
 		global $_zp_admin_tab;
-		if (!zp_loggedin(ADMIN_RIGHTS) && $_zp_admin_tab == 'edit') {
-			switch ($subtab) {
-				case 'imageinfo':
-					?>
-					<script type="text/javascript">
-						// <!-- <![CDATA[
-						$(window).load(function() {
-							$('option[value=showall]').remove();
-							$('option[value=hideall]').remove();
-							$('input[name$=Visible]').attr('disabled','disabled')
-						});
-					// ]]> -->
-					</script>
-					<?php
-					break;
-				case 'albuminfo':
-					?>
-					<script type="text/javascript">
-						// <!-- <![CDATA[
-						$(window).load(function() {
-							$('input[name=Published]').attr('disabled','disabled');
-						});
-						// ]]> -->
-					</script>
-					<?php
-					break;
-				default:
-					if (isset($_GET['massedit'])) {
-						?>
+		if (!zp_loggedin(ADMIN_RIGHTS)) {
+			switch ($_zp_admin_tab) {
+				case 'upload':
+		 				?>
 						<script type="text/javascript">
 							// <!-- <![CDATA[
 							$(window).load(function() {
-								$('input[name$=Published]').attr('disabled','disabled');
+								$('#publishalbum').attr('disabled','disabled');
+								$('#publishalbum').removeAttr('checked');
 							});
 						// ]]> -->
 						</script>
 						<?php
-					} else {
-						?>
+					break;
+
+		 	case 'edit':
+		 		switch ($subtab) {
+		 			case 'imageinfo':
+		 				?>
 						<script type="text/javascript">
 							// <!-- <![CDATA[
 							$(window).load(function() {
 								$('option[value=showall]').remove();
 								$('option[value=hideall]').remove();
-								$('img[src*=action]').attr('alt',' ');
-								$('img[src*=pass]').attr('alt',' ');
-								$('img[src*=action]').attr('title',' ');
-								$('img[src*=pass]').attr('title',' ');
-								$('img[src*=action]').attr('src','images/icon_inactive.png');
-								$('img[src*=pass]').attr('src','images/icon_inactive.png');
+								$('input[name$=Visible]').attr('disabled','disabled');
 							});
 						// ]]> -->
 						</script>
 						<?php
-					}
-					break;
+						break;
+						case 'albuminfo':
+							?>
+						<script type="text/javascript">
+							// <!-- <![CDATA[
+							$(window).load(function() {
+								$('input[name=Published]').attr('disabled','disabled');
+							});
+							// ]]> -->
+						</script>
+						<?php
+						break;
+						default:
+							if (isset($_GET['massedit'])) {
+								?>
+								<script type="text/javascript">
+								// <!-- <![CDATA[
+								$(window).load(function() {
+									$('input[name$=Published]').attr('disabled','disabled');
+								});
+							// ]]> -->
+						</script>
+						<?php
+							} else {
+								?>
+						<script type="text/javascript">
+								// <!-- <![CDATA[
+								$(window).load(function() {
+									$('option[value=showall]').remove();
+									$('option[value=hideall]').remove();
+									$('img[src*=action]').attr('alt',' ');
+									$('img[src*=pass]').attr('alt',' ');
+									$('img[src*=action]').attr('title',' ');
+									$('img[src*=pass]').attr('title',' ');
+									$('img[src*=action]').attr('src','images/icon_inactive.png');
+									$('img[src*=pass]').attr('src','images/icon_inactive.png');
+								});
+							// ]]> -->
+							</script>
+						<?php
+							}
+							break;
+				 		}
+				 		break;
 			}
 		}
 	}
