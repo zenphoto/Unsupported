@@ -87,20 +87,47 @@ class disableRight {
 	}
 
 	static function save($allow) {
-		global $_zp_admin_tab;
-		if (!zp_loggedin(ADMIN_RIGHTS) && $_zp_admin_tab == 'edit') {
-			if (@$_GET['action']=='publish') {
-				unset($_GET['action']);
-			} else {
-				$bulk =	@$_POST['checkallaction'];
-				if($bulk =='showall' || $bulk=='hideall') {
-					unset($_GET['action']);
-					unset($_POST['checkallaction']);
-				} else {
-					foreach ($_POST as $key=>$item) {
-						if (strpos($key, 'Published')!==false) unset($_POST[$key]);
-						if (strpos($key, 'Visible')!==false) unset($_POST[$key]);
-					}
+		if (!zp_loggedin(ADMIN_RIGHTS)) {
+			if (isset($_GET['action'])) {
+				switch ($_GET['action']) {
+					case 'publish':
+						unset($_GET['action']);
+						break;
+					case 'save':
+						if (isset($_POST['album'])) {
+							$folder = sanitize_path($_POST['album']);
+							$album = new Album(NULL, $folder);
+							if (isset($_POST['totalimages'])) {
+								for ($i = 0; $i < $_POST['totalimages']; $i++) {
+									$filename = sanitize($_POST["$i-filename"]);
+									$image = newImage($album, $filename);
+									if ($image->getShow()) {
+										$_POST[$i.'-Visible'] = 1;
+									}
+								}
+							} else {
+								if ($album->getShow()) {
+									$_POST['Published'] = 1;
+								}
+							}
+						} else {
+							if (isset($_POST['totalalbums'])) {
+								$n = sanitize_numeric($_POST['totalalbums']);
+								for ($i = 1; $i <= $n; $i++) {
+									if ($i>0) {
+										$prefix = $i."-";
+									} else {
+										$prefix = '';
+									}
+									$f = sanitize_path(trim(sanitize($_POST[$prefix.'folder'])));
+									$album = new Album(NULL, $f);
+									if ($album->getShow()) {
+										$_POST[$prefix.'Published'] = 1;
+									}
+								}
+							}
+						}
+					break;
 				}
 			}
 		}
