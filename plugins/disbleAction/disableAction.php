@@ -34,7 +34,6 @@ class disableRight {
 							// <!-- <![CDATA[
 							$(window).load(function() {
 								$('#publishalbum').attr('disabled','disabled');
-								$('#publishalbum').removeAttr('checked');
 							});
 						// ]]> -->
 						</script>
