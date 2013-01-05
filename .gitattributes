@@ -22,11 +22,10 @@
 *.RTF	 diff=astextplain
 
 # Denote all files that are truly binary and should not be modified.
-*.png binary
-*.jpg binary
-*.swf binary
-*.ico binary
-*.gif binary
-*.mo binary
-*.gdf binary
-
+*.png	binary
+*.jpg	binary
+*.swf	binary
+*.ico	binary
+*.gif	binary
+*.mo	binary
+*.gdf	binary

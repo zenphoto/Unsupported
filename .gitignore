@@ -1,0 +1,79 @@
+
+# folders to exclude #
+######################
+/patches
+/phpdoc
+/release
+/sandbox
+/source
+/sql
+/temp
+/tests
+/zenpage
+
+# folders that should be empty #
+################################
+# /albums/
+/albums/*
+
+# /cache/
+/cache/*
+
+# /cache_html/
+/cache_html/*
+
+# /plugins/
+/plugins/gd_fonts/*
+/plugins/imagick_fonts/*
+/plugins/watermards/*
+/plugins/*
+
+# /uploaded/
+/uploaded/*
+
+# /zp-data/
+/zp-data/*
+
+# /backup/
+/backup/*
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Eclipse #
+###########
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.buildpath
+
+# Miscellaneous files #
+#######################
+.htaccess
+/robots.txt
+/*.bat
+/*.sh
+/favicon.ico
+.cache
+.project
+.settings
+
