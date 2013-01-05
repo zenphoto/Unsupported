@@ -15,6 +15,10 @@ html {
 	margin-bottom: 0.1em;
 }
 
+*	{
+	outline: none;
+	}
+	
 /* Main Layout
 ------------------------------ */
 body {

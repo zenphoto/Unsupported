@@ -185,7 +185,7 @@ ul.pagelist li.next {
 	padding: 7px;
 	margin: 16px;
 	line-height: 0px;
-	background: url('/themes/samuel2/img-bg.gif') top left no-repeat;
+	background: url('images/img-bg.gif') top left no-repeat;
 }
 .imagethumb {
 	float: left;

@@ -18,13 +18,15 @@ $pc_AjaxFx = true;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?></title>
 	<link rel="stylesheet" href="<?php echo  $_zp_themeroot; ?>/zen.css" type="text/css" />
 	<script src="<?php echo WEBPATH . '/zp-core/js'; ?>/prototype.js" type="text/javascript"></script>
 	<script src="<?php echo WEBPATH . '/zp-core/js'; ?>/scriptaculous/scriptaculous.js" type="text/javascript"></script>
-	<?php zp_apply_filter('theme_head'); ?>
+	
 </head>
 <body scroll="no"> <!-- scroll="no" to get rid of IE6 scrollbar -->
+<?php zp_apply_filter('theme_body_open'); ?>
 <?php printAdminToolbox(); ?>
 <div id="main">
 
@@ -170,5 +172,6 @@ $pc_AjaxFx = true;
 	</div>
 
 </div>
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

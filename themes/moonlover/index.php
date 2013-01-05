@@ -2,14 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?></title>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
-	<?php zp_apply_filter('theme_head'); ?>
-
 </head>
 
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 <?php printAdminToolbox(); ?>
 <div id="main">
 
@@ -33,11 +32,11 @@
 		<?php endwhile; ?>
 	</div>
 	
-	<?php printPageListWithNav("« prev", "next »"); ?>
+	<?php printPageListWithNav("« ".gettext('prev'), gettext('next')." »", false, true, 'pagelist', NULL, true, 9); ?>
 
 </div>
 
 <div id="credit">Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a> | <a href="http://www.tanarat.com/blogs" title="Theme: Moon Lover">Moon Lover</a></div>
-
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

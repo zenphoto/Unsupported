@@ -1,8 +1,10 @@
-<?php if (!defined('WEBPATH')) die();  include ('theme-functions.php');?>
+<?php if (!defined('WEBPATH')) die(); ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
+	
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
@@ -25,7 +27,7 @@
 		if (!ie)document.captureEvents(Event.KEYDOWN);
 	-->
 	</script>
-	<?php zp_apply_filter('theme_head'); ?>
+
 </head>
 
 <body>
@@ -36,9 +38,9 @@
 		<h2><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a></h2>
 	</div>
 
-	<div id="breadcrumb"><div class="left"><a title="Home" href="<?php echo getGalleryIndexURL();?>">home</a> > <?php printAlbumTitle(true);?></div><div class="right dark">use arrow keys to navigate&nbsp;</div></div>
+	<div id="breadcrumb"><div class="left"><a title="Home" href="<?php echo getGalleryIndexURL();?>">home</a> > <?php printAlbumTitle(true);?></div><div class="right">use arrow keys to navigate&nbsp;</div></div>
 
-	<?php printPageListWithNav("«", "»"); ?>
+	<?php printPageListWithNavAlt(gettext('prev'), gettext('next'), $nextprev=true, $class=NULL, $id="pagelist"); ?>
 
 	<div class="desc padding"><?php printAlbumDesc(); ?></div>
 

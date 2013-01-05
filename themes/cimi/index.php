@@ -1,10 +1,10 @@
 <?php if (!defined('WEBPATH')) die(); ?>
 
-<?php include ('theme-functions.php'); ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
+	
 	<title><?php printGalleryTitle(); ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
@@ -27,7 +27,7 @@
 		if (!ie)document.captureEvents(Event.KEYDOWN);
 	-->
 	</script>
-	<?php zp_apply_filter('theme_head'); ?>
+	
 </head>
 
 <body>
@@ -38,9 +38,9 @@
 		<h2><?php echo getGalleryTitle(); ?></h2>
 	</div>
 	
-	<div id="breadcrumb"><div class="left">Welcome to my gallery</div><div class="right dark">use arrow keys to navigate&nbsp;</div></div>
+	<div id="breadcrumb"><div class="left">Welcome to my gallery</div><div class="right">use arrow keys to navigate&nbsp;</div></div>
 		
-	<?php printPageListWithNav("«", "»"); ?>
+	<?php printPageListWithNavAlt(gettext('prev'), gettext('next'), $nextprev=true, $class=NULL, $id="pagelist"); ?>
 
 	<div id="albums">
 		<?php while (next_album()): ?>

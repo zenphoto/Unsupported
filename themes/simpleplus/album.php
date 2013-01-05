@@ -4,7 +4,6 @@
 <html>
 
 	<head>
-		<?php zp_apply_filter('theme_head'); ?>
 		<title><?php echo getBareGalleryTitle(); ?> | Album: <?php echo getBareAlbumTitle(); ?></title>
 		
 		<link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/css/zen.css" type="text/css" />

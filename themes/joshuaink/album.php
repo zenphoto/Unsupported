@@ -1,8 +1,6 @@
 <?php 
 $startTime = array_sum(explode(" ",microtime())); 
-if (!defined('WEBPATH')) die();
-require_once ('joshuaink.php');
-?>
+if (!defined('WEBPATH')) die(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -12,6 +10,7 @@ require_once ('joshuaink.php');
   <?php printRSSHeaderLink('Album',getAlbumTitle()); ?>
 </head>
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 <div id="wrap">
 
 	<div id="header">
@@ -120,5 +119,6 @@ require_once ('joshuaink.php');
 	</div>
 
 </div>
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

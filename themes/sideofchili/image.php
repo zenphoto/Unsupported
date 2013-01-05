@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?> | <?php echo getImageTitle();?></title>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
 	<?php
@@ -13,8 +12,6 @@
 //Variables
 //$size = 480;
 	?>
-
-
 </head>
 
 <body>

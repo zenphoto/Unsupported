@@ -86,6 +86,12 @@ img {
 	background-image: url(images/background.gif);
 	text-align: left; 
 	}
+	
+#comments {
+	width: 470px;
+	margin: 0 auto;
+	}
+	
 #footer {
 	width: 508px; 
 	height: 13px;
@@ -179,11 +185,12 @@ ul.pagelist li.current a {
 	border-bottom: 2px solid #ee0/*yellow-15*/;
 	}
 .indexcell h2 { 
-	margin-left: 100px;
+	margin-left: 130px;
 	font-size: 1.2em;
 	}
 #albumDescEditable {
-	margin-left: 100px;
+	display: block;
+	margin-left: 130px;
 	font-size: 1em;
 	}
 /* 03 INDEX.PHP */

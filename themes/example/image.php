@@ -9,11 +9,14 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?></title>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/js/thickbox.css" type="text/css" />
 	<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS')); echo "\n"; ?>
-	<script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/js/thickbox.js" type="text/javascript"></script>
-
-
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+    jQuery('a.gallery').colorbox({photo:true, rel:'gallery', slideshow:true});
+    });
+	</script>
+	
 </head>
 <body>
 
@@ -39,7 +42,7 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 							?>
 							<div id="fullsize_download_link">
 								<em>
-								<a href="<?php echo htmlspecialchars($fullimage);?>" title="<?php echo getBareImageTitle();?>"><?php echo gettext("Original Size:"); ?>
+								<a class="gallery" href="<?php echo htmlspecialchars($fullimage);?>" title="<?php echo getBareImageTitle();?>"><?php echo gettext("Original Size:"); ?>
 									<?php echo getFullWidth() . "x" . getFullHeight(); ?>
 								</a>
 								</em>

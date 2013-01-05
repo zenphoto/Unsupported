@@ -8,7 +8,6 @@ if (!defined('WEBPATH')) die();
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?></title>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
 	<?php include ('chili-functions.php'); ?>
-	<?php zp_apply_filter('theme_head'); ?>
 </head>
 
 <body>

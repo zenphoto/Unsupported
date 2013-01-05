@@ -2,13 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?></title>
 	<link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/zen.css" type="text/css" />
-	<?php zp_apply_filter('theme_head'); ?>
-
 </head>
 
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 <?php printAdminToolbox(); ?>
 <div>
 	<div class="spiffy_content">
@@ -74,6 +74,6 @@
 </div>
 
 </div>
-
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

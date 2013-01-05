@@ -1,5 +1,5 @@
 <?php $startTime = array_sum(explode(" ",microtime())); if (!defined('WEBPATH')) die(); ?>
-<?php require_once ('joshuaink.php'); ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -32,8 +32,16 @@
 	</script>
 <?php } ?>
 	<?php printRSSHeaderLink('Gallery','Gallery RSS'); ?>
+	
+<script type="text/javascript">
+	$(document).ready(function() {
+    jQuery('a.gallery').colorbox({photo:true, rel:'gallery', slideshow:true});
+    });
+</script>
+	
 </head>
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 <div id="wrap">
 	<div id="header">
 		<?php printAlbumDesc(); ?>
@@ -129,7 +137,7 @@
             echo "\t\t" . '<li>&nbsp;</li>' . "\n";
       }
       if (in_context(ZP_IMAGE)) {
-         echo "\t\t" . '<li><a href="' . getFullImageURL() .
+         echo "\t\t" . '<li><a class="gallery" href="' . getFullImageURL() .
             '" title="Full Size Image"><img src="' . $_zp_themeroot .
             '/images/arrow_out.png" width="16" height="16" alt="arrows ' .
             'pointing out" /></a></li>' . "\n";
@@ -169,6 +177,6 @@
 
 </div>
 </div>
-
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

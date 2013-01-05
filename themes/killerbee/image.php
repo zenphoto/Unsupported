@@ -14,7 +14,7 @@
     <h1>
 	  <a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <a href="<?php echo getAlbumLinkURL();?>" title="Gallery Index"><?php echo getAlbumTitle();?></a> | <?php printImageTitle(true); ?>
 	</h1>
-    <a href="http://imagebaker.com/" onmouseout="IB_restore()" onmouseover="IB_swap('logo','','<?php echo $_zp_themeroot ?>/images/logo-on.gif',1)"  title="Home">
+    <a href="<?php echo getGalleryIndexURL();?>" onmouseout="IB_restore()" onmouseover="IB_swap('logo','','<?php echo $_zp_themeroot ?>/images/logo-on.gif',1)"  title="Home">
 	  <img src="<?php echo $_zp_themeroot ?>/images/logo-off.gif" alt="Home" id="logo" width="25" height="25" border="0" />
 	</a>
   </div><!--#title-->
@@ -42,12 +42,7 @@
       </div><!--imageDescEditable-->
     </div><!--.image-->
   </div><!--#imgcontent-->
-</div><!--#main-->
-<div id="footer">
-</div><!--#footer-->
 
-<div id="header">
-</div><!--#header-->
 <div id="comments" style="clear: both; padding-top: 10px;">
 		<?php
 		if (function_exists('printCommentForm')) {
@@ -56,7 +51,7 @@
 		?>
 
 </div><!--#comments-->
-
+</div><!--#main-->
 <div id="footer">
 </div><!--.footer-->
 

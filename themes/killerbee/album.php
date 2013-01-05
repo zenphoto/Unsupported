@@ -15,13 +15,13 @@
 	<h1>
 	  <a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <?php printAlbumTitle(true);?>
 	</h1>
-	<a href="http://imagebaker.com/" onmouseout="IB_restore()" onmouseover="IB_swap('logo','','<?php echo $_zp_themeroot ?>/images/logo-on.gif',1)"  title="Home">
+	<a href="<?php echo getGalleryIndexURL();?>" onmouseout="IB_restore()" onmouseover="IB_swap('logo','','<?php echo $_zp_themeroot ?>/images/logo-on.gif',1)"  title="Home">
 	  <img src="<?php echo $_zp_themeroot ?>/images/logo-off.gif" alt="Home" id="logo" width="25" height="25" border="0" />
 	</a>
   </div><!--#title-->
   <hr />
 
-  <?php printPageListWithNav("« prev", "next »"); ?>
+  <?php printPageNav("« prev", "|", "next »"); ?>
 
   <!-- subalbums -->
   <div id="index">

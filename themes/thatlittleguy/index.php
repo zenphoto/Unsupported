@@ -1,11 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?></title>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
-	<?php zp_apply_filter('theme_head'); ?>
-
 </head>
 
 <body>
@@ -63,11 +61,12 @@
 
 </div>
 
-<div id="credit"><?php
-	if (zp_loggedin()) {
-	printUserLogin_out($before='', $after='|', $showLoginForm=NULL, $logouttext=NULL, $show_user=NULL);
+<div id="credit">
+<?php
+	if (!zp_loggedin()) {
+	printUserLogin_out($before='', $after=' | ', $showLoginForm=false, $logouttext="Logout", $show_user=NULL);
 	} else {
-		printLink(WEBPATH . '/' . ZENFOLDER .'/admin.php', 'Admin');
+		printLink(WEBPATH . '/' . ZENFOLDER .'/admin.php', 'Admin'); echo " | ";
 	}
 ?>Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
 

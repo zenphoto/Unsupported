@@ -1,7 +1,6 @@
 <?php
 if (!defined('WEBPATH')) die();
 $startTime = array_sum(explode(" ",microtime()));
-$themeResult = getTheme($zenCSS, $themeColor, 'light');
 ?>
 <?php
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
@@ -14,6 +13,13 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 	<title><?php echo getBareGalleryTitle(); ?></title>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
 	<?php printRSSHeaderLink('Album',getAlbumTitle()); ?>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+    jQuery('a.gallery').colorbox({photo:true, rel:'gallery', slideshow:true});
+    });
+	</script>
+	
 </head>
 <body>
 
@@ -67,7 +73,7 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 			while (next_image()) { ?>
 				<div class="image">
 					<div class="imagethumb">
-							<a href="<?php echo htmlspecialchars(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>">
+							<a class="gallery" href="<?php echo htmlspecialchars(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>">
 							<?php printImageThumb(getAnnotatedImageTitle()); ?></a>
 						</div>
 				</div>

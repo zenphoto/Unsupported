@@ -14,13 +14,13 @@
 	<h1>
 	  <?php echo getGalleryTitle(); ?>
 	</h1>
-    <a href="http://imagebaker.com/" onmouseout="IB_restore()" onmouseover="IB_swap('logo','','<?php echo $_zp_themeroot ?>/images/logo-on.gif',1)"  title="Home">
+    <a href="<?php echo getGalleryIndexURL();?>" onmouseout="IB_restore()" onmouseover="IB_swap('logo','','<?php echo $_zp_themeroot ?>/images/logo-on.gif',1)"  title="Home">
 	  <img src="<?php echo $_zp_themeroot ?>/images/logo-off.gif" alt="Home" id="logo" width="25" height="25" />
 	</a> 	
   </div><!--#title-->
   <hr /> 
 
-  <?php printPageListWithNav("« prev", "next »"); ?>
+  <?php printPageNav("« prev", "|", "next »"); ?>
 
   <div id="index">
 

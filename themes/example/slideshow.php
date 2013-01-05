@@ -12,7 +12,7 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 </head>
 <body>
 	<div id="slideshowpage">
-			<?php printSlideShow(true,true); ?>
+			<?php printSlideShow(true, false, "", "", "", "", false, true, true); ?>
 	</div>
 
 </body>

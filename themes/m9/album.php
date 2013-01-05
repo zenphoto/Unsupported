@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
+	<?php zp_apply_filter('theme_head'); ?>
 <?php include_once('header.php'); ?>
 		<meta name="keywords" content="<?php echo html_encode(getMainSiteName().', '.getGalleryTitle().', '.getAlbumTitle()); ?>" />
 		<meta name="description" content="<?php echo html_encode(getAlbumTitle().' / '.getAlbumDesc()); ?>" />
@@ -31,7 +32,7 @@
 <?php endwhile; ?>
 <?php while (next_image()): ?>
 					<li id="<?php echo ' image-'.$_zp_current_image->getID(); ?>" class="image"><a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo getImageLinkURL(); ?>">
-						<img src="<?php echo getCustomImageURL(298, NULL, NULL, 298, 178, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
+						<img src="<?php echo getCustomSizedImageThumbMaxSpace($width="298", $height="187"); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
 					</a></li>
 <?php endwhile; ?>
 				</ul>

@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?> | <?php echo getImageTitle();?></title>
 	<link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/zen.css" type="text/css" />
 	<script type="text/javascript">
@@ -13,11 +14,16 @@
       }
 	  }
 	</script>
-	<?php zp_apply_filter('theme_head'); ?>
-
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+    jQuery('a.gallery').colorbox({photo:true});
+    });
+	</script>
 </head>
 
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 <?php printAdminToolbox(); ?>
 <div>
 	<div class="spiffy_content">
@@ -70,7 +76,7 @@
 
 		<p class="imgdesc"><?php printImageDesc(true); ?></p>
 
-		<p class="imgdesc"><a href="<?php echo getFullImageURL();?>" title="view original full size" target="_blank">view original size</a></p>
+		<p class="imgdesc"><a class="gallery" href="<?php echo getFullImageURL();?>" title="view original full size" target="_blank">view original size</a></p>
 
 		<div id="comments">
 		<?php
@@ -93,5 +99,6 @@
 </div>
 
 </div>
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>
