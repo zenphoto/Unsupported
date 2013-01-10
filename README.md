@@ -1,7 +1,7 @@
 Unsupported Zenphoto scripts
 ===========
 
-Please remember that these scripts are provided for your use and education but are not supported by the Zenphoto team. This is true even if a team member originally created them.
+Please remember that these scripts are provided for your use and education but are not supported by the Zenphoto team. This is true even if a team member originally created them. They may not work correctly with current Zenphoto versions.
 
 Plugins
 -------
