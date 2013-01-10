@@ -1,4 +1,4 @@
-Unsupported miscanleous scripts
+Unsupported miscellaneous scripts
 ------
 
 You will find miscellaneous other extensions that do not exactly fit the above categories. Readme files or script comments will describe their use.
