@@ -20,13 +20,6 @@ if (!defined('WEBPATH')) die();
       }
 	  }
 	</script>
-	<script type="text/javascript">
-		// To hide the translated "Send" text in the standard printCommentForm() function
-		// It will otherwise be visible on the "comment" button.
-		$(document).ready(function() {
-   			$('input.pushbutton').attr('value', '');
- 		});
-	</script>
 	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/scripts/BubbleTooltips.js"></script>
 	<script type="text/javascript">
 		window.onload=function(){enableTooltips()};
