@@ -9,7 +9,7 @@ $plugin_description = gettext('Provides front-end editing capability.');
 $plugin_author = "Stephen Billard (sbillard)";
 $plugin_version = '1.4.3';
 $plugin_disable = (getOption('zp_plugin_front_end_edit')) ? false : gettext('To enable <em>Front end editing</em> you must acknowledge the security risk of this plugin:').'<br /><br />'."\n".
-									gettext('This plugin contains a vulnerability to Cross Site Reference Forgeries! It is <strong>not secure</strong> and neither the author nor the Zenphoto team will not be responsible for site compromises caused by its use.').'<br />'.
+									gettext('This plugin contains a vulnerability to Cross Site Reference Forgeries! It is <strong>not secure</strong> and neither the author nor the Zenphoto team will be responsible for site compromises caused by its use.').'<br />'.
 									'<input type="checkbox" value="133" id="zp_plugin_front_end_edit_accept" name="zp_plugin_front_end_edit_accept" onclick="javascript:front_end_edit_click();" /> '.gettext('I understand using this plugin may compromise my site.')."\n".
 									'<script type="text/javascript">'."\n".
 										'var front_end_edit_disableHTML = $(\'#front_end_edit_checkbox\').html();'."\n".
