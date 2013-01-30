@@ -27,9 +27,9 @@
   RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yourdomain.com [NC] 
 
   # Protect your full images in the albums folder  
-  RewriteRule \.(jpg|jpeg|png|gif|flv|mp4|mov|3gp)$ - [NC,F,L]
+  RewriteRule \.(jpg|jpeg|png|gif|flv|fla|mp4|m4v|m4a|mov|3gp)$ - [NC,F,L]
 	
   # if you wish to show an replacement image for change the above line to look like this:
-  #RewriteRule \.(jpg|jpeg|png|gif|flv|mp4|mov|3gp)$ http://www.yourdomain.com/<your-replacement-image.suffix> [NC,F,L]
+  #RewriteRule \.(jpg|jpeg|png|gif|flv|fla|mp4|m4v|m4a|mov|3gp)$ http://www.yourdomain.com/<your-replacement-image.suffix> [NC,F,L]
  
 </IfModule>
