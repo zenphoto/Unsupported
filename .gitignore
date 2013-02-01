@@ -22,12 +22,6 @@
 # /cache_html/
 /cache_html/*
 
-# /plugins/
-/plugins/gd_fonts/*
-/plugins/imagick_fonts/*
-/plugins/watermards/*
-/plugins/*
-
 # /uploaded/
 /uploaded/*
 
