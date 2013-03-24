@@ -1,4 +1,9 @@
 /* These styles are just for the test template. Make some better ones. And yes, I know it's messy ;-) */
+
+* {
+	outline: none;
+}
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 8pt;
@@ -140,9 +145,9 @@ A:hover,A:active,#gallerytitle A:hover,#gallerytitle A:active,.pagenav A:hover,.
 
 UL.pagelist {
 	padding: 0px;
-	margin: 5px 0px 5px;
+	margin: 20px 0px 5px;
 	list-style-type: none;
-	height: 2em;
+	height: 3em;
 }
 
 UL.pagelist LI {
@@ -151,8 +156,6 @@ UL.pagelist LI {
 }
 
 UL.pagelist LI A,UL.pagelist LI span.disabledlink {
-	display: block;
-	float: left;
 	padding: 2px 4px;
 	background-color: #FFF6EC;
 	text-decoration: none;

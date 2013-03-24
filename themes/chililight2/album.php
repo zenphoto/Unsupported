@@ -1,19 +1,38 @@
-<?php if (!defined('WEBPATH')) die(); $firstPageImages = normalizeColumns('1', '5'); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php
+
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+
+?>
+<!DOCTYPE html>
+
 <html>
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?=getAlbumTitle();?></title>
-	
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?= $_zp_themeroot ?>/zen.css" type="text/css" />
-    <script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/js/prototype.js" type="text/javascript"></script>
-    <script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/js/scriptaculous/scriptaculous.js?load=effects" type="text/javascript"></script>
-	<script src="<?= $_zp_themeroot ?>/js/lightbox.js" type="text/javascript"></script>
-	<?php zenJavascript(); ?>
-	
+
+	<?php if(zp_has_filter('theme_head','colorbox::css')) { ?>
+		<script type="text/javascript">
+			// <!-- <![CDATA[
+			$(document).ready(function(){
+				$(".imagethumb a").colorbox({
+					maxWidth:"98%",
+					maxHeight:"98%",
+					photo:true,
+					close: '<?php echo gettext("close"); ?>'
+				});
+			});
+			// ]]> -->
+		</script>
+	<?php } ?>
 </head>
 
 <body>
-<?php printAdminToolbox(); ?>
+<?php zp_apply_filter('theme_body_open'); ?>
+
 <div id="main">
 
 	<div id="gallerytitle">
@@ -39,18 +58,26 @@
 	</div>
     
     <div id="images">
-		<?php while (next_image(false, $firstPageImages)): ?>
+		<?php while (next_image(false)): ?>
 		<div class="image">
 			<div class="imagethumb"><a href="<?=getFullImageURL();?>" rel="lightbox[<?=getAlbumTitle();?>]" title="<?=getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a></div>
 		</div>
 		<?php endwhile; ?>
 	</div>
 	
-	<?php printPageListWithNav("&laquo; prev", "next &raquo;"); ?>
+	<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
 	
 </div>
 
-<div id="credit">Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
+<?php printZenphotoLink(); ?>
+
+</div>
+
+<?php 
+	printAdminToolbox();
+ 	zp_apply_filter('theme_body_close'); 
+ ?>
 
 </body>
+
 </html>

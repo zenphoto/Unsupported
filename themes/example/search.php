@@ -1,21 +1,23 @@
 <?php
+
+// force UTF-8 Ø
+
 if (!defined('WEBPATH')) die();
 $startTime = array_sum(explode(" ",microtime()));
+?>
+<!DOCTYPE html>
 
-?>
-<?php
-header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
-header('Content-Type: text/html; charset=' . getOption('charset'));
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?> | <?php echo gettext("Search"); ?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
+	<?php zp_apply_filter('theme_head'); ?>
 	<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS')); ?>
 </head>
+
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 	<div id="gallerytitle">
@@ -82,7 +84,7 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 			}
 
 			echo '<br clear="all" />';
-			printPageListWithNav("« ".gettext("prev"),gettext("next")." »");
+			printPageListWithNav("« ".gettext('prev'), gettext('next')." »");
 	?>
 
 
@@ -96,11 +98,14 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 		}
 		?>
 		<br />
-			<?php printf(gettext("%u seconds"), round((array_sum(explode(" ",microtime())) - $startTime),4)); ?>
+			<?php printf(gettext("%s seconds"), round((array_sum(explode(" ",microtime())) - $startTime),4)); ?>
 	</div>
 </div>
 
-<?php printAdminToolbox(); ?>
+<?php
+printAdminToolbox();
+zp_apply_filter('theme_body_close');
+?>
 
 </body>
 </html>

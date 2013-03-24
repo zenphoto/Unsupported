@@ -1,17 +1,23 @@
-<?php if (!defined('WEBPATH')) die(); ?>
 <?php
-header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
-header('Content-Type: text/html; charset=' . getOption('charset'));
+
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+
+<html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?></title>
-		<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
-		<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS')); ?>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
+	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
+	<?php zp_apply_filter('theme_head'); ?>
+	<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS')); ?>
 </head>
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
+
 <div id="main">
 		<div id="gallerytitle">
 			<h2><?php printHomeLink('', ' | '); echo getGalleryTitle();?></h2>
@@ -19,7 +25,7 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 		</div>
 
 		<hr />
-		<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
+		<?php printPageListWithNav("« ".gettext('prev'), gettext('next')." »"); ?>
 
 		<div id="albums">
 			<?php while (next_album()): ?>
@@ -39,7 +45,7 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 
 			<?php endwhile; ?>
 		</div>
-		<?php printPageNav("« ".gettext("prev"), "|", gettext("next")." »"); ?>
+		<?php printPageListWithNav("« ".gettext('prev'), gettext('next')." »"); ?>
 		<?php if (function_exists('printLanguageSelector')) { printLanguageSelector(); } ?>
 		<div id="credit">
 		<?php
@@ -55,7 +61,9 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 		</div>
 </div>
 
-<?php printAdminToolbox(); ?>
-
+<?php
+printAdminToolbox();
+zp_apply_filter('theme_body_close');
+?>
 </body>
 </html>

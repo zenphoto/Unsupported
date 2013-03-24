@@ -68,7 +68,7 @@ img { border: 0; }
 
 /* Individual Image */
 #image { text-align: left; }
-#image a{ float: left; border: 1px solid #292927; padding: 30px; /*background: #000000; border: 1px solid #232222;*/ }
+#image a, .audiovideo{ float: left; border: 1px solid #292927; padding: 30px; /*background: #000000; border: 1px solid #232222;*/ }
 #image img{ border: 1px solid #292927; }
 #imgnav { float: right; width: 55px; text-align: center; font-size: 92%; }
 #imgnav a { background: #363634; height: 1.5em; width: 100%; float: right; margin: 0 0 1px 0; border: 1px #292927 solid; }

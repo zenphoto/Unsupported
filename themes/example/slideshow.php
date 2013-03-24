@@ -1,19 +1,32 @@
 <?php
-header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
-header('Content-Type: text/html; charset=' . getOption('charset'));
+
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+
+<html>
 <head>
 	<title><?php echo getBareGalleryTitle(); ?></title>
-	<?php zp_apply_filter('theme_head'); ?>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/slideshow.css" type="text/css" />
+	<?php zp_apply_filter('theme_head'); ?>
 	<?php printSlideShowJS(); ?>
 </head>
+
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
+
 	<div id="slideshowpage">
 			<?php printSlideShow(true, false, "", "", "", "", false, true, true); ?>
 	</div>
+
+<?php
+printAdminToolbox();
+zp_apply_filter('theme_body_close');
+?>
 
 </body>
 </html>

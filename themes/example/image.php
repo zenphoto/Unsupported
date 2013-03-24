@@ -1,24 +1,36 @@
 <?php $startTime = array_sum(explode(" ",microtime())); if (!defined('WEBPATH')) die(); ?>
-<?php
-header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
-header('Content-Type: text/html; charset=' . getOption('charset'));
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+
+<html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
+	<?php zp_apply_filter('theme_head'); ?>
 	<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS')); echo "\n"; ?>
 	
 	<script type="text/javascript">
-	$(document).ready(function() {
-    jQuery('a.gallery').colorbox({photo:true, rel:'gallery', slideshow:true});
-    });
+	// <!-- <![CDATA[
+	$(document).ready(function(){
+		$(".colorbox").colorbox({
+			inline: true,
+			href: "#imagemetadata",
+			close: '<?php echo gettext("close"); ?>'
+			});
+		$("a.gallery").colorbox({
+			maxWidth: "98%",
+			maxHeight: "98%",
+			photo: true,
+			close: '<?php echo gettext("close"); ?>'
+			});
+	});
+	// ]]> -->
 	</script>
 	
 </head>
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 	<div id="gallerytitle">
@@ -28,17 +40,18 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 
 	<hr />
 	<!-- The Image -->
-		<div class="image">
+	<div class="image">
 		<div class="imgnav">
 			<?php if (hasPrevImage()) { ?> <a class="prev" href="<?php echo htmlspecialchars(getPrevImageURL());?>" title="<?php echo gettext('Previous Image'); ?>">« <?php echo gettext("prev"); ?></a>
 			<?php } if (hasNextImage()) { ?> <a class="next" href="<?php echo htmlspecialchars(getNextImageURL());?>" title="<?php echo gettext('Next Image'); ?>"><?php echo gettext("next");?> »</a><?php } ?>
 		</div>
-				<?php printDefaultSizedImage(getImageTitle()); ?></a>
-
+			<div>
+				<a class="gallery" href="<?php echo html_encode(getFullImageURL()); ?>" rel="gallery" title="<?php printBareImageTitle();?>"><?php printDefaultSizedImage(getBareImageTitle()); ?></a>
+			</div>
 				<div id="image_data">
 						<?php
 						$fullimage = getFullImageURL();
-						if (!empty($fullimage)) {
+						if (!empty($fullimage) && !isImageVideo()) {
 							?>
 							<div id="fullsize_download_link">
 								<em>
@@ -50,14 +63,14 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 							<?
 						}
 						?>
-
-					<div id="meta_link">
-						<?php
-							if (getImageMetaData()) {echo "<a href=\"#TB_inline?height=345&amp;width=400&amp;inlineId=imagemetadata\" title=\"".gettext("Image Info")."\" class=\"thickbox\">".gettext("Image Info")."</a>";
-								printImageMetadata('', false);
-							}
+						
+				<div id="meta_link">
+					<?php
+						if (getImageMetaData()) {
+							printImageMetadata(NULL, 'colorbox');
+						}
 					?>
-					</div>
+				</div>
 
 					<br clear="all" />
 					<?php printImageDesc(true); ?>
@@ -70,16 +83,13 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 
 
 
-          <div class="rating"><?php if (function_exists('printRating')) printRating(); ?></div>
-				</div>
-
+          			<div class="rating"><?php if (function_exists('printRating')) printRating(); ?></div>
+				</div> <!-- \\ .image -->
 				<?php
 				if (function_exists('printCommentForm')) {
 					printCommentForm();
 				}
 				?>
-
-		</div>
 
 		<div id="credit">
 			<?php printRSSLink('Gallery','','RSS', ' | '); ?>
@@ -91,11 +101,14 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 			}
 			?>
 			<br />
-			<?php printf(gettext("%u seconds"), round((array_sum(explode(" ",microtime())) - $startTime),4)); ?>
-		</div>
-</div>
+			<?php printf(gettext("%s seconds"), round((array_sum(explode(" ",microtime())) - $startTime),4)); ?>
+		</div> <!-- \\ #credit -->
+</div> <!-- \\ #main -->
 
-<?php printAdminToolbox(); ?>
+<?php
+printAdminToolbox();
+zp_apply_filter('theme_body_close');
+?>
 
 </body>
 </html>

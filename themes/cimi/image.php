@@ -1,12 +1,17 @@
-<?php if (!defined('WEBPATH')) die(); ?>
+<?php
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+
+?>
+<!DOCTYPE html>
+
+<html>
 <head>
 	<?php zp_apply_filter('theme_head'); ?>
-	
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?> | <?php echo getImageTitle();?></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="imagetoolbar" content="false" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
@@ -57,7 +62,7 @@
 </head>
 
 <body>
-<?php printAdminToolbox(); ?>
+<?php zp_apply_filter('theme_body_open'); ?>
 <div id="framework">
 	<div id="main">
 
@@ -84,7 +89,13 @@
 	</div>
 
 	<div id="image">
-		<a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getImageTitle();?>"> <?php printDefaultSizedImageAlt(getImageTitle()); ?></a>
+		<?php if(!isImageVideo()) { ?>
+		<a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getImageTitle();?>"> <?php printDefaultSizedImageAlt(getBareImageTitle()); ?></a>
+		<?php } else { ?>
+		<div class="audiovideo">
+		<?php printDefaultSizedImage(getBareImageTitle()); ?>
+		</div>
+		<?php } ?>
 	</div>
 
 
@@ -108,10 +119,13 @@
 		</div>
 
 	</div>
-	<div id="credit">Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a> | theme by <a href="http://www.cimi.nl/">cimi</a></div>
+	<div id="credit"><?php printZenphotoLink(); ?> | theme by <a href="http://www.cimi.nl/">cimi</a></div>
 </div>
 
-
+<?php 
+	printAdminToolbox();
+ 	zp_apply_filter('theme_body_close'); 
+ ?>
 
 </body>
 </html>

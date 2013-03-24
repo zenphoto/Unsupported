@@ -1,14 +1,17 @@
 <?php
-if (!defined('WEBPATH')) die();
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+
+?>
+<!DOCTYPE html>
+
+<html>
 <head>
 <?php zp_apply_filter('theme_head'); ?>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
 	<title><?php printGalleryTitle(); ?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
 	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/scripts/BubbleTooltips.js"></script>
 	<script type="text/javascript">
@@ -20,7 +23,6 @@ if (!defined('WEBPATH')) die();
 <body>
 <?php zp_apply_filter('theme_body_open'); ?>
 <div id="main">
-	<?php printAdminToolbox(); ?>
 
 	<div id="gallerytitle">
 		<h2 id="title"><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a></h2>
@@ -51,8 +53,11 @@ if (!defined('WEBPATH')) die();
 
 </div>
 
-<div id="credit">Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
+<div id="credit"><?php printZenphotoLink(); ?></div>
 <br />
-<?php zp_apply_filter('theme_body_close'); ?>
+<?php 
+	printAdminToolbox();
+ 	zp_apply_filter('theme_body_close'); 
+ ?>
 </body>
 </html>

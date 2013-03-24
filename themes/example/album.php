@@ -1,17 +1,18 @@
 <?php
+
+// force UTF-8 Ø
+
 if (!defined('WEBPATH')) die();
 $startTime = array_sum(explode(" ",microtime()));
 ?>
-<?php
-header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
-header('Content-Type: text/html; charset=' . getOption('charset'));
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+
+<html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
+	<?php zp_apply_filter('theme_head'); ?>
 	<?php printRSSHeaderLink('Album',getAlbumTitle()); ?>
 	
 	<script type="text/javascript">
@@ -22,6 +23,7 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 	
 </head>
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 	<div id="gallerytitle">
@@ -36,7 +38,7 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 		<br />
 
 
-	<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
+	<?php printPageListWithNav("« ".gettext('prev'), gettext('next')." »"); ?>
 
 	<!-- Sub-Albums -->
 		<div id="albums">
@@ -82,15 +84,13 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 		}
 		?>
 
-
-
 		<br clear="all" />
 		<?php if (function_exists('printSlideShowLink')) printSlideShowLink(gettext('View Slideshow')); ?>
 			<div class="rating"><?php if (function_exists('printRating')) printRating(); ?></div>
 		</div>
 
 
- 		<?php printPageNav("« ".gettext("prev"), "|", gettext("next")." »"); ?>
+ 		<?php printPageListWithNav("« ".gettext('prev'), gettext('next')." »"); ?>
 
 <!-- begin comment block -->
 			<?php if (function_exists('printCommentForm')  && getCurrentPage() == 1) {
@@ -109,11 +109,14 @@ header('Content-Type: text/html; charset=' . getOption('charset'));
 		}
 		?>
 		<br />
-			<?php printf(gettext("%u seconds"), round((array_sum(explode(" ",microtime())) - $startTime),4)); ?>
+			<?php printf(gettext("%s seconds"), round((array_sum(explode(" ",microtime())) - $startTime),4)); ?>
 		</div>
 </div>
 
-<?php printAdminToolbox(); ?>
+<?php
+printAdminToolbox();
+zp_apply_filter('theme_body_close');
+?>
 
 </body>
 </html>

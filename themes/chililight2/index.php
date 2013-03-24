@@ -1,17 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php
+
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+
+?>
+<!DOCTYPE html>
+
 <html>
 <head>
-
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?= $_zp_themeroot ?>/zen.css" type="text/css" />
-	<?php zenJavascript(); ?>
 
 </head>
 
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
-<?php printAdminToolbox(); ?>
+
 	<div id="gallerytitle">
 		<h2><?php echo getGalleryTitle(); ?></h2>
 	</div>
@@ -23,7 +32,7 @@
 			<?php printAlbumThumbImage(getAlbumTitle()); ?>
 			</a>
 			<div class="albumdesc">
-        <small><? printAlbumDate("Date Taken: "); ?></small>
+        <small><? printAlbumDate($before='Date Taken:', $nonemessage='no date', $format=null); ?></small>
 				<h3><a href="<?=getAlbumLinkURL();?>" title="View album: <?=getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 				<p><?php printAlbumDesc(); ?></p>
 			</div>
@@ -32,11 +41,16 @@
 		<?php endwhile; ?>
 	</div>
 	
-	<?php printPageListWithNav("&laquo; prev", "next &raquo;"); ?>
+	<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
 
 </div>
 
-<div id="credit">Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
+<?php printZenphotoLink(); ?>
 
+<?php 
+	printAdminToolbox();
+ 	zp_apply_filter('theme_body_close'); 
+ ?>
+ 
 </body>
 </html>
