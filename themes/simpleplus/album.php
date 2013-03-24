@@ -1,27 +1,30 @@
-<?php if (!defined('WEBPATH')) die(); $startTime = array_sum(explode(" ",microtime())); if (!defined('WEBPATH')) die(); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+?>
+
+<!DOCTYPE html>
 
 <html>
 
-	<head>
-		<title><?php echo getBareGalleryTitle(); ?> | Album: <?php echo getBareAlbumTitle(); ?></title>
-		
-		<link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/css/zen.css" type="text/css" />
-		<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/css/slimbox.css" type="text/css" media="screen" />
-		
-		<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/mootools.js"></script>
-		<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/slimbox.js"></script>
-		<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/reflection.js"></script>
-		
-	</head>
+<head>
+	<title><?php echo getBareGalleryTitle(); ?> | Album: <?php echo getBareAlbumTitle(); ?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
+	<link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/css/zen.css" type="text/css" />
+	<?php zp_apply_filter('theme_head'); ?>
+	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/css/slimbox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/mootools.js"></script>
+	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/slimbox.js"></script>
+	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/reflection.js"></script>	
+</head>
 
-	<body>
-    
-    	<?php printAdminToolbox(); ?>
-	
-		<div id="header">
-			<a href="<?php echo getGalleryIndexURL(); ?>" title="<?php echo getBareGalleryTitle(); ?>"><?php printGalleryTitle(); ?></a>
-		</div>
+<body>
+<?php zp_apply_filter('theme_body_open'); ?>
+
+	<div id="header">
+		<a href="<?php echo getGalleryIndexURL(); ?>" title="<?php echo getBareGalleryTitle(); ?>"><?php printGalleryTitle(); ?></a>
+	</div>
 		
 		<div id="wrap">
 			
@@ -76,14 +79,19 @@
 				</div>
 				
 				<div id="add">
-					<?php printPageListWithNav("« prev", "next »"); // uncomment this line to support pagination ?>
-					<a href="http://zenphoto.org/" title="powered by zenphoto">zenphoto</a> &amp; <a href="http://nilswindisch.de/code/zenphoto/theme-simple-plus/" target="_blank" title="theme: simple+ by Nils K. Windisch. visit http://nilswindisch.de/">simple+</a>
+					<?php //printPageListWithNav("« prev", "next »"); // uncomment this line to support pagination ?>
+					<?php printZenphotoLink(); ?> &amp; <a href="http://nilswindisch.de/code/zenphoto/theme-simple-plus/" target="_blank" title="theme: simple+ by Nils K. Windisch. visit http://nilswindisch.de/">simple+</a>
 				</div>				
 				
 			</div>
 			
 		</div>
-	
-	</body>
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
+
+</body>
 
 </html>

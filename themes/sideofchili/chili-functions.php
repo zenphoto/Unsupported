@@ -1,20 +1,4 @@
- 
-<?php
-// Grab exif library
-
-
-//Prints Javascript header for comment slider
-function printChiliJavascript() {
-	echo "  <script type=\"text/javascript\" src=\"".WEBPATH."/zen/scriptaculous/prototype.js\"></script>\n";
-	echo "  <script type=\"text/javascript\" src=\"".WEBPATH."/themes/Side_Of_Chili/js/global.js\"></script>\n";
-	echo "  <script type=\"text/javascript\" src=\"".WEBPATH."/themes/Side_Of_Chili/js/jquery.js\"></script>\n";
-	echo "  <script type=\"text/javascript\" src=\"".WEBPATH."/themes/Side_Of_Chili/js/thickbox.js\"></script>\n";
-	echo "  <script type=\"text/javascript\" src=\"".WEBPATH."/zen/scriptaculous/scriptaculous.js\"></script>\n";
-	echo "  <script type=\"text/javascript\" src=\"".WEBPATH."/zen/scriptaculous/effects.js\"></script>\n";
-  } 
-
-//prints preload script
-
+ <?php
 
 //Prints total number of Images in Zenphoto
 function printTotalImages() {
@@ -53,7 +37,7 @@ function zp_footer() { ?>
 	} else {
 		printLink(WEBPATH . '/' . ZENFOLDER .'/admin.php', 'Admin');
 	}
-?>Powered by: <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto <?php printVersion();?></a> |  Using "Side Of Chili Theme" by: <a href="http://www.chilifrei.net" title="How Do You Like Your Chili?">ChiliFrei64</a></div>
+?><?php printZenphotoLink(); ?> <?php printVersion();?></a> |  Using "Side Of Chili Theme" by: <a href="http://www.chilifrei.net" title="How Do You Like Your Chili?">ChiliFrei64</a></div>
 <?php }
 
 //Prints pagenav if more than 1 page exists

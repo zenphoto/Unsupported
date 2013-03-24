@@ -1,9 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php if (!defined('WEBPATH')) die(); ?>
+<!DOCTYPE html>
 <html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?> | <?php echo getImageTitle();?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/zen.css" type="text/css" />
+	<?php zp_apply_filter('theme_head'); ?>
 	<script type="text/javascript">
 	  function toggleComments() {
       var commentDiv = document.getElementById("comments");
@@ -17,14 +19,19 @@
 	
 	<script type="text/javascript">
 	$(document).ready(function() {
-    jQuery('a.gallery').colorbox({photo:true});
+    jQuery('a.gallery').colorbox({
+   		maxWidth:"98%",
+		maxHeight:"98%",
+		photo:true,
+		close: '<?php echo gettext("close"); ?>'
+    	});
     });
 	</script>
 </head>
 
 <body>
 <?php zp_apply_filter('theme_body_open'); ?>
-<?php printAdminToolbox(); ?>
+
 <div>
 	<div class="spiffy_content">
 
@@ -68,7 +75,11 @@
 		<AREA SHAPE="rect" COORDS="299,0 595,595" href="<?php echo getNextImageURL();?>">
 		<?php } ?>
 		</MAP>
-		<IMG src="<?php echo getDefaultSizedImage();?>" USEMAP="#imagenav">
+		<?php if (!isImageVideo()) { ?>
+		<IMG src="<?php echo getDefaultSizedImage();?>" USEMAP="#imagenav" />
+		<?php } else { 
+			printDefaultSizedImage("");
+		 } ?>
 	</div>
 
 
@@ -99,6 +110,11 @@
 </div>
 
 </div>
-<?php zp_apply_filter('theme_body_close'); ?>
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
+
 </body>
 </html>

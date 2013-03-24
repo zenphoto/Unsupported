@@ -18,7 +18,7 @@ if (!defined('WEBPATH')) die();
 		<script type="text/javascript">
 			// <!-- <![CDATA[
 			$(document).ready(function(){
-				$(".imagethumb a").colorbox({
+				$("div.imagethumb a").colorbox({
 					maxWidth:"98%",
 					maxHeight:"98%",
 					photo:true,

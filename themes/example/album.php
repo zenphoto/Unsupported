@@ -27,7 +27,7 @@ $startTime = array_sum(explode(" ",microtime()));
 
 <div id="main">
 	<div id="gallerytitle">
-			<h2><span><?php printHomeLink('', ' | '); ?><a href="<?php echo htmlspecialchars(getGalleryIndexURL());?>" title="<?php echo ('Albums Index'); ?>"><?php echo getGalleryTitle();?></a> | <?php printParentBreadcrumb(); ?></span> <?php printAlbumTitle(true);?></h2>
+			<h2><span><?php printHomeLink('', ' | '); ?><a href="<?php echo htmlspecialchars(getGalleryIndexURL());?>" title="<?php echo ('Albums Index'); ?>"><?php echo getGalleryTitle();?></a> | <?php printParentBreadcrumb(); ?></span> <?php printAlbumTitle();?></h2>
 		</div>
 
 		( <?php printLink(getPrevAlbumURL(), "« ".gettext("Prev Album")); ?> | <?php printLink(getNextAlbumURL(), gettext("Next album")." »"); ?> )

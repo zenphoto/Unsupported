@@ -1,12 +1,15 @@
 <?php 
 $startTime = array_sum(explode(" ",microtime())); 
 if (!defined('WEBPATH')) die(); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!DOCTYPE html>
+
 <html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
   <title><?php printGalleryTitle(); ?></title>
+  <meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
   <link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/css/gallery.css" type="text/css" />
+  <?php zp_apply_filter('theme_head'); ?>
   <?php printRSSHeaderLink('Album',getAlbumTitle()); ?>
 </head>
 <body>
@@ -22,7 +25,7 @@ if (!defined('WEBPATH')) die(); ?>
 
 	<div id="gallerytitle">
 		<h2>
-			<a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle(); ?></a> | <?php echo getAlbumTitle(); ?>
+			<a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle(); ?></a><?php printParentBreadcrumb(" | ","",""); ?> | <?php echo getAlbumTitle(); ?>
 		</h2>
 	</div>
 
@@ -107,18 +110,19 @@ if (!defined('WEBPATH')) die(); ?>
 
 	<div id="foot">
 		<div id="logo">
-			<a href="http://www.zenphoto.org"
-				title="A simpler web photo album">Powered by Zenphoto</a>
+			<?php printZenphotoLink(); ?>
 		</div>
 
 		<div id="info">
 			<?php	echo "\t\t" . round((array_sum(explode(" ",microtime())) - $startTime),4).' seconds'; ?> |
 			<a href="http://joshuaink.com/blog/206/css-photo-gallery-template"><?php echo ji_ver(); ?></a> |
-			ZenPhoto <?php echo getOption('version') . "\n"; ?>
+			ZenPhoto <?php echo ZENPHOTO_VERSION. "\n"; ?>
 		</div>
 	</div>
-
 </div>
-<?php zp_apply_filter('theme_body_close'); ?>
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
 </body>
 </html>

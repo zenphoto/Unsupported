@@ -1,28 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+?>
+<!DOCTYPE html>
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?> | <?php echo getImageTitle();?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
-	<?php
-	require ('chili-functions.php');
-	
-	printChiliJavascript();
-
-//Variables
-//$size = 480;
-	?>
+	<?php zp_apply_filter('theme_head'); ?>
+	<?php require ('chili-functions.php'); ?>
+	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/prototype.js"></script>
+	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/global.js"></script>
+	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/thickbox.js"></script>
+	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/scriptaculous.js"></script>
+	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/effects.js"></script>
 </head>
 
 <body>
-
-<?php printAdminToolbox(); ?>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 	<div id="gallerytitle">
-		<h2><span><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a>
-		  | <a href="<?php echo getAlbumLinkURL();?>" title="Gallery Index"><?php echo getAlbumTitle();?></a>
-		  | </span> <?php printImageTitle(true); ?></h2>
+		  <h2><span><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <?php printParentBreadcrumb(); ?><?php printAlbumBreadcrumb();?> | <?php printImageTitle(); ?></span></h2>
 	</div>
 
 
@@ -45,6 +47,12 @@
 
 <?php zp_footer();?>
 </div>
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
+
 </body>
 </html>
 <!-- Prints JavaScript After Page Loads -->

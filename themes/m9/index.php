@@ -1,13 +1,18 @@
 <?php if (!defined('WEBPATH')) die(); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<!DOCTYPE html>
+
+<html>
 	<head>
-<?php include_once('header.php'); ?>
+		<title><?php echo strip_tags(getMainSiteName().' / '.getGalleryTitle()); ?></title>
+		<?php include_once('header.php'); ?>
 		<meta name="keywords" content="<?php echo html_encode(getMainSiteName().', '.getGalleryTitle()); ?>" />
 		<meta name="description" content="<?php echo html_encode(getMainSiteName().' / '.getGalleryTitle().' / '.getGalleryDesc()); ?>" />
-		<title><?php echo strip_tags(getMainSiteName().' / '.getGalleryTitle()); ?></title>
 	</head>
+	
 	<body id="gallery-index" class="<?php echo 'page-'.getCurrentPage(); ?>">
+	<?php zp_apply_filter('theme_body_open'); ?>
+	
 		<div id="wrapper">
 			<div id="header">
 				<ul class="path c">
@@ -32,6 +37,12 @@
 <?php include_once('footer.php'); ?>
 		</div>
 <?php include_once('analytics.php'); ?>
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
+
 	</body>
 </html>
 

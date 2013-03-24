@@ -1,18 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+?>
+
+<!DOCTYPE html>
+
 <html>
 <head>
   <title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?> | <?php echo getImageTitle();?></title>
+  <meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
   <link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/killer_bee.css" type="text/css" />
   <?php zp_apply_filter('theme_head'); ?>
   <script language="Javascript" type="text/javascript" src="<?php echo $_zp_themeroot ?>/killer_bee.js"></script>
 </head>
 
 <body onload="IB_preload('<?php echo $_zp_themeroot ?>/images/logo-on.gif')">
+<?php zp_apply_filter('theme_body_open'); ?>
+
 <div id="main">
-  <?php printAdminToolbox(); ?>
+  
   <div id="title">
     <h1>
-	  <a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <a href="<?php echo getAlbumLinkURL();?>" title="Gallery Index"><?php echo getAlbumTitle();?></a> | <?php printImageTitle(true); ?>
+	  <a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <a href="<?php echo getAlbumLinkURL();?>" title="Gallery Index"></a><?php printParentBreadcrumb("",""," | "); ?><?php printAlbumBreadcrumb();?> | <?php printImageTitle(true); ?>
 	</h1>
     <a href="<?php echo getGalleryIndexURL();?>" onmouseout="IB_restore()" onmouseover="IB_swap('logo','','<?php echo $_zp_themeroot ?>/images/logo-on.gif',1)"  title="Home">
 	  <img src="<?php echo $_zp_themeroot ?>/images/logo-off.gif" alt="Home" id="logo" width="25" height="25" border="0" />
@@ -73,5 +83,11 @@
   and
   <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
 </div><!--.footnote-->
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
+
 </body>
 </html>

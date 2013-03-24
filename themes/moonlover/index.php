@@ -1,15 +1,18 @@
 <?php if (!defined('WEBPATH')) die(); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!DOCTYPE html>
+
 <html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?></title>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
+	<?php zp_apply_filter('theme_head'); ?>
 </head>
 
 <body>
 <?php zp_apply_filter('theme_body_open'); ?>
-<?php printAdminToolbox(); ?>
+
 <div id="main">
 
 	<div id="gallerytitle">
@@ -36,7 +39,12 @@
 
 </div>
 
-<div id="credit">Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a> | <a href="http://www.tanarat.com/blogs" title="Theme: Moon Lover">Moon Lover</a></div>
-<?php zp_apply_filter('theme_body_close'); ?>
+<div id="credit"><?php printZenphotoLink(); ?> | <a href="http://www.tanarat.com/blogs" title="Theme: Moon Lover">Moon Lover</a></div>
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
+
 </body>
 </html>

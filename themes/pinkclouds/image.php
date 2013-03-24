@@ -8,14 +8,14 @@
 $pc_AjaxFx = true;
 ################################################################################
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?></title>
 	<link rel="stylesheet" href="<?php echo  $_zp_themeroot; ?>/zen.css" type="text/css" />
-	<script src="<?php echo WEBPATH . '/zen'; ?>/scriptaculous/prototype.js" type="text/javascript"></script>
-	<script src="<?php echo WEBPATH . '/zen'; ?>/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+	<?php zp_apply_filter('theme_head'); ?>
+	<script src="<?php echo $_zp_themeroot; ?>/js/lib/prototype.js" type="text/javascript"></script>
+	<script src="<?php echo $_zp_themeroot; ?>/js/src/scriptaculous.js" type="text/javascript"></script>
 	
 <?php if ($pc_AjaxFx) { ?>
 	<script type="text/javascript">
@@ -43,7 +43,7 @@ $pc_AjaxFx = true;
 </head>
 <body scroll="no"> <!-- scroll="no" to get rid of IE6 scrollbar -->
 <?php zp_apply_filter('theme_body_open'); ?>
-<?php printAdminToolbox(); ?>
+
 <div id="main">
 
 	<div id="header">
@@ -100,8 +100,7 @@ $pc_AjaxFx = true;
 
 	<div id="footer">
 		<div id="logo">
-			<a href="http://www.zenphoto.org"
-				title="A simpler web photo album">Powered by Zenphoto</a>
+			<?php printZenphotoLink(); ?>
 		</div>
 		<div id="options">
 <?php
@@ -123,6 +122,11 @@ $pc_AjaxFx = true;
 	</div>
 
 </div>
-<?php zp_apply_filter('theme_body_close'); ?>
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
+
 </body>
 </html>

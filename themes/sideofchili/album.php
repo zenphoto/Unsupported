@@ -1,22 +1,26 @@
 <?php
+// force UTF-8 Ø
+
 if (!defined('WEBPATH')) die();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
+	<?php zp_apply_filter('theme_head'); ?>
 	<?php include ('chili-functions.php'); ?>
 </head>
 
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
+
 <div id="main">
 
-<?php printAdminToolbox(); ?>
-
 	<div id="gallerytitle">
-		<h2><span><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | </span> <?php printAlbumTitle(true);?></h2>
+		<h2><span><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <?php printParentBreadcrumb(); ?><?php printAlbumTitle(); ?></span></h2>
 	</div>
 
 	<?php zp_side_bar();?>
@@ -29,6 +33,7 @@ if (!defined('WEBPATH')) die();
 				<div class="imagethumb">
 					<a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumThumbImage(getAlbumTitle()); ?></a>
 				</div>
+				
 				<div class="albumdesc">
 					<h3><a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 					<span><? echo getNumImages();?> Pictures</span>
@@ -37,7 +42,7 @@ if (!defined('WEBPATH')) die();
 			</div>
 		<?php endwhile; ?>
 		</div>
-
+		<p style="clear:both;"></p>
 		<?php while (next_image()): ?>
 		<div class="image_list">
 				<div class="imagethumb">
@@ -51,5 +56,11 @@ if (!defined('WEBPATH')) die();
 
 <?php zp_footer();?>
 </div>
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
+
 </body>
 </html>

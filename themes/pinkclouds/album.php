@@ -15,19 +15,19 @@ $pc_AlbumsPerRow = 4;
 $pc_AjaxFx = true;
 ################################################################################
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?></title>
 	<link rel="stylesheet" href="<?php echo  $_zp_themeroot; ?>/zen.css" type="text/css" />
-	<script src="<?php echo WEBPATH . '/zp-core/js'; ?>/prototype.js" type="text/javascript"></script>
-	<script src="<?php echo WEBPATH . '/zp-core/js'; ?>/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+	<?php zp_apply_filter('theme_head'); ?>
+	<script src="<?php echo $_zp_themeroot; ?>/js/lib/prototype.js" type="text/javascript"></script>
+	<script src="<?php echo $_zp_themeroot; ?>/js/src/scriptaculous.js" type="text/javascript"></script>
 	
 </head>
 <body scroll="no"> <!-- scroll="no" to get rid of IE6 scrollbar -->
 <?php zp_apply_filter('theme_body_open'); ?>
-<?php printAdminToolbox(); ?>
+
 <div id="main">
 
 	<div id="header">
@@ -82,7 +82,7 @@ $pc_AjaxFx = true;
 			echo getImageTitle() . ' - ' . getImageDesc();
 		}
 					?>"><img
-					src="<?php echo getCustomImageURL(0, 100, 100); ?>"
+					src="<?php echo getCustomImageURL(100, 100, 100, 100); ?>"
 					alt="<?php echo 'Image ' . ($count + (($currentPage - 1) * $imagesPerPage)) . ' of ' . getNumImages(); ?>"
 					width="100" height="100"<?php
 		if ($pc_AjaxFx) { echo '
@@ -97,8 +97,7 @@ $pc_AjaxFx = true;
 
 		if (!($count % $pc_ImagesPerRow) && $pc_RowBreak) {
 			echo '<br style="clear:both" />';
-		}
-
+		} 
 		$count++;
 
 	endwhile;
@@ -149,8 +148,7 @@ $pc_AjaxFx = true;
 
 	<div id="footer">
 		<div id="logo">
-			<a href="http://www.zenphoto.org"
-				title="A simpler web photo album">Powered by Zenphoto</a>
+			<?php printZenphotoLink(); ?>
 		</div>
 		<div id="options">
 <?php
@@ -172,6 +170,11 @@ $pc_AjaxFx = true;
 	</div>
 
 </div>
-<?php zp_apply_filter('theme_body_close'); ?>
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
+
 </body>
 </html>

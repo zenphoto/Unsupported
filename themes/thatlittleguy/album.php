@@ -1,20 +1,26 @@
-<?php if (!defined('WEBPATH')) die(); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die();
+?>
+
+<!DOCTYPE html>
+
 <html>
 <head>
-	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?></title>
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
+	<?php zp_apply_filter('theme_head'); ?>
 </head>
 
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 
-	<?php printAdminToolbox(); ?>
-
 	<div id="gallerytitle">
-		<h2><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <?php printAlbumTitle(true);?></h2>
+		<h2><span><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <?php printParentBreadcrumb(); ?><?php printAlbumTitle(); ?></span></h2>
 	</div>
 
 	<div id="album_desc_interior">
@@ -62,12 +68,17 @@
 </div>
 
 <div id="credit"><?php
-	if (zp_loggedin()) {
+	if (!zp_loggedin()) {
 	printUserLogin_out($before='', $after='|', $showLoginForm=NULL, $logouttext=NULL, $show_user=NULL);
 	} else {
 		printLink(WEBPATH . '/' . ZENFOLDER .'/admin.php', 'Admin');
 	}
-?>Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
+?><?php printZenphotoLink(); ?></div>
+
+<?php
+	printAdminToolbox();
+	zp_apply_filter('theme_body_close');
+?>
 
 </body>
 </html>
