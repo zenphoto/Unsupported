@@ -15,7 +15,7 @@
  * @subpackage media
  */
 
-
+$plugin_is_filter = 5 | CLASS_PLUGIN;
 $plugin_description = gettext("Enable <strong>flowplayer 3</strong> to handle multimedia files.");
 $plugin_notice = gettext("<strong>IMPORTANT</strong>: Only one multimedia player plugin can be enabled at the time and the class-video plugin must be enabled, too.").gettext('The former separate flowplayer3_playlist plugin is now incorporated. You can use it to show the content of an multimedia album only as a playlist or as separate players on one page with Flowplayer 3').'<br /><br />'.gettext("Please see <a href='http://flowplayer.org'>flowplayer.org</a> for more info about the player and its license.");
 $plugin_author = "Malte Müller (acrylian), Stephen Billard (sbillard)";
@@ -29,13 +29,18 @@ if (isset($_zp_flash_player) || $plugin_disable) {
 		trigger_error(sprintf(gettext('Flowplayer3 not enabled, %s is already instantiated.'),get_class($_zp_flash_player)),E_USER_NOTICE);
 	}
 } else {
+	addPluginType('flv', 'Video');
+	addPluginType('fla', 'Video');
+	addPluginType('mp3', 'Video');
+	addPluginType('mp4', 'Video');
+	addPluginType('m4v', 'Video');
+	addPluginType('m4a', 'Video');
 	$_zp_flash_player = new Flowplayer3(); // claim to be the flash player.
 	zp_register_filter('theme_head','flowplayerJS');
 	if(getOption('flow_player3_loadplaylist')) {
 		zp_register_filter('theme_head','flowplayer_playlistJS');
 	}
 }
-
 
 function flowplayerJS() {
 	$curdir = getcwd();
