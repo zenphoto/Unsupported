@@ -13,6 +13,9 @@ if (!defined('WEBPATH')) die();
 	<title><?php printGalleryTitle(); ?> | <?=getAlbumTitle();?></title>
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?= $_zp_themeroot ?>/zen.css" type="text/css" />
+	<link href="<?php echo $_zp_themeroot; ?>/lightbox/css/lightbox.css" rel="stylesheet" />
+	<script src="<?php echo $_zp_themeroot; ?>/lightbox/js/lightbox-2.6.min.js"></script>
+	<script src="<?php echo $_zp_themeroot; ?>/lightbox/js/modernizr.custom.js"></script>
 
 	<?php if(zp_has_filter('theme_head','colorbox::css')) { ?>
 		<script type="text/javascript">
@@ -60,7 +63,7 @@ if (!defined('WEBPATH')) die();
     <div id="images">
 		<?php while (next_image(false)): ?>
 		<div class="image">
-			<div class="imagethumb"><a href="<?=getFullImageURL();?>" rel="lightbox[<?=getAlbumTitle();?>]" title="<?=getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a></div>
+			<div class="imagethumb"><a href="<?=getFullImageURL();?>" data-lightbox="<?php printAlbumTitle(); ?>" title="<?=getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a></div>
 		</div>
 		<?php endwhile; ?>
 	</div>
