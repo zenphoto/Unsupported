@@ -179,11 +179,13 @@ UL.pagelist LI.current A {
 	cursor: default;
 }
 
-#comments {
+/*** Comment form ***/
+
+#commentform {
 	border: 1px solid #f0f0f0;
-	padding: 15px 20px;
-	margin: 15px 0px;
-	width: 360px;
+	padding: 15px;
+	margin: 15px auto;
+	width: 500px;
 	display: block;
 	clear: both;
 	padding-top: 10px;
@@ -215,17 +217,55 @@ UL.pagelist LI.current A {
 	line-height: 1.3em;
 }
 
-.commentform INPUT {
-	margin-top: 4px;
-	border: none;
+#commentform label {
+	display: inline-block;
+	width: 150px;
 }
 
-.commentform TEXTAREA {
-	margin-top: 4px;
+#commentform input {
+	width: 240px;
+}
+
+#commentform textarea {
+	width: 400px;
 	font-family: Arial, helvetica, verdana, sans-serif;
 	font-size: 10pt;
-	border: 1px solid #eee;
 }
+/*********************************************/
+
+
+/**** Contact form ***/
+
+#mailform label {
+	display: inline-block;
+	width: 15%;
+	vertical-align: top;
+}
+
+#mailform p.mailmessage {
+	margin: 25px 0 10px 0;
+}
+
+#mailform textarea {
+	display: inline-block;
+	width: 400px;
+	height: 100px;
+}
+
+#mailform input.button[type="submit"] {
+	margin: 0 245px 0 100px;
+}
+/*************************************/
+
+
+/*** Registration form ***/
+
+#registration_form label {
+	display: inline-block;
+	width: 25%;
+}
+/**********************************/
+
 
 .error {
 	color: #C33;

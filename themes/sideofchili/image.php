@@ -12,11 +12,19 @@ if (!defined('WEBPATH')) die();
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
 	<?php zp_apply_filter('theme_head'); ?>
 	<?php require ('chili-functions.php'); ?>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/prototype.js"></script>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/global.js"></script>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/thickbox.js"></script>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/scriptaculous.js"></script>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/effects.js"></script>
+	<script type="text/javascript">
+			// <!-- <![CDATA[
+			$(document).ready(function(){
+				$("a.thickbox").colorbox({
+					maxWidth:"98%",
+					maxHeight:"98%",
+					photo:true,
+					slideshow: true,
+					close: '<?php echo gettext("close"); ?>'
+				});
+			});
+			// ]]> -->
+		</script>
 </head>
 
 <body>
@@ -34,7 +42,7 @@ if (!defined('WEBPATH')) die();
 	<div id="image_left">
 
 		<div class="image_container">
-			<a href="<?php echo getFullImageURL();?>" title="<?php echo getImageTitle();?>"> <?php printCustomSizedImage("", 480, ""); ?></a>
+			<a class="thickbox" href="<?php echo getFullImageURL();?>" title="<?php echo getImageTitle();?>"> <?php printCustomSizedImage("", 480, ""); ?></a>
 		</div>
 		<div id="narrow">
 		<?php
@@ -49,8 +57,7 @@ if (!defined('WEBPATH')) die();
 </div>
 
 <?php
-	printAdminToolbox();
-	zp_apply_filter('theme_body_close');
+zp_apply_filter('theme_body_close');
 ?>
 
 </body>

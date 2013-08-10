@@ -87,7 +87,7 @@ $pc_AjaxFx = true;
 
 	<div id="text">
 	   <?php printImageDesc(true); ?>
-		<div id="comments">
+		<div id="commentbox">
 		<?php
 		if (function_exists('printCommentForm')) {
 			printCommentForm();
@@ -124,8 +124,7 @@ $pc_AjaxFx = true;
 </div>
 
 <?php
-	printAdminToolbox();
-	zp_apply_filter('theme_body_close');
+zp_apply_filter('theme_body_close');
 ?>
 
 </body>

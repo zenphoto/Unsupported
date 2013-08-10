@@ -101,12 +101,16 @@ form#commentform input { width: auto; float: left; border: 1px #292927 solid; pa
 form#commentform p{ padding: 0.2em 0; margin: 0; width: 100%; float: left; display: block; }
 form#commentform{ width: 100%; }
 form#commentform .checkbox { cursor: pointer; }
-form#commentform .pushbutton { padding: 2px 4px; width: auto; float: right; background: #3B3A38; cursor: pointer; }
-form#commentform .pushbuttonl { padding: 2px 4px; width: auto; float: right; background: #6F6860; cursor: pointer; }
-form#commentform input { width: 70%; float: right; border: 1px #292927 solid; background: #3B3A38; }
+form#commentform .button { padding: 2px 4px; width: auto; float: right; background: #3B3A38; cursor: pointer; }
+form#commentform .buttonl { padding: 2px 4px; width: auto; float: right; background: #6F6860; cursor: pointer; }
+form#commentform input { width: 74%; border: 1px #292927 solid; background: #3B3A38; }
 form#commentform label{ width: 25%; float: left; cursor: pointer; }
-form#commentform label:hover { color: #292927; }
-form#commentform textarea { width:99%; float: right; border: 1px #292927 solid; padding: 0.2em 0 0.2em 0.2em; background: #3B3A38; color: #B0B0A1; font-family: "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+form#commentform label:hover { color: #808078; }
+form#commentform input#anon { margin-left: -320px; }
+form#commentform label[for="private"] { width: 36%; }
+form#commentform input#private { margin-left: -275px; }
+form#commentform textarea { width:99%; float: left; border: 1px #292927 solid; padding: 0.2em 0 0.2em 0.2em; background: #3B3A38; color: #B0B0A1; font-family: "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+form#commentform a[rel="nofollow"] { display: block; }
 form, #imagetitleeditable{ font-size: 100%; }
 
 #breadcrumb form{ float: left; display: block; width: 100%; clear: both; margin: 0; padding: 0;}

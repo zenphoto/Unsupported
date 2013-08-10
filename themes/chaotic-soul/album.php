@@ -59,11 +59,10 @@ if (!defined('WEBPATH')) die();
 
 
 </div>
+<hr class="hr-bottom" />
 </div>
 
-<hr />
 </div>
-<?php printAdminToolbox(); ?>
 <?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

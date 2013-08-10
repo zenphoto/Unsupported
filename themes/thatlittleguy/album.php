@@ -76,8 +76,7 @@ if (!defined('WEBPATH')) die();
 ?><?php printZenphotoLink(); ?></div>
 
 <?php
-	printAdminToolbox();
-	zp_apply_filter('theme_body_close');
+zp_apply_filter('theme_body_close');
 ?>
 
 </body>

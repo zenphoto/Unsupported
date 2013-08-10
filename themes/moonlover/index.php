@@ -42,8 +42,7 @@
 <div id="credit"><?php printZenphotoLink(); ?> | <a href="http://www.tanarat.com/blogs" title="Theme: Moon Lover">Moon Lover</a></div>
 
 <?php
-	printAdminToolbox();
-	zp_apply_filter('theme_body_close');
+zp_apply_filter('theme_body_close');
 ?>
 
 </body>

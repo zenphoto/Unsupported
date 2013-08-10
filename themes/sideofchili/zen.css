@@ -45,6 +45,7 @@ body {
 #image_left {
 	float:left;
 	width:545px;
+	margin-bottom: 50px;
 	border-right: 1px solid #D0DBDF;
 }
 /*----------Text Styles----------*/
@@ -150,23 +151,28 @@ h4 {
   font-weight: bold; 
 }
 .comment {
+	display: block;
 	padding: 10px;
 	border: 1px solid #EAEAEA;
 	margin-bottom: 12px;
 	background-color: #D0DBDF;
 	-moz-border-radius: 10px;
 }
-.commentmeta {
-	margin-bottom: 12px;
+
+#commentform input {
+	float: right;
+	margin-right: 10px;
 }
-.commentauthor {
-	font-weight: bold;
+
+input#anon, input#private {
+	float: none;
 }
-.commentdate {
-	margin-top: 12px;
-	color: #003366;
-	font-size: 85%;
+
+#commentform textarea {
+	margin-top: -30px;
 }
+
+
 /*----------Form Styles----------*/
 .inputbox {
 	width: 250px;

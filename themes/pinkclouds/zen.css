@@ -134,51 +134,18 @@ a img {
 
 /* IMAGE PAGE CSS */
 /* ********************************************************************** */
-#text #comments {
-	margin: 15px 0;
-	padding: 15px 15px 0 15px;
+#commentbox {
+	margin: 0;
+	padding: 0px 15px 0 15px;
 	border: 1px solid #676B6A;
 }
 
-#commentControl {
-	margin: 0 0 15px 0;
+#comments {
+	margin: 0;
+	padding: 0px 15px 15px 15px;
+	border: 1px solid #676B6A;
 }
 
-#commentControl p {
-	display:inline;
-	font: normal normal .7em arial, helvetica, sans-serif;
-}
-
-#commentForm {
-	font: italic bold .8em "Times New Roman", Times, serif;
-	width: 100%;
-	margin: 0 0 15px 0;
-}
-
-#commentForm table {
-	width: 100%;
-}
-
-#commentForm table td. {
-	width: 100%;
-}
-
-#commentForm table input, textarea {
-	border: 0;
-	width: 100%;
-}
-
-#commentList {
-	margin-bottom: 15px;
-	height: 150px;
-	overflow: auto;
-}
-
-#commentList .commentbody {
-	margin-bottom: 5px;
-	background-color: #676B6A;
-	color: #D7BBC9;
-}
 /* Admin Toolbox
 ------------------------------ */
 #admin, #admin_data{

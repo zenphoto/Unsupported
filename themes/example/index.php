@@ -62,7 +62,6 @@ if (!defined('WEBPATH')) die();
 </div>
 
 <?php
-printAdminToolbox();
 zp_apply_filter('theme_body_close');
 ?>
 </body>

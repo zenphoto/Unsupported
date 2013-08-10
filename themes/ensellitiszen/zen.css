@@ -243,6 +243,7 @@ ul.pagelist li.next {
 #image {
 	text-align: center;
 	line-height: 0;
+	margin-bottom: 50px;
 }
 .imgnav {
 	float: right;
@@ -290,6 +291,20 @@ ul.pagelist li.next {
 	background: #FBFCFD;
 	margin-bottom: 12px;
 }
+
+#comments label {
+	display: inline-block;
+	width: 25%;
+}
+
+#comments label[for="private"] {
+	width: 33%;
+}
+
+#comments input#anon {
+	margin-left: -70px;
+}
+
 .commentmeta {
 	margin-bottom: 12px;
 }
@@ -311,14 +326,15 @@ ul.pagelist li.next {
 }
 
 .inputbox {
-	width: 250px;
+	width: 300px;
 	padding: 2px;
 	background: url('images/formbg.gif') no-repeat;
 	border: 1px solid #b9b9b9;
 }
 textarea {
 	padding: 4px;
-	width: 100%;
+	width: 80%;
+	margin-top: -30px;
 	color: #5A5A4B;
 	font: 100%/200% "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background: url('images/formbg.gif') no-repeat;
@@ -327,7 +343,7 @@ textarea {
 .checkbox {
 	cursor: pointer;
 }
-.pushbutton {
+input.button {
 	cursor: pointer;
 	border: 0px;
 	background: url('images/commentbutton.gif') no-repeat;

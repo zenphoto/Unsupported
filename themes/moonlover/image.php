@@ -4,10 +4,10 @@
 
 <html>
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?> | <?php echo getImageTitle();?></title>
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/zen.css" type="text/css" />
-	<?php zp_apply_filter('theme_head'); ?>
 	<script type="text/javascript">
 	  function toggleComments() {
       var commentDiv = document.getElementById("comments");
@@ -67,8 +67,7 @@
 <div id="credit"><?php printZenphotoLink(); ?> | <a href="http://www.tanarat.com/blogs" title="Theme: Moon Lover">Moon Lover</a></div>
 
 <?php
-	printAdminToolbox();
-	zp_apply_filter('theme_body_close');
+zp_apply_filter('theme_body_close');
 ?>
 
 </body>

@@ -13,10 +13,9 @@ if (!defined('WEBPATH')) die();
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/css/zen.css" type="text/css" />
 	<?php zp_apply_filter('theme_head'); ?>
-	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/css/slimbox.css" type="text/css" media="screen" />
-	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/mootools.js"></script>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/slimbox.js"></script>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/reflection.js"></script>	
+	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/slimbox/css/slimbox2.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/slimbox/js/slimbox2.js"></script>
+	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/reflection-jquery/js/reflection.js"></script>	
 </head>
 
 <body>
@@ -41,8 +40,8 @@ if (!defined('WEBPATH')) die();
 				while (next_album()): ?>
 				<div class="album">
 					
-					<div class="albumthumb"><a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getBareAlbumTitle();?>">
-						<?php printAlbumThumbImage(getAlbumTitle(), "reflect rheight30 ropacity40"); ?></a>
+					<div class="albumthumb"><a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getBareAlbumTitle();?>" rel="lightbox-album">
+						<?php printAlbumThumbImage(getAlbumTitle(), "reflect"); ?></a>
 					</div>
 					
 					<div class="albumtitle"><h1><a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getBareAlbumTitle();?>">
@@ -88,8 +87,7 @@ if (!defined('WEBPATH')) die();
 		</div>
 
 <?php
-	printAdminToolbox();
-	zp_apply_filter('theme_body_close');
+zp_apply_filter('theme_body_close');
 ?>
 
 </body>

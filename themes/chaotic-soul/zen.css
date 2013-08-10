@@ -19,9 +19,8 @@ body {
 	background-color: #161410;
 	margin: 0px;
 	padding: 0px 0px 50px;
-	text-align: center;
 }
-
+		
 #credit {
 	margin: 0 auto;
 	width: 640px;
@@ -64,7 +63,6 @@ h2 a:link, h2 a:visited, h2 span {
 }
 h3 {
 	font: 120% "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #002E5B;
 	margin-top: 30px;
 }
 
@@ -105,9 +103,10 @@ blockquote {
 ------------------------------ */
 ul.pagelist {
 	clear: both;
-	padding: 0;
-	margin: 20px 0 0 0;
+	padding: 0 0 10px 0;
+	margin: 20px 0 0 15px;
 	list-style-type: none;
+	font-size: 130%;
 }
 ul.pagelist li {
 	display: inline;
@@ -218,10 +217,9 @@ ul.pagelist li.next {
 	border: 0;
 }
 #image {
-	text-align: left;
 	line-height: 0;
 	padding: 5px;
-	margin: 5px;
+	margin: 5px auto;
 	background: #22201d;
 	width: 600px;
 	
@@ -237,6 +235,7 @@ ul.pagelist li.next {
 	margin-bottom: 10px;
 	margin-left: 297px;
 	_margin-top: 8px; /* IE Only */
+	font-size: 120%;
 }
 .imgnav .imgprevious a, .imgnav .imgnext a{
 	display: block;
@@ -269,9 +268,21 @@ ul.pagelist li.next {
 /* Comments
 ------------------------------ */
 #comments {
-	float: left;
+	width: 600px;
+	margin: 0 auto;
 	padding-left: 10px;
+	font-size: 130% !important;
+	}
+	
+#comments label {
+	display: inline-block;
+	width: 40%;
+	}
+	
+#comments label:hover {
+	
 }
+
 .error { 
   color: #C33; 
   font-weight: bold; 
@@ -294,9 +305,21 @@ ul.pagelist li.next {
 	font-size: 85%;
 }
 
+#comments input#anon {
+	margin-left: -180px;
+}
+
+#comments input#private {
+	margin-left: -60px;
+}
+	
+#comments input.button {
+	margin-top: 10px;
+}
 
 /* Forms
 ------------------------------ */
+	
 .inputbox {
 	width: 250px;
 	padding: 2px;
@@ -304,26 +327,31 @@ ul.pagelist li.next {
 	background-color: #161410;
 	border: 1px solid #363430;
 	}
+	
 textarea {
 	padding: 4px;
-	width: 100%;
+	width: 90%;
 	color: #9C9890;
 	background-color: #161410;
 	border: 1px solid #363430;
 	font: 100%/200% "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 .checkbox {
 	cursor: pointer;
 }
+
 .pushbutton {
 	cursor: pointer;
 	padding: 5px 10px;
 }
+
 label {
 	cursor: pointer;
 }
+
 label:hover {
-	color: #000;
+	color: #fff;
 }
 
 /* Login form
@@ -399,6 +427,7 @@ h2 { color: #bd934f; font-size: 1.25em; margin: 0; padding: 1px 0; display: inli
 		background: #1b1814;
 		margin: 0 0 15px; 
 		border-bottom: 1px solid #35302a; 
+		border-top: 1px solid #35302a;
 		font-size: 1.75em; 
 		text-align: left;}
 
@@ -414,9 +443,15 @@ hr {
 	background-color: #22201d;
 	border: 1px solid #363430;
 	height: 10px;
-	margin: 10px 0;
+	margin: 10px 0 10px 0;
 	width: 760px;
 	}
+	
+hr.hr-bottom {
+	margin: 10px 0 0 0;
+	width: 760px;
+	}
+	
 /*--------| Benno styles the inividual album page |------*/
 	
 div .zpimage {

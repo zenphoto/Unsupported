@@ -13,7 +13,7 @@ if (!defined('WEBPATH')) die();
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo  $_zp_themeroot ?>/css/zen.css" type="text/css" />
 	<?php zp_apply_filter('theme_head'); ?>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/js/reflection.js"></script>
+	<script type="text/javascript" src="<?php echo $_zp_themeroot ?>/reflection-jquery/js/reflection.js"></script>
 </head>
 	
 <body>
@@ -33,7 +33,7 @@ if (!defined('WEBPATH')) die();
 				<div class="album" style="float: left; width: 390px; padding-bottom: 20px;">
 					
 					<div class="albumthumb"><a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getAlbumTitle();?>">
-						<?php printAlbumThumbImage(getAlbumTitle(), "reflect rheight30 ropacity40"); ?></a>
+						<?php printAlbumThumbImage(getAlbumTitle(), "reflect"); ?></a>
 					</div>
 					
 					<div class="albumtitle"><h1><a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getAlbumTitle();?>">
@@ -74,8 +74,7 @@ if (!defined('WEBPATH')) die();
 		</div>
 
 <?php
-	printAdminToolbox();
-	zp_apply_filter('theme_body_close');
+zp_apply_filter('theme_body_close');
 ?>
 	
 </body>

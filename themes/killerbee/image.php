@@ -85,8 +85,7 @@ if (!defined('WEBPATH')) die();
 </div><!--.footnote-->
 
 <?php
-	printAdminToolbox();
-	zp_apply_filter('theme_body_close');
+zp_apply_filter('theme_body_close');
 ?>
 
 </body>
