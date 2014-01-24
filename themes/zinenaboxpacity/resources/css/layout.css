@@ -1,0 +1,81 @@
+html,body {
+	margin:0;
+	padding:0;
+}
+body {
+	font: 76% arial,sans-serif;
+	text-align:center;
+}
+div#container {
+	text-align:left;
+}
+div#navigation {
+}
+#footer {
+	background: #333;
+	color: #FFF;
+}
+div#container {
+	width:700px;
+	margin:0 auto;
+}
+div#content {
+	float:right;
+	width:403px;
+	margin-left: 10px;
+	border-right: 35px #ccd solid; /* B9CAFF #e1ddd9 */
+}
+div#navigation {
+	float:left;
+	width:252px;
+}
+div#extra {
+	float:right;
+	width:438px;
+}
+div#footer {
+	clear:both; 
+	width:100%;
+}
+
+#top-border, #bottom-border, #left-border, #right-border {
+	background: #fff;
+	position: fixed;
+	z-index: 10000;
+}
+#left-border, #right-border {
+	top: 0; bottom: 0;
+	width: 10px;
+}
+#left-border { 
+	left: 0; 
+}
+#right-border { 
+	right: 0; 
+}
+#top-border, #bottom-border {	
+	left: 0; right: 0;
+	height: 10px;
+}
+#top-border { 
+	top: 0; 
+}
+#bottom-border { 
+	bottom: 0; 
+}
+#bottom-border-2 { 
+	bottom: 10px;
+	top: 10px;
+	left: 10px;
+    position: fixed;
+	height:216px;
+	width: 59px;
+	z-index: 2;
+	background-color: transparent;
+	background-image: url(../images/tree-1.png);
+	background-repeat: no-repeat;
+}
+body { 
+	padding: 10px; 
+}
+

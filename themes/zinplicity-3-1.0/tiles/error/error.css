@@ -1,0 +1,10 @@
+#gallery-desc.error {
+	position: relative;
+	height: 48px
+}
+#gallery-desc.error .text {
+	position: absolute;
+	top: 10px;
+	left: 64px; 
+	right: 10px;
+}

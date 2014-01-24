@@ -1,0 +1,130 @@
+@CHARSET "UTF-8";
+
+/*** start GLOBAL DEFINITIONS ***/
+html {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font: normal 16px "Trebuchet MS",Arial,Verdana,Sans Serif;
+	color: #5F420C;
+	background: #fbf5df url("../img/bg-defaultPage.jpg") top center repeat-x;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+img {
+	border: 0;
+}
+div {
+	position: relative;
+}
+p {
+	margin: 0 0 1.2em 0;
+}
+a {
+	text-decoration: underline;
+	color: #9a7120;
+	cursor: pointer;
+}
+a:hover {
+	color: #BF8A23;
+	text-decoration: none;
+	border-bottom: 0.0625em solid #BF8A23;
+}
+h1,h2,h3,h4,h5,h6 {
+	color: #5F420C;
+	font-weight: lighter;
+	margin: 0;
+}
+h1 {
+    font-size: 220%;
+}
+h2 {
+    font-size: 190%;
+}
+h3 {
+    font-size: 160%;
+}
+h4 {
+    font-size: 130%;
+}
+h5 {
+    font-size: 100%;
+}
+h6 {
+    font-size: 70%;
+}
+hr {
+	color: #D1A449;
+	background-color: #D1A449;
+	border: none;
+	height: 0.0625em;
+}
+dt {
+	padding-left: 1.5em;
+	border-left: 0.5em solid #5F420C;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+ul, ol {
+	margin: 1em 0;
+	padding: 0;
+}
+ul li, ol li {
+	margin: 0 0 0 2em;
+	padding: 0;
+}
+/*** end GLOBAL DEFINITIONS ***/
+.clr {
+	clear: both;
+}
+div#wraper {
+	width: 52.25em;
+	margin: 1em auto;
+	padding: 0 2em 3em 2em;
+	border: 0.0625em solid #D1A449;
+	border-bottom: none;
+	border-top: none;
+}
+.demoTarget {
+	border: 0.0625em dashed #D1A449;
+	padding: 1em;
+}
+.demoControls {
+	margin: 1em auto;
+	width: 10em;
+	padding: 1em;
+	border: 0.0625em solid #DFCC8B;
+	text-align: center;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+}
+.code span {
+	
+}
+code {
+	font: normal 1em Consolas, "DejaVu Sans Mono", "Lucida Console", "Curier New";
+}
+pre {
+	border: 0.0625em solid #D1A449;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	background-color: #5F420C;
+	color: #FBF5DF;
+	padding: 1em;
+	font: normal 0.75em Consolas, "DejaVu Sans Mono", "Lucida Console", "Curier New";
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+#footer {
+	text-align: right;
+	font-size: smaller;
+}
+

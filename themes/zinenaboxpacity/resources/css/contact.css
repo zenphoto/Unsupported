@@ -1,0 +1,116 @@
+
+/* CONTACT FORM */
+#mailform {
+	width: 403px;
+	font-family: Arial,sans-serif;
+	overflow: hidden;
+}
+#page-body.contact.modal  p {
+	font-family: Arial,sans-serif;
+}
+#mailform td {
+	vertical-align: top; 
+}
+#mailform input, #mailform textarea { 
+	margin-left: 10px;
+}
+#mailform input#name, #mailform input#email, #mailform input#subject, #mailform textarea {
+	border: 1px solid #898989; 
+	color:  #363636;
+	padding: 0 3px 0 3px;
+	background-color:  #ddd;
+}
+
+#mailform input#name:focus, #mailform input#email:focus, #mailform input#subject:focus, #mailform textarea:focus {
+	background-color:  #eee;
+}
+#mailform input#name:disabled, #mailform input#email:disabled, #mailform input#subject:disabled, #mailform textarea:disabled {
+	background-color:  #bbb;
+	color:  #363636;
+	text-shadow: 0px 1px 1px #eee;
+}
+#mailform input[type=submit]:hover, #mailform input[type=reset]:hover {
+	background-color: #dde;
+	border: 1px #aaa solid;	
+}
+#mailform label {
+
+}
+#mailform textarea {
+	height: 165px;	
+	overflow: hidden;
+}
+
+#mailform input[type=submit], #mailform input[type=reset] {
+	-ms-filter:'alpha(opacity=85)';
+	filter:alpha(opacity=85);
+	opacity:0.85;
+	padding: 1px 8px;
+	border: 1px #ccc solid;
+	background-color: #ddd;
+	color: #131313;
+	cursor: default;
+	font-size: 11px;
+	text-shadow:0 1px 0 #f4f4f4;
+}
+#mailform input[type=reset] {
+	margin-left: 0;
+}
+#page-body.contact p {
+	margin-bottom: 16px;
+	font-size: 12px;
+	text-align: left;
+}
+.contact-form-errors {
+	color: #933 !important;
+	padding: 10px;
+	background-color: #ddd;
+	margin-top: -44px;
+	text-align: center;
+}
+#page-body.contact #confirm input[type=submit], #page-body.contact #discard input[type=submit] {
+	padding: 1px 8px;
+	border: 1px #666 solid;
+	background-color: #ddd;
+	color: #131313;
+	font-size: 11px;
+	cursor: default;
+	width: 100%;
+	text-shadow:0 1px 0 #f4f4f4;
+}
+#page-body.contact #confirm input[type=submit]:hover, #page-body.contact #discard input[type=submit]:hover { 
+	background-color: #dde;
+	border: 1px #aaa solid;	
+}
+#page-body.contact #confirm, #page-body.contact  #discard {
+	width: 90px;
+	margin-bottom: 16px;
+	margin-top: 2px;
+}
+#page-body.contact {
+	position: relative;
+}
+#page-body.contact #confirm {
+	float:right;
+}
+#page-body.contact #discard {
+	float: right;
+	margin-right: 0px;
+}
+#page-body.contact.page #discard {
+	float: right;
+	margin-right: 0px;
+}
+#page-body.contact {
+	margin-bottom: 16px;
+}
+
+#mailform input#name, #mailform input#email, #mailform input#subject, #mailform textarea {
+	width: 297px;
+}
+
+#mailform label {
+	font-size: 12px;
+	color: #666;
+}
+

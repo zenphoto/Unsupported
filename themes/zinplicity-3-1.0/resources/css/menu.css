@@ -1,0 +1,105 @@
+#top-menu-bar {
+	text-align: center; 
+	padding: 3px 0 2px; 	
+	white-space-collapse: discard;
+	z-index: 2;
+	width: 379px; 
+	position: absolute;
+	top: 117px;
+	left: 0;
+	height: 16px;
+	font-size: 10px;
+	background-color: #eef;
+}	
+
+#top-menu-bar .menu-item {
+	background-image: url(/resources/images/opa/bg-w-40.png); 
+	border-left: 1px #fff solid;
+	border-right: 1px #fff solid;
+	top: -128px;
+	z-index: 2;
+	height: 146px;
+	position: relative;
+	display: inline-block;
+}
+.menu-item {
+	cursor: default;
+}
+.menu-item a {  	
+	outline: none;
+}
+#top-menu-bar .menu-item:hover, #top-menu-bar .menu-item.selected {
+	background-image: url(/resources/images/opa/bg-b-20.png); 
+}
+#top-menu-bar #top-menu-bar .menu-item:hover a.link, #top-menu-bar .menu-item.selected a.link {
+	color: #fff;
+}
+#top-menu-bar .menu-item a.link { 
+	margin-top: 126px;
+	display: inline-block;
+	font-weight: bold;
+	color: #696969;
+	padding: 3px 6px 2px;
+}
+#top-menu-bar .menu-item.first {
+	border-left: 2px #fff solid;
+}
+#top-menu-bar .menu-item.last {
+	border-right: 2px #fff solid;
+}
+
+#secondary-menu-bar {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	margin-left: -16px;
+}
+#secondary-menu-bar span {
+	display: block;
+	height: 20px;
+	z-index: 1;
+	width: 0px;
+	overflow: hidden;
+	margin-bottom: 5px;
+	padding-left: 20px;
+	margin-left: -6px;
+	border-right: none !important;
+	border-left: none !important;
+	background-image: url(/resources/images/secondary-menu-item.png);
+	background-position: fixed;
+	background-repeat: no-repeat;
+	background-color: #e5e5e5;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; 
+	filter: alpha(opacity=50); 
+	-moz-opacity: .5;
+	-webkit-opacity: .5;
+	opacity: .5;
+	top: 0;
+}
+#secondary-menu-bar span a {
+	margin-top: 2px;
+	display: block;
+	font-weight: bold;
+	color: #999;
+}
+#secondary-menu-bar #contact-menu-item {
+	background-position: 0 -20px !important;
+}
+#secondary-menu-bar #search-menu-item {
+	background-position: 0 -40px !important;
+}
+#secondary-menu-bar #archive-menu-item {
+	background-position: 0 0 !important;
+}
+#secondary-menu-bar span:hover, #secondary-menu-bar span.selected {
+	width: 90px;
+	margin-left: -110px;
+	padding-left: 25px;
+	padding-right: 10px;
+	text-align: right;
+	border: 1px #dde solid;
+}
+#secondary-menu-bar span.selected {
+	background-color: #ffe;
+}
+

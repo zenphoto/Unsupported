@@ -1,0 +1,18 @@
+/* hack to workaround my own deficiencies */
+#subalbum-thumb-container .subalbum-link, #subalbum-thumb-container .subalbum-description {
+	margin-left: 1px;
+}
+#wrapper {
+	/* background-image: url(../images/black.6.png); */
+}
+#album-menu #album-thumb {
+	margin-left: 1px;
+}
+.tab.search form #search_submit {
+	margin-top: -1px;
+	margin-left: -32px;
+	margin-right: 0px;
+}
+.tab.search form {
+	margin-right: 0px;
+}

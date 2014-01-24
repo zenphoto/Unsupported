@@ -1,0 +1,6 @@
+# Zenphoto theme definition file
+name::Grey simplicity
+author::Gilles Dodinet
+version::1.0
+date::11/9/2007
+desc::Derived from <a href="http://www.zenphoto.org/zp/theme/highslide/image.png.php">Highslide theme</a>, inspired by <a href="http://michalrusina.sk/galeria/page/m9">M9 theme</a>, use <a href="http://hermik.deviantart.com">Hermik</a>'s icons

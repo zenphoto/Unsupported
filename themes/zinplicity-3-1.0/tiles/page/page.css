@@ -1,0 +1,15 @@
+#page-content {
+	padding: 10px;
+	text-align: justify;
+}
+#page-desc {
+	padding: 10px;	
+	text-align: justify;
+	margin-bottom: 15px;
+	background-image: url(/resources/images/opa/bg-ffe-50.png);
+	border-bottom: 1px #e5e5e5 solid;
+	color: #666;
+}
+#page-content  {
+	color: #363636;
+}

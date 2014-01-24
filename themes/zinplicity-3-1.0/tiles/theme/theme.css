@@ -1,0 +1,103 @@
+#page-content.Theme {
+
+}
+#theme-name {
+	text-align: center;
+	margin: 2px 0 8px;
+	font-style: italic;
+}
+#compatibility {
+	text-align: center;
+	margin-top: 15px;
+}
+#page-content.Theme span.browser {
+	margin: 4px;
+}
+.version {
+	font-weight: bold;
+	color: #999;
+	text-align: center;
+}
+#old-themes {
+
+}
+a img {
+	border: none;
+}
+#old-themes .wrapper {
+	margin-top: 12px;
+}
+div.old-theme {
+	position: relative;
+	margin-bottom: 12px;
+}
+div.old-theme div.desc {
+	position: absolute;
+	left: 80px;
+	top: 0;
+}
+.section .title {
+	font-weight: bold;
+	font-size: 9pt;
+	border-bottom: 1px #999 dashed;
+	margin: 32px 0 0;
+}
+.section.first .title {
+	margin-top: 0;
+}
+.section .par {
+	margin-top: 6px;
+}
+.section .par ul {
+	margin: 5px 0;
+	padding: 0;
+	list-style-type: circle;
+}
+.section .par li {
+	margin-left: 20px;
+}
+.subsection  {
+	margin: 10px 0 10px 10px;
+}
+.subsection  .title {
+	font-weight: normal;
+	font-style: italic;
+	margin-top: 16px;
+}
+.subsection  .par {
+	margin-left: 10px;
+}
+#download {
+	margin: 12px 0;
+	font-weight: bold;
+}
+#download img {
+	vertical-align: bottom;
+}
+span.path {
+	color: #693;
+}
+span.code {
+	font-family: courier, monospace;
+}
+
+#compatibility table, #compatibility td {
+    border-color: #aaa;
+    border-style: solid;
+}
+#compatibility table {
+    border-width: 0 0 1px 1px;
+    border-spacing: 0;
+    border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 6px;
+}
+#compatibility td {
+    margin: 0;
+    padding: 4px;
+    border-width: 1px 1px 0 0;
+}
+#compatibility td.na {
+	background-image: url(/resources/images/opa/bg-b-20.png);
+	background-repeat: repeat;
+}

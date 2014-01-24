@@ -1,0 +1,42 @@
+.shadow {
+	text-shadow: 1px 1px 2px #999, -1px -1px 2px #999;
+}
+.box-shadow {
+	-moz-box-shadow: 1px 1px 8px #333;  
+	-webkit-box-shadow: 1px 1px 8px #333;  
+	box-shadow: 1px 1px 8px #333;  
+}
+
+
+/* layout elements */
+#footer {
+	font-weight: bold;
+}
+#footer a {
+	color: #fff;
+}
+#footer-subtitle {
+	font-weight: normal;
+	color: #66a;
+}
+body {
+	background-color: #847462;
+	background-image: url(test.jpg);
+	background-repeat: repeat-x;
+}
+div#container {
+	background-image: url(test-light.png);
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+	background-color: #9b8e80;
+}
+
+/* fixed scenery */
+#left-border-2 {
+	width: 309px;
+	height: 257px;
+	background-image: url(pencil.png);
+	z-index: 10000;
+	bottom: -12px;	
+}
+

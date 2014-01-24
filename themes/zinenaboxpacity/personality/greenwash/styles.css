@@ -1,0 +1,121 @@
+body {
+	background-color: #68785c;
+	background-image: url(test.jpg);
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+}
+.box-shadow {
+	-moz-box-shadow: 1px 1px 8px #333;  
+	-webkit-box-shadow: 1px 1px 8px #333;  
+	box-shadow: 1px 1px 8px #333;  
+}
+#body-loader {
+	background-color: rgb(134, 147, 119);
+}
+
+/* image navigation */
+#album-nav {
+	background-color: #fff;
+	border-bottom: 4px #e1ddd9 solid;
+}
+.nav-cell {
+	border-bottom: 4px #e1ddd9 solid;
+	background-color: #c4d3ba;
+}
+.nav-cell a {
+	color: #fff;
+}
+.nav-cell:hover {
+	background-color: #94a28a;
+}
+.nav-cell.current {
+	background-color: #fff !important;
+}
+.nav-cell.current a {
+	color: #94a28a;
+}
+.nav-cell.current {
+	color: #94a28a;
+}
+.nav-cell.filler {
+	background-color: #fff;
+}
+
+/* main menu */
+#tabs a {
+	color: #fff;
+}
+.tab {
+	background-color:  #c4d3ba;
+}
+.tab.selected {
+	background-color: #94a28a;
+	color:  #fff;
+}
+.tab:hover {
+	background-color: #94a28a;
+}
+
+/* layout */
+#banner, #banner a, #banner a:link, #banner a:visited, #banner a:hover, #banner a:active {
+	color: #d3e99c;
+}
+#footer {
+	font-weight: bold;
+}
+#footer a {
+	color: #b0ec13;
+}
+#footer-subtitle {
+	font-weight: normal;
+	color: #bbb;
+}
+#extra {
+	background-color: #fff;
+	color: #933;
+}
+#left {		
+	border-left: 1px #999 solid; 
+}
+div#content {
+	border-right: 35px #c6ceb2 solid; 
+}
+div#container {
+	background-image: url(test-light.png);
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+	background-color: #869377;
+}
+
+/* secondary menu */
+#additional-links .text-link {
+	background-color: #c4d3ba; 
+	color: #111;
+	border: 1px #363636 dotted;
+	border-bottom: none;
+	font-weight: bold;
+}
+#additional-links .text-link:hover, #additional-links .text-link:hover a, #additional-links .text-link a:hover {
+	color: #222;
+}
+#additional-links .text-link a {
+	color: #000;
+}
+#additional-links span.selected.text-link {
+	background-color: #94a28a; 
+	color: #000;
+}
+#additional-links span.selected.text-link a {
+	color: #000;
+}
+
+/* fixed scenery */
+#left-border-2 {
+	width: 320px;
+	height: 320px;
+	z-index: 10002;
+	left: -6px;
+	background-image: url(flower.png);
+	
+}
+

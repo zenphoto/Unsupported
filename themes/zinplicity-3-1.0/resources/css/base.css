@@ -1,0 +1,46 @@
+body {
+ 	padding:0;
+	margin:0; 
+	font-size: 9pt; 
+	font-family: Verdana, Arial, sans;
+	background-image: url(/resources/images/background.png); 
+	background-repeat: repeat-y;
+	background-position: top center;	
+	min-width: 510px;
+	color: #363636;
+}
+a { 
+	text-decoration: none;
+	color: #468;
+}
+a:focus, a:active {
+	border: none;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clear {
+	clear: both;
+    height:1px;
+    overflow:hidden;
+}
+
+.unselectable {
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   user-select: none;
+}
+
+.opa40 {
+	background-image: url(/resources/images/opa/bg-w-40.png); 
+}
+
+.loading {
+	text-align:center;
+	padding: 10px;
+	margin: 25px 0;
+}

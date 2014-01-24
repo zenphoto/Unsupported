@@ -1,0 +1,25 @@
+#page-content.Contact p:last-child{
+	text-align: center;
+}
+#mailform input[type='text'], #mailform textarea {
+	background-image: url(/resources/images/opa/bg-w-20.png);
+	background-repeat: repeat;
+	background-color: transparent;
+	border: 1px #ccc solid;
+	padding: 2px;
+	color: #666;
+}
+#mailform input[type='text']:focus, #mailform textarea:focus {
+	background-image: url(/resources/images/opa/bg-w-40.png);
+	border: 1px #dde solid;
+}
+#mailform input[type='submit'], #mailform input[type='button'], #mailform input[type='reset'] {
+	background-color: #eef;
+	border: 1px #ccc solid;
+	color: #999;
+}
+#mailform input[type='submit']:hover, #mailform input[type='button']:hover, #mailform input[type='reset']:hover {
+	color: #666;
+	background-color: #efefff;
+	border: 1px #aaa solid;
+}

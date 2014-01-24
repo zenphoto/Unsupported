@@ -1,0 +1,122 @@
+#page-content.Archives {
+	position: relative;
+	z-index: 2;
+}
+#album-content.Archives {
+	margin-top: 0;
+}
+#album-content.Archives {
+	z-index: 1;
+	margin-top: 20px;
+}
+#page-content.Archives ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#page-content.Archives #searchform {
+	z-index: 1;
+}
+#search-results {
+	text-align: center;
+	padding-top: 20px; 
+}
+#page-content.Archives ul.archive {
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	left: 0px;
+	margin-left: -74px;	
+	background-image: url(/resources/images/opa/bg-w-40.png);
+	background-repeat: repeat;
+	border: 1px #dde dotted;
+	border-right: none;
+	width: 48px;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; 
+	filter: alpha(opacity=70); 
+	-moz-opacity: .7;
+	-webkit-opacity: .7;
+	opacity: .7;
+}
+#page-content.Archives li.year {
+	position: relative;
+	padding: 6px;
+	font-weight: bold;
+	color: #ccd;
+}
+#page-content.Archives ul.month {
+	position: absolute;
+	background-image: url(/resources/images/opa/bg-w-100.png);
+	top: -1px;
+	left: 48px;
+	width: 140px;
+	display: none;
+	border: 1px #dde dashed;
+	border-left: 1px #eef solid;
+	padding: 6px;
+}
+#page-content.Archives ul.month li {
+	padding: 6px;
+}
+#page-content.Archives ul.month a { 
+	color: #aab;
+}
+#page-content.Archives li.year:hover ul.month {
+	display: block;
+}
+#page-content.Archives div#search-form {
+	text-align: center;
+}
+#page-content.Archives #search_input {
+	width: 160px;
+	background-image: url(/resources/images/opa/bg-w-20.png);
+	background-repeat: repeat;
+	background-color: transparent;
+	border: 1px #ccc solid;
+	padding: 2px;
+	color: #666;	
+}
+#page-content.Archives #search_input:focus {
+	background-image: url(/resources/images/opa/bg-w-40.png);
+	border: 1px #dde solid;
+}
+#page-content.Archives #search_submit {
+	background-color: transparent;
+	border: none;
+	font-size: 9pt;
+	color: #666;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 2px 6px 0;
+}
+#page-content.Archives #search_submit:hover {
+	color: #963;
+}
+#search-results {
+	font-size: 8pt;
+	color: #999;
+}
+#search-results em {
+	font-style: normal;
+	border-bottom: 1px #ccc dashed;
+}
+#search-news-result {
+	margin-top: 35px;
+	margin-bottom: -10px;
+}
+#search-news-result .news-header, #search-news-result .news-content {
+	padding-left: 0;
+	padding-right: 0;
+}
+#snr {
+	font-size: 9pt;
+	color: #666;
+	text-align: center;
+	font-weight: normal;
+	margin-bottom: 20px;
+	border-bottom: 1px #999 dotted;
+}
+#snrt div {
+	margin-top: 6px;
+}
+

@@ -1,0 +1,132 @@
+body {
+	background-color: #353535;
+	background-image: url(test.jpg);
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+}
+#body-loader {
+	background-color: #363636;
+}
+.box-shadow {
+	-moz-box-shadow: 1px 1px 12px #333;  
+	-webkit-box-shadow: 1px 1px 12px #333;  
+	box-shadow: 1px 1px 12px #333;  
+}
+
+/* image navigation */
+#album-nav {
+	background-color: #fff;
+	border-bottom: 4px #e1ddd9 solid;
+}
+.nav-cell {
+	border-bottom: 4px #e1ddd9 solid;
+	background-color: #999;
+}
+.nav-cell:hover {
+	background-color: #666;
+}
+.nav-cell.current a {
+	color: #999;
+}
+.nav-cell.current {
+	color: #999;
+}
+
+/* main menu */
+#tabs a {
+	color: #fff;
+}
+.tab {
+	background-color:  #898989;
+	border: 1px #555 dotted;
+}
+.tab.selected {
+	background-color: #666;
+	border: 1px #323232 dotted;
+	color:  #fff;
+}
+.tab:hover {
+	background-color: #666;
+	border: 1px #323232 dotted;
+	color:  #131313;
+}
+.tab:hover a {
+	color:  #131313;
+}
+.tab.first {
+	border-left: none !important;
+}
+
+/* secondary menu */
+#additional-links .text-link {
+	background-color: #8c877d; 
+	color: #111;
+	border: 1px #363636 dotted;
+	border-bottom: none;
+}
+#additional-links .text-link:hover, #additional-links .text-link:hover a, #additional-links .text-link a:hover {
+	color: #fff;
+}
+#additional-links .text-link a {
+	color: #111;
+}
+#additional-links span.selected.text-link {
+	background-color: #666; 
+	color: #fff;
+}
+#additional-links span.selected.text-link a {
+	color: #fff;
+}
+
+/* layout elements */
+#theme-id {
+	color: #000;
+}
+#footer {
+	background-color: #ccd;
+	color: #fff;
+	font-weight: bold;
+}
+#footer a {
+	color: #fff;
+}
+#footer-subtitle {
+	color: #696969;
+}
+#extra {
+	background-color: #fff;
+	color: #933;
+}
+#left {		
+	border-left: 1px #999 solid; 
+}
+div#content {
+	border-right: 35px #999 solid; 
+}
+div#container {
+	background-image: url(test-light.png);
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+	background-color: #787878;
+}
+#gallery-title {
+	color: #454545;
+}
+
+/* fixed scenery */
+#left-border-2 {
+	width: 412px;
+	height: 275px;
+	background-image: url(handcuffs.png);
+	z-index: 20000;
+	left: 0;
+	bottom: -32px;	
+}
+
+/* news */
+#news-header {
+	border-bottom: 1px #777 dotted;
+}
+#news-comment-header {
+	border-bottom: 1px #666 dotted;
+}

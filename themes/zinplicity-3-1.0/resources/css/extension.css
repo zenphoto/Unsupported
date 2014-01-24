@@ -1,0 +1,30 @@
+#mailform table tbody td label {
+	display: block;
+	margin-top: 10px;
+	margin-left: 2px;
+}
+#mailform td {
+	display: block;
+	width: 350px;
+}
+#mailform table tbody td label img {
+	vertical-align: middle;
+}
+#mailform table tbody td label[for='code'] {
+	position: relative;
+}
+#mailform table input[type='text'], #mailform table textarea {
+	width: 350px;
+}
+#mailform table input[type='submit'], #mailform table input[type='reset'], #confirm input[type='submit'], #discard input[type='submit'] {
+	width: 100px;
+	margin-top: 10px;
+	font-size: 9pt;
+}
+#mailform table input[type='submit'] {
+	margin-left: 75px;
+}
+#confirm {
+	margin-left: 96px;
+}
+

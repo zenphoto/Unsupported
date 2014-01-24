@@ -1,0 +1,160 @@
+<html>
+	<head>
+		<title>"jQuery checkbox v.1.3.0 Beta 1" demo</title>
+		<link rel="stylesheet" href="jquery.checkbox.css" />
+		<link rel="stylesheet" href="jquery.safari-checkbox.css" />
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="jquery.checkbox.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('input:checkbox:not([safari])').checkbox();
+				$('input[safari]:checkbox').checkbox({cls:'jquery-safari-checkbox'});
+				$('input:radio').checkbox();
+			});
+
+			displayForm = function (elementId)
+			{
+				var content = [];
+				$('#' + elementId + ' input').each(function(){
+					var el = $(this);
+					if ( (el.attr('type').toLowerCase() == 'radio'))
+					{
+						if ( this.checked )
+							content.push([
+								'"', el.attr('name'), '": ',
+								'value="', ( this.value ), '"',
+								( this.disabled ? ', disabled' : '' )
+							].join(''));
+					}
+					else
+						content.push([
+							'"', el.attr('name'), '": ',
+							( this.checked ? 'checked' : 'not checked' ), 
+							( this.disabled ? ', disabled' : '' )
+						].join(''));
+				});
+				alert(content.join('\n'));
+			}
+			
+			changeStyle = function(skin)
+			{
+				jQuery('#myform :checkbox').checkbox((skin ? {cls: skin} : {}));
+			}
+			
+		</script>
+		<style type="text/css">
+body, html { padding: 0px; margin: 0px; background: #ccc; font-family: Arial;font-size: 13px;}
+h1 {margin: 20px 0 0 0;padding: 0;color: #09f;font-size: 28px; text-align: center;font-weight: bold;}
+h2 {margin: 25px 0 0 0;padding: 0;font-size: 20px;}
+h3 {margin: 25px 0 0 0;padding: 0;font-size: 16px;}
+p {clear: both;vertical-align: middle;font-size: 13px;margin: 10px 0 0 0;padding: 0;}
+pre { display: block;margin: 0px;padding: 2px 2px 2px 2px; border: 1px solid #888; background: #ccc;}
+code { display: block;margin: 0px;padding: 2px 2px 2px 20px;border: 1px solid #888;background: #fff;}
+.hr { clear: both;margin: 20px 0 20px 0;font-size: 2px;line-height: 2px;background: #ccc;border: 1px solid #888;height: 2px;display: block;}
+table {font-size: 13px;}
+a {color: #069;}
+a:hover{color: #e30;}
+a.code{display: block;float:left;clear:both;padding: 2px 0px;}
+label { cursor: hand; cursor: pointer;}
+		</style>
+	</head>
+	
+	<body>
+		<table width="760" cellpadding="0" cellspacing="0" align="center" style="background: #fff; height: 100%;" height="100%"><tr><td style="padding: 20px;" valign="top">
+		<h1>"jQuery checkbox v.1.3.0 Beta 1" demo</h1>
+		
+		<p>Lightweight custom styled checkbox implementaion for jQuery 1.2.x and 1.3.x.</p>
+		
+		<h2>Features:</h2>
+		
+		<ol>
+			<li>only inline elements used, just like default checkoxes</li>
+			<li>cross-browser look and feel (tested in IE6, IE7, IE8, Firefox and Chrome engines)</li>
+			<li>work with radio buttons too</li>
+			<li>supports inline and jQuery attached click events</li>
+			<li>supports "label hovering": when you point over parent label element, it will highlight its checkbox (thanks to Eugene for the idea)</li>
+			<li>dynamic skin changing</li>
+			<li>adds new checkbox events "check", "uncheck", "disable", "enable", ready to use in jQuery.bind() method</li>
+		</ol>
+		
+		<h2>Usefull information:</h2>
+		<ul>
+			<li><a href="http://plugins.jquery.com/project/jquery-checkbox/">jQuery checkbox @ jQuery Plugins</a></li>
+			<li><a href="http://groups.google.com/group/jquery-checkbox/">jQuery checkbox @ Google Groups</a></li>
+			<li><a href="http://code.google.com/p/jquery-checkbox/">jQuery checkbox @ Google Code</a></li>
+			<li>Feel free to contact <script>document.write(['<','a hr','ef="m','ailt','o:wm','.','mor','gun@','gm','ail','.c','om"','>me<','/','a>'].join(''));</script> for support or if you want to make a donation.</li>
+			<li>Please contact <script>document.write(['<','a hr','ef="m','ailt','o:wm','.','mor','gun@','gm','ail','.c','om"','>me<','/','a>'].join(''));</script> if you want your site listed under "Who uses" block.</li>
+		</ul>
+		
+		<h2>Requirements:</h2>
+		<ul>
+			<li>jQuery 1.3.x or 1.2.x (1.3.2 recommended) </li>
+		</ul>
+		
+		<h2>Download:</h2>
+		<ul>
+			<li><a href="http://plugins.jquery.com/files/jquery-checkbox.1.3.0b1.zip">Download from plugins.jQuery.com</a></li>
+			<li><a href="http://jquery-checkbox.googlecode.com/files/jquery-checkbox.1.3.0b1.zip">Download from code.google.com</a></li>
+		</ul>
+		
+		<div class="hr"></div>
+		
+		<h2>Examples:</h2>
+		<div id="form1" style="position:relative">
+		<h3>Default skin</h3>
+		<p><label>&lt;label&gt; <input name="checkbox.1.1" type="checkbox" onclick="var j = jQuery('#check').attr('disabled', jQuery('#check').attr('disabled') ? false : true)"> Unchecked checkbox (by clicking on this checkbox you can disable/enable the checkbox below)&lt;/label&gt;</label></p>
+		<p><input name="checkbox.1.2" type="checkbox" id="check" checked> <label for="check">&lt;label&gt; Checked  checkbox (this one)&lt;/label&gt;</label></p>
+	
+		<p><input name="checkbox.1.3" type="checkbox" disabled> Disabled & unchecked checkbox</p>
+		<p><input name="checkbox.1.4" type="checkbox" disabled checked> Disabled & checked checkbox</p>
+		
+		<h3>Safari skin</h3>
+		<p><input name="checkbox.2.1" type="checkbox" safari=1 onclick="jQuery('#check2').attr('checked', !jQuery('#check2').attr('checked') ? true : false)"> Unchecked checkbox (by clicking on this checkbox you can check/uncheck the checkbox below)</p>
+		<p><input name="checkbox.2.2" type="checkbox" safari=1 id="check2" checked> Checked  checkbox (this one)</p>
+	
+		<p><input name="checkbox.2.3" type="checkbox" safari=1 disabled> Disabled & unchecked checkbox</p>
+		<p><input name="checkbox.2.4" type="checkbox" safari=1 disabled checked> Disabled & checked checkbox</p>
+		
+		<h3>Radio button (wrapped in &lt;label&gt;)</h3>
+		<p><label><input name="radio.1" value="1" type="radio"> 1st radio button</label></p>
+		<p><label><input name="radio.1" value="2" type="radio" checked> 2nd radio button</label></p>
+		<p><label><input name="radio.1" value="3" type="radio"> 3rd radio button</label></p>
+		</div>
+		
+		<div class="hr"></div>
+		<p><a href="javascript:displayForm('form1');">Display form state</a></p>
+		<div class="hr"></div>
+		
+		<h3>Code</h3>
+		<pre><code>$(document).ready(function() {
+  // ":not([safari])" is desirable but not necessary selector
+  $('input:checkbox:not([safari])').checkbox();
+  $('input[safari]:checkbox').checkbox({cls:'jquery-safari-checkbox'});
+  $('input:radio').checkbox();
+});	</code></pre>
+
+		<div class="hr"></div>
+
+		<h3>Advanced demo (changing skin on the fly)</h3>
+		<p>
+			<a href="javascript: changeStyle();">Switch to "Default" skin</a> &nbsp; <a href="javascript: changeStyle('jquery-safari-checkbox');">Switch to "Safari" skin</a>
+		</p>
+		
+		<form id="myform" action="javascript:void(0)">
+			<table cellspacing="5">
+				<tr><th>&nbsp;</th><th>Last Name</th><th>First Name</th><th>Title</th></tr>
+				<tr><td><input type="checkbox" name="checkbox[]" class="top5" /></td><td>Davolio</td><td>Nancy</td><td>Sales Representative</td></tr>
+				<tr><td><input type="checkbox" name="checkbox[]" class="top5" /></td><td>Fuller</td><td>Andrew</td><td>Vice President, Sales</td></tr>
+				<tr><td><input type="checkbox" name="checkbox[]" class="top5" /></td><td>Leverling</td><td>Janet</td><td>Sales Representative</td></tr>
+				<tr><td><input type="checkbox" name="checkbox[]" class="top5" /></td><td>Peacock</td><td>Margaret</td><td>Sales Representative</td></tr>
+				<tr><td><input type="checkbox" name="checkbox[]" class="top5 bottom5" /></td><td>Buchanan</td><td>Steven</td><td>Sales Manager</td></tr>
+				<tr><td><input type="checkbox" name="checkbox[]" class="bottom5" /></td><td>Suyama</td><td>Michael</td><td>Sales Representative</td></tr>
+				<tr><td><input type="checkbox" name="checkbox[]" class="bottom5" /></td><td>King</td><td>Robert</td><td>Sales Representative</td></tr>
+				<tr><td><input type="checkbox" name="checkbox[]" class="bottom5" /></td><td>Callahan</td><td>Laura</td><td>Inside Sales Coordinator</td></tr>
+				<tr><td><input type="checkbox" name="checkbox[]" class="bottom5" /></td><td>Dodsworth</td><td>Anne</td><td>Sales Representative</td></tr>
+			</table>
+		</form>
+
+		</td></tr></table>
+	</body>
+</html>

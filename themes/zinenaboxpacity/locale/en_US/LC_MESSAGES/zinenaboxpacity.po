@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=n !=1\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+
+msgid "album"
+msgid_plural "albums"
+msgstr[0] "album"
+msgstr[1] "albums"
+
+msgid "image"
+msgid_plural "images"
+msgstr[0] "image"
+msgstr[1] "images"
+
+msgid "subalbum"
+msgid_plural "subalbums"
+msgstr[0] "subalbum"
+msgstr[1] "subalbums"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "No search criteria"
+msgstr "No search criteria"
+
+msgid "In:"
+msgstr "Dans :"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Previously on"
+msgstr "Previously on"
+
+msgid "Gallery"
+msgstr "Gallery"
+
+msgid "Add comment"
+msgstr "Add comment"
+
+msgid "Comments are closed"
+msgstr "Comments are closed"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Archives"
+msgstr "Archives"
+
+msgid "Gallery Index"
+msgstr "Gallery Index"
+
+msgid "Thanks for your message"
+msgstr "Thanks for your message"
+
+msgid "A copy of your message has also been sent to the provided e-mail adress for your own records"
+msgstr "A copy of your message has also been sent to the provided e-mail adress for your own records"
+
+msgid "Success"
+msgstr "Success"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Your comment has been succesfully posted"
+msgstr "Votre commentaire a été correctement soumis"
+
+msgid "Personality"
+msgstr "Personality"
+

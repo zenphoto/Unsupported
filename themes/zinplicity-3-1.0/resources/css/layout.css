@@ -1,0 +1,110 @@
+#wrap {
+	width: 394px; 
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 15px 0 0;
+	height: auto; 
+	min-height: 100%;
+}
+#noscript-warning {
+	position: relative;
+	padding: 10px;
+	border-bottom: 1px #963 dashed;
+	border-top: 1px #963 dashed;
+	margin-bottom: 6px;
+	background-color: #eef;
+}
+#noscript-text {
+	position: absolute;
+	left: 50px;
+	top: 8px;
+	right: 0;
+}
+#content {
+	top: 140px;
+	padding-bottom: 40px;
+	position: relative;
+	margin-left: 14px;
+	z-index: 1;
+	background-color: #fff;
+	background-image: url(/resources/images/sun.jpg); 
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center 120px;
+	border-left: 1px solid #e5e5e5;
+}
+
+#header {
+	height: 104px; 
+	padding: 10px; 
+	position: fixed; 
+	/* position: absolute; */
+	top: 4px;
+	width: 359px;
+	z-index: 3;
+	padding-bottom: 4px;
+	border-top: 4px #dde ssolid;
+	margin-left: 15px;
+	background-color: #fff;
+	background-image: url(/resources/images/header.png);
+}
+#header-content {
+	position: absolute;
+	bottom: 0px;
+	font-size: 24pt;
+	z-index: 2;
+	font-family: Courier New, monospace;
+	color: #ccd;
+	font-weight: bold;
+}
+
+#main-dash {
+	position: fixed;
+	height: 140px;
+	top: 0; left: 0; right: 0;
+	border-bottom: 2px #eef dashed;
+	z-index: 2;
+	background-color: #f4f5ff;	
+	background-image: url(/resources/images/background-dash.png); 
+	background-repeat: repeat-y;
+	background-position: top center;
+}
+#main-scissors {
+	position: fixed;
+	top: 127px; left: 2px;
+	z-index: 4;
+}
+
+#footer {
+	position: fixed; 
+	width: 379px; 
+	z-index: 4; 	
+	height: 14px; 
+	bottom: 0;
+	margin-left: 14px;
+	background-color: #eef; 
+	border-left: 1px #e5e5e5 solid;
+	
+}	
+#footer-content {
+	position: absolute; 
+	text-transform: uppercase;
+	text-align: center; 
+	font-size: 9px;
+	bottom: 0; 	
+	padding-bottom: 1px;
+	color: #999;
+	width: 100%;	
+}
+#footer-content a {
+	color: #999;
+}
+
+#main-sun {
+	position: fixed;	
+	top: 0; left: 0; right: 0; bottom: 0;
+	background-image: url(/resources/images/sun.png); 
+	background-repeat: no-repeat;
+	background-position: center 120px;
+}
+
