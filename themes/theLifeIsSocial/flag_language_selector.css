@@ -1,0 +1,11 @@
+#flags{
+	margin: 0;
+	padding: 0;
+}
+#flags img{
+	border: none;
+}
+#flags li{
+	display: inline;
+	padding: 5px;
+}

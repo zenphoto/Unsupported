@@ -1,0 +1,342 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;list-style:none;quotes:none;vertical-align:baseline;text-align:left;font-size:100%;background:transparent;}
+h1,h2,h3,h4,h5,h6,th,em,strong,b,u,i,q,blockquote{font-style:normal;font-variant:normal;font-weight:normal;}
+body{height:101%;line-height:1;}
+img {/*display:block;*/}
+legend{display:none;}label{cursor:pointer;}
+a{text-decoration:none;}a:hover{text-decoration:underline;}
+
+#content #leftbox {
+	width: 60%;
+	float: left;
+	border-right: 3px dotted black;
+}
+#content #rightbox {
+	width: 39%;
+	float: right;
+}
+
+/* Google Map
+------------------------------ */
+#content .googleMap {
+	padding-bottom: 15px;
+	padding-right: 15px;
+}
+
+/* Login Toolbox
+------------------------------ */
+#content #login {
+	text-align: center;
+}
+#content #login .passwordform {
+	color: white;
+	margin-top: 30px;
+	margin-bottom: 4px;
+}
+#content #login > a {
+	color: white;
+	font-size: 75%;
+}
+#content #login .passwordform #passwordform .password {
+	margin: auto;
+}
+
+/* Tagcloud
+------------------------------ */
+#content .tagcloud {
+	margin-top: 50px;
+	color: white;
+	max-width: 430px;
+}
+#content .tagcloud li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+#content .tagcloud a {
+	color: grey;
+}
+#content .tagcloud a:hover {
+	text-decoration:none; color:#ffffff;
+}
+
+/* Admin Toolbox
+------------------------------ */
+#admin, #admin_data{
+	font-size: 15px;
+	position:fixed;
+	right:0;
+	top:0;
+	width:170px;
+	text-transform:lowercase;
+}
+#admin h3 a{
+	display: block;
+	text-align: center;
+}
+#admin_data{
+	top:26px;
+	font-size: 11px;
+	color: white;
+	line-height:1.4em;
+}
+#admin h3 {
+	font: 100% "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	color: #666;
+	border-bottom: 1px dashed #CCC;
+	margin:0;
+	padding:0;
+}
+
+/* Search Box
+------------------------------ */
+#search {
+	float: right;
+	text-align: left;
+	margin:0;
+	padding:0;
+	width: 175px;
+	font-size: 11px;
+	line-height: 1.6em;
+}
+#search_form, #search_form * {
+	padding:0px;
+	margin:0px;
+}
+#search input#search_input {
+	float: left;
+}
+#search #search_form a {
+	background: none;
+	float: left;
+}
+#search input.pushbutton {
+	padding: 1px;
+	font-size: 80%;
+}
+#search a {
+	text-decoration: none;
+}
+#search ul {
+	border: 1px solid #ccc; position:absolute; text-align:left; list-style: none; 
+	height: 8em; width: 20em; overflow: auto; 
+	background-color: white;
+}
+#searchfields_icon {
+	position: relative;
+}
+
+/* Select language box
+------------------------------ */
+#footer div form {
+	display: inline;
+}
+
+/* Comment box
+------------------------------ */
+#content .commentaires {
+	background: rgba(255, 255, 255, 0.3) none repeat scroll 0 0;
+	padding: 5px;
+	margin-top: 30px;
+	text-align: center;
+}
+#content #commentcontent h3 {
+	text-align: center;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+#content #commentcontent h4 {
+	padding-left: 15px;
+	font-weight: bold;
+}
+#content #commentcontent h4 > a{
+	font-weight: normal;
+}
+#content #commentcontent h4 > a:before{
+	content: '(';
+}
+#content #commentcontent h4 > a:after{
+	content: ')';
+}
+#content #commentcontent #comments {
+	text-align: left;
+	padding-bottom: 25px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+#content #commentcontent #comments .comment {
+	padding-bottom: 10px;
+}
+#content #commentcontent #commententry {
+	width: 490px;
+	text-align: left;
+	margin: auto;
+}
+#content #commentcontent #commententry table {
+	width: 100%;
+	text-align: left;
+}
+#content #commentcontent #commententry #commentform {
+	text-align: center;
+}
+#content #commentcontent #commententry table * {
+	text-align: left;
+}
+#content #commentcontent #commententry .inputbox {
+	width: 98%;
+}
+#content #commentcontent #commententry .textarea_inputbox {
+	width: 98%;
+	text-align: left;
+}
+#content #commentcontent #commententry .pushbutton {
+	/*margin: auto;*/
+}
+
+/* Tags editor
+------------------------------ */
+#content .data .c .tags{
+	float: right;
+	margin-top: 50px;
+	min-width: 130px;
+	max-width: 270px;
+}
+#content .data .c .tags .taglist li {
+	display: inline;
+}
+#content .data .c .tags .taglist li a:after {
+	content: ',';
+}
+
+/* diaporama launcher
+------------------------------ */
+/* Album */
+#content .data .diaporama{
+	font-size: 75%;
+	margin-left: 10px;
+}
+#content .data .diaporama a{
+	text-decoration: none;
+}
+/* Image */
+#content #leftbox .diaporama {
+	background: rgba(255, 255, 255, 0.3) none repeat scroll 0 0;
+	float: left;
+	padding: 5px;
+}
+
+/* Rating editor
+------------------------------ */
+/* Album */
+#content .data .c .rating {
+	float: right;
+	color: white;
+}
+#content .data .c .rating span div{
+	padding: 0;
+}
+#content .data .c .rating span {
+	float: left;
+}
+/* Image */
+#content #leftbox .rating {
+	float: right;
+	color: white;
+	margin-right: 10px;
+}
+#content #leftbox .rating span div{
+	padding: 0;
+}
+#content #leftbox .rating span {
+	float: left;
+}
+
+/* Image size selector
+------------------------------ */
+#content .choice {
+	color: white;
+	font-size: 80%;
+}
+#content .choice div{
+	text-align: center;
+}
+
+/* clickable image
+------------------------------ */
+#content .view{
+	text-align: center;
+}
+#content .view a{
+	text-align: center;
+}
+#content .view a .image{
+	text-align: center;
+}
+
+/* Image Metadata
+------------------------------ */
+#content .data .metadonnees {
+	margin-top: 50px;
+	font-size: 13px;
+}
+#content .data .metadonnees * {
+	font-size: 13px;
+}
+
+/* Register Form
+------------------------------ */
+#content .register {
+	width: 59%;
+	border-right: 3px dotted black;
+	color: white;
+}
+#content .register h2 {
+	text-align: center;
+	margin: 15px 0;
+	font-weight: bold;
+}
+#content .register form > input {
+	display: block;
+	margin: auto;
+}
+#content .register .register_user {
+	margin: auto;
+}
+#content .register .register_user input {
+	width: 98%;
+}
+#content .register .register_user img {
+	vertical-align: middle;
+}
+
+/* Search page
+------------------------------ */
+#content #images{
+	padding-top: 50px;
+}
+
+/* Archives page
+------------------------------ */
+#content .archive {
+	max-width: 500px;
+	margin: auto;
+}
+#content .archive .year {
+	text-align: center;
+	color: white;
+	margin: 15px 0;
+}
+#content .archive .year .month{
+	background: rgba(255, 255, 255, 0.3) none repeat scroll 0 0;
+	padding: 5px;
+}
+
+.clear{ clear:both; }
+.c:after{clear:both;content:'.';display:block;visibility:hidden;height:0;}.c{display:inline-block;}*html.c{height:1%;}.c{display:block;}
+.c2{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0;}
+.dn{display:none;}.db{display:block;}.di{display:inline;}
+.vv{visibility:visible;}.vh{visibility:hidden;}
+.fl{display:inline;float:left;}.fr{display:inline;float:right;}
+.cl{clear:left;}.cr{clear:right;}.cb{clear:both;}.cn{clear:none;}
+.al{text-align:left;}.ar{text-align:right;}.ac{text-align:center;}.aj{text-align:justify;}
+.pa{position:absolute;}.pr{position:relative;}.ps{position:static;}.pf{position:fixed;}

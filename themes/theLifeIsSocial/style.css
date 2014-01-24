@@ -1,0 +1,399 @@
+/**
+ *
+ * Color Scheme Designer
+ * Color: Red
+ * Type: Analogic, Hue:0°, Angle: 17°
+ * Scheme ID: 0051Gw0w0w0w0
+ * Link: http://colorschemedesigner/#0051Gw0w0w0w0
+ *
+ */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'CandelaBook', Arial, sans-serif;
+	background-color: #A60000;
+}
+img {
+	border: none;
+}
+.bold {
+	font-family: 'CandelaBold', Arial, sans-serif;
+}
+strong {
+	font-family: 'CandelaBold', Arial, sans-serif;
+}
+.italic {
+	font-family: 'CandelaBookItalic', Arial, sans-serif;
+}
+em {
+	font-family: 'CandelaBookItalic', Arial, sans-serif;
+}
+.grit {
+	font-family: 'CandelaBoldItalic', Arial, sans-serif;
+}
+
+.clear {
+	clear: both;
+}
+
+/************************************************
+ * CSS pour la partie Breadcrumb de la page
+ ***********************************************/
+#breadcrumb {
+	padding: 0 10px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	background-color: #A60000;
+}
+#breadcrumb a {
+	color: #FF4F00;
+	vertical-align: middle;
+	text-decoration: none;
+}
+#breadcrumb ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#breadcrumb ul li {
+	display: inline;
+	line-height: 30px;
+	padding: 5px;
+	margin: 5px;
+}
+#breadcrumb ul li.chevron {
+	padding: 0;
+	margin: 0;
+}
+#breadcrumb ul li:hover a {
+	color: #FFFFFF;
+}
+#breadcrumb ul li:hover a.activ {
+	font-family: 'CandelaBold', Arial, sans-serif;
+}
+/************************************************
+ * CSS pour la partie principale de la page
+ ***********************************************/
+#content {
+	background-image: url("images/bandeau_background.png");
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 40px 10px;
+}
+	/*
+	 * CSS pour les archives
+	 */
+#content #archive .list a {
+	font-family: 'CandelaBook', Arial, sans-serif;
+	color: #000000;
+	text-decoration: none;
+}
+#content #archive .list, #content #archive .list ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: 'CandelaBold', Arial, sans-serif;
+	color: #FF4F00;
+}
+#content #archive > ul.list {
+	width: 1024px;
+	margin: 2em auto;
+	border: 1px solid #FF0000;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-khtml-border-radius: 5px 5px 5px 5px;
+}
+	/*
+	 * CSS pour les commentaires Zenphoto
+	 */
+#content #commentcontent h3 {
+	margin: 30px 0px 0px 0px;
+	color: #FF4F00;
+	text-decoration: underline;
+}
+#content #commentcontent h4 {
+	color: #FF0000;
+	margin: 20px 0 0 0;
+}
+#content #commentcontent h4 a {
+	color: #A60000;
+}
+#content #commentform {
+	text-align: center;
+	margin-top: 30px;
+}
+#content #commentform table {
+	margin: auto;
+	text-align: left;
+}
+	/*
+	 * CSS pour le formulaire de contact
+	 */
+#content #contact table {
+	margin: auto;
+}
+#content #contact table input[type="text"] {
+	width: 98%;
+}
+#content #contact table input[type="submit"], #content #contact table input[type="reset"] {
+	width: 49%;
+}
+	/*
+	 * CSS pour la description de chaque média
+	 */
+#content .description .date {
+	font-size: small;
+}
+#content .description .desc {
+	text-indent: 2em;
+}
+#content .description h3 {
+	display: inline;
+}
+#content .description .tagsList {
+	text-align: right;
+}
+#content .description .tagsList .tags_title {
+	color: #A60000;
+	font-family: 'CandelaBold';
+}
+#content .description .tagsList ul {
+	list-style: none;
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+#content .description .tagsList ul li {
+	margin: 0;
+	padding: 0;
+	display: inline
+}
+#content .description .tagsList ul li a {
+	text-decoration: none;
+	color: #000000;
+}
+#content .description .title {
+	text-align: center;
+}
+#content .description .vote {
+	display: block;
+	margin-top: -20px;
+}
+	/*
+	 * CSS pour le cas où les commentaires Facebook et les commentaires Zenphoto sont activés en même temps
+	 */
+#content .deux {
+	width: 47%;
+	float: left;
+	margin: 10px;
+}
+	/*
+	 * CSS pour l'affichage d'une image
+	 */
+#content #image {
+	text-align: center;
+	padding: 10px;
+}
+#content #image img {
+	border: 2px solid #A60000;
+	box-shadow: 5px 5px 10px #A60000;
+	-moz-box-shadow: 5px 5px 10px #A60000;
+	-khtml-box-shadow: 5px 5px 10px #A60000;
+	-webkit-box-shadow: 5px 5px 10px #A60000;
+}
+	/*
+	 * CSS pour les formulaires d'enregistrement et de connexion
+	 */
+#content #logReg form {
+	text-align: center;
+}
+#content #logReg input[type="text"], #content #logReg input[type="password"] {
+	width: 97%;
+}
+#content #logReg input[type="submit"] {
+	/*width: 49%;*/
+}
+#content #logReg table {
+	margin: auto;
+	text-align: left;
+}
+	/*
+	 * CSS pour les liens précédent et suivant
+	 */
+#content #move {
+	clear: left;
+	margin-top: 10px 0px;
+	text-align: center;
+	margin: 10px 0;
+}
+#content #move div {
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-khtml-border-radius: 5px 5px 5px 5px;
+	border: 1px solid #FF0000;
+	display: inline;
+	margin: 5px;
+	padding: 5px;
+}
+#content #move div.active {
+	background-color: #FF4F00;
+}
+#content #move div.active:hover {
+	background-color: #A60000;
+}
+#content #move div.active a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+#content #move span {
+	color: #FF4F00;
+}
+	/*
+	 * CSS pour le contenant de chaque grand média
+	 */
+#content #news, #content #newses  .article, #content #page, #content #contact, #content #logReg {
+	width: 950px;
+	margin: 2em auto;
+	padding: 10px;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-khtml-border-radius: 5px 5px 5px 5px;
+	border: 1px solid #FF0000;
+}
+	/*
+	 * CSS pour les miniatures
+	 */
+#content .thumbs {
+	width: 1024px;
+	margin: auto;
+}
+#content .thumbs .list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#content .thumbs .list .last {
+	clear: left;
+	border: none;
+	margin-bottom: 10px;
+}
+#content .thumbs .list li {
+	float: left;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-khtml-border-radius: 5px 5px 5px 5px;
+	border: 1px solid #FF0000;
+	margin: 4px;
+}
+#content .thumbs .thumb, #content .thumbs .album {
+	width: 150px;
+	height: 150px;
+	float: left;
+	padding: 5px;
+}
+/************************************************
+ * CSS pour le pied de page
+ ***********************************************/
+#footer {
+	clear: both;
+	background-color:#A60000;
+	background-image:url("images/bandeau_background_bottom.png");
+	background-repeat:repeat-x;
+	padding: 30px 10px 10px 10px; /*padding-top: 30px;*/
+	line-height: 30px;
+	vertical-align: middle;
+	color: #FF4F00;
+}
+#footer #bottom_menu {
+	text-align: center;
+}
+#footer #copyright {
+	clear: both;
+}
+#footer #copyright a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+#footer #copyright a:hover {
+	background-color: #FF4F00;
+	font-family: 'CandelaBold', Arial, sans-serif;
+	-moz-border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+}
+/************************************************
+ * CSS pour l'entête de la page
+ ***********************************************/
+#header {
+	height: 150px;
+	width: 100%;
+	background-color: #A60000;
+}
+#header #gallery_title {
+	line-height: 150px;
+	text-align: center;
+	color: #FFFFFF;
+	font-family: 'BlackJackRegular', Arial, sans-serif;
+}
+#header #logo {
+	width: 300px;
+	height: 150px;
+	float: left;
+}
+#header #search {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+/************************************************
+ * CSS générique pour le menu
+ ***********************************************/
+.menu a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.menu li {
+	display: inline;
+	padding: 5px;
+	margin: 5px;
+	-moz-border-radius: 5px;
+}
+.menu li:hover {
+	background-color: #FF4F00;
+}
+.menu li:hover a {
+	font-family: 'CandelaBold', Arial, sans-serif;
+}
+/************************************************
+ * CSS pour le menu
+ ***********************************************/
+#menu {
+	clear: both;
+	height: 50px;
+	padding: 0 10px;
+	background-color: #A60000;
+}
+#menu .main a {
+	vertical-align: middle;
+}
+#menu .main li {
+	line-height: 50px;
+}
+/************************************************
+ * CSS pour le contenant principal
+ ***********************************************/
+#wrapper {
+	margin: -22px auto;
+}

@@ -1,0 +1,52 @@
+/**
+ *
+ * CSS pour le plugin Archive_Calendar
+ *
+ *
+ */
+#content #archive #calendar {
+	list-style: none;
+	width: 945px;
+	margin: auto;
+}
+#content #archive #calendar li {
+	border-left: 1px dotted #A60000;
+	color: #FF0000;
+	float: left;
+	height: 110px;
+	width: 133px;
+	text-align: right;
+}
+#content #archive #calendar .fisrt {
+	clear: both;
+	border: none;
+}
+#content #archive #calendar li a {
+	color: #FFFFFF;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+}
+#content #archive #calendar li a:hover {
+	font-family: 'CandelaBold', Arial, sans-serif;
+}
+#content #archive #calendar .month {
+	background-color: #A60000;
+	color: #FFFFFF;
+	height: 25px;
+	line-height: 25px;
+	margin-top: 2em;
+	text-align: center;
+	width: 100%;
+	border: none;
+}
+#content #archive #calendar .weekday {
+	background-color: #A60000;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	color: #FF4F00;
+	text-shadow: 1px 1px 2px #FF4F00;
+	border: none;
+	width: 135px;
+}

@@ -1,0 +1,51 @@
+/**
+ *
+ * Color Scheme Designer
+ * Scheme ID: 3-51Tw0w0w0w0
+ * Link: http://colorschemedesigner/#3-51Tw0w0w0w0
+ *
+ * CSS file for the plugin 'Archive Calendar'
+ */
+#archive{
+	padding-top: 2em;
+}
+#archive #calendar{
+	width: 707px;
+	margin: auto;
+}
+#archive #calendar img{
+	display: block;
+	max-height: 80px;
+	max-width: 80px;
+	margin: auto;
+}
+#archive #calendar li{
+	width: 101px;
+	height: 100px;
+	float: left;
+	display: inline;
+	text-align: right;
+}
+#archive #calendar .month{
+	text-align: center;
+	background-color: #033E6B;
+	color: #FFFFFF;
+	font-weight: bold;
+	line-height: 30px;
+	height: 30px;
+	width: 100%;
+	border: none;
+}
+#archive #calendar .weekday{
+	text-align: center;
+	line-height: 30px;
+	height: 30px;
+	background-color: #0B61A4;
+	color: #66A3D2;
+	font-weight: bold;
+}
+#archive #calendar a{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: normal;
+}

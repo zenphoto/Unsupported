@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: theLifeInBlue v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-20 15:51+0100\n"
+"PO-Revision-Date: 2010-09-20 15:52+0100\n"
+"Last-Translator: TheWholeLifeToLearn <thewholelifetolearn@gmail.com>\n"
+"Language-Team: theWholeLifeToLearn <thewholelifetolearn@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;gettext_th\n"
+"X-Poedit-Basepath: F:\\wamp\\www\\zenPhoto\\themes\\\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: theLifeInBlue\n"
+
+#: theLifeInBlue/archive.php:12
+#: theLifeInBlue/archive.php:31
+#: theLifeInBlue/functions.php:46
+msgid "Archives"
+msgstr "Archives"
+
+#: theLifeInBlue/functions.php:21
+msgid "Main site"
+msgstr "Main site"
+
+#: theLifeInBlue/functions.php:27
+#: theLifeInBlue/functions.php:31
+msgid "Gallery"
+msgstr "Gallery"
+
+#: theLifeInBlue/functions.php:37
+msgid "News blog"
+msgstr "News blog"
+
+#: theLifeInBlue/functions.php:41
+msgid "Pages"
+msgstr "Pages"
+
+#: theLifeInBlue/functions.php:44
+msgid "Stay informed"
+msgstr "Stay informed"
+
+#: theLifeInBlue/functions.php:50
+msgid "Connection"
+msgstr "Connection"
+
+#: theLifeInBlue/functions.php:132
+#: theLifeInBlue/news.php:64
+msgid "Categories: "
+msgstr "Categories: "
+
+#: theLifeInBlue/search.php:26
+#: theLifeInBlue/search.php:44
+msgid "Search"
+msgstr "Search"
+
+#: theLifeInBlue/search.php:44
+msgid " results"
+msgstr " results"
+
+#: theLifeInBlue/search.php:75
+msgid "Sorry, no image matches. Try refining your search."
+msgstr "Sorry, no image matches. Try refining your search."
+
+#: theLifeInBlue/themeoptions.php:27
+msgid "Allow images with albums"
+msgstr "Allow images with albums"
+
+#: theLifeInBlue/themeoptions.php:30
+msgid "Check to enable the display of albums and pictures on the same page."
+msgstr "Check to enable the display of albums and pictures on the same page."
+
+#: theLifeInBlue/themeoptions.php:32
+msgid "Google Analytics key"
+msgstr "Google Analytics key"
+
+#: theLifeInBlue/themeoptions.php:35
+msgid "Insert your Google Analytics key if you have one."
+msgstr "Insert your Google Analytics key if you have one."
+
+#: theLifeInBlue/themeoptions.php:37
+msgid "Piwik server address"
+msgstr "Piwik server address"
+
+#: theLifeInBlue/themeoptions.php:40
+msgid "Insert your piwik server adress (for example: www.piwik.com)."
+msgstr "Insert your piwik server adress (for example: www.piwik.com)."
+
+#: theLifeInBlue/themeoptions.php:42
+msgid "Piwik ID"
+msgstr "Piwik ID"
+
+#: theLifeInBlue/themeoptions.php:45
+msgid "Insert your piwik ID for your Zenphoto gallery."
+msgstr "Insert your piwik ID for your Zenphoto gallery."
+
+#: theLifeInBlue/theme_description.php:6
+msgid ""
+"A simple theme with a monochrome in blue<br />\n"
+"Supports the plugins \"Archive_Calendar\", \"comments\", \"jCarousel_Thumb_Nav\", \"ratings\", \"print_album_menu\", \"user_login-out\", \"zenpage\"<br />\n"
+"Themes options: Google Analytics, Piwik analytics"
+msgstr ""
+"A simple theme with a monochrome in blue<br />\n"
+"Supports the plugins \"Archive_Calendar\", \"comments\", \"jCarousel_Thumb_Nav\", \"ratings\", \"print_album_menu\", \"user_login-out\", \"zenpage\"<br />\n"
+"Themes options: Google Analytics, Piwik analytics"
+

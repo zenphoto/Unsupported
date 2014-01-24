@@ -1,0 +1,46 @@
+/**
+ *
+ * Fonts from Font Squirrel
+ * www.fontsquirrel.com
+ *
+ *
+ */
+@font-face {
+	font-family: 'BlackJackRegular';
+	src: url('fonts/black_jack/black_jack-webfont.eot');
+	src: local('?'), url('fonts/black_jack/black_jack-webfont.woff') format('woff'), url('fonts/black_jack/black_jack-webfont.ttf') format('truetype'), url('fonts/black_jack/black_jack-webfont.svg#webfontqvZVtB63') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CandelaBook';
+	src: url('fonts/candela/CandelaBook-webfont.eot');
+	src: local('?'), url('fonts/candela/CandelaBook-webfont.woff') format('woff'), url('fonts/candela/CandelaBook-webfont.ttf') format('truetype'), url('fonts/candela/CandelaBook-webfont.svg#webfontGwfhSe77') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CandelaBookItalic';
+	src: url('fonts/candela/CandelaItalic-webfont.eot');
+	src: local('?'), url('fonts/candela/CandelaItalic-webfont.woff') format('woff'), url('fonts/candela/CandelaItalic-webfont.ttf') format('truetype'), url('fonts/candela/CandelaItalic-webfont.svg#webfontfyZdnb4R') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CandelaBold';
+	src: url('fonts/candela/CandelaBold-webfont.eot');
+	src: local('?'), url('fonts/candela/CandelaBold-webfont.woff') format('woff'), url('fonts/candela/CandelaBold-webfont.ttf') format('truetype'), url('fonts/candela/CandelaBold-webfont.svg#webfontlY5Qn11G') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CandelaBoldItalic';
+	src: url('fonts/candela/CandelaBoldItalic-webfont.eot');
+	src: local('?'), url('fonts/candela/CandelaBoldItalic-webfont.woff') format('woff'), url('fonts/candela/CandelaBoldItalic-webfont.ttf') format('truetype'), url('fonts/candela/CandelaBoldItalic-webfont.svg#webfontk53EzZOt') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

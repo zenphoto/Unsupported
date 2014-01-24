@@ -1,0 +1,30 @@
+/* Calendar
+------------------------------ */
+#calendar {
+	width: 100%;
+}
+#calendar li {
+	float: left;
+	width: 14.28%;
+	height: 105px;
+	color: rgba(255, 255, 255, 0.3);
+}
+#calendar li img {
+	display: block;
+	margin: auto;
+}
+#calendar .month {
+	background: rgba(255, 255, 255, 0.3) none repeat scroll 0 0;
+	width: 100%;
+	height: 25px;
+	text-align: center;
+	color: #000000;
+	margin-top: 2em;
+}
+#calendar .first {
+}
+#calendar .weekday {
+	height: 25px;
+	text-align: center;
+	text-shadow: 1px 1px 2px #655D5D;
+}
