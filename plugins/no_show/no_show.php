@@ -1,11 +1,12 @@
 <?php
+
 /* Totally hides unpublished images from not signed in viewers.
  * Requrires Zenphoto v1.3.1.1 or later
  *
  * @package plugins
  * @subpackage demo
  */
-$plugin_is_filter = 5|THEME_PLUGIN;
+$plugin_is_filter = 5 | THEME_PLUGIN;
 $plugin_description = gettext('Prevents guest viewers from viewing unpublished images albums.');
 $plugin_author = "Stephen Billard (sbillard)";
 $plugin_version = '1.4.3';
@@ -16,7 +17,6 @@ if (!OFFSET_PATH) {
 }
 
 function no_show_hideImage($imageObj) {
-	$hint = '';
 	$album = $imageObj->getAlbum();
 	$check = checkAlbumPassword($album);
 	if ($check == 'zp_public_access') {
@@ -26,11 +26,11 @@ function no_show_hideImage($imageObj) {
 }
 
 function no_show_hideAlbum($albumObj) {
-	$hint = '';
 	$check = checkAlbumPassword($albumObj);
 	if ($check == 'zp_public_access') {
 		$albumObj->exists = $albumObj->getShow();
 	}
 	return $albumObj;
 }
+
 ?>

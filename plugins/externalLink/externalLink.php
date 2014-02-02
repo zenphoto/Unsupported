@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Provides extensions to the image utilities to crop images.
  *
@@ -10,8 +11,7 @@
  * @package plugins
  * @subpackage media
  */
-
-$plugin_is_filter = 5|ADMIN_PLUGIN;
+$plugin_is_filter = 5 | ADMIN_PLUGIN;
 $plugin_description = gettext("Adds a copyable link in the image utilities box that can show the image outside of your gallery.");
 $plugin_author = "Stephen Billard (sbillard)";
 
@@ -22,26 +22,26 @@ function externalLinkBox($prior, $image, $prefix, $subpage, $tagsort) {
 	if ($prior) {
 		$prior .= '<br /><hr>';
 	}
-	if (isset($_SESSION['externalLinksize_'.$prefix])) {
-		$size = sanitize_numeric($_SESSION['externalLinksize_'.$prefix]);
-		unset($_SESSION['externalLinksize_'.$prefix]);
+	if (isset($_SESSION['externalLinksize_' . $prefix])) {
+		$size = sanitize_numeric($_SESSION['externalLinksize_' . $prefix]);
+		unset($_SESSION['externalLinksize_' . $prefix]);
 	} else {
 		$size = false;
 	}
 	$output = $img = '';
 	if ($size) {
 		$link = $image->getCustomImage($size, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-		$img = ' <img src="'.html_encode($link).'" height="15" width="15" />';
-		$output .= '<input type="text" style="width:100%" value="'.html_encode($link).'" />';
+		$img = ' <img src="' . html_encode(pathurlencode($link)) . '" height="15" width="15" />';
+		$output .= '<input type="text" style="width:100%" value="' . html_encode($link) . '" />';
 	}
-	$output .= gettext('link for image of size:').' <input type="text" name="externalLinksize_'.$prefix.'" size="3" value="'.$size.'" />'.$img;
+	$output .= gettext('link for image of size:') . ' <input type="text" name="externalLinksize_' . $prefix . '" size="3" value="' . $size . '" />' . $img;
 
-	return $prior.$output;
+	return $prior . $output;
 }
 
 function externalLinkBoxSave($object, $prefix) {
-	if (isset($_POST['externalLinksize_'.$prefix])) {
-		$_SESSION['externalLinksize_'.$prefix] = $_POST['externalLinksize_'.$prefix];
+	if (isset($_POST['externalLinksize_' . $prefix])) {
+		$_SESSION['externalLinksize_' . $prefix] = $_POST['externalLinksize_' . $prefix];
 	}
 	return $object;
 }

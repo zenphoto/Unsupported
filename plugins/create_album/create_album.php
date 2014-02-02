@@ -24,6 +24,7 @@ zp_register_filter('save_admin_custom_data','create_album_save');
 zp_register_filter('save_user','create_album_save_user');
 zp_register_filter('upload_root_ui','create_album_upload_root_ui');
 zp_register_filter('admin_upload_process','create_album_admin_upload_process');
+zp_register_filter('plugin_tabs', 'create_album::tab');
 
 class create_album {
 
@@ -58,6 +59,12 @@ class create_album {
 																			'<p class="notebox">'.gettext('<strong>Note:</strong> Candidates are those users with <em>Album</em> and <em>Upload</em> rights who do not also have <em>Admin</em> or <em>Manage all album</em> rights.').'</p>')
 									);
 	}
+
+	static function tab($xlate) {
+		$xlate['demo'] = gettext('demo');
+		return $xlate;
+	}
+
 }
 
 /**
@@ -89,14 +96,14 @@ function create_albumJS() {
 				}
 			}
 			folder.value = fname + fnamesuffix;
-			$('#newalbumcheckbox').attr('checked','checked');
+			$('#newalbumcheckbox').prop('checked',true);
 			if (contains(albumArray, folder)) {
 				errorDiv.style.display = "inline";
 				errorDiv.innerHTML = msg1;
-				$('#newalbumcheckbox').removeAttr('checked');
+				$('#newalbumcheckbox').prop('checked',false);
 			} else {
 				errorDiv.style.display = "none";
-				$('#newalbumcheckbox').attr('checked','checked');
+				$('#newalbumcheckbox').prop('checked',true);
 			}
 		}
 
@@ -105,10 +112,10 @@ function create_albumJS() {
 			if (contains(albumArray, $('#folderdisplay').val())) {
 				errorDiv.style.display = "inline";
 				errorDiv.innerHTML = '<?php echo gettext('That name is already used.'); ?>';
-				$('#newalbumcheckbox').removeAttr('checked');
+				$('#newalbumcheckbox').prop('checked',false);
 			} else {
 				errorDiv.style.display = "none";
-				$('#newalbumcheckbox').attr('checked','checked');
+				$('#newalbumcheckbox').prop('checked',true);
 			}
 		}
 		// ]]> -->
@@ -129,6 +136,7 @@ function create_albumJS() {
  */
 function create_album_edit($html, $userobj, $id, $background, $current, $local_alterrights) {
 	global $_zp_current_admin_obj, $_zp_gallery;
+	if (!$userobj->getValid()) return $html;
 	$rights = $userobj->getRights();
 	$user = $userobj->getUser();
 	$enabled = getOption('create_album_admin_'.$user);
@@ -185,7 +193,7 @@ function create_album_edit($html, $userobj, $id, $background, $current, $local_a
  */
 function create_album_save($updated, $userobj, $i, $alter) {
 	global $_create_album_errors;
-	if (isset($_POST['createalbum'])) {
+	if (isset($_POST['createalbum']) && $userobj->getValid()) {
 		if (isset($_POST['folderdisplay'])) {
 			$alb = sanitize($_POST['folderdisplay']);
 		} else {
@@ -201,7 +209,7 @@ function create_album_save($updated, $userobj, $i, $alter) {
 					$_create_album_errors[$user] = sprintf(gettext('Folder %s already exists.'),$alb);
 				} else {
 					if (@mkdir_recursive($path,FOLDER_MOD)) {
-						$album = new Album(NULL, $alb);
+						$album = newAlbum($alb);
 						if (!isset($_POST['publishalbum'])) {
 							$album->setShow(false);
 						}
@@ -210,9 +218,8 @@ function create_album_save($updated, $userobj, $i, $alter) {
 							$album->setTitle($title);
 						}
 						$album->save();
-						$sql = "INSERT INTO ".prefix('admin_to_object')." (adminid, objectid, type, edit) VALUES (".$userobj->getID().", ".$album->getID().", 'album', ".
-													(MANAGED_OBJECT_RIGHTS_EDIT | MANAGED_OBJECT_RIGHTS_UPLOAD | MANAGED_OBJECT_RIGHTS_VIEW).")";
-						$result = query($sql);
+						$userobj->setObjects(array_merge($userobj->getObjects(), array('data'=>$alb, 'name'=>$title, 'edit'=>MANAGED_OBJECT_RIGHTS_EDIT | MANAGED_OBJECT_RIGHTS_UPLOAD | MANAGED_OBJECT_RIGHTS_VIEW)));
+						$userobj->save();
 					} else {
 						$_create_album_errors[$user] = sprintf(gettext('Unabel to create %s.'),$alb);
 					}
@@ -264,11 +271,10 @@ function create_album_admin_upload_process($folder) {
 			$targetPath = ALBUM_FOLDER_SERVERPATH.internalToFilesystem($folder);
 			if (!file_exists($targetPath)) {	//	and we do need to create it
 				mkdir_recursive($targetPath, FOLDER_MOD);
-				$album = new Album(NULL, $folder);
+				$album = newAlbum($folder);
 				$album->save();
-				$sql = "INSERT INTO ".prefix('admin_to_object')." (adminid, objectid, type, edit) VALUES (".$_zp_current_admin_obj->getID().", ".$album->getID().", 'album', ".
-									(MANAGED_OBJECT_RIGHTS_EDIT | MANAGED_OBJECT_RIGHTS_UPLOAD | MANAGED_OBJECT_RIGHTS_VIEW).")";
-				$result = query($sql);
+				$userobj->setObjects(array_merge($userobj->getObjects(), array('data'=>$folder, 'name'=>$album->getTitle(), 'edit'=>MANAGED_OBJECT_RIGHTS_EDIT | MANAGED_OBJECT_RIGHTS_UPLOAD | MANAGED_OBJECT_RIGHTS_VIEW)));
+				$userobj->save();
 			}
 		}
 	}

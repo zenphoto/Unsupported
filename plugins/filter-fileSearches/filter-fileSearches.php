@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Filters out images/albums from the filesystem lists
  * This plugin is intended as an example of the use of the album_filter and image_filter filters.
@@ -6,7 +7,7 @@
  * @package plugins
  * @subpackage media
  */
-$plugin_is_filter = 5|CLASS_PLUGIN;
+$plugin_is_filter = 5 | CLASS_PLUGIN;
 $plugin_description = gettext("Filter out files from albums and image searches that we do not want shown. See the plugin options for configuration.");
 $plugin_author = "Stephen Billard (sbillard)";
 $plugin_version = '1.4.3';
@@ -17,7 +18,7 @@ $alloptionlist = getOptionList();
 $enablealbum = false;
 $enableimage = false;
 
-foreach ($alloptionlist as $key=>$option) {
+foreach ($alloptionlist as $key => $option) {
 	if (($option == 1) && strpos($key, 'filter_file_searches_') === 0) {
 		$mysetoptions[] = $key;
 		if (strpos($key, 'filter_file_searches_albums_') === 0) {
@@ -28,7 +29,8 @@ foreach ($alloptionlist as $key=>$option) {
 		}
 	}
 }
-if ($enablealbum) zp_register_filter('album_filter', 'filterAlbums');
+if ($enablealbum)
+	zp_register_filter('album_filter', 'filterAlbums');
 if ($enableimage) {
 	zp_register_filter('image_filter', 'filterImages');
 	zp_register_filter('upload_filetypes', 'filterImageUploads');
@@ -41,6 +43,7 @@ if ($enableimage) {
 class filter_file_searches_options {
 
 	function filter_file_searches_options() {
+
 	}
 
 	function getOptionsSupported() {
@@ -51,7 +54,7 @@ class filter_file_searches_options {
 		$albums = array();
 
 		while ($dirname = readdir($dir)) {
-			if ((is_dir($albumdir.$dirname) && (substr($dirname, 0, 1) != '.')) || hasDynamicAlbumSuffix($dirname)) {
+			if ((is_dir($albumdir . $dirname) && (substr($dirname, 0, 1) != '.')) || hasDynamicAlbumSuffix($dirname)) {
 				$albums[] = filesystemToInternal($dirname);
 			}
 		}
@@ -62,7 +65,7 @@ class filter_file_searches_options {
 		natcasesort($albums);
 		$lista = array();
 		foreach ($albums as $album) {
-			$lista[$album] = 'filter_file_searches_albums_'.$album;
+			$lista[$album] = 'filter_file_searches_albums_' . $album;
 		}
 		natcasesort($_zp_supported_images);
 		$types = array_keys($_zp_extra_filetypes);
@@ -70,17 +73,19 @@ class filter_file_searches_options {
 		$list = array_merge($_zp_supported_images, $types);
 		$listi = array();
 		foreach ($list as $suffix) {
-			$listi[$suffix] = 'filter_file_searches_images_'.$suffix;
+			$listi[$suffix] = 'filter_file_searches_images_' . $suffix;
 		}
-		return array(	gettext('Albums') => array('key' => 'filter_file_searches_albums', 'type' => OPTION_TYPE_CHECKBOX_UL,
+		return array(gettext('Albums')	 => array('key'				 => 'filter_file_searches_albums', 'type'			 => OPTION_TYPE_CHECKBOX_UL,
 										'checkboxes' => $lista,
-										'desc' => gettext("Check album names to be ignored.")),
-		gettext('Images') => array('key' => 'filter_file_searches_images', 'type' => OPTION_TYPE_CHECKBOX_UL,
+										'desc'			 => gettext("Check album names to be ignored.")),
+						gettext('Images')	 => array('key'				 => 'filter_file_searches_images', 'type'			 => OPTION_TYPE_CHECKBOX_UL,
 										'checkboxes' => $listi,
-										'desc' => gettext('Check image suffixes to be ingnored.'))
+										'desc'			 => gettext('Check image suffixes to be ingnored.'))
 		);
 	}
+
 	function handleOption($option, $currentValue) {
+
 	}
 
 	function loadAlbumNames($albumdir) {
@@ -93,13 +98,14 @@ class filter_file_searches_options {
 
 		while ($dirname = readdir($dir)) {
 			$dirname = filesystemToInternal($dirname);
-			if ((is_dir($albumdir.$dirname) && (substr($dirname, 0, 1) != '.'))) {
-				$albums = array_merge(array($dirname), $this->loadAlbumNames($albumdir.$dirname.'/'));
+			if ((is_dir($albumdir . $dirname) && $dirname{0 } != '.')) {
+				$albums = array_merge(array($dirname), $this->loadAlbumNames($albumdir . $dirname . '/'));
 			}
 		}
 		closedir($dir);
 		return $albums;
 	}
+
 }
 
 /**
@@ -111,7 +117,7 @@ class filter_file_searches_options {
 function filterAlbums($album_array) {
 	$new_list = array();
 	foreach ($album_array as $album) {
-		if (!getOption('filter_file_searches_albums_'.$album)) {
+		if (!getOption('filter_file_searches_albums_' . $album)) {
 			$new_list[] = $album;
 		}
 	}
@@ -127,7 +133,7 @@ function filterAlbums($album_array) {
 function filterImages($image_array) {
 	$new_list = array();
 	foreach ($image_array as $image) {
-		if (!getOption('filter_file_searches_images_'.getSuffix($image))) {
+		if (!getOption('filter_file_searches_images_' . getSuffix($image))) {
 			$new_list[] = $image;
 		}
 	}
@@ -136,7 +142,7 @@ function filterImages($image_array) {
 
 function filterImageUploads($types) {
 	$options = getOptionList();
-	foreach ($options as $option=>$value) {
+	foreach ($options as $option => $value) {
 		if (strpos($option, 'filter_file_searches_images_') !== false) {
 			if ($value) {
 				$key = array_search(substr($option, 28), $types);

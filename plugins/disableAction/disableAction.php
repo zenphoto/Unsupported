@@ -16,6 +16,7 @@ $plugin_version = '1.4.4';
 
 zp_register_filter('admin_note', 'disableRight::disable');	// a convenient point since it is established what page and tab are selected
 zp_register_filter('admin_managed_albums_access', 'disableRight::save');	// this point allows us to alter the $_GET and $_POST arrays before they are used
+zp_register_filter('plugin_tabs', 'disableRight::tab');
 
 class disableRight {
 
@@ -114,6 +115,12 @@ class disableRight {
 		}
 	}
 
+	static function tab($xlate) {
+		$xlate['demo'] = gettext('demo');
+		return $xlate;
+	}
+
+
 	/**
 	 * intercepts the album/image "apply" actions and alters their input
 	 *
@@ -144,7 +151,7 @@ class disableRight {
 						if (isset($_POST['album'])) {
 							// on the image or ablum tab
 							$folder = sanitize_path($_POST['album']);
-							$album = new Album(NULL, $folder);
+							$album = newAlbum($folder);
 							if (isset($_POST['totalimages'])) {
 								//	for images, set the "Visible" item to the state of the image.
 								for ($i = 0; $i < $_POST['totalimages']; $i++) {
@@ -176,7 +183,7 @@ class disableRight {
 										$prefix = '';
 									}
 									$f = sanitize_path(trim(sanitize($_POST[$prefix.'folder'])));
-									$album = new Album(NULL, $f);
+									$album = newAlbum($f);
 									if ($album->getShow()) {
 										$_POST[$prefix.'Published'] = 1;
 									} else {

@@ -51,7 +51,7 @@ function headConolidator_end() {
 		$jsFiles[basename($file)] = $file;
 	}
 	$jsFiles =array_reverse($jsFiles);
-	$js = '<script type="text/javascript" src="'.implode('"></script>'."\n".'<script type="text/javascript" src="', $jsFiles).'"></script>'."\n";;
+	$js = '<script type="text/javascript" src="'.implode('"></script>'."\n".'<script type="text/javascript" src="', $jsFiles).'"></script>'."\n";
 
 	$matches = headConolidator_extract($data, '~<link\s*(?:|type="text/css"|)\s*rel="stylesheet"\s*href="(.*)"\s*(?:|type="text/css"|)(?:\s*)/>~msU');
 	foreach ($matches[0] as $key=>$str) {
@@ -65,7 +65,7 @@ function headConolidator_end() {
 		$csFiles[basename($file)] = $file;
 	}
 	$csFiles = array_reverse($csFiles);
-	$cs = '<link type="text/css" rel="stylesheet" href="'.implode('" />'."\n".'<link type="text/css" rel="stylesheet" href="', $csFiles).'" />'."\n";;
+	$cs = '<link type="text/css" rel="stylesheet" href="'.implode('" />'."\n".'<link type="text/css" rel="stylesheet" href="', $csFiles).'" />'."\n";
 
 
 

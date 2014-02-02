@@ -19,6 +19,7 @@ $option_interface = 'cacheHeader_options';
 $_cacheHeader_side = getOption('cacheHeader_sides');
 if ($_cacheHeader_side == 'admin' || $_cacheHeader_side=='all') zp_register_filter('admin_headers','cacheHeader');
 if ($_cacheHeader_side == 'gallery' || $_cacheHeader_side=='all') zp_register_filter('theme_headers','cacheHeader');
+zp_register_filter('plugin_tabs', 'cacheHeader_options::tab');
 unset($_cacheHeader_side);
 
 class cacheHeader_options {
@@ -67,6 +68,12 @@ class cacheHeader_options {
 		$head .= ' must-revalidate, pre-check='.getOption('cacheHeader_pre-check').', post-check='.getOption('cacheHeader_post-check').', max-age='.getOption('cacheHeader_max-age');
 		echo 'header("'.$head.'");';
 	}
+
+	static function tab($xlate) {
+		$xlate['demo'] = gettext('demo');
+		return $xlate;
+	}
+
 }
 
 
