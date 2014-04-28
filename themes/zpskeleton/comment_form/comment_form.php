@@ -67,8 +67,7 @@
 						<?php }
 						
 						if (getOption('Use_Captcha')) { 
-							$captcha = $_zp_captcha->getCaptcha(); ?>
- 							<label><?php echo gettext("Enter CAPTCHA:"); ?></label>
+							$captcha = $_zp_captcha->getCaptcha(gettext("Enter CAPTCHA:")); ?>
 	 						<?php if (isset($captcha['html']) && isset($captcha['input'])) echo $captcha['html']; ?>
 							<?php if (isset($captcha['input'])) {
 								echo $captcha['input'];

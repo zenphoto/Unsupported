@@ -8,6 +8,7 @@ if (is_null(getOption('zpskel_thumbsize'))) { $optionsnotsaved = true; } else { 
 // warning about plugins
 if (!$zpskel_disablewarning){
 $plugincount = 0;
+$warning_listitem = '';
 if (getOption('zp_plugin_colorbox_js')) { $warning_listitem .= '<li>Disable Plugin: <strong><em>Colorbox</em></strong> [ This theme uses and configures it\'s own javascript popup plugin for image previews ]</li>'; $plugincount++; }
 if (getOption('zp_plugin_deprecated-functions')) { $warning_listitem .= '<li>Disable Plugin: <strong><em>Deprecated Functions</em></strong> [ This theme should be current on core functions as of version 1.4.1.4 ]</li>'; $plugincount++; }
 if (getOption('zp_plugin_jcarousel_thumb_nav')) { $warning_listitem .= '<li>Disable Plugin: <strong><em>jCarousel Thumb Nav</em></strong> [ Sorry no theme support for this plugin. ]</li>'; $plugincount++; }
@@ -23,7 +24,7 @@ if ($plugincount > 0) {
 }
 
 // warning about saving theme options
-if ($optionsnotsaved){ $options_message = '<div><h4>Please note:</h4><p>You must set zpSkeleton theme options at least once to create the theme variables.  This is just a warning and can be switched off in the theme options</p></div>'; }
+if ($optionsnotsaved){ $options_message = '<div><h4>Please note:</h4><p>You must set zpSkeleton theme options at least once to create the theme variables.  This is just a warning and can be switched off in the theme options</p></div>'; } else $options_message = '';
 
 setOption('comment_form_rss',false,false); // displayed elsewhere.
 setOption('albums_per_row',3,false);
@@ -55,8 +56,7 @@ function getTitleBreadcrumb($before = ' ( ', $between=' / ', $after = ' ) ') {
 	global $_zp_gallery, $_zp_current_search, $_zp_current_album, $_zp_last_album;
 	$titlebreadcrumb = '';
 	if (in_context(ZP_SEARCH_LINKED)) {
-		$dynamic_album = $_zp_current_search->dynalbumname;
-		if (empty($dynamic_album)) {
+		if (empty($_zp_current_search->dynalbumname)) {
 			$titlebreadcrumb .= $before.gettext("Search Result").$after;
 			if (is_null($_zp_current_album)) {
 				return;
@@ -64,7 +64,7 @@ function getTitleBreadcrumb($before = ' ( ', $between=' / ', $after = ' ) ') {
 				$parents = getParentAlbums();
 			}
 		} else {
-			$album = new Album($_zp_gallery, $dynamic_album);
+			$album = new Album($_zp_gallery, $_zp_current_search->dynalbumname);
 			$parents = getParentAlbums($album);
 			if (in_context(ZP_ALBUM_LINKED)) {
 				array_push($parents, $album);
@@ -115,7 +115,7 @@ function printPPSlideShowLink($linktext='', $linkstyle='') {
 			if(in_array($suffix,$suffixes)) {
 				$count++;
 				if(is_array($image)) {
-					$albobj = new Album($_zp_gallery,$image['folder']);
+					$albobj = new Album($image['folder']);
 					$imgobj = newImage($albobj,$image['filename']);
 				} else {
 					$imgobj = newImage($_zp_current_album,$image);
@@ -142,7 +142,7 @@ function printPPSlideShowLink($linktext='', $linkstyle='') {
 					}
 				}
 				if ($zpskel_pptarget == 'sized') { $imagelink = $imgobj->getSizedImage(630); } else { $imagelink = $imgobj->getFullImage(); }
-				$imagedetaillink = $imgobj->getImageLink();
+				$imagedetaillink = $imgobj->getLink();
 				?>
 				<div class="ss-link noshow-mobile">
 					<a class="ss button" href="<?php echo html_encode($imagelink); ?>" rel="slideshow[group]"<?php echo $style; ?> title="&lt;a href='<?php echo $imagedetaillink; ?>'&gt;<?php echo html_encode(strip_tags($imgobj->getTitle())).' ('.gettext('Click for Detail Page').')'; ?>&lt;/a&gt;"><?php echo $linktext; ?></a>
