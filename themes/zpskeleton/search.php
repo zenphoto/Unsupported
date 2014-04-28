@@ -19,7 +19,7 @@
 			}
 			?>
 				<h5>
-					<a href="<?php if ($zpskel_pagehome) { echo html_encode(getGalleryIndexURL(true)); } else { echo html_encode(getGalleryIndexURL(false)); } ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>
+					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>
 				</h5>
 				<h1><?php echo gettext("Search"); ?></h1>
 				<?php
@@ -101,7 +101,7 @@
 			<?php $c=0; while (next_album()): ?>
 			<div class="one-third column album">
 				<h6><?php echo getBareAlbumTitle();?></h6>
-				<a href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>">
+				<a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>">
 					<?php printCustomAlbumThumbImage(getBareAlbumTitle(),null,420,200,420,200,null,null,'remove-attributes'); ?>
 				</a>
 				<div class="album-meta">
@@ -128,7 +128,7 @@
 			if ($zpskel_thumbsize == 'small') {$colclass='two';$breakcount=8; $imagesize = 190; } else {$colclass='four';$breakcount=4; $imagesize = 220;} 
 			while (next_image()): ?>
 			<div class="<?php echo $colclass; ?> columns image imagegrid">
-				<a href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>">
+				<a href="<?php echo html_encode(getImageURL());?>" title="<?php echo getBareImageTitle();?>">
 					<?php if ($thumbcrop) { printCustomSizedImage(getBareImageTitle(),null,$imagesize,$imagesize,$imagesize,$imagesize,null,null,'remove-attributes',null,true); } else { printCustomSizedImage(getBareImageTitle(),$imagesize,null,null,null,null,null,null,'remove-attributes',null,true); } ?>
 				</a>
 			</div>

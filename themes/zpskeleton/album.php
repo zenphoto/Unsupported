@@ -4,7 +4,7 @@
 			<div class="sixteen columns">
 				<?php include ("inc-search.php"); ?>
 				<h5>
-					<a href="<?php echo html_encode(getGalleryIndexURL(false)); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>&nbsp;&raquo;&nbsp; 
+					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>&nbsp;&raquo;&nbsp; 
 					<?php printParentBreadcrumb(""," » "," » "); ?>
 				</h5>
 				<h1><?php printAlbumTitle(true);?></h1>
@@ -30,7 +30,7 @@
 			<?php $c=0; while (next_album()): ?>
 			<div class="one-third column album">
 				<h4><?php echo getBareAlbumTitle();?></h4>
-				<a href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>">
+				<a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>">
 					<?php printCustomAlbumThumbImage(getBareAlbumTitle(),null,420,200,420,200,null,null,'remove-attributes'); ?>
 				</a>
 				<div class="album-meta">
@@ -55,7 +55,7 @@
 			if ($zpskel_thumbsize == 'small') {$colclass='two';$breakcount=8; $imagesize = 190; } else {$colclass='four';$breakcount=4; $imagesize = 220;} 
 			while (next_image()): ?>
 			<div class="<?php echo $colclass; ?> columns image imagegrid">
-				<a href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>">
+				<a href="<?php echo html_encode(getImageURL());?>" title="<?php echo getBareImageTitle();?>">
 					<?php if ($thumbcrop) { printCustomSizedImage(getBareImageTitle(),null,$imagesize,$imagesize,$imagesize,$imagesize,null,null,'remove-attributes',null,true); } else { printCustomSizedImage(getBareImageTitle(),$imagesize,null,null,null,null,null,null,'remove-attributes',null,true); } ?>
 				</a>
 			</div>
@@ -77,8 +77,8 @@
 			<div class="sixteen columns">
 				<?php if (function_exists('printAlbumMenu')) { ?><div class="jump-menu"><?php printAlbumMenu('jump'); ?></div><?php } ?>
 				<ul class="taglist rss">
-					<?php if (getOption('RSS_album_image')) { ?><li><?php printRSSLink('Collection', $prev, gettext('Latest Images of this Album'),'',false); ?></li><?php } ?>
-					<?php if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { ?><li><?php printRSSLink('Comments-album', $prev, gettext('Latest Comments of this Album'),'',false); ?></li><?php } ?>
+					<?php if (getOption('RSS_album_image')) { ?><li><?php printRSSLink('Collection', '', gettext('Latest Images of this Album'),'',false); ?></li><?php } ?>
+					<?php if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { ?><li><?php printRSSLink('Comments-album', '', gettext('Latest Comments of this Album'),'',false); ?></li><?php } ?>
 				</ul>
 			</div>
 		</div>

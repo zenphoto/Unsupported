@@ -9,12 +9,12 @@
 	</div>
 	<div class="wrapper">
 		<div class="container">
-			<?php if (((!$zpskel_disablewarning) && ($plugincount > 0)) || ($optionsnotsaved)){ echo '<div class="sixteen columns alert-message">'.$warning_message.$options_message.'</div>'; } ?>
+		<?php if (((!$zpskel_disablewarning) && ($plugincount > 0)) || ($optionsnotsaved)){ echo '<div class="sixteen columns alert-message">'.$warning_message.$options_message.'</div>'; } ?>
 			<?php
 			$c=0; while (next_album()): ?>
 			<div class="one-third column album">
 				<h4><?php echo getBareAlbumTitle();?></h4>
-				<a href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>">
+				<a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>">
 					<?php printCustomAlbumThumbImage(getBareAlbumTitle(),null,420,200,420,200,null,null,'remove-attributes'); ?>
 				</a>
 				<div class="album-meta">
@@ -34,7 +34,7 @@
 			<?php $c++; if ($c==3) echo '<br class="clear" />'; endwhile; ?>
 			<div class="sixteen columns">
 				<?php printPageListWithNav('« '.gettext('prev'),gettext('next').' »',false,true,'pagination'); ?>
-				<?php if ($zpskel_social) include ("inc-social.php"); ?>
+				<?php if (!empty($zpskel_social)) include ("inc-social.php"); ?>
 			</div>
 		</div>
 	</div>

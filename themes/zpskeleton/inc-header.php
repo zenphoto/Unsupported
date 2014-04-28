@@ -1,10 +1,12 @@
-<?php if (!defined('WEBPATH')) die(); if (function_exists('printAddThis')) { $zpskel_social = true; } ?>
+<?php if (!defined('WEBPATH')) die(); $zpskel_social = function_exists('printAddThis'); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="<?php echo LOCAL_CHARSET; ?>" />
 	<?php zp_apply_filter('theme_head'); ?>
 	<?php // Set some things depending on what page we are on...
+	// Define some symbols
+	$prev = "&#9656;";
 	switch ($_zp_gallery_page) {
 		case 'index.php':
 			if ($_zp_page>1) { $metatitle = getBareGalleryTitle()." ($_zp_page)"; } else { $metatitle = getBareGalleryTitle(); }
@@ -34,11 +36,11 @@
 		case 'archive.php':
 			$zpskel_metatitle = gettext("Archive View").' | '.getBareGalleryTitle();
 			$zpskel_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
+			$galleryactive = true;
 			break;
 		case 'search.php':
 			$zpskel_metatitle = gettext('Search').' | '.html_encode(getSearchWords()).' | '.getBareGalleryTitle();
 			$zpskel_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
-			$galleryactive = true;
 			break;
 		case 'pages.php':
 			$zpskel_metatitle = getBarePageTitle().' | '.getBareGalleryTitle();
@@ -78,6 +80,7 @@
 		case '404.php':
 			$zpskel_metatitle = gettext('404 Not Found...').' | '.getBareGalleryTitle();
 			$zpskel_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
+			$galleryactive = true;
 			break;
 		default:
 			$zpskel_metatitle = getBareGalleryTitle().getBareGalleryTitle();
@@ -128,16 +131,16 @@
 	<div class="wrapper topbar">
 		<div class="container">
 			<div class="sixteen columns">
-				<h3 class="logo"><a href="<?php echo getGalleryIndexURL(false); ?>"><?php printGalleryTitle(); ?></a></h3>
+				<h3 class="logo"><a href="<?php echo getGalleryIndexURL(); ?>"><?php printGalleryTitle(); ?></a></h3>
 				<ul id="nav">
 					<li class="menu">
 						<a class="menu" href="#"><?php echo gettext('Menu'); ?></a>
 						<ul class="menu-dropdown">	
 							<?php if (($zenpage) && ($zenpage_homepage != 'none')) { ?>
-							<li <?php if ($_zp_gallery_page == "index.php") { ?>class="active" <?php } ?>><a href="<?php echo html_encode(getGalleryIndexURL(false)); ?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a></li>
-							<li <?php if (($galleryactive) && ($_zp_gallery_page != "index.php")) { ?>class="active" <?php } ?>><?php printCustomPageURL(gettext('Gallery'),"gallery"); ?></li>
+							<li <?php if ($_zp_gallery_page == "index.php") { ?>class="active" <?php } ?>><a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a></li>
+							<li <?php if ((!empty($galleryactive)) && ($_zp_gallery_page != "index.php")) { ?>class="active" <?php } ?>><?php printCustomPageURL(gettext('Gallery'),"gallery"); ?></li>
 							<?php } else { ?>
-							<li <?php if ($galleryactive) { ?>class="active" <?php } ?>><a href="<?php echo html_encode(getGalleryIndexURL(false)); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext('Gallery'); ?></a></li>
+							<li <?php if (!empty($galleryactive)) { ?>class="active" <?php } ?>><a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext('Gallery'); ?></a></li>
 							<?php } ?>
 							<?php if ($zpskel_archive) { ?><li <?php if ($_zp_gallery_page == "archive.php") { ?>class="active" <?php } ?>><a href="<?php echo getCustomPageURL('archive'); ?>" title="<?php echo gettext('Archive View'); ?>"><?php echo gettext('Archive'); ?></a></li><?php } ?>
 							<?php if ((function_exists('getNewsIndexURL')) && ($zpskel_usenews)) { ?>

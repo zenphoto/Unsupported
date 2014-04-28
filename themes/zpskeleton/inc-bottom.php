@@ -33,15 +33,15 @@
 				<hr <?php echo $classfull; ?>/>
 				<ul class="taglist rss">
 					<?php if (getOption('RSS_album_image')) { ?>
-					<li><?php printRSSLink('Gallery', $prev, gettext('Images'),'',false); ?></li>
-					<li><?php printRSSLink('AlbumsRSS', $prev, gettext('Albums'),'',false); ?></li>
+					<li><?php printRSSLink('Gallery', '', gettext('Images'),'',false); ?></li>
+					<li><?php printRSSLink('AlbumsRSS', '', gettext('Albums'),'',false); ?></li>
 					<?php } ?>
 					<?php if (($zenpage) && ($zpskel_usenews) && (getOption('RSS_articles'))) { ?>
 					<li><?php printZenpageRSSLink('News','','',gettext('News'),'',false); ?></li>
 					<li><?php printZenpageRSSLink('NewsWithImages','','',gettext('News and Images'),'',false); ?></li>
 					<?php if ((function_exists('printCommentForm')) && getOption('RSS_article_comments')) { ?><li><?php printZenpageRSSLink('Comments-all','','',gettext('Comments'),'',false); ?></li><?php } ?>
 					<?php } else { ?>
-					<?php if ((function_exists('printCommentForm')) && getOption('RSS_comments')) { ?><li><?php printRSSLink('Comments', $prev, gettext('Comments'),'',false); ?></li><?php } ?>
+					<?php if ((function_exists('printCommentForm')) && getOption('RSS_comments')) { ?><li><?php printRSSLink('Comments', '', gettext('Comments'),'',false); ?></li><?php } ?>
 					<?php } ?>				
 				</ul>
 			</div>

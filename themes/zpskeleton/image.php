@@ -4,7 +4,7 @@
 			<div class="sixteen columns">
 				<?php include ("inc-search.php"); ?>
 				<h5>
-					<a href="<?php if ($zpskel_pagehome) { echo html_encode(getGalleryIndexURL(true)); } else { echo html_encode(getGalleryIndexURL(false)); } ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>&nbsp;&raquo;&nbsp; 
+					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>&nbsp;&raquo;&nbsp; 
 					<?php printParentBreadcrumb('',' » ',' » '); printAlbumBreadcrumb(' ', ' » '); ?>
 					<span> (<?php echo imageNumber()."/".getNumImages(); ?>)</span>
 				</h5>
@@ -56,6 +56,11 @@
 					<?php } ?>
 				</div>
 				<?php } ?>
+				<?php if (getImageMetadata()) { ?>
+				<div class="img-nav noshow-mobile">
+					<?php printImageMetadata('',false); ?>
+				</div>
+				<?php } ?>
 				<?php if ($zpskel_download) { ?><a style="margin-bottom:10px;" class="button" href="<?php echo html_encode(getFullImageURL()); ?>" title="<?php echo gettext('Download Original'); ?>"><?php echo gettext('Download Original').' ('.getFullWidth().' x '.getFullHeight().')'; ?></a><?php } ?>
 				<?php printPPSlideShowLink(gettext('Start Slideshow')); ?>
 			</div>
@@ -66,9 +71,9 @@
 			<div class="sixteen columns">
 				<?php if (function_exists('printAlbumMenu')) { ?><div class="jump-menu"><?php printAlbumMenu('jump'); ?></div><?php } ?>
 				<ul class="taglist rss">
-					<?php if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { ?><li><?php printRSSLink('Comments-image', $prev, gettext('Latest Comments of this Image'),'',false); ?></li><?php } ?>
-					<?php if (getOption('RSS_album_image')) { ?><li><?php printRSSLink('Collection', $prev, gettext('Latest Images of this Album'),'',false); ?></li><?php } ?>
-					<?php if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { ?><li><?php printRSSLink('Comments-album', $prev, gettext('Latest Comments of this Album'),'',false); ?></li><?php } ?>
+					<?php if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { ?><li><?php printRSSLink('Comments-image', '', gettext('Latest Comments of this Image'),'',false); ?></li><?php } ?>
+					<?php if (getOption('RSS_album_image')) { ?><li><?php printRSSLink('Collection', '', gettext('Latest Images of this Album'),'',false); ?></li><?php } ?>
+					<?php if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { ?><li><?php printRSSLink('Comments-album', '', gettext('Latest Comments of this Album'),'',false); ?></li><?php } ?>
 				</ul>
 			</div>
 		</div>
