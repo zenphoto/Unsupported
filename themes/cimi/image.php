@@ -71,7 +71,7 @@ if (!defined('WEBPATH')) die();
 	</div>
 
 	<div id="breadcrumb">
-		<div class="left"><a title="Home" href="<?php echo getGalleryIndexURL();?>">home</a> > <a href="<?php echo getAlbumLinkURL();?>"> <?php printAlbumTitle(false);?></a>&nbsp;> <?php printImageTitle(true); ?></div><div class="right">use arrow keys to navigate&nbsp;</div>
+		<div class="left"><a title="Home" href="<?php echo getGalleryIndexURL();?>">home</a> > <a href="<?php echo getAlbumURL();?>"> <?php printAlbumTitle(false);?></a>&nbsp;> <?php printImageTitle(true); ?></div><div class="right">use arrow keys to navigate&nbsp;</div>
 	</div>
 
 	<div id="imgnav">
@@ -90,7 +90,7 @@ if (!defined('WEBPATH')) die();
 
 	<div id="image">
 		<?php if(!isImageVideo()) { ?>
-		<a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getImageTitle();?>"> <?php printDefaultSizedImageAlt(getBareImageTitle()); ?></a>
+		<a href="<?php echo getAlbumURL();?>" title="<?php echo getImageTitle();?>"> <?php printDefaultSizedImageAlt(getBareImageTitle()); ?></a>
 		<?php } else { ?>
 		<div class="audiovideo">
 		<?php printDefaultSizedImage(getBareImageTitle()); ?>

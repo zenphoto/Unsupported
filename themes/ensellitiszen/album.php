@@ -34,13 +34,13 @@ if (!defined('WEBPATH')) die();
 
 	<div id="albums">
 		<?php while (next_album()): ?>
-		<div class="album" onclick="location.href='<?php echo getAlbumLinkURL();?>';">
-			<a href="<?php echo getAlbumLinkURL();?>" title="View album <?php echo getAlbumTitle();?>">
+		<div class="album" onclick="location.href='<?php echo getAlbumURL();?>';">
+			<a href="<?php echo getAlbumURL();?>" title="View album <?php echo getAlbumTitle();?>">
 			<?php printAlbumThumbImage(getAlbumTitle()); ?>
 			</a>
 			<div class="albumdesc">
         <small><? printAlbumDate("Date Taken: "); ?></small>
-				<h3><a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+				<h3><a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 				<p><?php printAlbumDesc(); ?></p>
 			</div>
 			<p style="clear: both; "></p>
@@ -51,7 +51,7 @@ if (!defined('WEBPATH')) die();
     <div id="images">
 		<?php while (next_image()): ?>
 		<div class="image">
-			<div class="imagethumb"><a href="<?php echo getImageLinkURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a></div>
+			<div class="imagethumb"><a href="<?php echo getImageURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a></div>
 		</div>
 		<?php endwhile; ?>
 	</div>

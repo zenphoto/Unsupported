@@ -44,7 +44,7 @@
 					<ul class="gallery">
 						<?php while (next_album()): ?>
 						<li class="grid_5">
-							<a href="<?php echo html_encode(getAlbumLinkUrl()); ?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
+							<a href="<?php echo html_encode(getAlbumURL()); ?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
 								<?php printAlbumThumbImage(getAnnotatedAlbumTitle()); ?>
 							</a>
 							<span class="title">
@@ -61,7 +61,7 @@
 					<ul class="album">
 						<?php while (next_image()): ?>
 						<li class="grid_5">
-							<a href="<?php echo html_encode(getImageLinkUrl()); ?>" title="<?php echo getAnnotatedImageTitle(); ?>">
+							<a href="<?php echo html_encode(getImageURL()); ?>" title="<?php echo getAnnotatedImageTitle(); ?>">
 								<?php printImageThumb(getAnnotatedImageTitle()); ?>
 							</a>
 							<span><?php echo getAnnotatedImageTitle(); ?></span>
@@ -70,7 +70,7 @@
 					</ul>
 				</div>
 				<div class="clear"></div>
-				<?php printPageListWithNav("&laquo; ".gettext("prev"), gettext("next")." &raquo;", false, true, 'pagelist', null, true, 5); ?>
+				<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »", false, true, 'pagelist', null, true, 5); ?>
 			</div>
 			<div id="footer" class="grid_15">
 				<?php printFooter(); ?>

@@ -2,8 +2,7 @@
 if (!defined('WEBPATH')) die();
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
+<!DOCTYPE html>
 <head>
 	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?></title>
@@ -25,7 +24,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL(false); ?>"><strong><?php echo gettext("Home"); ?></strong></a>
+	<h2><a href="<?php echo getGalleryIndexURL(); ?>"><strong><?php echo gettext("Home"); ?></strong></a>
 	</h2>
 	</div>
 
@@ -53,18 +52,18 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 				<?php endwhile; ?>
 		</div>
 		<br style="clear: both" />
-		<?php printPageListWithNav("&laquo; ".gettext("prev"), gettext("next")." &raquo;"); ?>
+		<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
 
 	<?php } else { // news article loop
-printNewsPageListWithNav(gettext('next &raquo;'), gettext('&laquo; prev')); 
+printNewsPageListWithNav(gettext('next »'), gettext('« prev')); 
 echo "<hr />";	
 while (next_news()): ;?> 
  <div class="newsarticle"> 
-    <h3><?php printNewsTitleLink(); ?><?php echo " <span class='newstype'>[".getNewsType()."]</span>"; ?></h3>
+    <h3><?php printNewsURL(); ?><?php echo " <span class='newstype'>[".getNewsURL()."]</span>"; ?></h3>
         <div class="newsarticlecredit"><span class="newsarticlecredit-left"><?php printNewsDate();?> | </span>
 <?php
-if(is_GalleryNewsType()) {
-	if(!is_NewsType("album")) {
+if(is_NewsPage()) {
+	if(!is_News()) {
 		echo " | ".gettext("Album:")."<a href='".getNewsAlbumURL()."' title='".getBareNewsAlbumTitle()."'> ".getNewsAlbumTitle()."</a>";
 	} else {
 		echo "<br />";
@@ -81,7 +80,7 @@ if(is_GalleryNewsType()) {
     </div>	
 <?php
   endwhile; 
-  printNewsPageListWithNav(gettext('next &raquo;'), gettext('&laquo; prev'));
+  printNewsPageListWithNav(gettext('next »'), gettext('« prev'));
 } ?> 
 
 </div><!-- content right-->
@@ -98,7 +97,6 @@ if(is_GalleryNewsType()) {
 
 </div><!-- main -->
 <?php
-printAdminToolbox();
 zp_apply_filter('theme_body_close');
 ?>
 </body>

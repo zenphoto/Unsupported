@@ -50,12 +50,12 @@ if (!defined('WEBPATH')) die();
 
 	<div id="albums">
 		<?php while (next_album()): ?>
-			<a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>">
+			<a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>">
 				<?php printAlbumThumbImage(getAlbumTitle()); ?>
 				<span class="num"><?php echo getNumImages();?></span>
 				<strong class="title"><?php printAlbumTitle(); ?></strong>
 				<? printAlbumDate($before='Date Taken:', $nonemessage='no date', $format=null); ?>
-				<span class="desc"><?php printAlbumDescAlt(); ?></span>
+				<span class="desc"><?php printAlbumDesc(); ?></span>
 			</a>
 		<?php endwhile; ?>
 	</div>

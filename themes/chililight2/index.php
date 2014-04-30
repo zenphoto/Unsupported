@@ -28,12 +28,12 @@ if (!defined('WEBPATH')) die();
 	<div id="albums">
 		<?php while (next_album()): ?>
 		<div class="album">
-			<a href="<?=getAlbumLinkURL();?>" title="View album: <?=getAlbumTitle();?>">
+			<a href="<?=getAlbumURL();?>" title="View album: <?=getAlbumTitle();?>">
 			<?php printAlbumThumbImage(getAlbumTitle()); ?>
 			</a>
 			<div class="albumdesc">
         <small><? printAlbumDate($before='Date Taken:', $nonemessage='no date', $format=null); ?></small>
-				<h3><a href="<?=getAlbumLinkURL();?>" title="View album: <?=getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+				<h3><a href="<?=getAlbumURL();?>" title="View album: <?=getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 				<p><?php printAlbumDesc(); ?></p>
 			</div>
 			<p style="clear: both; "></p>

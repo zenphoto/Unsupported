@@ -45,7 +45,7 @@ if (!defined('WEBPATH')) die();
 	<div id="gallerytitle">
 		<h2 id="title"><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a></h2>
 
-		<h2 id="titlesub">Looking at "<?php printImageTitle(true); ?>" in the <a href="<?php echo getAlbumLinkURL();?>" title="Album Index"><?php echo getAlbumTitle();?></a> album</h2>
+		<h2 id="titlesub">Looking at "<?php printImageTitle(true); ?>" in the <a href="<?php echo getAlbumURL();?>" title="Album Index"><?php echo getAlbumTitle();?></a> album</h2>
 	</div>
 
 	<div id="image">

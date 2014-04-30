@@ -223,7 +223,7 @@ UL.pagelist LI.current A {
 }
 
 #commentform input {
-	width: 240px;
+	width: auto;
 }
 
 #commentform textarea {

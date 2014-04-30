@@ -1,15 +1,13 @@
 <?php if (!defined('WEBPATH')) die();
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
+<!DOCTYPE html>
 
 <head>
 	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareImageTitle();?> | <?php echo getBareAlbumTitle();?> | <?php echo getBareGalleryTitle(); ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo getOption('charset'); ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/style.css" type="text/css" />
-	<script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/js/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		// <!-- <![CDATA[
 		$(document).ready(function(){
@@ -34,7 +32,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL(false);?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Home"); ?></a> &raquo; <?php echo gettext("Gallery"); ?><?php printParentBreadcrumb(" &raquo; "," &raquo; "," &raquo; "); printAlbumBreadcrumb(" ", " &raquo; "); ?>
+	<h2><a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Home"); ?></a> » <?php printParentBreadcrumb(""," » "," » "); printAlbumBreadcrumb(" ", " » "); ?>
 			 <strong><?php printImageTitle(true); ?></strong> (<?php echo imageNumber()."/".getNumImages(); ?>)
 			</h2>
 		</div>
@@ -48,47 +46,53 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 	<!-- The Image -->
  <?php
  //
- if (function_exists('printjCarouselThumbNav')) {
- 	printjCarouselThumbNav(6,50,50,50,50,FALSE);
+ if (function_exists('printThumbNav')) {
+ 	printThumbNav(6, 6, 50, 50, NULL, NULL);
  }
  else {
  	if (function_exists("printPagedThumbsNav")) {
- 		printPagedThumbsNav(6, FALSE, gettext('&laquo; prev thumbs'), gettext('next thumbs &raquo;'), 40, 40);
+ 		printPagedThumbsNav(6, FALSE, gettext('« prev'), gettext('next »'), 50, 50);
  	}
  }
 
  ?>
 	<div id="image">
-		<?php if(getOption("Use_thickbox")) {
-			$boxclass = " class=\"thickbox\"";
-			$tburl = getUnprotectedImageURL();
+	<?php
+	if (getOption("Use_thickbox") && !isImageVideo()) {
+		$boxclass = " class=\"thickbox\"";
 		} else {
-			$thickboxclass = "";
+		$boxclass = "";
+		}
+		if (isImagePhoto()) {
 			$tburl = getFullImageURL();
-		}
+			} else {
+			$tburl = NULL;
+			}
 		if (!empty($tburl)) {
-			?>
-			<a href="<?php echo html_encode($tburl); ?>"<?php echo $boxclass; ?> title="<?php echo getBareImageTitle();?>">
-			<?php
+		?>
+		<a href="<?php echo html_encode(pathurlencode($tburl)); ?>"<?php echo $boxclass; ?> title="<?php printBareImageTitle(); ?>">
+		<?php
 		}
-		printCustomSizedImageMaxSpace(getBareImageTitle(),480,480); ?>
+		printCustomSizedImageMaxSpace(getBareImageTitle(), 480, 480);
+		?>
 		<?php
 		if (!empty($tburl)) {
-			?>
-			</a>
-			<?php
+		?>
+		</a>
+		<?php
 		}
 		?>
 	</div>
+	
 	<div id="narrow">
     	<div align="center">Click image for larger view.</div>
 		<p><br />Image Description:<br /><?php printImageDesc(true); ?></p>
 		<br />Image Tags: <br /><?php printTags('links', gettext('<strong>Tags:</strong>').' ', 'taglist', ', '); ?>
 		<br style="clear:both;" /><br />
 		<?php if (function_exists('printSlideShowLink')) {
-			echo '<span id="slideshowlink">' . '';
+			echo "<span id='slideshowlink'>";
 			printSlideShowLink(gettext('View Slideshow')); 
-			echo '' . '</span>';
+			echo "</span>";
 		}
 		?>
 		
@@ -97,7 +101,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 				echo "<div style='display:none'>"; printImageMetadata('', false); echo "</div>";
 			}
 		?>
-   		<div id="google-map"><?php if (function_exists('printImageMap')) printImageMap(); ?></div>
+   		<div id="google-map"><?php if (function_exists('printGoogleMap')) printGoogleMap(); ?></div>
 		<br style="clear:both" />
 		<?php if (function_exists('printRating')) { printRating(); }?><br />
 		<?php if (function_exists('printShutterfly')) printShutterfly(); ?><br />
@@ -120,7 +124,6 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 
 </div><!-- main -->
 <?php
-printAdminToolbox();
 zp_apply_filter('theme_body_close');
 ?>
 </body>

@@ -48,11 +48,11 @@ $startTime = array_sum(explode(" ",microtime()));
 <div id="albums">
 			<?php while (next_album()): $c++;?>
 			<div class="album">
-					<div class="albumthumb"><a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
+					<div class="albumthumb"><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
 						<?php printAlbumThumbImage(getAnnotatedAlbumTitle()); ?></a>
 						</div>
 					<div class="albumtitle">
-									<h3><a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
+									<h3><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
 							<?php printAlbumTitle(); ?></a></h3> <?php printAlbumDate(); ?>
 								</div>
 						<div class="albumdesc"><?php printAlbumDesc(); ?></div>
@@ -65,7 +65,7 @@ $startTime = array_sum(explode(" ",microtime()));
 		<?php while (next_image()): $c++;?>
 			<div class="image">
 					<div class="imagethumb">
-							<a href="<?php echo htmlspecialchars(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>">
+							<a href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getBareImageTitle();?>">
 						<?php printImageThumb(getAnnotatedImageTitle()); ?></a>
 						</div>
 			</div>

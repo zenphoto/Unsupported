@@ -80,14 +80,13 @@ body {
 	padding: 0;
 	font-size: .75em;
 	font-weight: normal;
-	float: left;
 	width: 590px;
 	font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial,
 		sans-serif;
+	text-align: left;
 }
 
 #breadcrumb a {
-	text-align: right;
 	color: white;
 	border-bottom: 0px dashed white;
 }
@@ -183,6 +182,7 @@ body {
 	border-bottom: 1px solid lightgray;
 	border-right: 0px solid darkgray;
 	height: 100%;
+	text-align: left;
 }
 
 .menu h3 {
@@ -418,7 +418,6 @@ ul.pagelist li.next {
 }
 
 .taglist li {
-	background: url(../images/tag.png) no-repeat left center;
 	list-style-type: none;
 	padding-left: 0px;
 	float: left;
@@ -429,9 +428,10 @@ ul.pagelist li.next {
 }
 
 .tags_title {
-	background: none;
+	display: block;
+	background: url(images/tag.png) no-repeat left center;
 	padding-right: 5px;
-	padding-left: 0;
+	padding-left: 20px;
 	float: left; 
 }
 
@@ -527,7 +527,7 @@ ul.pagelist li.next {
 
 #image {
 	text-align: center;
-	margin: 0 auto;
+	margin: 20px auto;
 	line-height: 0;
 	width: 500px;
 	font-size: 0.7em;
@@ -627,21 +627,21 @@ ul.pagelist li.next {
 #narrow {
 	width: 520px;
 	margin-top: 10px;
+	color: #000000;
 }
 
 /* Paged thumbs nav
 ------------------------------ */
 #pagedthumbsnav {
-	width: 580px;
+	width: 520px;
 	height: 55px;
 	padding: 0px;
-	border: 0px solid gray;
 	color: #444444;
+	margin-top: 10px;
 }
 
 #pagedthumbsimages {
-	text-align: center;
-	border: 0px solid gray;
+	display: inline-block;
 }
 
 #pagedthumbsimages img,
@@ -664,7 +664,7 @@ ul.pagelist li.next {
 }
 
 #pagedthumbsnav-prev {
-	width: 155px;
+	width: 70px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -672,7 +672,7 @@ ul.pagelist li.next {
 }
 
 #pagedthumbsnav-next {
-	width: 100px;
+	width: 70px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -682,7 +682,7 @@ ul.pagelist li.next {
 
 #pagedthumbsnav-prevdisabled {
 	visibility: hidden;
-	width: 155px;
+	width: 70px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -691,7 +691,7 @@ ul.pagelist li.next {
 
 #pagedthumbsnav-nextdisabled {
 	visibility: hidden;
-	width: 100px;
+	width: 70px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -1216,8 +1216,6 @@ padding:8px;
 display:block;
 margin-bottom: 15px;
 float: left;
-padding-right:8px;
-padding-left:8px;
 }
 #google-map a {
 background-color:#f1f1f1;
@@ -1227,8 +1225,8 @@ padding:8px;
 
 
 /* right bar */
-#randthum {
-	float:right;
+#fb-bar {
+	float: right;
 }
 
 #randthumb ul {

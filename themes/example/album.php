@@ -30,7 +30,7 @@ $startTime = array_sum(explode(" ",microtime()));
 			<h2><span><?php printHomeLink('', ' | '); ?><a href="<?php echo htmlspecialchars(getGalleryIndexURL());?>" title="<?php echo ('Albums Index'); ?>"><?php echo getGalleryTitle();?></a> | <?php printParentBreadcrumb(); ?></span> <?php printAlbumTitle();?></h2>
 		</div>
 
-		( <?php printLink(getPrevAlbumURL(), "« ".gettext("Prev Album")); ?> | <?php printLink(getNextAlbumURL(), gettext("Next album")." »"); ?> )
+		( <?php printLinkHTML(getPrevAlbumURL(), "« ".gettext("Prev Album")); ?> | <?php printLinkHTML(getNextAlbumURL(), gettext("Next album")." »"); ?> )
 
 		<hr />
 		<?php printTags('links', gettext('<strong>Tags:</strong>').' ', 'taglist', ''); ?>
@@ -44,11 +44,11 @@ $startTime = array_sum(explode(" ",microtime()));
 		<div id="albums">
 			<?php while (next_album()): ?>
 			<div class="album">
-					<div class="albumthumb"><a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
+					<div class="albumthumb"><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
 						<?php printAlbumThumbImage(getAnnotatedAlbumTitle()); ?></a>
 						</div>
 					<div class="albumtitle">
-									<h3><a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
+									<h3><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
 							<?php printAlbumTitle(); ?></a></h3> <?php printAlbumDate(); ?>
 								</div>
 						<div class="albumdesc"><?php printAlbumDesc(); ?></div>
@@ -75,7 +75,7 @@ $startTime = array_sum(explode(" ",microtime()));
 			while (next_image()) { ?>
 				<div class="image">
 					<div class="imagethumb">
-							<a class="gallery" href="<?php echo htmlspecialchars(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>">
+							<a class="gallery" href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getBareImageTitle();?>">
 							<?php printImageThumb(getAnnotatedImageTitle()); ?></a>
 						</div>
 				</div>

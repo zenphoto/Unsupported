@@ -52,7 +52,7 @@ if (!defined('WEBPATH')) die();
 
 	<div id="albums">
 		<?php while (next_album()): ?>
-			<a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>">
+			<a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>">
 				<?php printAlbumThumbImage(getAlbumTitle()); ?>
 				<span class="num"><?php echo getNumImages();?></span>
 				<strong class="title"><?php printAlbumTitle(); ?></strong>
@@ -65,7 +65,7 @@ if (!defined('WEBPATH')) die();
     <div id="images">
 		<?php while (next_image()): ?>
 		<div class="image">
-			<a href="<?php echo getImageLinkURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a>
+			<a href="<?php echo getImageURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a>
 		</div>
 		<?php endwhile; ?>
 	</div>

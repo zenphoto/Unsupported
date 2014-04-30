@@ -93,7 +93,8 @@ body {
 }
 
 .container_15 .grid_2 {
-	width:140px;
+	min-width:140px;
+	padding: 0 5px 0 5px;
 }
 
 .container_15 .grid_3 {

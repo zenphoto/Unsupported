@@ -1,9 +1,3 @@
-<?php /*
-	setOption('thumb_size', 776, false);
-	setOption('thumb_crop_width', 776, false);
-	setOption('thumb_crop_height', 456, false);*/
-	//setOption('image_use_side', 'width', false);
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +22,7 @@
 				<div id="m_bread" class="grid_8">
 						<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo getGalleryTitle(); ?>"><?php echo getGalleryTitle(); ?></a>
 						<?php printParentBreadcrumb('', '', ''); ?>
-						<a href="<?php echo html_encode(getAlbumLinkURL()); ?>"><?php echo getAlbumTitle(); ?></a>
+						<a href="<?php echo html_encode(getAlbumURL()); ?>"><?php echo getAlbumTitle(); ?></a>
 						<span class="current"><?php echo getImageTitle(); ?></span>
 				</div>
 				<?php printMenu(); ?>
@@ -58,7 +52,7 @@
 							echo '<a href="'.getFullImageURL().'" alt="'.getImageTitle().'">';
 						}
 						
-						$iL = isLandscape();
+						$iL = isLandscape($_zp_current_image);
 						if($iL) {
 							setOption('image_size', 776, false);
 						} else {
@@ -73,7 +67,19 @@
 					?>
 				</div>
 				<div class="clear"></div>
-				<?php printPageListWithNav("&laquo; ".gettext("prev"), gettext("next")." &raquo;", false, true, 'pagelist', null, true, 5); ?>
+				<div class="imgnav">
+					<?php
+					if (hasPrevImage()) {
+						?>
+						<div class="imgprevious"><a href="<?php echo html_encode(getPrevImageURL()); ?>" title="<?php echo gettext("Previous Image"); ?>">« <?php echo gettext("prev"); ?></a></div>
+						<?php
+					} if (hasNextImage()) {
+						?>
+						<div class="imgnext"><a href="<?php echo html_encode(getNextImageURL()); ?>" title="<?php echo gettext("Next Image"); ?>"><?php echo gettext("next"); ?> »</a></div>
+						<?php
+					}
+					?>
+				</div>
 				<div class="clear"></div>
 			</div>
 			<div id="footer" class="grid_15">

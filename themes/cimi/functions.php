@@ -7,22 +7,6 @@
 /* 
 	<?php include ('theme-functions.php'); ?>
 */
-
-function getAlbumDescAlt() { 
-	  if(!in_context(ZP_ALBUM)) return false;
-	  global $_zp_current_album;
-	  return str_replace("\n", " ", $_zp_current_album->getDesc());
-	}
-	
-function printAlbumDescAlt($editable=false) { 
-	  global $_zp_current_album;
-	  if ($editable && zp_loggedin()) {
-	    echo "<div id=\"albumDescEditable\" style=\"display: block;\">" . truncate_string(getAlbumDescAlt(),120) . "</div>\n";
-	    echo "<script>initEditableDesc('albumDescEditable');</script>";
-	  } else {
-	    echo  truncate_string(getAlbumDescAlt(),110);  
-	  }
-	}
 	
 function printDefaultSizedImageAlt($alt, $class=NULL, $id=NULL) { 
 	echo "<img style=\"filter: alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0; opacity: 0;\" onload=\"opacity('fadein', 0, 100, 500)\" id=\"fadein\" src=\"" . getDefaultSizedImage() . "\" alt=\"$alt\"" .
@@ -48,19 +32,19 @@ function printPageListWithNavAlt($prevtext, $nexttext, $nextprev=true, $class=NU
 	    
 	    for ($i=1; $i <= $total; $i++) {
 	      echo "\n  <li" . (($i == $current) ? " class=\"current\"" : "") . ">";
-	      printLink(getPageURL($i), $i, "Page $i" . (($i == $current) ? " (Current Page)" : ""));
+	      printLinkHTML(getPageURL($i), $i, "Page $i" . (($i == $current) ? " (Current Page)" : ""));
 	      echo "</li>";
 	    } 
 		 echo "\n<li>]</li>";
 		 if ($nextprev) {
 	      echo "\n  <li class=\"prev\">"; 
-	        printPrevPageLink($prevtext, "Previous Page");
+	        printPrevPageURL($prevtext, "Previous Page");
 	      echo "</li>";
 	    }
 	    echo "\n<li></li>";
 	    if ($nextprev) {
 	      echo "\n  <li class=\"next\">"; 
-	        printNextPageLink($nexttext, "Next Page");
+	        printNextPageURL($nexttext, "Next Page");
 	      echo "</li>"; 
 	    }
 	 echo "\n</ul>";

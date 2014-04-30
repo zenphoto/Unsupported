@@ -32,11 +32,11 @@ if (!defined('WEBPATH')) die();
 
  			<div class="album">
 					<div class="albumthumb">
-							<a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
+							<a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
 						<?php printAlbumThumbImage(getAnnotatedAlbumTitle()); ?></a>
 						</div>
 					<div class="albumtitle">
-							<h3><a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
+							<h3><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo getAnnotatedAlbumTitle();?>">
 						<?php printAlbumTitle(); ?></a></h3> <?php printAlbumDate(); ?>
 						</div>
 					<div class="albumdesc"><?php printAlbumDesc(); ?></div>

@@ -12,7 +12,6 @@ body {
 	#slideshowpage {
 		position: relative;
 		padding-top: 0px;
-		margin: 0 auto;
 		width: 100%;
 		text-align:center;
 		border: 0px solid white;
@@ -21,7 +20,7 @@ body {
 
 	#slideshow { 
 		color: white;
-	
+		margin: 0 auto;
 		text-align: center;
 	}
 	

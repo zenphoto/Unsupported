@@ -1,8 +1,7 @@
 <?php if (!defined('WEBPATH')) die();
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
+<!DOCTYPE html>
 <head>
 	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?> | <?php echo gettext("Search"); ?></title>
@@ -18,12 +17,12 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 		<h1><?php printGalleryTitle(); ?></h1>
 		<?php
 		if (getOption('Allow_search')) {
-			if (is_array($_zp_current_search->category_list)) {
-				$catlist = array('news'=>$_zp_current_search->category_list,'albums'=>'0','images'=>'0','pages'=>'0');
+			if (is_array($_zp_current_search->getCategoryList())) {
+				$catlist = array('news'=>$_zp_current_search->getCategoryList(),'albums'=>'0','images'=>'0','pages'=>'0');
 				printSearchForm(NULL, 'search', NULL, gettext('Search category'), NULL, NULL, $catlist);
 			} else {
-				if (is_array($_zp_current_search->album_list)) {
-					$album_list = array('albums'=>$_zp_current_search->album_list,'pages'=>'0', 'news'=>'0');
+				if (is_array($_zp_current_search->getAlbumList())) {
+					$album_list = array('albums'=>$_zp_current_search->getAlbumList(),'pages'=>'0', 'news'=>'0');
 					printSearchForm(NULL, 'search', NULL, gettext('Search album'), NULL, NULL, $album_list);
 				} else {
 					printSearchForm("","search","",gettext("Search gallery"));
@@ -34,7 +33,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 		</div>
 
 <div id="breadcrumb">
-		<h2><a href="<?php echo getGalleryIndexURL(false);?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Home"); ?></a> &raquo; <?php echo "<strong>".gettext("Search")."</strong>";	?>
+		<h2><a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Home"); ?></a> » <?php echo "<strong>".gettext("Search")."</strong>";	?>
 			</h2>
 			</div>
 
@@ -107,7 +106,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 						$c++;
 						?>
 						<li<?php printZDToggleClass('news',$c,$number_to_show); ?>>
-						<h4><?php printNewsTitleLink(); ?></h4>
+						<h4><?phpprintNewsURL(); ?></h4>
 							<p class="zenpageexcerpt"><?php echo shortenContent(strip_tags(getNewsContent()),80,getOption("zenpage_textshorten_indicator")); ?></p>
 						</li>
 						<?php
@@ -155,7 +154,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 			<div id="images">
 				<?php while (next_image()) { ?>
 				<div class="image">
-					<div class="imagethumb"><a href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>"><?php printImageThumb(getBareImageTitle()); ?></a></div>
+					<div class="imagethumb"><a href="<?php echo html_encode(getImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printImageThumb(getBareImageTitle()); ?></a></div>
 				</div>
 				<?php } ?>
 			</div>
@@ -167,7 +166,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 				echo "<p>".gettext("Sorry, no matches found. Try refining your search.")."</p>";
 			}
 
-			printPageListWithNav("&laquo; ".gettext("prev"),gettext("next")." &raquo;");
+			printPageListWithNav("« ".gettext("prev"),gettext("next")." »");
 			?>
 
 	</div><!-- content right-->
@@ -179,7 +178,6 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 
 </div><!-- main -->
 <?php
-printAdminToolbox();
 zp_apply_filter('theme_body_close');
 ?>
 </body>

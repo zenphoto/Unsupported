@@ -1,8 +1,7 @@
 <?php if (!defined('WEBPATH')) die();
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
+<!DOCTYPE html>
 <head>
 	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareAlbumTitle(); ?> | <?php echo getBareGalleryTitle(); ?></title>
@@ -26,7 +25,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-<h2><a href="<?php echo html_encode(getGalleryIndexURL(false));?>" title="<?php echo gettext('Index'); ?>"><?php echo gettext("Home"); ?></a>	&raquo; <?php echo gettext("Gallery"); ?><?php printParentBreadcrumb(" &raquo; "," &raquo; "," &raquo; "); ?><strong><?php printAlbumTitle(true);?></strong></h2>
+<h2><a href="<?php echo html_encode(getGalleryIndexURL());?>" title="<?php echo gettext('Index'); ?>"><?php echo gettext("Home"); ?></a>	» <?php printParentBreadcrumb(""," » "," » "); ?><strong><?php printAlbumTitle(true);?></strong></h2>
 </div>
 
 	<div id="sidebar">
@@ -35,7 +34,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 
 	<div id="content-right">
 	<div><p><?php printAlbumDesc(true); ?></p></div>
-<?php printPageListWithNav("&laquo; ".gettext("prev"), gettext("next")." &raquo;"); ?>
+<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
 			<div id="albums">
 			<?php if($_zp_current_album->name == "audiovideo") {
 				flowplayerPlaylist("playlist","audiovideo/audiovideo1");
@@ -46,10 +45,10 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 			<?php while (next_album()): ?>
 			<div class="album">
 				<div class="thumb" align="center">
-					<a href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 133, 133, 133, 133); ?></a>
+					<a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 133, 133, 133, 133); ?></a>
 						</div>
 				<div class="albumdesc" align="center">
-					<h3><a href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+					<h3><a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 						<?php printAlbumDate(""); ?>
 <div align="justify"><?php echo truncate_string(getAlbumDesc(), 255); ?></div>
 				</div>
@@ -61,13 +60,13 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 			<div id="images">
 			<?php while (next_image()): ?>
 			<div class="image">
-				<div class="imagethumb"><a href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>"><?php printImageThumb(getBareImageTitle()); ?></a></div>
+				<div class="imagethumb"><a href="<?php echo html_encode(getImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printImageThumb(getBareImageTitle()); ?></a></div>
 			</div>
 			<?php endwhile; ?>
 
 		</div>
 				<p style="clear: both; "></p>
-		<?php printPageListWithNav("&laquo; ".gettext("prev"), gettext("next")." &raquo;"); ?>
+		<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
 		<?php printTags('links', gettext('<strong>Tags:</strong>').' ', 'taglist', ', '); ?>
 		<br style="clear:both;" /><br />
 	<?php if (function_exists('printSlideShowLink')) {
@@ -95,7 +94,6 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 
 </div><!-- main -->
 <?php
-printAdminToolbox();
 zp_apply_filter('theme_body_close');
 ?>
 </body>

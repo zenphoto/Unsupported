@@ -70,7 +70,7 @@ if (!defined('WEBPATH')) die();
 	</div>
 
 		<h2 class="title"><a href="<?php echo  getGalleryIndexURL();?>" title="Gallery Index"><?php echo  getGalleryTitle();?></a>
-		  | <a href="<?php echo  getAlbumLinkURL();?>" title="Gallery Index"><?php echo  getAlbumTitle();?></a>
+		  | <a href="<?php echo  getAlbumURL();?>" title="Gallery Index"><?php echo  getAlbumTitle();?></a>
 		  | <?php printImageTitle(true); ?></h2>
 	</div>
 

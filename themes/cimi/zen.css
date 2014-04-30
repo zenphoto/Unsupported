@@ -115,7 +115,7 @@ form, #imagetitleeditable{ font-size: 100%; }
 
 #breadcrumb form{ float: left; display: block; width: 100%; clear: both; margin: 0; padding: 0;}
 #breadcrumb input { float: left; margin: 0 1em 0 0; color: #000000; }
-#desc{ margin: 0 0 1em 0; padding: 3px; border: #292927 1px solid; font-size: 92%; float: left; display: block; width: 100%;}
+#desc{ margin: 0 0 1em 0; padding: 3px; border: #292927 1px solid; font-size: 92%; display: block; width: 100%; clear: both;}
 #desc div{ margin: 0; padding: 0; float: left; }
 
 /* Admin Toolbox */

@@ -36,11 +36,11 @@ if (!defined('WEBPATH')) die();
 
 		<div class="album">
 			<div class="imagethumb">
-				<a href="<?php echo  getAlbumLinkURL();?>" title="View album: <?php echo  getAlbumTitle();?>"><?php printAlbumThumbImage(getAlbumTitle()); ?></a>
+				<a href="<?php echo  getAlbumURL();?>" title="View album: <?php echo  getAlbumTitle();?>"><?php printAlbumThumbImage(getAlbumTitle()); ?></a>
 			</div>
 			<div class="albumdesc">
       			<? printAlbumDate("Date Taken: "); ?>
-				<h2><a href="<?php echo  getAlbumLinkURL();?>" title="View album: <?php echo  getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h2>
+				<h2><a href="<?php echo  getAlbumURL();?>" title="View album: <?php echo  getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h2>
 				<p><?php printAlbumDesc(); ?></p>
 			</div>
 		</div>
@@ -50,7 +50,7 @@ if (!defined('WEBPATH')) die();
 	<div id="zpimages">
 		<?php while (next_image()): ?>
 		<div class="zpimage">
-			<div class="imagethumb"><a href="<?php echo getImageLinkURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a></div>
+			<div class="imagethumb"><a href="<?php echo getImageURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a></div>
 		</div>
 		<?php endwhile; ?>
 	</div>

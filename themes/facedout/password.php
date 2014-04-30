@@ -1,8 +1,7 @@
 <?php if (!defined('WEBPATH')) die();
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
 	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?> | <?php echo gettext("Password required"); ?></title>
@@ -21,7 +20,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 
 		<div id="content">
 		<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL(); ?>">Index</a> &raquo; <strong><?php echo gettext("A password is required for the page you requested"); ?></strong></h2>
+	<h2><a href="<?php echo getGalleryIndexURL(); ?>">Index</a> » <strong><?php echo gettext("A password is required for the page you requested"); ?></strong></h2>
 	</div>
 	
 	<div id="content-error">
@@ -49,7 +48,6 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 
 </div><!-- main -->
 <?php
-printAdminToolbox();
 zp_apply_filter('theme_body_close');
 ?>
 </body>

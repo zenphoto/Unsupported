@@ -2,8 +2,7 @@
 if (!defined('WEBPATH')) die();
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
+<!DOCTYPE html>
 <head>
 	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?></title>
@@ -25,7 +24,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL(false); ?>"><strong><?php echo gettext("Home"); ?></strong></a>
+	<h2><a href="<?php echo getGalleryIndexURL(); ?>"><strong><?php echo gettext("Home"); ?></strong></a>
 	</h2>
 	</div>
 
@@ -52,7 +51,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 				<?php endwhile; ?>
 		</div>
 		<br style="clear: both" />
-		<?php printPageListWithNav("&laquo; ".gettext("prev"), gettext("next")." &raquo;"); ?>
+		<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
 </div><!-- content right-->
 
 	<div id="fb-bar">
@@ -67,7 +66,6 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 
 </div><!-- main -->
 <?php
-printAdminToolbox();
 zp_apply_filter('theme_body_close');
 ?>
 </body>

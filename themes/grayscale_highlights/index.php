@@ -36,7 +36,7 @@
 				<ul class="gallery">
 					<?php while (next_album()): ?>
 					<li class="grid_5">
-						<a href="<?php echo getAlbumLinkUrl(); ?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
+						<a href="<?php echo getAlbumURL(); ?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
 							<?php printAlbumThumbImage(getAnnotatedAlbumTitle()); ?>
 						</a>
 						<span class="title">
@@ -50,7 +50,7 @@
 					<?php endwhile; ?>
 				</ul>
 				<div class="clear"></div>
-				<?php printPageListWithNav("&laquo; ".gettext("prev"), gettext("next")." &raquo;", false, true, 'pagelist', null, true, 5); ?>
+				<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »", false, true, 'pagelist', null, true, 5); ?>
 			</div>
 			<div id="footer" class="grid_15">
 				<?php printFooter(); ?>
