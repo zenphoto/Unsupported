@@ -1,9 +1,8 @@
-Unsupported Zenphoto scripts
+Unsupported Zenphoto scripts archive
 ===========
+Many of these are third party, older and have been abandoned by their original developers. Please remember that these scripts are provided for your use and education but are not supported and maintained by the Zenphoto team. This is an This is true even if a team member originally created them. They may not work correctly with current Zenphoto versions.
 
-Please remember that these scripts are provided for your use and education but are not supported by the Zenphoto team. This is an This is true even if a team member originally created them. They may not work correctly with current Zenphoto versions.
-
-Many of these are third party and have been abandoned by their original developers. We provide them as an archive. 
+We of course welcome any contribution or even taking over a certain theme: http://www.zenphoto.org/news/general-contributor-guidelines#providing-themes-and-plugins
 
 Plugins
 -------
