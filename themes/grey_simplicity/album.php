@@ -1,39 +1,76 @@
 <?php 
 if (!defined('WEBPATH')) die(); 
-$firstPageImages = normalizeColumns('2', '6');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?></title>
+	<meta charset="<?php echo LOCAL_CHARSET; ?>">
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles/styles.css" type="text/css" />
 	<?php printRSSHeaderLink('Album',getAlbumTitle()); ?>
-    <script type="text/javascript" src="<?= $_zp_themeroot ?>/highslide/highslide.js"></script>
-	<?php zenJavascript(); ?>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/fancybox/jquery.fancybox-1.2.6.pack.js"></script>
-	<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
+	<?php if ( !extensionEnabled('colorbox_js') && getOption('highslide')) { ?>
+    	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/highslide/highslide/highslide-full.js"></script>
+    	<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/highslide/highslide/highslide.css" />
+   		<script type="text/javascript">
+    		// override Highslide settings here
+    		// instead of editing the highslide.js file
+   	 		hs.graphicsDir = '<?php echo $_zp_themeroot; ?>/highslide/highslide/graphics/';
+		</script>
+		<script type="text/javascript">
+			hs.addSlideshow({
+			// slideshowGroup: 'group1',
+			interval: 3000,
+			repeat: false,
+			useControls: true,
+			fixedControls: true,
+			overlayOptions: {
+				opacity: .6,
+				position: 'top center',
+				hideOnMouseOut: true
+				}
+			});
+
+			// Optional: a crossfade transition looks good with the slideshow
+			hs.transitions = ['expand', 'crossfade'];
+		</script>
+	<?php } ?>
+	
+	<?php if (zp_has_filter('theme_head', 'colorbox::css')) { ?>
+		<script type="text/javascript">
+			// <!-- <![CDATA[
+			$(document).ready(function() {
+				$(".colorbox").colorbox({
+					inline: true,
+					href: "#imagemetadata",
+					close: '<?php echo gettext("close"); ?>'
+				});
+			$("a.thickbox").colorbox({
+					maxWidth: "98%",
+					maxHeight: "98%",
+					photo: true,
+					close: '<?php echo gettext("close"); ?>'
+				});
+			});
+			// ]]> -->
+		</script>
+	<?php } ?>
 </head>
 
 <body>
-<?php printAdminToolbox(); ?>
-
-<?php 
-	function isStepAlbum($album) {
-		$arr = $album->getTags(); 
-		return in_array('Steps', $arr);
-	}
-?>
+	<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 	<div id="sd-wrapper">
 	<div id="gallerytitle">
 		<h2>
 		<span class="linkit">
-		<a href="<?php echo getGalleryIndexURL(false);?>"><?php echo getGalleryTitle();?></a>
+		<a href="<?php echo getGalleryIndexURL();?>"><?php echo getGalleryTitle();?></a>
 		</span>
-		<span class="linkit"><a href="<?php echo getGalleryIndexURL(true);?>">Gallery</a></span>
-		<?php if ( $_zp_current_album->getParent() != null ) { ?> <?php printParentBreadcrumb('<span class="linkit">', '', '</span>'); ?> </span><?php } ?>
-		<span class="albumtitle"><span><?php echo $_zp_current_album->get('title');?></span></span>
+		<span class="linkit"><a href="<?php echo getCustomPageURL('gallery'); ?>">Gallery</a></span>
+		<?php if ( getParentAlbums() != null ) { ?><span class="linkit"><?php printParentBreadcrumb('', '', ''); ?> </span><?php } ?>
+		<span class="albumtitle"><span><?php echo $_zp_current_album->getTitle();?></span></span>
 		</h2>
 	</div>
     
@@ -46,57 +83,97 @@ $firstPageImages = normalizeColumns('2', '6');
 
   		<div id="albums">
 			<?php while (next_album()): ?>
-			<div style="float:left">
+			<div class="albums-wrap">
         		<div class="thumb">
-					<a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>">
-					<?php printAlbumThumbImage(getAlbumTitle()); ?>
-					</a>
-					<div class="data">
+        			<div class="data">
 						<?php if(getAlbumTitle()) echo '<div class="c"><h4 class="box title">'.getAlbumTitle().'</h4></div>'; ?>	
 					</div>
+					<a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>">
+					<?php printAlbumThumbImage(getAlbumTitle()); ?>
+					</a>
        			 </div>
 			</div>
 			<?php endwhile; ?>
 		</div>
     	
-   		<?php if ( $_PAGE == 'GALLERY' || count($_zp_current_album->getSubAlbums()) == 0 ) { ?>
-		<?php if ( !isStepAlbum($_zp_current_album) ) { ?>
-    	<div id="images">
-			<?php while (next_image(false, $firstPageImages)): ?>
+    	<div id="images" class="clear">
+    	
+    	<?php if ( extensionEnabled('colorbox_js') && getOption('highslide')) { ?>
+    		<div id="padbox">
+				<div class="imageit newsbody" style="color: #ddd;text-align: justify; text-jutify: newspaper; padding: 40px 60px 40px 60px;">
+					<div style="text-align:center; font-size: 15px; color: #666; font-weight: bold;padding: 20px;">
+						<p>You cannot have the <em>colorbox_js</em> plugin and the theme option <em>Highslide</em> enabled at the same time !</p>
+						<p><a href="<?php echo getGalleryIndexURL();?>"><img class="rabbit" src="<?php echo $_zp_themeroot ?>/images/rabbit.png" /></a></p>
+					</div>
+  				</div>
+			</div>
+    	<?php } ?>
+    		
+			<?php while (next_image()): ?>
 			<div class="image">
 				<div class="imagethumb">
-					<!--
-					<a href="<?=getFullImageURL();?>" class="highslide" onclick="return expand(this, '<?= $_zp_current_image->getAlbum()->name ?>', '<?= $_zp_current_image->getFileName() ?>');" title="<?=getImageTitle();?>">
-					-->
-					<a href="<?php echo getImageLinkURL(); ?>">
-						<?php printImageThumb(getImageTitle()); ?>
-						
+				<?php if ( !extensionEnabled('colorbox_js') && getOption('highslide')) { ?>
+					<?php if ( !isImageVideo() ) { ?>
+						<a href="<?php echo getFullImageURL(); ?>" class="highslide" onclick="return hs.expand(this)">
+							<?php } else { ?>
+								<a href="<?php echo html_encode(getImageURL()); ?>">
+							<?php } ?>
+						<img src="<?php echo getImageThumb(); ?>" alt="<?php $_zp_current_image->getTitle(); ?>" />
 					</a>
+						<div class="highslide-caption">
+    						<?php echo getImageDesc(); ?>
+						</div>
+					<?php } else { 
+						if ( extensionEnabled('colorbox_js') && !getOption('highslide')) { 
+							if ( isImagePhoto() ) {
+								$boxclass = " class=\"thickbox\"";
+								} else {
+								$boxclass = NULL;
+								}
+					?>
+					<?php if (isImagePhoto()) { ?>
+						<a href="<?php echo getDefaultSizedImage(); ?>" <?php echo $boxclass; ?>>
+							<img src="<?php echo getImageThumb(); ?>" alt="<?php $_zp_current_image->getTitle(); ?>" />
+						</a>
+					<?php } else { ?>
+							<a href="<?php echo html_encode(getImageURL()); ?>">
+								<img src="<?php echo getImageThumb(); ?>" alt="<?php $_zp_current_image->getTitle(); ?>" />
+							</a>
+							<?php } ?>
+					<?php } else {
+						if ( !extensionEnabled('colorbox_js') && !getOption('highslide')) { ?>
+							<a href="<?php echo html_encode(getImageURL()); ?>">
+								<img src="<?php echo getImageThumb(); ?>" alt="<?php $_zp_current_image->getTitle(); ?>" />
+							</a>
+						<?php } ?>
+				<?php } ?>
+				<?php } ?>
 				</div>
 			</div>
 			<?php endwhile; ?>
-			<div style="clear:both;"/>
 		</div>
-		<div id="images-nav"><?php printPageListWithNav("&laquo; prev", "next &raquo;"); ?></div>
+		<div class="clear"></div>
+		
+	<div id="tools">
+		<?php if (hasPrevPage()) { ?>
+		<a href="<?php echo getPrevPageURL(); ?>"><span class="prev"></span></a>
 		<?php } else { ?>
-		<?php while (next_image(false, $firstPageImages)): ?>		
-		<div id="image-steps" class="stepimage imageit" style="margin-bottom: 25px;">
-			<a class="group" rel="group"  href="<?php echo getFullImageURL();?>" title="<?php echo getImageTitle();?>"> <?php printCustomSizedImage('', 600); ?></a> 
-		</div>
-		<?php endwhile ?>
+			<span class="prev-disabled"></span>
+		<?php } ?>	
+
+		<?php if (hasNextPage()) { ?>
+		<a href="<?php echo getNextPageURL(); ?>"><span class="next"></span></a>
+		<?php } else { ?>
+			<span class="next-disabled"></span>		
 		<?php } ?>
-		<? } ?>
-        
+	</div>
+		
 	</div>
 	</div>
 </div>
 
-<div id="credit"><?php printRSSLink('Album', '', 'Album RSS', '', false); ?> | <a href="<?php echo rewrite_path(urlencode(ZENPAGE_NEWS), '/index.php?p=archive');?>">Archives</a> | <a href="<?php echo rewrite_path(urlencode(ZENPAGE_NEWS), '/index.php?p=pages&title=credits');?>">Credits</a> | Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
+<div id="credit"><?php printRSSLink('Album', '', 'Album RSS', '', false); ?> | <a href="<?php echo getCustomPageURL("archive"); ?>">Archives</a> | <a href="<?php echo getPageURL('credits'); ?>">Credits</a> | Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
 
-<script type="text/javascript">
-$(function() {
-	$('.stepimage a').fancybox({ 'hideOnContentClick': true, imageScale: true, showCloseButton: false });
-});
-</script>
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

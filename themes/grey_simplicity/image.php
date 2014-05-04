@@ -1,32 +1,52 @@
 <?php if (!defined('WEBPATH')) die();?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php printGalleryTitle(); ?> | <?php echo getAlbumTitle();?> | <?php echo getImageTitle();?></title>
+	<meta charset="<?php echo LOCAL_CHARSET; ?>">
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles/styles.css" type="text/css" />
-	<script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/js/jquery.js" type="text/javascript"></script>
 	<?php printRSSHeaderLink('Gallery','Gallery RSS'); ?>
-	<?php zenJavascript(); ?>
-	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/fancybox/jquery.fancybox-1.2.6.pack.js"></script>
-	<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
+	
+	<?php if (zp_has_filter('theme_head', 'colorbox::css')) { ?>
+		<script type="text/javascript">
+			// <!-- <![CDATA[
+			$(document).ready(function() {
+				$(".colorbox").colorbox({
+					inline: true,
+					href: "#imagemetadata",
+					close: '<?php echo gettext("close"); ?>'
+				});
+				$("a.thickbox").colorbox({
+					maxWidth: "98%",
+					maxHeight: "98%",
+					photo: true,
+					close: '<?php echo gettext("close"); ?>'
+				});
+			});
+			// ]]> -->
+		</script>
+	<?php } ?>
 </head>
 
 <body>
-<?php printAdminToolbox(); ?>
+	<?php zp_apply_filter('theme_body_open'); ?>
+
 
 <div id="main">
 	<div id="sd-wrapper">
 	<div id="gallerytitle">
 		<h2>
 		<span class="linkit">
-		<a href="<?php echo getGalleryIndexURL(false);?>"><?php echo getGalleryTitle();?></a></span>
-		<span class="linkit"><a href="<?php echo getGalleryIndexURL(true);?>">Gallery</a></span>
-		<?php if ( $_zp_current_album->getParent() != null ) { ?> <?php printParentBreadcrumb('<span class="linkit">', '', '</span>'); ?><?php } ?>
-		<span class="linkit"><a href="<?php echo $_zp_current_image->album->getAlbumLink() ?>"><?php echo $_zp_current_album->get('title');?></a></span>
-		<span class="albumtitle"><span><?php echo $_zp_current_image->get('title');?></span></span>
+		<a href="<?php echo getGalleryIndexURL();?>"><?php echo getGalleryTitle();?></a></span>
+		<span class="linkit"><a href="<?php echo getCustomPageURL('gallery'); ?>">Gallery</a></span>
+		<?php if ( getParentAlbums() != null ) { ?><span class="linkit"><?php printParentBreadcrumb('', '', ''); ?> </span><?php } ?>
+		<span class="linkit"><a href="<?php echo $_zp_current_image->album->getLink() ?>"><?php echo $_zp_current_album->getTitle();?></a></span>
+		<span class="albumtitle"><span><?php echo $_zp_current_image->getTitle();?></span></span>
 		</h2>
 	</div>
-	
+		
 	<?php $width = $_zp_current_image->getWidth(); ?>
 	<div id="padbox">
 	<div id="image" class="imageit">
@@ -36,19 +56,29 @@
   	</div>
 	<div id="tools">
 		<?php if (hasPrevImage()) { ?>
-		<a href="<?php echo  getPrevImageURL(); ?>"><img width="32px" src="<?= $_zp_themeroot ?>/images/o_left.png"></a>
+		<a href="<?php echo getPrevImageURL(); ?>"><span class="prev"></span></a>
 		<?php } else { ?>
-		<img width="32px" src="<?= $_zp_themeroot ?>/images/o_left-disabled.png">
+		<span class="prev-disabled"></span>
 		<?php } ?>
-
-		<?if ( $width > 650 ) {  ?>
-		<a href="<?php echo  getFullImageURL(); ?>" id="zoom"><img width="32px" src="<?= $_zp_themeroot ?>/images/o_zoom.png"></a>
+		
+		<?php 
+		
+		?>
+		<?php if ( $width > 650 ) { 
+			if ( extensionEnabled('colorbox_js') && isImagePhoto()) { 
+					$boxclass = " class=\"thickbox\"";
+					} else {
+						if ( !extensionEnabled('colorbox_js') ) {
+						$boxclass = NULL;
+					}
+				} ?>
+			<a href="<?php echo getFullImageURL(); ?>"<?php echo $boxclass; ?> id="zoom"><span class="zoom"></span></a>
 		<?php }  ?>		
 
 		<?php if (hasNextImage()) { ?>
-		<a href="<?php echo  getNextImageURL(); ?>"><img width="32px" src="<?= $_zp_themeroot ?>/images/o_right.png"></a>
+		<a href="<?php echo getNextImageURL(); ?>"><span class="next"></span></a>
 		<?php } else { ?>
-		<img width="32px" src="<?= $_zp_themeroot ?>/images/o_right-disabled.png">		
+		<span class="next-disabled"></span>		
 		<?php } ?>
 	</div>
 	</div>
@@ -56,14 +86,8 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-$(function() {
-	$('#image a').fancybox({ 'hideOnContentClick': true, imageScale: true, showCloseButton: false });
-	$('#tools a#zoom').fancybox({ 'hideOnContentClick': true, imageScale: true, showCloseButton: false });
-});
-</script>
+<div id="credit"><?php printRSSLink('Gallery','','Gallery RSS', ' | ', false); ?> <a href="<?php echo getCustomPageURL("archive"); ?>">Archives</a> | <a href="<?php echo getPageURL('credits'); ?>">Credits</a> | Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
 
-<div id="credit"><?php printRSSLink('Gallery','','Gallery RSS', ' | ', false); ?> <a href="<?php echo rewrite_path(urlencode(ZENPAGE_NEWS), '/index.php?p=archive');?>">Archives</a> | <a href="<?php echo rewrite_path(urlencode(ZENPAGE_NEWS), '/index.php?p=pages&title=credits');?>">Credits</a> | Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
-
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

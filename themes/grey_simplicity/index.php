@@ -1,11 +1,14 @@
 <?php if (!defined('WEBPATH')) die();  ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
+	<?php zp_apply_filter('theme_head'); ?>
+	<?php printHeadTitle(); ?>
+	<meta charset="<?php echo LOCAL_CHARSET; ?>">
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles/styles.css" type="text/css" />
-	<script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/js/jquery.js" type="text/javascript"></script>
 	<?php printRSSHeaderLink('Gallery','Gallery RSS'); ?>
-	<?php zenJavascript(); ?>
+	
 	<style>
 		#padbox #rabbit { 
 			text-align:center; font-size: 15px; color: #555; font-weight: bold; padding-top: 0px;
@@ -34,6 +37,7 @@
 </head>
 
 <body>
+	<?php zp_apply_filter('theme_body_open'); ?>
 <div id="main">
 	<div id="sd-wrapper">
 		<div id="gallerytitle">
@@ -45,15 +49,15 @@
 		</div>
 	
 		<div id="padbox">
-			<div class="imageit newsbody" style="color: #ddd;text-align: justify; text-jutify: newspaper; padding: 40px 60px 0px 60px;">
+			<div class="imageit newsbody" style="color: #ddd;text-align: justify; text-justify: newspaper; padding: 40px 60px 0px 60px;">
 				<div id="menu">
-					<a style="margin-left: 0px;" href="<?php echo getGalleryIndexURL();?>">Gallery</a>&nbsp;
-					<a href="<?php echo rewrite_path(urlencode(ZENPAGE_NEWS), '/index.php?p='.ZENPAGE_NEWS);?>">News</a>
+					<a style="margin-left: 0px;" href="<?php echo getCustomPageURL("gallery");?>">Gallery</a>&nbsp;
+					<?php printNewsIndexURL("News"); ?>
 				</div>				
 				<div id="rabbit">
 					<p>The rabbit wants to fade away</p>							
 					<p>
-						<img class="rabbit" src="<?= $_zp_themeroot ?>/images/rabbit.png"/>
+						<img class="rabbit" src="<?php echo $_zp_themeroot ?>/images/rabbit.png" />
 					</p>													
 					<p>fade into this grey emptiness</p>										
 				</div>
@@ -61,7 +65,8 @@
 	</div>
 </div>
 
-<div id="credit"><a href="<?php echo rewrite_path(urlencode(ZENPAGE_NEWS), '/index.php?p=archive');?>">Archives</a> | <a href="<?php echo rewrite_path(urlencode(ZENPAGE_NEWS), '/index.php?p=pages&title=credits');?>">Credits</a> | Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
+<div id="credit"><a href="<?php echo getCustomPageURL("archive"); ?>">Archives</a> | <a href="<?php echo getPageURL('credits'); ?>">Credits</a> | Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
 
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

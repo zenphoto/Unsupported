@@ -1,23 +1,27 @@
 <?php if (!defined('WEBPATH')) die(); ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<title><?php printGalleryTitle(); ?></title>
+	<?php zp_apply_filter('theme_head'); ?>
+	<?php printHeadTitle(); ?>
+	<meta charset="<?php echo LOCAL_CHARSET; ?>">
+	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles/styles.css" type="text/css" />
 	<?php printRSSHeaderLink('Gallery','Gallery RSS'); ?>
-	<?php zenJavascript(); ?>
+	
 </head>
 
 <body>
-<?php printAdminToolbox(); ?>
+	<?php zp_apply_filter('theme_body_open'); ?>
+
 
 <div id="main">
 	<div id="sd-wrapper">
 	<div id="gallerytitle" style="margin-bottom: 60px;">
    		<h2>
 		<span class="linkit">
-		<a href="<?php echo getGalleryIndexURL(false);?>"><?php echo getGalleryTitle();?></a>
+		<a href="<?php echo getGalleryIndexURL();?>"><?php echo getGalleryTitle();?></a>
 		</span>
 		<span class="albumtitle"><span>Gallery</span></span>
 		</h2>
@@ -27,28 +31,42 @@
 
 		<div id="albums">
 			<?php while (next_album()): ?>
-			<div style="float:left">
+			<div class="albums-wrap">
         		<div class="thumb">
-					<a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>">
-					<?php printAlbumThumbImage(getAlbumTitle()); ?>
-					</a>
-					<div class="data">
+        			<div class="data">
 						<?php if(getAlbumTitle()) echo '<div class="c"><h4 class="box title">'.getAlbumTitle().'</h4></div>'; ?>	
 					</div>
+					<a href="<?php echo getAlbumURL(); ?>" title="View album: <?php echo getAlbumTitle(); ?>">
+					<?php printAlbumThumbImage(getAlbumTitle()); ?>
+					</a>
+					
        			 </div>
 			</div>
 			
 			<?php endwhile; ?>
 		</div>
-	
-		<?php printPageListWithNav("&laquo; prev", "next &raquo;"); ?>
+	<div class="clear"></div>
+	<div id="tools">
+		<?php if (hasPrevPage()) { ?>
+		<a href="<?php echo getPrevPageURL(); ?>"><span class="prev"></span></a>
+		<?php } else { ?>
+			<span class="prev-disabled"></span>
+		<?php } ?>	
+
+		<?php if (hasNextPage()) { ?>
+		<a href="<?php echo getNextPageURL(); ?>"><span class="next"></span></a>
+		<?php } else { ?>
+			<span class="next-disabled"></span>		
+		<?php } ?>
+	</div>
         
         
 	</div>
 	</div>
 </div>
 
-<div id="credit"><?php printRSSLink('Gallery','','Gallery RSS', ' | ', false); ?> <a href="<?php echo rewrite_path(urlencode(ZENPAGE_NEWS), '/index.php?p=archive');?>">Archives</a> | <a href="<?php echo rewrite_path(urlencode(ZENPAGE_NEWS), '/index.php?p=pages&title=credits');?>">Credits</a> | Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
+<div id="credit"><?php printRSSLink('Gallery','','Gallery RSS', ' | ', false); ?> <a href="<?php echo getCustomPageURL("archive"); ?>">Archives</a> | <a href="<?php echo getPageURL('credits'); ?>">Credits</a> | Powered by <a href="http://www.zenphoto.org" title="A simpler web photo album">zenphoto</a></div>
 
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

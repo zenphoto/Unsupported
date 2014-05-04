@@ -29,10 +29,18 @@ class ThemeOptions {
 
  
   function ThemeOptions() {
+  	setThemeOption('thumb_size', 120, NULL, 'grey-simplicity');
+  	setThemeOptionDefault('highslide', 1);
   }
   
+  function getOptionsDisabled() {
+		return array('thumb_size');
+	}
+	
   function getOptionsSupported() {
-  }
+		return array(gettext('Highslide')	 => array('key' => 'highslide', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to enable the Highslide script.'))
+		);
+	}
 
   function handleOption($option, $currentValue) {
  
