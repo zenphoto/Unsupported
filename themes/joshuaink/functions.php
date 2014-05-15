@@ -53,7 +53,7 @@ function ji_show_thumb() {
 	$ih = $ch = THM_HEIGHT;
 ?>
 <li>
-	<a href="<?php echo getAlbumLinkURL(); ?>"
+	<a href="<?php echo getAlbumURL(); ?>"
 		title="<?php echo getAlbumTitle(); ?>"><img
 		src="<?php echo getCustomAlbumThumb(null, $iw, $ih, $cw, $ch); ?>"
 		alt="<?php echo getAlbumTitle(); ?>"

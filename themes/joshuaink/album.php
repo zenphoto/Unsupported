@@ -60,7 +60,7 @@ if (!defined('WEBPATH')) die(); ?>
 		?>
 
 			<li>
-				<a href="<?php echo getImageLinkURL();?>"
+				<a href="<?php echo getImageURL();?>"
 					title="<?php echo getImageTitle();?>"><img
 					src="<?php echo getCustomImageURL(null, $iw, $ih, $cw, $ch); ?>"
 					alt="<?php echo getImageTitle(); ?>"
