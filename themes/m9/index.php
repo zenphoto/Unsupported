@@ -16,7 +16,9 @@
 		<div id="wrapper">
 			<div id="header">
 				<ul class="path c">
-					<li><h1><a href="<?php echo getMainSiteURL(); ?>"><?php echo getMainSiteName(); ?></a></h1></li>
+					<?php if ( getMainSiteURL() ) { ?>
+						<li><h1><a href="<?php echo getMainSiteURL(); ?>"><?php echo getMainSiteName(); ?></a></h1></li>
+					<?php } ?>
 					<li><h2><a href="<?php echo getGalleryIndexURL(); ?>"><?php echo getGalleryTitle(); ?></a></h2></li>
 				</ul>
 				<ul class="move">
@@ -27,7 +29,7 @@
 			<div id="content" class="c">
 				<ul class="list c">
 <?php while (next_album()): ?>
-					<li id="<?php echo 'album-'.$_zp_current_album->getID(); ?>" class="album"><a title="<?php echo html_encode(getAlbumTitle()); ?>" href="<?php echo htmlspecialchars(getAlbumLinkURL()); ?>">
+					<li id="<?php echo 'album-'.$_zp_current_album->getID(); ?>" class="album"><a title="<?php echo html_encode(getAlbumTitle()); ?>" href="<?php echo htmlspecialchars(getAlbumURL()); ?>">
 						<img src="<?php echo getCustomAlbumThumb(298, NULL, NULL, 298, 178, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
 						<span><?php echo getAlbumTitle(); ?></span>
 					</a></li>

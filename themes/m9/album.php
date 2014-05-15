@@ -1,4 +1,4 @@
-<?php if (!defined('WEBPATH')) die(); require_once ('functions.php'); getHitcounter($_zp_current_album); ?>
+<?php if (!defined('WEBPATH')) die(); getHitcounter($_zp_current_album); ?>
 
 <!DOCTYPE html>
 
@@ -16,10 +16,12 @@
 		<div id="wrapper">
 			<div id="header">
 				<ul class="path c">
-					<li><h1><a href="<?php echo getMainSiteURL(); ?>"><?php echo getMainSiteName(); ?></a></h1></li>
+					<?php if ( getMainSiteURL() ) { ?>
+						<li><h1><a href="<?php echo getMainSiteURL(); ?>"><?php echo getMainSiteName(); ?></a></h1></li>
+					<?php } ?>
 					<li><h2><a href="<?php echo getGalleryIndexURL(); ?>"><?php echo getGalleryTitle(); ?></a></h2></li>
 					<?php m9PrintBreadcrumb(); ?>
-					<li><a href="<?php echo getAlbumLinkURL(); ?>"><?php echo getAlbumTitle(); ?></a></li>
+					<li><a href="<?php echo getAlbumURL(); ?>"><?php echo getAlbumTitle(); ?></a></li>
 				</ul>
 				<ul class="move">
 					<li><?php if (hasPrevPage()): ?><a href="<?php echo htmlspecialchars(getPrevPageURL()); ?>">Prev</a><?php else: ?><span>Prev</span><?php endif; ?></li>
@@ -29,13 +31,13 @@
 			<div id="content" class="c">
 				<ul class="list c">
 <?php while (next_album()): ?>
-					<li id="<?php echo 'album-'.$_zp_current_album->getID(); ?>" class="album"><a title="<?php echo html_encode(getAlbumTitle()); ?>" href="<?php echo getAlbumLinkURL(); ?>">
+					<li id="<?php echo 'album-'.$_zp_current_album->getID(); ?>" class="album"><a title="<?php echo html_encode(getAlbumTitle()); ?>" href="<?php echo getAlbumURL(); ?>">
 						<img src="<?php echo getCustomAlbumThumb(298, NULL, NULL, 298, 178, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
 						<span><?php echo getAlbumTitle(); ?></span>
 					</a></li>
 <?php endwhile; ?>
 <?php while (next_image()): ?>
-					<li id="<?php echo ' image-'.$_zp_current_image->getID(); ?>" class="image"><a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo getImageLinkURL(); ?>">
+					<li id="<?php echo ' image-'.$_zp_current_image->getID(); ?>" class="image"><a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo getImageURL(); ?>">
 						<img src="<?php echo getCustomSizedImageThumbMaxSpace($width="298", $height="187"); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
 					</a></li>
 <?php endwhile; ?>

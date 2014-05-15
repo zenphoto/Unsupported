@@ -1,4 +1,4 @@
-﻿<?php if (!defined('WEBPATH')) die(); require_once ('functions.php'); getHitcounter($_zp_current_image); ?>
+﻿<?php if (!defined('WEBPATH')) die(); getHitcounter($_zp_current_image); ?>
 
 <!DOCTYPE html>
 
@@ -16,10 +16,12 @@
 		<div id="wrapper">
 			<div id="header">
 				<ul class="path c">
-					<li><h1><a href="<?php echo getMainSiteURL(); ?>"><?php echo getMainSiteName(); ?></a></h1></li>
+					<?php if ( getMainSiteURL() ) { ?>
+						<li><h1><a href="<?php echo getMainSiteURL(); ?>"><?php echo getMainSiteName(); ?></a></h1></li>
+					<?php } ?>
 					<li><h2><a href="<?php echo getGalleryIndexURL(); ?>"><?php echo getGalleryTitle(); ?></a></h2></li>
 					<?php m9PrintBreadcrumb(); ?>
-					<li><a href="<?php echo getAlbumLinkURL(); ?>"><?php echo getAlbumTitle(); ?></a></li>
+					<li><a href="<?php echo getAlbumURL(); ?>"><?php echo getAlbumTitle(); ?></a></li>
 				</ul>
 				<ul class="move">
 					<li><?php if (hasPrevImage()): ?><a href="<?php echo htmlspecialchars(getPrevImageURL()); ?>">Prev</a><?php else: ?><span>Prev</span><?php endif; ?></li>
