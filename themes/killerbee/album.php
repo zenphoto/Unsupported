@@ -37,12 +37,12 @@ if (!defined('WEBPATH')) die();
     <?php while (next_album()): ?>
     <div class="indexcell">
       <div class="indexthumb">
-	    <a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getAlbumTitle();?>">
+	    <a href="<?php echo getAlbumURL();?>" title="<?php echo getAlbumTitle();?>">
           <?php printAlbumThumbImage(getAlbumTitle()); ?>
 	    </a>
 	  </div><!--.indexthumb-->
       <h2>
-	    <a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getAlbumTitle();?>">
+	    <a href="<?php echo getAlbumURL();?>" title="<?php echo getAlbumTitle();?>">
           <?php printAlbumTitle(); ?>
 		</a><br />
 	    <?php printAlbumDate(); ?>
@@ -65,7 +65,7 @@ if (!defined('WEBPATH')) die();
     <div class="albumcell">
 
       <div class="albumthumb">
-	    <a href="<?php echo getImageLinkURL();?>" title="<?php echo getImageTitle();?>">
+	    <a href="<?php echo getImageURL();?>" title="<?php echo getImageTitle();?>">
           <?php printImageThumb(getImageTitle()); ?>
 		</a>
 	  </div><!--.albumthumb-->

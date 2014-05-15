@@ -21,12 +21,3 @@ function IB_swap() { //v3.0
   var i,j=0,x,a=IB_swap.arguments; document.IB_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=IB_find(a[i]))!=null){document.IB_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
-
-function toggleComments() {
-  var commentDiv = document.getElementById("comments");
-  if (commentDiv.style.display == "block") {
-    commentDiv.style.display = "none";
-  } else {
-    commentDiv.style.display = "block";
-  }
-}

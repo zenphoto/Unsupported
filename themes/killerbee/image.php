@@ -22,7 +22,7 @@ if (!defined('WEBPATH')) die();
   
   <div id="title">
     <h1>
-	  <a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <a href="<?php echo getAlbumLinkURL();?>" title="Gallery Index"></a><?php printParentBreadcrumb("",""," | "); ?><?php printAlbumBreadcrumb();?> | <?php printImageTitle(true); ?>
+	  <a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a> | <a href="<?php echo getAlbumURL();?>" title="Gallery Index"></a><?php printParentBreadcrumb("",""," | "); ?><?php printAlbumBreadcrumb();?> | <?php printImageTitle(true); ?>
 	</h1>
     <a href="<?php echo getGalleryIndexURL();?>" onmouseout="IB_restore()" onmouseover="IB_swap('logo','','<?php echo $_zp_themeroot ?>/images/logo-on.gif',1)"  title="Home">
 	  <img src="<?php echo $_zp_themeroot ?>/images/logo-off.gif" alt="Home" id="logo" width="25" height="25" border="0" />
