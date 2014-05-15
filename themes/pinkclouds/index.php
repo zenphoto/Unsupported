@@ -49,7 +49,7 @@ $pc_AjaxFx = true;
 	for ($i = 1; $i <= $totalPages; $i++) {
 	   echo ($i == $currentPage)? '<li class="current">' : '<li>';
 	   if ($i < 10) { $page = '0' . $i; } else { $page = $i; }
-		printLink(getPageURL($i), $page, "Page $page");
+		printLinkHTML(getPageNumURL($i), $page, "Page $page");
 		echo "</li>\n";
 	}
 
@@ -67,7 +67,7 @@ $pc_AjaxFx = true;
 ?>
 
 			<div class="image">
-				<a href="<?php echo getAlbumLinkURL();?>"
+				<a href="<?php echo getAlbumURL();?>"
 					title="<?php
 		if (getAlbumDesc() == "") {
 			echo getAlbumTitle();
@@ -109,7 +109,7 @@ $pc_AjaxFx = true;
 	if (zp_loggedin()) {
 	printUserLogin_out($before='', $after='|', $showLoginForm=NULL, $logouttext=NULL, $show_user=NULL);
 	} else {
-		printLink(WEBPATH . '/' . ZENFOLDER .'/admin.php', 'Admin');
+		printLinkHTML(WEBPATH . '/' . ZENFOLDER .'/admin.php', 'Admin');
 	}
 ?>
 		</div>

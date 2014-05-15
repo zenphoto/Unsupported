@@ -22,12 +22,12 @@
 	<div id="albums">
 		<?php while (next_album()): ?>
 		<div class="album">
-			<a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>">
+			<a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>">
 			<?php printAlbumThumbImage(getAlbumTitle()); ?>
 			</a>
 			<div class="albumdesc">
         <small><?php printAlbumDate("Date Taken: "); ?></small>
-				<h3><a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+				<h3><a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 				<p><?php printAlbumDesc(); ?></p>
 			</div>
 			<p style="clear: both; "></p>

@@ -153,7 +153,7 @@ a img {
     _position: absolute;
 	right: 0px;
 	top: 0px;
-	width: 120px;
+	width: 160px;
 	border-bottom: 1px solid #444;
 	border-left: 1px solid #444;
 	background: #222;
@@ -165,6 +165,7 @@ a img {
 	z-index: 1;
 	line-height: 1.6em;
 }
+
 #admin h3 {
 	font-weight: normal;
 	color: #aaa;
