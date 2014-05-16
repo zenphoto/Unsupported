@@ -57,7 +57,7 @@
     <div id="images">
 		<?php while (next_image()): ?>
 		<div class="image">
-			<div class="imagethumb"><a href="<?php echo getImageLinkURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a></div>
+			<div class="imagethumb"><a href="<?php echo getImageURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a></div>
 		</div>
 		<?php endwhile; ?>
 	</div>
