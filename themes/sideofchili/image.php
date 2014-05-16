@@ -1,5 +1,5 @@
 <?php
-// force UTF-8 Ø
+// force UTF-8
 
 if (!defined('WEBPATH')) die();
 ?>
@@ -11,7 +11,6 @@ if (!defined('WEBPATH')) die();
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
 	<?php zp_apply_filter('theme_head'); ?>
-	<?php require ('chili-functions.php'); ?>
 	<script type="text/javascript">
 			// <!-- <![CDATA[
 			$(document).ready(function(){

@@ -1,5 +1,5 @@
 <?php
-// force UTF-8 Ø
+// force UTF-8
 
 if (!defined('WEBPATH')) die();
 ?>
@@ -11,8 +11,6 @@ if (!defined('WEBPATH')) die();
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot ?>/zen.css" type="text/css" />
 	<?php zp_apply_filter('theme_head'); ?>
-	<?php require ('chili-functions.php'); ?>
-	
 </head>
 
 <body>
@@ -30,10 +28,10 @@ if (!defined('WEBPATH')) die();
 		<?php while (next_album()): ?>
 			<div class="index_list">
 				<div class="imagethumb">
-					<a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumThumbImage(getAlbumTitle()); ?></a>
+					<a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumThumbImage(getAlbumTitle()); ?></a>
 				</div>
 				<div class="albumdesc">
-					<h3><a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+					<h3><a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 					<span><? echo getNumImages();?> Pictures</span>
 					<p><?php printAlbumDesc(); ?></p>
 				</div>
