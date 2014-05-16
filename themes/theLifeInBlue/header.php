@@ -1,6 +1,6 @@
 		<?php global $_zp_themeroot; ?>
 		<link type="text/css" rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/style.css" />
-		<?php zenJavascript(); ?>
+		<?php zp_apply_filter('theme_head'); ?>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="doc-type" content="Web Page" />
 		<meta name="doc-class" content="Published" />

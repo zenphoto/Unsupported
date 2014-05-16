@@ -32,11 +32,11 @@ if (!defined('WEBPATH')) die();
 				while (next_album()): ?>
 				<div class="album" style="float: left; width: 390px; padding-bottom: 20px;">
 					
-					<div class="albumthumb"><a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getAlbumTitle();?>">
+					<div class="albumthumb"><a href="<?php echo getAlbumURL();?>" title="<?php echo getAlbumTitle();?>">
 						<?php printAlbumThumbImage(getAlbumTitle(), "reflect"); ?></a>
 					</div>
 					
-					<div class="albumtitle"><h1><a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getAlbumTitle();?>">
+					<div class="albumtitle"><h1><a href="<?php echo getAlbumURL();?>" title="<?php echo getAlbumTitle();?>">
 						<?php printAlbumTitle(); ?></a></h1>
 					</div>
 					
@@ -61,12 +61,12 @@ if (!defined('WEBPATH')) die();
 				?>
 				
 				<div id="footer">
-					<a href="http://nilswindisch.de/contact/" target="_blank" title="click here to make contact">Contact</a>
+					<a href="http://nilswindisch.de" target="_blank" title="click here to make contact">Contact</a>
 				</div>
 				<div class="clear"></div>
 				<div id="add">
 					<?php //printPageListWithNav("&laquo; prev", "next &raquo;"); // uncomment this line to support pagination ?>
-					<?php printZenphotoLink(); ?> &amp; <a href="http://nilswindisch.de/code/zenphoto/theme-simple-plus/" target="_blank" title="theme: simple+ by Nils K. Windisch. visit http://nilswindisch.de/">simple+</a>
+					<?php printZenphotoLink(); ?> &amp; <a href="http://nilswindisch.de" target="_blank" title="theme: simple+ by Nils K. Windisch. visit http://nilswindisch.de/">simple+</a>
 				</div>
 		
 			</div>

@@ -1,10 +1,7 @@
 <?php
 if (!defined('WEBPATH')) die();
-require_once ('functions.php');
-
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
 	<head>
 		<?php include_once('header.php'); ?>
 		<meta name="keywords" content="<?php echo html_encode(getFormattedMainSiteName('', ', ').getGalleryTitle()); ?>" />
@@ -12,6 +9,7 @@ require_once ('functions.php');
 		<title><?php echo strip_tags(getFormattedMainSiteName('', ' / ') . getGalleryTitle() . ' / ' .getPageTitle() ); ?></title>
 	</head>
 	<body id="gallery-index">
+	<?php zp_apply_filter('theme_body_open'); ?>
 		<div id="wrapper">
 			<div id="header">
 				<div id="logo">
@@ -68,6 +66,7 @@ require_once ('functions.php');
 			</div>
 		</div>
 		<?php include_once('analytics.php'); ?>
+		<?php zp_apply_filter('theme_body_close'); ?>
 	</body>
 </html>
 

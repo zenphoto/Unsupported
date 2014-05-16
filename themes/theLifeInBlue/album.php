@@ -1,6 +1,5 @@
 <?php
 if (!defined('WEBPATH')) die();
-require_once ('functions.php');
 
 if (getOption('Allow_imagesWithAlbums')) {
 	$firstPageImages = normalizeColumns(2, 3);
@@ -9,8 +8,7 @@ else {
 	$firstPageImages = null;
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
 	<head>
 		<?php include_once('header.php'); ?>
 		<meta name="keywords" content="<?php echo html_encode(getFormattedMainSiteName('', ', ').getGalleryTitle() . ', ' . getBareAlbumTitle() . ', ' . getTags() ); ?>" />
@@ -18,6 +16,7 @@ else {
 		<title><?php echo strip_tags(getFormattedMainSiteName('', ' / ').getGalleryTitle() . getParentHeaderTitle(' / ') . ' / ' . getBareAlbumTitle()); ?></title>
 	</head>
 	<body id="gallery-index">
+	<?php zp_apply_filter('theme_body_open'); ?>
 		<div id="wrapper">
 			<div id="header">
 				<div id="logo">
@@ -32,7 +31,7 @@ else {
 				<?php
 					getFormattedMainSiteName('<li class="page">', '</li><li class="chevron"> > </li>');
 					echo '<li><a href="' . getGalleryIndexURL() . '">' . getBareGalleryTitle() . '</a></li>';
-					getParentBreadcrumb('<li class="chevron"><a> &gt; </a></li>');
+					getParentBreadcrumbTLB('<li class="chevron"><a> &gt; </a></li>');
 					echo '<li class="chevron"><a> &gt; </a></li>';
 					echo '<li><a>' . getBareAlbumTitle() . '</a></li>';
 				?>
@@ -72,7 +71,7 @@ else {
 						<ul class="list">
 						<?php while (next_album()): ?>
 							<li class="thumb album">
-								<a title="<?php echo html_encode(getAlbumDesc()); ?>" href="<?php echo htmlspecialchars(getAlbumLinkURL()); ?>">
+								<a title="<?php echo html_encode(getAlbumDesc()); ?>" href="<?php echo htmlspecialchars(getAlbumURL()); ?>">
 									<img src="<?php echo getCustomAlbumThumb(250, NULL, NULL, 250, 150, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle().' ('.getAlbumDate(getOption('date_format')).')'); ?>" />
 								<span><?php echo getAlbumTitle().'<br />('.getAlbumDate(getOption('date_format')).')'; ?></span>
 								</a>
@@ -82,8 +81,8 @@ else {
 							<div id="images">
 							<?php while (next_image(false, $firstPageImages)): ?>
 								<li class="thumb image">
-									<a title="<?php echo html_encode(getBareImageDesc()); ?>" href="<?php echo htmlspecialchars(getImageLinkURL()); ?>">
-										<img src="<?php echo getCustomImageURL(250, NULL, NULL, 250, 150, NULL, NULL, false); ?>" alt="<?php echo html_encode(getBareImageTitle().' ('.getImageDate(getOption('date_format')).')'); ?>" />
+									<a title="<?php echo html_encode(getBareImageDesc()); ?>" href="<?php echo htmlspecialchars(getImageURL()); ?>">
+										<img src="<?php echo getCustomImageURL(250, NULL, NULL, 250, 150, NULL, NULL, true); ?>" alt="<?php echo html_encode(getBareImageTitle().' ('.getImageDate(getOption('date_format')).')'); ?>" />
 									<span><?php echo getBareImageTitle(). '<br />(' . getImageDate(getOption('date_format')) . ')'; ?></span>
 									</a>
 								</li>
@@ -109,6 +108,7 @@ else {
 			</div>
 		</div>
 		<?php include_once('analytics.php'); ?>
+		<?php zp_apply_filter('theme_body_close'); ?>
 	</body>
 </html>
 

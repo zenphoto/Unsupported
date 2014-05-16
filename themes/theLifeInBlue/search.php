@@ -1,6 +1,5 @@
 <?php
 if (!defined('WEBPATH')) die();
-require_once ('functions.php');
 
 if (getOption('Allow_imagesWithAlbums')) {
 	$firstPageImages = normalizeColumns(2, 3);
@@ -17,10 +16,10 @@ else {
 	}
 	$c = 0;
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
 	<head>
 		<?php include_once('header.php'); ?>
+		<?php zp_apply_filter('theme_body_open'); ?>
 		<meta name="keywords" content="<?php echo html_encode(getFormattedMainSiteName('', ', ').getGalleryTitle() . ', ' . getBareAlbumTitle() . ', ' . getTags() ); ?>" />
 		<meta name="description" content="<?php echo html_encode(getAlbumDesc()); ?>" />
 		<title><?php echo strip_tags(getFormattedMainSiteName('', ' / ').getGalleryTitle() . ' / ' . gettext('Search') . ' / ' . $searchwords ); ?></title>
@@ -54,7 +53,7 @@ else {
 						<ul class="list">
 						<?php while (next_album()): $c++?>
 							<li class="thumb album">
-								<a title="<?php echo html_encode(getAlbumDesc()); ?>" href="<?php echo htmlspecialchars(getAlbumLinkURL()); ?>">
+								<a title="<?php echo html_encode(getAlbumDesc()); ?>" href="<?php echo htmlspecialchars(getAlbumURL()); ?>">
 									<img src="<?php echo getCustomAlbumThumb(250, NULL, NULL, 250, 150, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle().' ('.getAlbumDate(getOption('date_format')).')'); ?>" />
 								<span><?php echo getAlbumTitle().'<br />('.getAlbumDate(getOption('date_format')).')'; ?></span>
 								</a>
@@ -64,8 +63,8 @@ else {
 							<div id="images">
 							<?php while (next_image(false, $firstPageImages)): $c++?>
 								<li class="thumb image">
-									<a title="<?php echo html_encode(getBareImageDesc()); ?>" href="<?php echo htmlspecialchars(getImageLinkURL()); ?>">
-										<img src="<?php echo getCustomImageURL(250, NULL, NULL, 250, 150, NULL, NULL, false); ?>" alt="<?php echo html_encode(getBareImageTitle().' ('.getImageDate(getOption('date_format')).')'); ?>" />
+									<a title="<?php echo html_encode(getBareImageDesc()); ?>" href="<?php echo htmlspecialchars(getImageURL()); ?>">
+										<img src="<?php echo getCustomImageURL(250, NULL, NULL, 250, 150, NULL, NULL, true); ?>" alt="<?php echo html_encode(getBareImageTitle().' ('.getImageDate(getOption('date_format')).')'); ?>" />
 									<span><?php echo getBareImageTitle(). '<br />(' . getImageDate(getOption('date_format')) . ')'; ?></span>
 									</a>
 								</li>
@@ -95,6 +94,7 @@ else {
 			</div>
 		</div>
 		<?php include_once('analytics.php'); ?>
+		<?php zp_apply_filter('theme_body_close'); ?>
 	</body>
 </html>
 

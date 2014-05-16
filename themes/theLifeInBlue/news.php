@@ -1,10 +1,7 @@
 <?php
 if (!defined('WEBPATH')) die();
-require_once ('functions.php');
-
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
 	<head>
 		<?php include_once('header.php'); ?>
 		<meta name="keywords" content="<?php echo html_encode(getFormattedMainSiteName('', ', ').getGalleryTitle()); ?>" />
@@ -16,6 +13,7 @@ require_once ('functions.php');
 		?></title>
 	</head>
 	<body id="gallery-index">
+	<?php zp_apply_filter('theme_body_open'); ?>
 		<div id="wrapper">
 			<div id="header">
 				<div id="logo">
@@ -33,7 +31,7 @@ require_once ('functions.php');
 					echo '<li class="chevron"><a> &gt; </a></li>';
 					echo '<li><a';
 					if( is_NewsArticle() ){
-						echo ' href="' . getNewsBaseUrl() . '">News</a></li><li class="chevron"><a> &gt; </a></li><li><a>' . strip_tags( getNewsTitle() );
+						echo ' href="' . getNewsURL() . '">News</a></li><li class="chevron"><a> &gt; </a></li><li><a>' . strip_tags( getNewsTitle() );
 					}
 					else {
 						echo '>News';
@@ -93,10 +91,10 @@ require_once ('functions.php');
 				<div id="move">
 					<?php if(is_NewsArticle()) { ?>
 					<div id="prev" <?php if (getPrevNewsURL()) {echo 'class="active"';}?>>
-					<?php if (getPrevNewsURL()): ?><a href="<?php echo getPrevNewsURL(); ?>">Prev</a><?php else: ?><span>Prev</span><?php endif; ?>
+					<?php if (getPrevNewsURL()): ?><a href="<?php echo getPrevNewsURL()['link']; ?>">Prev</a><?php else: ?><span>Prev</span><?php endif; ?>
 					</div>
 					<div id="next" <?php if (getNextNewsURL()) {echo 'class="active"';}?>>
-					<?php if (getNextNewsURL()): ?><a href="<?php echo getNextNewsURL(); ?>">Next</a><?php else: ?><span>Next</span><?php endif; ?>
+					<?php if (getNextNewsURL()): ?><a href="<?php echo getNextNewsURL()['link']; ?>">Next</a><?php else: ?><span>Next</span><?php endif; ?>
 					</div>
 					<?php }
 					else { ?>
@@ -115,6 +113,7 @@ require_once ('functions.php');
 			</div>
 		</div>
 		<?php include_once('analytics.php'); ?>
+		<?php zp_apply_filter('theme_body_close'); ?>
 	</body>
 </html>
 

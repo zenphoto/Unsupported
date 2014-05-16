@@ -48,15 +48,14 @@ function printThemeMenu(){
 	echo '</ul>';
 	echo '<div id="login">';
 	echo '<div class="title">' . gettext( 'Connection' ) . '</div>';
-	printAdminToolbox();
 	if (function_exists('printUserLogin_out') AND !zp_loggedin()) {
 		printUserLogin_out();
 	}
 	echo '</div>';
-	if(function_exists("printFlagLanguageSelector")) {
+	if(function_exists("printLanguageSelector")) {
 		echo '<div id="languages">';
 			echo '<div class="title">' . gettext( 'Languages' ) . '</div>';
-			printFlagLanguageSelector();
+			printLanguageSelector();
 			echo '<div class="clear_left"></div>';
 		echo '</div>';
 	}
@@ -85,7 +84,7 @@ function m9GetRSS($option) {
 	}
 }
 
-function getParentBreadcrumb($before='', $after='') {
+function getParentBreadcrumbTLB($before='', $after='') {
 	global $_zp_current_album, $_zp_last_album;
 
 	$parents = getParentAlbums();
@@ -129,16 +128,14 @@ function newsListDisplay(){
 		<div class="newslist_article">
 			<div class="newslist_title">
 				<span class="italic date_news"><?php printNewsDate(); ?></span>
-				<h4><?php printNewsTitleLink(); ?></h4>
+				<h4><?php printNewsURL(); ?></h4>
 				<div class="newslist_detail">
 					<div class="italic newslist_type">
 						<?php
-						if(!is_GalleryNewsType()) {
 							$cat = getNewsCategories();
 							if ( !empty( $cat ) ) {
 								printNewsCategories(", ",gettext("Categories: "),"newslist_categories"); 
 							}
-						}
 						?>
 					</div>
 				</div>
@@ -147,9 +144,6 @@ function newsListDisplay(){
 				<?php printCodeblock(1); ?>
 				<?php printNewsContent(); ?>
 				<?php printCodeblock(2); ?>
-				<?php if( getNewsReadMore() ){ ?>
-				<p class="italic newslist_readmore"><?php printNewsReadMoreLink(); ?></p>
-				<?php } ?>
 			</div>
 		</div>
 <?php

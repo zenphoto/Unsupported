@@ -32,12 +32,12 @@ if (!defined('WEBPATH')) die();
 		while (next_album()): ?>
 		<div class="album">
 			<div class="albumtitle">
-				<h3><a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+				<h3><a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 				</div>
 			
 			<div id="album_box">
 			<div id="album_position">
-			<a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>">
+			<a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>">
 			<?php printAlbumThumbImage(getAlbumTitle()); ?>
 			</a>
 			</div>

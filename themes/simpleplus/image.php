@@ -37,12 +37,12 @@ if (!defined('WEBPATH')) die();
 			
 			<div id="gallerytitle">
 				<h2><span><a href="<?php echo getGalleryIndexURL();?>" title="Gallery Index"><?php echo getGalleryTitle();?></a>
-					| <a href="<?php echo getAlbumLinkURL();?>" title="Gallery Index"><?php echo getAlbumTitle();?></a>
+					| <a href="<?php echo getAlbumURL();?>" title="Gallery Index"><?php echo getAlbumTitle();?></a>
 					| </span> <?php printImageTitle(true); ?></h2>
 			</div>
 	
 			<div id="image">
-				<a href="<?php echo getImageLinkURL();?>" title="<?php echo getBareImageTitle();?>"> <?php printDefaultSizedImage(getBareImageTitle()); ?></a> 
+				<a href="<?php echo getImageURL();?>" title="<?php echo getBareImageTitle();?>"> <?php printDefaultSizedImage(getBareImageTitle()); ?></a> 
 			</div>
 
 		</div>

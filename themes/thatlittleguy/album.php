@@ -31,11 +31,11 @@ if (!defined('WEBPATH')) die();
 		<?php while (next_album()): ?>
 		<div class="album">
 			<div class="albumtitle">
-				<h3><a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+				<h3><a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 			</div>
 
 			<div id="album_box">
-				<div id="album_position"><a href="<?php echo getAlbumLinkURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumThumbImage(getAlbumTitle()); ?></a></div>
+				<div id="album_position"><a href="<?php echo getAlbumURL();?>" title="View album: <?php echo getAlbumTitle();?>"><?php printAlbumThumbImage(getAlbumTitle()); ?></a></div>
 			</div>
 
 			<div class="albumdesc">
@@ -53,7 +53,7 @@ if (!defined('WEBPATH')) die();
 		<div class="image">
 			<div id="image_box">
 			<div id="image_position">
-			<a href="<?php echo getImageLinkURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a>
+			<a href="<?php echo getImageURL();?>" title="<?php echo getImageTitle();?>"><?php printImageThumb(getImageTitle()); ?></a>
 			</div>
 			</div>
 		</div>
