@@ -9,7 +9,6 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 		<meta name="keywords" content="<?php echo html_encode(getMainSiteName().', '.gettext('Search')); ?>" />
 		<meta name="description" content="<?php echo html_encode(getMainSiteName().' / '.gettext('Search')); ?>" />
 		<title><?php echo strip_tags(getMainSiteName().' / '.gettext('Search')); ?></title>
-		<link rel="stylesheet" href="<?php echo  $zenCSS ?>" type="text/css" />
 	</head>
 	<body id="gallery-search" class="<?php echo 'search page-'.getCurrentPage(); ?>">
 	<?php zp_apply_filter('theme_body_open'); ?>
