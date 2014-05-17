@@ -1,8 +1,7 @@
-<?php global $_zp_themeroot; ?>
+<?php zp_apply_filter('theme_head'); ?>
 <link type="application/rss+xml" rel="alternate" href="<?php echo m9GetRSS('gallery'); ?>" title="<?php echo html_encode(getMainSiteName()); ?> + RSS" />
 <link type="text/css" rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/reset.css" />
 <link type="text/css" rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/style.css" />
-<?php zenJavascript(); ?>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="doc-type" content="Web Page" />
 <meta name="doc-class" content="Published" />

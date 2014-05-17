@@ -1,13 +1,13 @@
 body, h1, h2, h3, h4, h5, h6, input, textarea { /*text-transform:lowercase;*/ font-style:italic; }
 body, input, textarea { font-family:georgia,times,serif; font-size:15px; }
-body { color:#222222; background:#333333 url(../images/background.jpg) 0 0 repeat; min-width: 1024px; }
+body { color:#222222; background:#333333 url(images/background.jpg) 0 0 repeat; min-width: 1024px; }
 img { /*display:block; */background:#000000; }
 a { color:#222222 }
 a:hover { text-decoration:none; color:#ffffff; }
 .errorbox{ border:3px solid red; color: red; padding:6px; margin:10px }
 p { color: #CCCCCC; }
 
-#wrapper { background:url(../images/light.jpg) 0 -370px no-repeat; }
+#wrapper { background:url(images/light.jpg) 0 -370px no-repeat; }
 #content .list img, #content .view #player { -o-box-shadow:5px 5px 10px #111111 -icab-box-shadow:5px 5px 10px #111111; -khtml-box-shadow:5px 5px 10px #111111; -moz-box-shadow:5px 5px 10px #111111; -webkit-box-shadow:5px 5px 10px #111111; box-shadow:5px 5px 10px #111111; }
 #header ul, #header li, #header a, #header span, #content .list span, #content .data, #content .data div, #content .data .box { padding:5px; }
 #header a, #content .data .box { background:rgba(255,255,255,.3); -o-box-shadow:0 0 5px #111111; -icab-box-shadow:0 0 5px #111111; -khtml-box-shadow:0 0 5px #111111; -moz-box-shadow:0 0 5px #111111; -webkit-box-shadow:0 0 5px #111111; box-shadow:0 0 5px #111111; }
@@ -42,3 +42,55 @@ p { color: #CCCCCC; }
 #footer div { display: inline; }
 #footer a { color:#999999; }
 #footer a:hover { color:#BBBBBB; }
+
+/* GoogleMap
+**********************/
+.googleMap #map_canvas div > div { padding:0px;}
+.googleMap #map_canvas div > img { background-color:transparent;}
+
+/* Admin Toolbox
+------------------------------ */
+#admin,#admin_data {
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	width: 130px;
+	background: #fff;
+	z-index: 1001;
+	text-align: left;
+	font-size: 13px;
+}
+
+#admin_data {
+	top:10px;
+	padding-top: 20px;
+	z-index: 1000;
+	line-height: 18px;
+}
+
+#admin h3 {
+	font-weight: normal;
+	color: #999;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 15px;
+	border: none;
+}
+
+#admin h3:hover {
+	color: #036;
+}
+
+#admin_data a {
+	display: block;
+	width: 100%;
+	height: 100%
+}
+
+#admin_data li:hover a,
+#admin h3:hover {
+	color: CECECE;
+	background-color: #444;
+}
+}
