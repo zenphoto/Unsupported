@@ -1,18 +1,18 @@
 <?php
-if (!defined('WEBPATH')) die(); $firstPageImages = normalizeColumns('2', '5');
+if (!defined('WEBPATH')) die();
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-	<?php zenJavascript(); ?>
+	<?php printZDRoundedCornerJS(); ?>
+	<?php //zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo getOption('charset'); ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/style.css" type="text/css" />
 	<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS')); ?>
-	<?php printZDRoundedCornerJS(); ?>
 </head>
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 
@@ -21,25 +21,25 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL(false);?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a>&raquo; <strong><?php echo gettext("Gallery"); ?></strong></a>
+	<h2><a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a> » <strong><?php echo gettext("Gallery"); ?></strong></a>
 	</h2>
 	</div>
 
 	<div id="content-left">	
-	<?php if(!getOption("zenpage_zp_index_news") OR !function_exists("printNewsPageListWithNav")) { ?>
+	<?php if (!extensionEnabled('zenpage') || ($_zp_gallery_page == 'gallery.php' || ($_zp_gallery_page == 'index.php' && !getOption("zenpage_zp_index_news")))) { ?>
         <div class="gallerydesc" style="margin-right: 20px; margin-left: 2px;"><?php printGalleryDesc(); ?> </div>
 			<div id="albums">
                 <?php $u = 0; ?>
 				<?php while (next_album()): $u++; ?>
 					<div class="album">
 						<div class="thumb">
-					<a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
+							<a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
 						</div>
-				<div class="albumdesc">
-					<h3><a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
-						<h3 class="date"><?php printAlbumDate("", "", "%B %Y"); ?></h3>
-					<!-- p><?php echo truncate_string(getAlbumDesc(), 45); ?></p --></h3>
-				</div>
+					<div class="albumdesc">
+						<h3><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+							<h3 class="date"><?php printAlbumDate("", "", "%B %Y"); ?></h3>
+						<!-- p><?php echo truncate_string(getAlbumDesc(), 45); ?></p --></h3>
+					</div>
 				<p style="clear: both; "></p>
 			</div>
 			<?php endwhile; ?>
@@ -54,36 +54,26 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
             <?php endwhile ?>
 		</div>
 		<br style="clear: both" />
-		<?php printPageListWithNav("&laquo; ".gettext("prev"), gettext("next")." &raquo;"); ?>
+		<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
 
 	<?php } else { // news article loop
-printNewsPageListWithNav(gettext('next &raquo;'), gettext('&laquo; prev')); 
+printNewsPageListWithNav(gettext('next »'), gettext('« prev')); 
 echo "<hr />";	
 while (next_news()): ;?> 
  <div class="newsarticle"> 
-    <h3><?php printNewsTitleLink(); ?><?php echo " <span class='newstype'>[".getNewsType()."]</span>"; ?></h3>
+    <h3><?php printNewsURL(); ?></h3>
         <div class="newsarticlecredit"><span class="newsarticlecredit-left"><?php printNewsDate();?> | <?php echo gettext("Comments:"); ?> <?php echo getCommentCount(); ?></span>
 <?php
-if(is_GalleryNewsType()) {
-	if(!is_NewsType("album")) {
-		echo " | ".gettext("Album:")."<a href='".getNewsAlbumURL()."' title='".getBareNewsAlbumTitle()."'> ".getNewsAlbumTitle()."</a>";
-	} else {
-		echo "<br />";
-	}
-} else {
 	printNewsCategories(", ",gettext("Categories: "),"newscategories");
-	
-}
 ?>
 </div>
     <?php printNewsContent(); ?>
-    <p><?php printNewsReadMoreLink(); ?></p>
     <?php printCodeblock(1); ?>
     <?php printTags('links', gettext('<strong>Tags:</strong>').' ', 'taglist', ', '); ?>
     </div>	
 <?php
   endwhile; 
-  printNewsPageListWithNav(gettext('next &raquo;'), gettext('&laquo; prev'));
+  printNewsPageListWithNav(gettext('next »'), gettext('« prev'));
 } ?> 
 
 </div><!-- content left-->
@@ -102,6 +92,6 @@ if(is_GalleryNewsType()) {
 </div><!-- content -->
 
 </div><!-- main -->
-<?php printAdminToolbox(); ?>
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

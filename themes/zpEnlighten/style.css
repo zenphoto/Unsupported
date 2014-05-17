@@ -223,6 +223,7 @@ ul.searchresults.news {
 	background-image: url(images/sidebar_bottom.png);
     background-repeat: no-repeat;
 	background-position: center bottom;
+	text-align: left;
 }
  
 .menu ul {
@@ -730,13 +731,16 @@ ul.pagelist li.next {
 	width: 580px;
 	height: 55px;
 	padding: 0px;
+	padding: 0 0 30px 0;
 	border: 0px solid gray;
 	color: #444444;
 }
 
 #pagedthumbsimages {
+	width: 300px;
 	text-align: center;
 	border: 0px solid gray;
+	margin: 0 auto;
 }
 
 #pagedthumbsimages img,
@@ -761,7 +765,6 @@ background-color: transparent;
 }
 
 #pagedthumbsnav-prev {
-	width: 155px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -769,7 +772,6 @@ background-color: transparent;
 }
 
 #pagedthumbsnav-next {
-	width: 100px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -796,6 +798,10 @@ background-color: transparent;
 	text-align: center;
 }
 
+#pagedthumbsnav-counter {
+	padding: 15px 0 0 0;
+}
+	
 /* Comments
 ------------------------------ */
 #comments {
@@ -804,8 +810,7 @@ background-color: transparent;
 	margin-top: 10px;
 	padding: 0;
 	border-top: 1px dashed darkgray;
-	display: none;
-	
+	color: #000;
 }
 
 #comments h3 {

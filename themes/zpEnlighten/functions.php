@@ -19,7 +19,7 @@ class Utils {
         $images = array();
         $g = empty($_zp_gallery) ? new Gallery() : $_zp_gallery;
         foreach ( $rows as $r ) {
-            $image = newImage(new Album($g, $r['folder']), $r['filename']);
+            $image = newImage(newAlbum($r['folder']), $r['filename']);
             $images[] = $image;
         }
         return $images;
@@ -92,7 +92,6 @@ function printZDToggleClass($option,$c,$number_to_show) {
 
 
 function printZDRoundedCornerJS() {
-	global $_zp_themeroot;
 ?>
 <script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/jquery.corner.js"></script>
 <script type="text/javascript">

@@ -42,7 +42,7 @@ class ThemeOptions {
 
 	function handleOption($option, $currentValue) {
 		if($option == "zenpage_homepage") {
-			$unpublishedpages = query_full_array("SELECT titlelink FROM ".prefix('zenpage_pages')." WHERE `show` != 1 ORDER by `sort_order`");
+			$unpublishedpages = query_full_array("SELECT titlelink FROM ".prefix('pages')." WHERE `show` != 1 ORDER by `sort_order`");
 			if(empty($unpublishedpages)) {
 				echo gettext("No unpublished pages available");
 				// clear option if no unpublished pages are available or have been published meanwhile

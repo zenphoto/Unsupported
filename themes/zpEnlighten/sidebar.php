@@ -14,14 +14,24 @@ if(function_exists("printAllNewsCategories")) { ?>
 
 <?php if(function_exists("printAlbumMenu")) { ?>
 <div class="menu">
-	<h3><?php echo gettext("Gallery"); ?></h3>
-	<?php 
-	if(!getOption("zenpage_zp_index_news") OR !getOption("zenpage_homepage")) {
-		$allalbums = "";
-	} else {
-		$allalbums = gettext("Gallery index");
-	}
-	printAlbumMenu("list",NULL,"","menu-active","submenu","menu-active",$allalbums,false,false); 
+	<?php if (extensionEnabled('zenpage')) {
+				if ($_zp_gallery_page == 'index.php' || $_zp_gallery_page != 'gallery.php') {
+					?>
+					<h3>
+						<a href="<?php echo html_encode(getCustomPageURL('gallery')); ?>" title="<?php echo gettext('Album index'); ?>"><?php echo gettext("Gallery"); ?></a>
+					</h3>
+					<?php
+				} else {
+					?>
+					<h3><?php echo gettext("Gallery"); ?></h3>
+					<?php
+				}
+			} else {
+				?>
+				<h3><?php echo gettext("Gallery"); ?></h3>
+				<?php
+			}
+	printAlbumMenu("list", false, "", "menu-active", "submenu", "menu-active", ''); 
 	?>
 </div>
 <?php } ?>
@@ -38,7 +48,7 @@ if(function_exists("printAllNewsCategories")) { ?>
 <h3><?php echo gettext("Latest notes"); ?></h3>
 	<ul>
 	<?php
-        $latest = getLatestNews(5);
+        $latest = getLatestNews(3);
         foreach($latest as $item) {
             $title = htmlspecialchars($item['title']);
             if ( empty($title) ) $title = htmlspecialchars($item['albumname']);
@@ -61,11 +71,11 @@ if(function_exists("printAllNewsCategories")) { ?>
 		} 
 		?>
         <?php if(!is_null($_zp_current_album)) { ?>
-		<?php printRSSLink('Album', '<li>', gettext('Album Rss feed'), '</li>', false); ?>
+		<?php printRSSLink('Album', '<li>', gettext('Album RSS feed'), '</li>', false); ?>
 		<?php } ?>
-			<?php printRSSLink('Gallery','<li>','Gallery Rss feed', '</li>', false); ?>
-			<?php if(function_exists("printZenpageRSSLink")) { ?>
-			<?php printZenpageRSSLink("News","","<li>",gettext("Notes Rss feed"),'</li>', false); ?>
+			<?php printRSSLink('Gallery','<li>','Gallery RSS feed', '</li>', false); ?>
+			<?php if(function_exists("printRSSLink")) { ?>
+			<?php printRSSLink("News","<li>",gettext("Notes RSS feed"),'</li>', false); ?>
 			<?php } ?>
 	</ul>
 </div>
