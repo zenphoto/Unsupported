@@ -58,15 +58,11 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 	<!-- The Image -->
  <?php
  //
- if (function_exists('printThumbNav')) {
- 	printThumbNav(6,50,50,50,50,FALSE);
- }
- else {
- 	if (function_exists("printPagedThumbsNav")) {
- 		printPagedThumbsNav(6, FALSE, gettext('« prev thumbs'), gettext('next thumbs »'), 40, 40);
- 	}
- }
-
+	if (function_exists('printThumbNav')) {
+		printThumbNav(3, 6, 50, 50, 50, 50, FALSE);
+		} else {
+		@call_user_func('printPagedThumbsNav', 6, FALSE, gettext('« prev thumbs'), gettext('next thumbs »'), 40, 40);
+	}
  ?>
 
 	<div id="image">
