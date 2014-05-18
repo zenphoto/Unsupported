@@ -30,7 +30,13 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 			$numpages = $numnews = 0;
 		}
 ?>
-		<h2><a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a> » <?php echo gettext("Search"); ?> » <strong><?php echo getSearchWords(); ?></strong> (<?= $total ?> results)
+		<h2>
+			<?php if ( extensionEnabled('zenpage') ) { ?>
+	 			<a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index") . " » "; ?></a>
+			 <?php } else {?>
+	 			<a href="<?php echo htmlspecialchars(getCustomPageURl('gallery'));?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery") . " » "; ?></a>
+	 		<?php } ?>
+		 	<?php echo gettext("Search"); ?> » <strong><?php echo getSearchWords(); ?></strong> (<?php echo $total; ?> results)
 			</h2>
 			</div>
 
@@ -119,44 +125,31 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 				}
 			?>
 			</h3>
-		<?php if (getNumAlbums() != 0) { $u = 0; ?>
+		<?php if (getNumAlbums() != 0) { ?>
 			<div id="albums">
-				<?php while (next_album()): $u++; ?>
-					<div class="album" <?php if ( $u%2 == 0 ) { echo 'style="margin-left: 8px;"'; } ?>>
+				<?php while (next_album()): ?>
+					<div class="album">
 						<div class="thumb">
-					<a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
+					<a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
 						</div>
 				<div class="albumdesc">
-					<h3><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+					<h3><a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 						<h3 class="date"><?php printAlbumDate(""); ?></h3>
 					<!-- p><?php echo truncate_string(getAlbumDesc(), 45); ?></p --></h3>
 				</div>
 				<p style="clear: both; "></p>
 			</div>
 			<?php endwhile; ?>
-            <?php while ( $u%2 != 0 ) : $u++;?>
-            <div class="album" style="margin-left: 8px;">
-                <div class="thumb"><a><img style="width: 255px; height: 75px;  outline: 1px #efefef solid;" src="<?= $_zp_themeroot ?>/images/trans.png" /></a></div>
-                <div class="albumdesc">
-					<h3 style="color: transparent;">No album</h3>
-					<h3 class="date" style="color: transparent;">No Date</h3>
-				</div>
-            </div>
-            <?php endwhile ?>
+            
 			</div>
 			<?php } ?>
-<?php if (getNumImages() > 0) { $u=0;?>
+<?php if (getNumImages() > 0) { ?>
 			<div id="images">
-				<?php while (next_image()): $c++; $u++;?>
+				<?php while (next_image()): ?>
 					<div class="image">
-						<div class="imagethumb"><a href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printImageThumb(getBareImageTitle()); ?></a></div>
+						<div class="imagethumb"><a href="<?php echo html_encode(getImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printImageThumb(getBareImageTitle()); ?></a></div>
 					</div>
 				<?php endwhile; ?>
-                <?php while ( $u%5 != 0 ) : $u++;?>
-                	<div class="image">
-            			<div class="imagethumb"><a><img style="width:<?php echo getOption('thumb_size'); ?>px; height:<?php echo getOption('thumb_size'); ?>px;  outline: 1px #efefef solid;" src="<?= $_zp_themeroot ?>/images/trans.png" /></a></div>
-					</div>            
-           		 <?php endwhile ?>
 			</div>
 		<br clear="all" />
 <?php } ?>

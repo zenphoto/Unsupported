@@ -27,15 +27,15 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="main">
 <div id="header">
 		<h3 style="float:left; padding-left: 32px;">
-        <a href="<?php echo getGalleryIndexURL(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/banner.png"/></a>
+        <a href="<?php echo html_encode(getGalleryIndexURL()); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/banner.png"/></a>
     </h3>
 	<div class="imgnav" style="margin-top: 33px;">
 			<?php if (hasPrevImage()) { ?>
-			<div class="imgprevious"><a href="<?php echo htmlspecialchars(getPrevImageURL());?>" title="<?php echo gettext("Previous Image"); ?>">« <?php echo gettext("prev"); ?></a></div>
+			<div class="imgprevious"><a href="<?php echo html_encode(getPrevImageURL());?>" title="<?php echo gettext("Previous Image"); ?>">« <?php echo gettext("prev"); ?></a></div>
 			<?php } else {  ?>
             <div class="imgprevious disabled"><a>« <?php echo gettext("prev"); ?></a></div>
             <?php } if (hasNextImage()) { ?>
-			<div class="imgnext"><a href="<?php echo htmlspecialchars(getNextImageURL());?>" title="<?php echo gettext("Next Image"); ?>"><?php echo gettext("next"); ?> »</a></div>
+			<div class="imgnext"><a href="<?php echo html_encode(getNextImageURL());?>" title="<?php echo gettext("Next Image"); ?>"><?php echo gettext("next"); ?> »</a></div>
 			<?php } else { ?>
             <div class="imgnext disabled"><a><?php echo gettext("next"); ?> »</a></div>
             <?php } ?>
@@ -45,10 +45,14 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a> » <a href="<?php echo htmlspecialchars(getCustomPageURl('gallery'));?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery") . " » "; ?></a><?php printParentBreadcrumb(" » "," » "," » "); printAlbumBreadcrumb(" ", " » "); ?>
-			 <strong><?php /* printImageTitle(true); */?><?php echo gettext("Image") . imageNumber()."/".getNumImages(); ?></strong> 
-			</h2>
-		</div>
+	<h2>
+		<?php if ( extensionEnabled('zenpage') ) { ?>
+	 		<a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a>» 
+		 <?php } ?>
+			 <a href="<?php echo html_encode(getCustomPageURl('gallery'));?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery") . " » "; ?></a><?php printParentBreadcrumb(" » "," » "," » "); printAlbumBreadcrumb(" ", " » "); ?>
+			 <strong><?php /* printImageTitle(true); */?><?php echo gettext("Image") . " " . imageNumber()."/".getNumImages(); ?></strong> 
+	</h2>
+	</div>
 	<div id="content-left">
 
 	<!-- The Image -->

@@ -44,6 +44,7 @@ if(function_exists("printAllNewsCategories")) { ?>
 <?php } 
 } // custom menu check end ?>
 
+<?php if ( extensionEnabled('zenpage') ) { ?>
 <div class="menu">
 <h3><?php echo gettext("Latest notes"); ?></h3>
 	<ul>
@@ -58,7 +59,7 @@ if(function_exists("printAllNewsCategories")) { ?>
     ?>
 	</ul>
 </div>
-
+<?php } ?>
 
 <div class="menu">
 <h3><?php echo gettext("Toolbox"); ?></h3>

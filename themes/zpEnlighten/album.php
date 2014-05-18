@@ -19,8 +19,12 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-<h2><a href="<?php echo htmlspecialchars(getGalleryIndexURL());?>" title="<?php echo gettext('Index'); ?>"><?php echo gettext("Index"); ?></a>	» <a href="<?php echo htmlspecialchars(getCustomPageURl('gallery'));?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery") . " » "; ?></a>
-<?php printParentBreadcrumb(" » "," » "," » "); ?><strong><?php printAlbumTitle(true);?></strong></h2>
+	<h2>
+	<?php if ( extensionEnabled('zenpage') ) { ?>
+	 	<a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a>» 
+	 <?php } ?>
+	 	<a href="<?php echo htmlspecialchars(getCustomPageURl('gallery'));?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery") . " » "; ?></a>
+	<?php printParentBreadcrumb(" » "," » "," » "); ?><strong><?php printAlbumTitle(true);?></strong></h2>
 </div>
 
 	<div id="content-left">
@@ -30,10 +34,10 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 			<?php while (next_album()): $u++ ?>
 			<div class="album" <?php if ( $u%2 == 0 ) { echo 'style="margin-left: 8px;"'; } ?> > 
 						<div class="thumb">
-					<a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
+					<a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
 						</div>
 				<div class="albumdesc">
-					<h3><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+					<h3><a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 						<h3 class="date"><?php printAlbumDate(""); ?></h3>
 					<!-- p><?php echo truncate_string(getAlbumDesc(), 45); ?></p --></h3>
 				</div>

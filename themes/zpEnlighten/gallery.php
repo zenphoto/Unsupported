@@ -5,7 +5,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <!DOCTYPE html>
 <head>
 	<?php printZDRoundedCornerJS(); ?>
-	<?php //zp_apply_filter('theme_head'); ?>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo getOption('charset'); ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/style.css" type="text/css" />
@@ -21,22 +21,26 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a> » <strong><?php echo gettext("Gallery"); ?></strong></a>
+	<h2>
+	<?php if ( extensionEnabled('zenpage') ) { ?>
+	 	<a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a>» 
+	 <?php } ?>
+	 	<strong><?php echo gettext("Gallery"); ?></strong></a>
 	</h2>
 	</div>
 
 	<div id="content-left">	
-	<?php if (!extensionEnabled('zenpage') || ($_zp_gallery_page == 'gallery.php' || ($_zp_gallery_page == 'index.php' && !getOption("zenpage_zp_index_news")))) { ?>
+	<?php if(!getOption("zenpage_zp_index_news") OR !function_exists("printNewsPageListWithNav")) { ?>
         <div class="gallerydesc" style="margin-right: 20px; margin-left: 2px;"><?php printGalleryDesc(); ?> </div>
 			<div id="albums">
                 <?php $u = 0; ?>
 				<?php while (next_album()): $u++; ?>
 					<div class="album">
 						<div class="thumb">
-							<a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
+							<a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
 						</div>
 					<div class="albumdesc">
-						<h3><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+						<h3><a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 							<h3 class="date"><?php printAlbumDate("", "", "%B %Y"); ?></h3>
 						<!-- p><?php echo truncate_string(getAlbumDesc(), 45); ?></p --></h3>
 					</div>

@@ -19,7 +19,11 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL(); ?>"><strong><?php echo gettext("Index"); ?></strong></a>
+	<h2>
+		<?php if ( extensionEnabled('zenpage') ) { ?>
+	 		<a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a>» 
+	 	<?php } ?>
+	 		<a href="<?php echo htmlspecialchars(getCustomPageURl('gallery'));?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>
 	</h2>
 	</div>
 
