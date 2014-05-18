@@ -731,16 +731,13 @@ ul.pagelist li.next {
 	width: 580px;
 	height: 55px;
 	padding: 0px;
-	padding: 0 0 30px 0;
 	border: 0px solid gray;
 	color: #444444;
 }
 
 #pagedthumbsimages {
-	width: 300px;
 	text-align: center;
 	border: 0px solid gray;
-	margin: 0 auto;
 }
 
 #pagedthumbsimages img,
@@ -765,6 +762,7 @@ background-color: transparent;
 }
 
 #pagedthumbsnav-prev {
+	width: 130px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -772,6 +770,7 @@ background-color: transparent;
 }
 
 #pagedthumbsnav-next {
+	width: 130px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -781,7 +780,7 @@ background-color: transparent;
 
 #pagedthumbsnav-prevdisabled {
 	visibility: hidden;
-	width: 155px;
+	width: 130px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -790,7 +789,7 @@ background-color: transparent;
 
 #pagedthumbsnav-nextdisabled {
 	visibility: hidden;
-	width: 100px;
+	width: 130px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -798,10 +797,6 @@ background-color: transparent;
 	text-align: center;
 }
 
-#pagedthumbsnav-counter {
-	padding: 15px 0 0 0;
-}
-	
 /* Comments
 ------------------------------ */
 #comments {
