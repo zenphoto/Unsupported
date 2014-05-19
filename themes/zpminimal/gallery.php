@@ -6,7 +6,7 @@
 					<div id="albums-wrap">
 						<?php while (next_album()): ?>
 						<div class="album-maxspace">
-							<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo getNumAlbums().' '.gettext('subalbums').' / '.getNumImages().' '.gettext('images').' - '.strip_tags(shortenContent(getAlbumDesc(),300,'...')); ?>">
+							<a class="thumb-link" href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo getNumAlbums().' '.gettext('subalbums').' / '.getNumImages().' '.gettext('images').' - '.strip_tags(shortenContent(getAlbumDesc(),300,'...')); ?>">
 								<?php if ($zpmin_thumb_crop) {
 								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$zpmin_album_thumb_size,$zpmin_album_thumb_size,$zpmin_album_thumb_size,$zpmin_album_thumb_size);
 								} else {

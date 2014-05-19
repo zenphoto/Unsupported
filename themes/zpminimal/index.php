@@ -46,7 +46,7 @@
 					} else {
 					$randomImage = getRandomImages($zpmin_functionoption);
 					if (is_object($randomImage) && $randomImage->exists) {
-						$randomImageURL = html_encode(getURL($randomImage));
+						$randomImageURL = html_encode($randomImage->getLink());
 						echo '<a href="' . $randomImageURL . '" title="'.sprintf(gettext('View image: %s'), html_encode($randomImage->getTitle())) . '">';
 						$html =  "<img src=\"".html_encode($randomImage->getCustomImage(535, NULL, NULL, NULL, NULL, NULL, NULL, TRUE))."\" alt=\"" . html_encode($randomImage->getTitle()) . "\" />\n";
 						echo zp_apply_filter('custom_image_html', $html, false);

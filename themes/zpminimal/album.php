@@ -9,7 +9,7 @@
 					<div id="albums-wrap">
 						<?php while (next_album()): ?>
 						<div class="album-maxspace">
-							<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo getNumAlbums().' '.gettext('subalbums').' / '.getNumImages().' '.gettext('images').' - '.strip_tags(shortenContent(getBareAlbumDesc(),300,'...')); ?>">
+							<a class="thumb-link" href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo getNumAlbums().' '.gettext('subalbums').' / '.getNumImages().' '.gettext('images').' - '.strip_tags(shortenContent(getBareAlbumDesc(),300,'...')); ?>">
 								<?php if ($zpmin_thumb_crop) {
 								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$zpmin_album_thumb_size,$zpmin_album_thumb_size,$zpmin_album_thumb_size,$zpmin_album_thumb_size);
 								} else {
@@ -23,11 +23,11 @@
 					<div id="thumbs-wrap">
 						<?php while (next_image()): ?>
 						<div class="thumb-maxspace">
-							<a class="thumb-link" href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle(); ?>"><?php printImageThumb(getAnnotatedImageTitle()); ?></a>
+							<a class="thumb-link" href="<?php echo html_encode(getImageURL());?>" title="<?php echo getBareImageTitle(); ?>"><?php printImageThumb(getAnnotatedImageTitle()); ?></a>
 							<?php if (($zpmin_colorbox) && (!isImageVideo())) { ?>
 							<div class="cblinks">
 								<a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/zoom.png" /></a>
-								<a href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/details.png" /></a>
+								<a href="<?php echo html_encode(getImageURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/details.png" /></a>
 							</div>
 							<?php } ?>
 						</div>

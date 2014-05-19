@@ -8,7 +8,7 @@
 					<?php 
 					if (in_context(ZP_ALBUM)) { printRSSLink( "Collection","",gettext('This Album'),", ", false,"rsslink" ); }
 					printRSSLink( "Gallery","",(gettext('Gallery Images')),"",false,"rsslink" ); 
-					if (function_exists('printZenpageRSSLink')) { printZenpageRSSLink( "News",'',', ',gettext('News'),'',false ); }		
+					if (function_exists('printZenpageRSSLink')) { printRSSLink( "News",'',', ',gettext('News'),'',false ); }		
 					?>
 				</span>
 				<span id="zpcredit">| <?php printZenphotoLink(); ?></span>
