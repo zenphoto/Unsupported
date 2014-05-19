@@ -1,18 +1,18 @@
 <?php if (!defined('WEBPATH')) die(); 
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
 	<title><?php if(!isset($ishomepage)) { echo getBarePageTitle(); } ?> | <?php echo getBareGalleryTitle(); ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo getOption('charset'); ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/style.css" type="text/css" />
-	<?php printZenpageRSSHeaderLink("News","", "Zenpage news", ""); ?>
-	<?php zenJavascript(); ?>
+	<?php printRSSHeaderLink("Gallery", gettext('Gallery RSS')); ?>
 	<?php printZDRoundedCornerJS(); ?>
+	<?php zp_apply_filter('theme_head'); ?>
 </head>
 
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 
@@ -21,7 +21,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL(false); ?>"><?php echo gettext("Index"); ?></a><?php if(!isset($ishomepage)) { printParentPagesBreadcrumb(" &raquo; ",""); } ?><strong><?php if(!isset($ishomepage)) { printPageTitle(" &raquo; "); } ?></strong>
+	<h2><a href="<?php echo getGalleryIndexURL(); ?>"><?php echo gettext("Index"); ?></a><?php if(!isset($ishomepage)) { printZenpageItemsBreadcrumb(" » ",""); } ?><strong><?php if(!isset($ishomepage)) { printPageTitle(" » "); } ?></strong>
 	</h2>
 	</div>
 <div id="content-left">
@@ -57,6 +57,6 @@ if (function_exists('printCommentForm')) { ?>
 </div><!-- content -->
 
 </div><!-- main -->
-<?php printAdminToolbox(); ?>
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

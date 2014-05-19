@@ -1,17 +1,17 @@
-<?php if (!defined('WEBPATH')) die(); $firstPageImages = normalizeColumns('2', '5'); 
+<?php if (!defined('WEBPATH')) die(); 
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-	<?php zenJavascript(); ?>
+	<?php printZDRoundedCornerJS(); ?>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareAlbumTitle(); ?> | <?php echo getBareGalleryTitle(); ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo getOption('charset'); ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/style.css" type="text/css" />
 	<?php printRSSHeaderLink('Album',getAlbumTitle()); ?>
-	<?php printZDRoundedCornerJS(); ?>
 </head>
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 
@@ -19,8 +19,12 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 <div id="content">
 
 	<div id="breadcrumb">
-<h2><a href="<?php echo htmlspecialchars(getGalleryIndexURL(false));?>" title="<?php echo gettext('Index'); ?>"><?php echo gettext("Index"); ?></a>	&raquo; <a href="<?php echo htmlspecialchars(getCustomPageUrl('gallery'));?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>
-<?php printParentBreadcrumb(" &raquo; "," &raquo; "," &raquo; "); ?><strong><?php printAlbumTitle(true);?></strong></h2>
+	<h2>
+	<?php if ( extensionEnabled('zenpage') ) { ?>
+	 	<a href="<?php echo getGalleryIndexURL();?>" title="<?php gettext('Index'); ?>"><?php echo gettext("Index"); ?></a>» 
+	 <?php } ?>
+	 	<a href="<?php echo htmlspecialchars(getCustomPageURl('gallery'));?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery") . " » "; ?></a>
+	<?php printParentBreadcrumb(" » "," » "," » "); ?><strong><?php printAlbumTitle(true);?></strong></h2>
 </div>
 
 	<div id="content-left">
@@ -30,10 +34,10 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 			<?php while (next_album()): $u++ ?>
 			<div class="album" <?php if ( $u%2 == 0 ) { echo 'style="margin-left: 8px;"'; } ?> > 
 						<div class="thumb">
-					<a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
+					<a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 255, 75, 255, 75); ?></a>
 						</div>
 				<div class="albumdesc">
-					<h3><a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+					<h3><a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
 						<h3 class="date"><?php printAlbumDate(""); ?></h3>
 					<!-- p><?php echo truncate_string(getAlbumDesc(), 45); ?></p --></h3>
 				</div>
@@ -51,19 +55,21 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
             <?php endwhile ?>
 		</div>
 
-			<div id="images">
+		<div id="images">
             <?php $u = 0; ?>
-			<?php while (next_image(false, $firstPageImages)): $u++; ?>
+			<?php while (next_image()): $u++; ?>
 			<div class="image">
-				<div class="imagethumb"><a href="<?php echo htmlspecialchars(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>"><?php printImageThumb(getBareImageTitle()); ?></a></div>
+				<div class="imagethumb"><a href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printImageThumb(getBareImageTitle()); ?></a></div>
 			</div>
 			<?php endwhile; ?>
             <?php while ( $u%5 != 0 ) : $u++;?>
-            <div class="imagethumb"><a><img style="width: 88px; height: 88px;  border: 1px #efefef solid;" src="<?= $_zp_themeroot ?>/images/trans.png"/></a></div>
+            <div class="image">
+            	<div class="imagethumb"><a><img style="width:<?php echo getOption('thumb_size'); ?>px; height:<?php echo getOption('thumb_size'); ?>px;  outline: 1px #efefef solid;" src="<?= $_zp_themeroot ?>/images/trans.png" /></a></div>
+            </div>
             <?php endwhile ?>
 		</div>
 				<p style="clear: both; "></p>
-		<?php printPageListWithNav("&laquo; ".gettext("prev"), gettext("next")." &raquo;"); ?>
+		<?php printPageListWithNav("« ".gettext("prev"), gettext("next")." »"); ?>
 		<?php printTags('links', gettext('<strong>Tags:</strong>').' ', 'taglist', ', '); ?>
 		<br style="clear:both;" /><br />
 	<?php if (function_exists('printSlideShowLink')) {
@@ -102,6 +108,6 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 </div><!-- content -->
 
 </div><!-- main -->
-<?php printAdminToolbox(); ?>
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

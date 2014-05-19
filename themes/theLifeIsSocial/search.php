@@ -1,14 +1,15 @@
 <?php
 if (!defined('WEBPATH')) die();
+header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 ?>
 <!DOCTYPE html>
 	<head>
 		<?php include_once('header.php'); ?>
-		<meta name="keywords" content="<?php echo html_encode(getFormattedMainSiteName('', ', ').getGalleryTitle()); ?>" />
-		<meta name="description" content="<?php echo html_encode(getGalleryDesc()); ?>" />
-		<title><?php echo strip_tags(getFormattedMainSiteName('', ' / ').getGalleryTitle() . getParentBreadcrumbTLS(' / ') . ' / ' . html_encode( getBareAlbumTitle() )); ?></title>
+		<meta name="keywords" content="<?php echo html_encode(getMainSiteName().', '.gettext('Search')); ?>" />
+		<meta name="description" content="<?php echo html_encode(getMainSiteName().' / '.gettext('Search')); ?>" />
+		<title><?php echo strip_tags(getMainSiteName().' / '.gettext('Search')); ?></title>
 	</head>
-	<body id="gallery-index">
+	<body id="gallery-search" class="<?php echo 'search page-'.getCurrentPage(); ?>">
 	<?php zp_apply_filter('theme_body_open'); ?>
 		<div id="wrapper">
 			<div id="header">
@@ -35,46 +36,12 @@ if (!defined('WEBPATH')) die();
 				</ul>
 			</div>
 			<div id="content">
-				<div class="description">
-					<div class="title">
-						<h3><?php echo html_encode( getAlbumTitle() ); ?></h3>
-						<?php
-						if( function_exists( 'zenFBLike' ) ) {
-							zenFBLike();
-						}
-						?>
-						<div class="date">
-							<?php echo gettext( 'Taken on ' ) . getAlbumDate( getOption('date_format') ) ; ?>
-						</div>
-					</div>
-					<?php
-					if( getAlbumDesc() AND gettags() ) {
-						$class = ' deux';
-					} else {
-						$class = ' un';
-					}
-					if( getAlbumDesc() ) {
-					?>
-					<div class="desc<?php echo $class; ?>">
-						<?php echo html_encode( getAlbumDesc() ); ?>
-					</div>
-					<?php
-					}
-					if( gettags() ) {
-						echo '<div class="tagsList' . $class . '">';
-							printTags('links', 'Tags: ', '', ', ', false, '', true);
-						echo '</div>';
-					}
-					if( function_exists( 'printRating' ) ) {
-						echo '<div class="clear ratings">';
-							printRating();
-						echo '</div>';
-					}
-					?>
-				</div>
-				<div class="thumbs">
+		<?php
+		$c = 0;
+		?>
+					<div class="thumbs">
 					<ul class="list">
-						<?php while (next_album()): ?>
+						<?php while (next_album()): $c++; ?>
 						<li>
 							<div class="thumb">
 								<a title="<?php echo html_encode(getAlbumDesc()); ?>" href="<?php echo htmlspecialchars(getAlbumURL()); ?>">
@@ -84,11 +51,10 @@ if (!defined('WEBPATH')) die();
 							<div class="album">
 								<div class="gras"><?php echo getAlbumTitle(); ?></div>
 								<div class="italic"><small><?php echo '('.getAlbumDate(getOption('date_format')).')'; ?></small></div>
-								<div><?php echo getAlbumDesc(); ?></div>
 							</div>
 						</li>
 						<?php endwhile; ?>
-						<?php while (next_image()): ?>
+						<?php while (next_image()): $c++; ?>
 						<li>
 							<div class="thumb">
 								<a title="<?php echo html_encode(getImageDesc()); ?>" href="<?php echo htmlspecialchars(getImageURL()); ?>">
@@ -96,7 +62,10 @@ if (!defined('WEBPATH')) die();
 								</a>
 							</div>
 						</li>
-						<?php endwhile; ?>
+						<?php endwhile; 
+						if ($c == 0) {
+								echo "<p>".gettext("Sorry, no image matches. Try refining your search.")."</p>";
+							} ?>
 					</ul>
 				</div>
 				<div class="clear"></div>
@@ -108,30 +77,41 @@ if (!defined('WEBPATH')) die();
 					<?php if (hasNextPage()): ?><a href="<?php echo htmlspecialchars(getNextPageURL()); ?>">Next</a><?php else: ?><span>Next</span><?php endif; ?>
 					</div>
 				</div>
-				<?php
-				if( function_exists( 'printCommentForm' ) AND function_exists( 'zenFBComments' ) ) {
-					$class=' deux';
-				} else {
-					$class=' un';
-				}
-				if( function_exists( 'printCommentForm' ) ) {
-					echo '<div class="comments' . $class . '">';
-					printCommentForm(true, '', false);
-					echo '</div>';
-				}
-				if( function_exists( 'zenFBComments' ) ) {
-					echo '<div class="facebook FBcomments comments' . $class . '">';
-					zenFBComments();
-					echo '</div>';
-				}
-				?>
-				<div class="clear"></div>
+				<div id="rightbox">
+					<div class="data">
+						<div class="box desc">
+			<?php
+			if (($total = getNumImages() + getNumAlbums()) > 0) {
+				if (isset($_REQUEST['date'])){
+					$searchwords = getSearchDate();
+			} else { $searchwords = getSearchWords(); }
+				echo '<p>'.sprintf(gettext('Total matches for <em>%1$s</em>: %2$u'), $searchwords, $total).'</p>';
+			}
+			?>
+						</div>
+						<div class="box diaporama">
+							<?php	if (function_exists('printSlideShowLink')) {
+									printSlideShowLink(gettext('View Slideshow'));
+									} ?>
+						</div>
+					</div>
+				<div id="login">
+<?php
+if (!zp_loggedin() && function_exists('printUserLogin_out')) {
+	printUserLogin_out();
+}
+if (!zp_loggedin() && function_exists('printRegistrationForm')) {
+	printCustomPageURL(gettext('Register for this site'), 'register');
+}
+?>
+				</div>
+				</div>
 			</div>
 			<div id="footer">
 					<?php include_once('footer.php'); ?>
 			</div>
 		</div>
-		<?php include_once('analytics.php'); ?>
-		<?php zp_apply_filter('theme_body_close'); ?>
-	</body>
+<?php include_once('analytics.php'); ?>
+<?php zp_apply_filter('theme_body_close'); ?>
+</body>
 </html>

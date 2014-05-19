@@ -52,7 +52,7 @@
 			<div class="imageit newsbody" style="color: #ddd;text-align: justify; text-justify: newspaper; padding: 40px 60px 0px 60px;">
 				<div id="menu">
 					<a style="margin-left: 0px;" href="<?php echo getCustomPageURL("gallery");?>">Gallery</a>&nbsp;
-					<?php printNewsIndexURL("News"); ?>
+					<?php if (class_exists('Zenpage')) printNewsIndexURL("News"); ?>
 				</div>				
 				<div id="rabbit">
 					<p>The rabbit wants to fade away</p>							

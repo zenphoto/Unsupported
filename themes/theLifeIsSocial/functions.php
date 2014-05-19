@@ -58,7 +58,7 @@ function printThemeFooter(){
 	echo '</ul>';
 }
 
-function getParentBreadcrumb($before='', $after='') {
+function getParentBreadcrumbTLS($before='', $after='') {
 	global $_zp_current_album, $_zp_last_album;
 
 	$parents = getParentAlbums();

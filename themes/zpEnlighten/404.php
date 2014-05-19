@@ -1,16 +1,14 @@
-<?php if (!defined('WEBPATH')) die(); 
-header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php if (!defined('WEBPATH')) die(); ?>
+<!DOCTYPE html>
 <head>
-	<?php zenJavascript(); ?>
+	<?php zp_apply_filter('theme_head'); ?>
 	<title><?php echo getBareGalleryTitle(); ?> | <?php echo gettext("Object not found"); ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo getOption('charset'); ?>" />
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/style.css" type="text/css" />
 </head>
 
 <body>
+<?php zp_apply_filter('theme_body_open'); ?>
 
 <div id="main">
 
@@ -20,7 +18,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 
 		<div id="content">
 		<div id="breadcrumb">
-	<h2><a href="<?php echo getGalleryIndexURL(); ?>">Index</a> &raquo; <strong><?php echo gettext("Object not found"); ?></strong></h2>
+	<h2><a href="<?php echo getGalleryIndexURL(); ?>">Index</a> » <strong><?php echo gettext("Object not found"); ?></strong></h2>
 	</div>
 	
 	<div id="content-error">
@@ -53,6 +51,6 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 </div><!-- content -->
 
 </div><!-- main -->
-<?php printAdminToolbox(); ?>
+<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

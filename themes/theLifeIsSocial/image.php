@@ -1,17 +1,15 @@
 <?php
 if (!defined('WEBPATH')) die();
-require_once ('functions.php');
-
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
 	<head>
 		<?php include_once('header.php'); ?>
 		<meta name="keywords" content="<?php echo html_encode(getFormattedMainSiteName('', ', ').getGalleryTitle()); ?>" />
 		<meta name="description" content="<?php echo html_encode(getGalleryDesc()); ?>" />
-		<title><?php echo strip_tags(getFormattedMainSiteName('', ' / ').getGalleryTitle() . getParentBreadcrumb(' / ') . ' / ' . html_encode( getBareAlbumTitle() ) . ' / ' . html_encode( getBareImageTitle() ) ); ?></title>
+		<title><?php echo strip_tags(getFormattedMainSiteName('', ' / ').getGalleryTitle() . getParentBreadcrumbTLS(' / ') . ' / ' . html_encode( getBareAlbumTitle() ) . ' / ' . html_encode( getBareImageTitle() ) ); ?></title>
 	</head>
 	<body id="gallery-index">
+	<?php zp_apply_filter('theme_body_open'); ?>
 		<div id="wrapper">
 			<div id="header">
 				<div id="logo">
@@ -30,9 +28,9 @@ require_once ('functions.php');
 				<?php
 					getFormattedMainSiteName('<li class="page">', '</li><li class="chevron"> > </li>');
 					echo '<li><a href="' . getGalleryIndexURL() . '" class="activ">' . getBareGalleryTitle() . '</a></li>';
-					getParentBreadcrumb('<li class="chevron"><a> &gt; </a></li>');
+					getParentBreadcrumbTLS('<li class="chevron"><a> &gt; </a></li>');
 					echo '<li class="chevron"><a> &gt; </a></li>';
-					echo '<li><a href="' . getAlbumLinkURL() . '">' . html_encode( getBareAlbumTitle() ) . '</a></li>';
+					echo '<li><a href="' . getAlbumURL() . '">' . html_encode( getBareAlbumTitle() ) . '</a></li>';
 					echo '<li class="chevron"><a> &gt; </a></li>';
 					echo '<li><a>' . html_encode( getBareImageTitle() ) . '</a></li>';
 				?>
@@ -127,5 +125,6 @@ require_once ('functions.php');
 			</div>
 		</div>
 		<?php include_once('analytics.php'); ?>
+		<?php zp_apply_filter('theme_body_close'); ?>
 	</body>
 </html>

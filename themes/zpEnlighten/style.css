@@ -223,6 +223,7 @@ ul.searchresults.news {
 	background-image: url(images/sidebar_bottom.png);
     background-repeat: no-repeat;
 	background-position: center bottom;
+	text-align: left;
 }
  
 .menu ul {
@@ -761,7 +762,7 @@ background-color: transparent;
 }
 
 #pagedthumbsnav-prev {
-	width: 155px;
+	width: 130px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -769,7 +770,7 @@ background-color: transparent;
 }
 
 #pagedthumbsnav-next {
-	width: 100px;
+	width: 130px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -779,7 +780,7 @@ background-color: transparent;
 
 #pagedthumbsnav-prevdisabled {
 	visibility: hidden;
-	width: 155px;
+	width: 130px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -788,7 +789,7 @@ background-color: transparent;
 
 #pagedthumbsnav-nextdisabled {
 	visibility: hidden;
-	width: 100px;
+	width: 130px;
 	height: 20px;
 	padding-top: 10px;
 	font-size: 1em;
@@ -804,8 +805,7 @@ background-color: transparent;
 	margin-top: 10px;
 	padding: 0;
 	border-top: 1px dashed darkgray;
-	display: none;
-	
+	color: #000;
 }
 
 #comments h3 {

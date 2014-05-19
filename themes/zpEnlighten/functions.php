@@ -19,7 +19,7 @@ class Utils {
         $images = array();
         $g = empty($_zp_gallery) ? new Gallery() : $_zp_gallery;
         foreach ( $rows as $r ) {
-            $image = newImage(new Album($g, $r['folder']), $r['filename']);
+            $image = newImage(newAlbum($r['folder']), $r['filename']);
             $images[] = $image;
         }
         return $images;
@@ -104,5 +104,65 @@ function printZDRoundedCornerJS() {
 </script>
 <?php
 
+}
+
+function my_checkPageValidity($request, $gallery_page, $page) {
+	switch ($gallery_page) {
+		case 'gallery.php':
+			$gallery_page = 'index.php'; //	same as an album gallery index
+			break;
+		case 'index.php':
+			if (extensionEnabled('zenpage')) {
+				if (getOption('zenpage_zp_index_news')) {
+					$gallery_page = 'news.php'; //	really a news page
+					break;
+				}
+				if (getOption('zenpage_homepage')) {
+					return $page == 1; // only one page if zenpage enabled.
+				}
+			}
+			break;
+		case 'news.php':
+		case 'album.php':
+		case 'search.php':
+			break;
+		default:
+			if ($page != 1) {
+				return false;
+			}
+	}
+	return checkPageValidity($request, $gallery_page, $page);
+}
+
+/**
+ * makex news page 1 link go to the index page
+ * @param type $link
+ * @param type $obj
+ * @param type $page
+ */
+function newsOnIndex($link, $obj, $page) {
+	if (is_string($obj) && $obj == 'news.php') {
+		if (MOD_REWRITE) {
+			if (preg_match('~' . _NEWS_ . '[/\d/]*$~', $link)) {
+				$link = WEBPATH;
+				if ($page > 1)
+					$link .= '/' . _PAGE_ . '/' . $page;
+			}
+		} else {
+			if (strpos($link, 'category=') === false && strpos($link, 'title=') === false) {
+				$link = str_replace('?&', '?', rtrim(str_replace('p=news', '', $link), '?'));
+			}
+		}
+	}
+	return $link;
+}
+
+if (!OFFSET_PATH) {
+	enableExtension('print_album_menu', 1 | THEME_PLUGIN, false);
+	setOption('user_logout_login_form', 2, false);
+	$_zp_page_check = 'my_checkPageValidity';
+	if (extensionEnabled('zenpage') && getOption('zenpage_zp_index_news')) { // only one index page if zenpage plugin is enabled & displaying
+		zp_register_filter('getLink', 'newsOnIndex');
+	}
 }
 ?>
