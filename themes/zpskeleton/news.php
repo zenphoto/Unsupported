@@ -40,7 +40,7 @@
 				// news article loop
 				while (next_news()): ;?>
 					<div class="newsarticle clearfix">
-						<h3><?php printNewsTitleLink(); ?><?php echo " <span class='newstype'>[".getNewsType()."]</span>"; ?></h3>
+						<h3><?php printNewsTitleLink(); ?></h3>
 						<div class="news-meta">
 							<ul class="taglist">
 								<li class="meta-date"><?php printNewsDate();?></li>
@@ -62,7 +62,7 @@
 				<?php endwhile; ?>
 					<?php if ((getPrevNewsPageURL()) || (getNextNewsPageURL())) { ?>
 					<div class="pagination">
-						<?php printNewsPageListWithNav('«','»',true,'pagination',true,5); ?>
+						<?php printNewsPageListWithNav('»','«',true,'pagination',true,5); ?>
 					</div>
 					<?php } ?>
 				<?php } ?>

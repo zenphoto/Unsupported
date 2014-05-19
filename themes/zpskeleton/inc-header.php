@@ -91,9 +91,8 @@
 	if (getOption('RSS_album_image')) { printRSSHeaderLink('Gallery',gettext('Latest Images'))."\n"; }
 	if (getOption('RSS_album_image')) { printRSSHeaderLink('AlbumsRSS',gettext('Latest Albums'))."\n"; }
 	if ($zenpage) {
-		if (getOption('RSS_articles')) { printZenpageRSSHeaderLink('News','',gettext('Latest News'))."\n"; }
-		if (getOption('RSS_articles')) { printZenpageRSSHeaderLink('NewsWithImages','',gettext('Latest News and Images'))."\n"; }
-		if ((function_exists('printCommentForm')) && (getOption('RSS_article_comments'))) { printZenpageRSSHeaderLink('Comments-all','',gettext('Latest Comments'))."\n"; }
+		if (getOption('RSS_articles')) { printRSSHeaderLink('News','',gettext('Latest News'))."\n"; }
+		if ((function_exists('printCommentForm')) && (getOption('RSS_article_comments'))) { printRSSHeaderLink('Comments-all','',gettext('Latest Comments'))."\n"; }
 	} else {
 	if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { printRSSHeaderLink('Comments',gettext('Latest Comments'))."\n"; }
 	} ?>
