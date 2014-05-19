@@ -66,7 +66,7 @@
 				<div class="box <?php echo $zpmas_col_album; ?> album">
 					<h3><?php echo getAlbumTitle(); ?></h3>
 					<div class="image-block" style="width:<?php echo $zpmas_album_size_w; ?>px;height:<?php echo $zpmas_album_size_h; ?>px;">		
-						<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
+						<a class="thumb-link" href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
 							<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$zpmas_album_size_w,$zpmas_album_size_h,$zpmas_album_size_w,$zpmas_album_size_h); ?>
 						</a>
 					</div>

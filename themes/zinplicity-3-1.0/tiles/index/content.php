@@ -11,7 +11,7 @@
 		for ($u = 0; $u < count($images); $u++): 
 			$img = $images[$u];
 			$thumb = $img->getCustomImage(NULL, 75, 75, 75, 75, NULL, NULL, false);
-			$link = $img->getImageLink();
+			$link = $img->getLink();
 			echo "<span class='thumb" . ($u == count($images) - 1 ? " last" : "") . "'>" . 
 				 "<img class='pin' src='$_zp_themeroot/resources/images/pin.png'/><br/>" .
  				 "<a href='$link'><img src='$thumb' width='75' height='75'/></a>" . 

@@ -32,7 +32,7 @@
 						<?php } ?>
 						<?php while (next_news()): ;?> 
 						<div class="news-truncate"> 
-							<h2><?php printNewsTitleLink(); ?></h2>	
+							<h2><?php printNewsURL(); ?></h2>	
 							<div class="newsarticlecredit">
 								<span><?php printNewsDate();?> &sdot; <?php printNewsCategories(", ",gettext("Categories: "),"taglist"); ?><?php if (function_exists('printCommentForm')) { ?> &sdot; <?php echo gettext("Comments:"); ?> <?php echo getCommentCount(); ?> <?php } ?></span>
 							</div>	

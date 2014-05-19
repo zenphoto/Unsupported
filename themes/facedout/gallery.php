@@ -40,10 +40,10 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 				<?php while (next_album()): ?>
 					<div class="album">
 							<div class="thumb" align="center">
-							<a href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 133, 133, 133, 133); ?></a>
+							<a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), NULL, 133, 133, 133, 133); ?></a>
  							 </div>
 								<div class="albumdesc" align="center">
-									<h3><a href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
+									<h3><a href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printAlbumTitle(); ?></a></h3>
  									<?php printAlbumDate(""); ?>
 									<div align="justify"><?php echo truncate_string(getAlbumDesc(), 255); ?></div>
 								</div>

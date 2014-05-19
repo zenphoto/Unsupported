@@ -69,7 +69,7 @@
 				<?php while (next_news()) {
 				$c++; ?>
 					<li<?php printZDToggleClass('news',$c,$number_to_show); ?>>
-					<h6><?php printNewsTitleLink(); ?></h6>
+					<h6><?php printNewsURL(); ?></h6>
 						<p class="zenpageexcerpt"><?php echo shortenContent(strip_tags(getNewsContent()),80,getOption("zenpage_textshorten_indicator")); ?></p>
 					</li>
 				<?php } ?>

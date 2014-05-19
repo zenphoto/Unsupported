@@ -18,7 +18,7 @@
 		$title = $a->getTitle();
 		$desc = $a->getDesc();
 		$customThumb = $thumb->getCustomImage(NULL, 202, 56, 202, 56, NULL, NULL, false);
-		$url = getAlbumLinkURL();
+		$url = getAlbumURL();
 		echo "\t<div class='thumb' index='$u' title='$title' location='$customThumb' url='$url'><description>$desc</description></div>\n";
 		$u++;
 	endwhile; 

@@ -63,7 +63,7 @@
 					<div id="mason">
 					<?php while (next_news()): ;?> 
 					<div class="news-truncate box"> 
-						<h2><?php printNewsTitleLink(); ?></h2>	
+						<h2><?php printNewsURL(); ?></h2>	
 						<div class="newsarticlecredit">
 							<span><?php printNewsDate();?></span><span><?php printNewsCategories(", ",gettext("Categories: "),"taglist"); ?></span><?php if (function_exists('printCommentForm')) { ?><span><?php echo gettext("Comments:"); ?> <?php echo getCommentCount(); ?></span><?php } ?>
 						</div>	

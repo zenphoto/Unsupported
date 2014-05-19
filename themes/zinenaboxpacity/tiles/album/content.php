@@ -16,7 +16,7 @@
 <?php 
 	$host = htmlentities($_SERVER["HTTP_HOST"], ENT_QUOTES, 'UTF-8');
 	$rssLinkUrl = "http://" . $host . WEBPATH . "/rss.php?albumtitle=" . urlencode(getAlbumTitle()) . 
-                  "&amp;albumname=" . urlencode($_zp_current_album->getFolder()) . "&amp;lang=" . $lang; 
+                  "&amp;albumname=" . urlencode($_zp_current_album->getFilename()) . "&amp;lang=" . $lang; 
 ?>
 <div id="image-title" class="clear <?= count($_zp_current_album->getSubalbums()) > 0 ? "opa60" : "opa80" ?> shadow">
 	<div id="image-title-placeholder" class="right"></div>

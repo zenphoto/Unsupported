@@ -26,7 +26,7 @@
 				<div id="leftbox">
 					<ul class="list c">
 <?php while (next_album()): ?>
-						<li id="<?php echo 'album-'.getAlbumID(); ?>" class="album">
+						<li id="<?php echo 'album-'.$_zp_current_album->getID(); ?>" class="album">
 							<a title="<?php echo html_encode(getAlbumDesc()); ?>" href="<?php echo htmlspecialchars(getAlbumURL()); ?>">
 								<img src="<?php echo getCustomAlbumThumb(298, NULL, NULL, 298, 178, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle().' ('.getAlbumDate(getOption('date_format')).')'); ?>" />
 							<span><?php echo getAlbumTitle().'<br />('.getAlbumDate(getOption('date_format')).')'; ?></span>

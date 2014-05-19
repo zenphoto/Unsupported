@@ -29,7 +29,7 @@
 					$images = AlbumUtil::getLatestImages(getOption('simplicity2_home_images_number'));
 					foreach ($images as $img): 
 						$thumb = $img->getCustomImage(NULL, 105, 105, 105, 105, NULL, NULL, false);
-						$link = $img->getImageLink();
+						$link = $img->getLink();
 						echo "<div class='thumb'><a href='$link'><img src='$thumb' width='105' height='105'/></a></div>";
 					endforeach;
 				?>

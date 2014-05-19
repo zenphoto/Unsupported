@@ -6,7 +6,7 @@
 			<?php if ($zpfocus_logotype) { ?>
 			<a style="display:block;" href="<?php echo getGalleryIndexURL(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/<?php echo $zpfocus_logofile; ?>" alt="<?php echo getBareGalleryTitle(); ?>" /></a>
 			<?php } else { ?>
-			<h2 id="logo"><a href="<?php echo getGalleryIndexURL(false); ?>"><?php echo getBareGalleryTitle(); ?></a></h2>
+			<h2 id="logo"><a href="<?php echo getGalleryIndexURL(); ?>"><?php echo getBareGalleryTitle(); ?></a></h2>
 			<?php } ?>
 
 			<p class="description">
@@ -70,7 +70,7 @@
 						$c++;
 						?>
 						<li<?php printZDToggleClass('news',$c,$number_to_show); ?>>
-						<h4><?php printNewsTitleLink(); ?></h4>
+						<h4><?php printNewsURL(); ?></h4>
 							<p class="zenpageexcerpt"><?php echo shortenContent(strip_tags(getNewsContent()),250,getOption("zenpage_textshorten_indicator")); ?></p>
 						</li>
 						<?php
@@ -93,8 +93,8 @@
 					$css = 'goright';
 					} ?>
 					<li class="<?php echo $css; ?>">
-						<h4><a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo gettext('View Album:'); ?> <?php echo getBareAlbumTitle();?>"><?php echo truncate_string(getBareAlbumTitle(),25,'...'); ?></a></h4>
-						<a class="thumb" href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo gettext('View Album:'); ?> <?php echo getBareAlbumTitle();?>">
+						<h4><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View Album:'); ?> <?php echo getBareAlbumTitle();?>"><?php echo truncate_string(getBareAlbumTitle(),25,'...'); ?></a></h4>
+						<a class="thumb" href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View Album:'); ?> <?php echo getBareAlbumTitle();?>">
 							<?php if (isLandscape(true)) {
 							printCustomAlbumThumbImage(getBareAlbumTitle(),null,160,120,160,120);
 							} else {
@@ -104,7 +104,7 @@
 						<span class="front-date"><?php printAlbumDate(); ?></span>
 						<p class="front-desc">
 							<?php echo truncate_string(getAlbumDesc(), 175); ?>
-							<a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>">&raquo;</a>
+							<a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>">&raquo;</a>
 						</p>
 					</li>
 					<?php $x=$x+1; endwhile; ?>					

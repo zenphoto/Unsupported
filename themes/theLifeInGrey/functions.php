@@ -8,15 +8,15 @@ function m9GetRSS($option) {
 		case 'gallery':
 			return 'http://'.$host.WEBPATH.'/rss.php?lang='.$lang;
 		case 'album':
-			return 'http://'.$host.WEBPATH.'/rss.php?albumtitle='.urlencode(getAlbumTitle()).'&amp;albumname='.urlencode($_zp_current_album->getFolder()).'&amp;lang='.$lang;
+			return 'http://'.$host.WEBPATH.'/rss.php?albumtitle='.urlencode(getAlbumTitle()).'&amp;albumname='.urlencode($_zp_current_album->getFilename()).'&amp;lang='.$lang;
 		case 'collection':
-			return 'http://'.$host.WEBPATH.'/rss.php?albumtitle='.urlencode(getAlbumTitle()).'&amp;folder='.urlencode($_zp_current_album->getFolder()).'&amp;lang='.$lang;
+			return 'http://'.$host.WEBPATH.'/rss.php?albumtitle='.urlencode(getAlbumTitle()).'&amp;folder='.urlencode($_zp_current_album->getFilename()).'&amp;lang='.$lang;
 		case 'comments':
 			return 'http://'.$host.WEBPATH.'/rss-comments.php?lang='.$lang;
 		case 'comments-image':
-			return 'http://'.$host.WEBPATH.'/rss-comments.php?id='.getImageID().'&amp;title='.urlencode(getImageTitle()).'&amp;type=image&amp;lang='.$lang;
+			return 'http://'.$host.WEBPATH.'/rss-comments.php?id='.$_zp_current_image->getID().'&amp;title='.urlencode(getImageTitle()).'&amp;type=image&amp;lang='.$lang;
 		case 'comments-album':
-			return 'http://'.$host.WEBPATH.'/rss-comments.php?id='.getAlbumID().'&amp;title='.urlencode(getAlbumTitle()).'&amp;type=album&amp;lang='.$lang;
+			return 'http://'.$host.WEBPATH.'/rss-comments.php?id='.$_zp_current_album->getID().'&amp;title='.urlencode(getAlbumTitle()).'&amp;type=album&amp;lang='.$lang;
 		case 'albums-rss':
 			return 'http://'.$host.WEBPATH.'/rss.php?lang='.$lang.'&amp;albumsmode';
 	}

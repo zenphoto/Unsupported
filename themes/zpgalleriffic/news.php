@@ -47,7 +47,7 @@
 				<?php } ?>
 				<?php while (next_news()): ;?> 
 				<div class="news-truncate"> 
-					<h3><?php printNewsTitleLink(); ?></h3>	
+					<h3><?php printNewsURL(); ?></h3>	
 					<div class="newsarticlecredit">
 						<span><?php printNewsDate();?> | <?php printNewsCategories(", ",gettext("Categories: "),"hor-list"); ?><?php if (function_exists('printCommentForm')) { ?> | <?php echo gettext("Comments:"); ?> <?php echo getCommentCount(); ?> <?php } ?></span>
 					</div>	

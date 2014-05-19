@@ -55,7 +55,7 @@ if (!empty($searchdate)) {
 				<div class="box <?php echo $zpmas_col_album; ?> album">
 					<h3><?php echo getAlbumTitle(); ?></h3>
 					<div class="image-block" style="width:<?php echo $zpmas_album_size_w; ?>px;height:<?php echo $zpmas_album_size_h; ?>px;">		
-						<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
+						<a class="thumb-link" href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
 							<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$zpmas_album_size_w,$zpmas_album_size_h,$zpmas_album_size_w,$zpmas_album_size_h); ?>
 						</a>
 					</div>
@@ -103,7 +103,7 @@ if (!empty($searchdate)) {
 				while (($zpc < $zpmas_zpsearchcount) && (next_news())) {
 				$zpc++; $c++; ?>
 				<div class="news-truncate <?php echo $zpmas_col_album; ?> box"> 
-					<h2><?php printNewsTitleLink(); ?></h2>	
+					<h2><?php printNewsURL(); ?></h2>	
 					<div class="newsarticlecredit">
 						<span><?php printNewsDate();?></span><span><?php printNewsCategories(", ",gettext("Categories: "),"taglist"); ?></span><?php if (function_exists('printCommentForm')) { ?><span><?php echo gettext("Comments:"); ?> <?php echo getCommentCount(); ?></span><?php } ?>
 					</div>	

@@ -161,7 +161,7 @@
 				for ( $u = 0; $u < 4; $u++ ) :
 					$s = $sizes[$u]; 
 					$img = $images[$u];
-					echo "<a href='" . $img->getImageLink() . "'>" .
+					echo "<a href='" . $img->getLink() . "'>" .
 						"<img src='" . 
 						 $img->getCustomImage(NULL,  $s[0], $s[1], $s[0], $s[1], NULL, NULL, true, false) . 
 						 "' width='" . $s[0] . 

@@ -152,7 +152,7 @@
 			global $_zp_current_image;
 			return $this->getTabLink($_zp_page, 
 					'image=' . $_zp_current_image->filename . 
-					'&album=' . $_zp_current_image->album->getFolder() . 
+					'&album=' . $_zp_current_image->album->getFilename() . 
 					'&page=' . $this->getAlbumPage());
 		}
 

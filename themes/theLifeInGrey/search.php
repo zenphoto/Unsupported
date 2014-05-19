@@ -35,7 +35,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 					<div id="albums">
 						<ul class="list c">
 						<?php while (next_album()): $c++;?>
-							<li id="<?php echo 'album-'.getAlbumID(); ?>" class="album">
+							<li id="<?php echo 'album-'.$_zp_current_album->getID(); ?>" class="album">
 								<a title="<?php echo html_encode(getAlbumDesc()); ?>" href="<?php echo htmlspecialchars(getAlbumURL()); ?>">
 									<img src="<?php echo getCustomAlbumThumb(298, NULL, NULL, 298, 178, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle().' ('.getAlbumDate(getOption('date_format')).')'); ?>" />
 								<span><?php echo getAlbumTitle().'<br />('.getAlbumDate(getOption('date_format')).')'; ?></span>
@@ -48,7 +48,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s').' GMT');
 					<div id="images">
 						<ul class="list c">
 						<?php while (next_image()): $c++;?>
-							<li id="<?php echo ' image-'.getImageID(); ?>" class="image"><a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo getImageURL(); ?>">
+							<li id="<?php echo ' image-'.$_zp_current_image->getID(); ?>" class="image"><a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo getImageURL(); ?>">
 									<img src="<?php echo getCustomImageURL(298, NULL, NULL, 298, 178, NULL, NULL, true); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
 								</a></li>
 						<?php endwhile;

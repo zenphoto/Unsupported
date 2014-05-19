@@ -48,7 +48,7 @@
 		if ( $image ) $i = newImage($_zp_current_album, $image);
 
 		$_POST['pagenr'] = $page;
-		$_POST['albumid'] = $_zp_current_album->getAlbumID();
+		$_POST['albumid'] = $_zp_current_album->$_zp_current_album->getID();
 		$_POST['numberofimages'] = $_zp_current_album->getNumImages();
 		$_POST['imagefile'] = $image; //?
 

@@ -107,7 +107,7 @@
 		<style type="text/css">.album-maxspace,.thumb-maxspace{zoom:1;display:inline;}#search{padding:2px 6px 6px 6px;}</style>
 		<![endif]-->
 		<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS'));  ?>
-		<?php if (function_exists("printZenpageRSSHeaderLink")) { printZenpageRSSHeaderLink("News","", gettext('News RSS'), ""); } ?>
+		<?php if (function_exists("printRSSHeaderLink")) { printRSSHeaderLink("News","", gettext('News RSS'), ""); } ?>
 		
 		<?php
 		$zenpage = getOption('zp_plugin_zenpage');

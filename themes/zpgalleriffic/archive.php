@@ -62,7 +62,7 @@
 					<?php $images = getImageStatistic($archivecount,$zpgal_archiveoption);
 					foreach ($images as $image) { ?>
 					<li style="width:<?php echo getOption('thumb_size'); ?>px;height:<?php echo getOption('thumb_size'); ?>px;">
-						<a href="<?php echo html_encode($image->getImageLink()); ?>" title="<?php echo html_encode($image->getTitle()); ?>">
+						<a href="<?php echo html_encode($image->getLink()); ?>" title="<?php echo html_encode($image->getTitle()); ?>">
 							<img src="<?php if (getOption('thumb_crop')) { echo html_encode($image->getCustomImage(null,getOption('thumb_size'),getOption('thumb_size'),getOption('thumb_size'),getOption('thumb_size'),null,null,true)); } else { echo html_encode($image->getCustomImage(getOption('thumb_size'),null,null,null,null,null,null,true)); } ?>" alt="<?php echo html_encode($image->getTitle()); ?>" />
 						</a>
 						<a rel="zoom" class="zoom-overlay" href="<?php if ($zpgal_cbtarget) { echo html_encode($image->getSizedImage(getOption('image_size'))); } else { echo html_encode($image->getFullImage()); } ?>" title="<?php echo html_encode($image->getTitle()); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/zoom.png" /></a>
@@ -74,7 +74,7 @@
 					if (is_object($randomImage) && $randomImage->exists) {
 					$randomImageURL = html_encode(getURL($randomImage)); ?>
 					<li style="width:<?php echo getOption('thumb_size'); ?>px;height:<?php echo getOption('thumb_size'); ?>px;">
-						<a href="<?php echo html_encode($randomImage->getImageLink()); ?>" title="<?php echo html_encode($randomImage->getTitle()); ?>">
+						<a href="<?php echo html_encode($randomImage->getLink()); ?>" title="<?php echo html_encode($randomImage->getTitle()); ?>">
 							<img src="<?php if (getOption('thumb_crop')) { echo html_encode($randomImage->getCustomImage(null,getOption('thumb_size'),getOption('thumb_size'),getOption('thumb_size'),getOption('thumb_size'),null,null,true)); } else { echo html_encode($randomImage->getCustomImage(getOption('thumb_size'),null,null,null,null,null,null,true)); } ?>" alt="<?php echo html_encode($randomImage->getTitle()); ?>" />
 						</a>
 						<a rel="zoom" class="zoom-overlay" href="<?php if ($zpgal_cbtarget) { echo html_encode($randomImage->getSizedImage(getOption('image_size'))); } else { echo html_encode($randomImage->getFullImage()); } ?>" title="<?php echo html_encode($randomImage->getTitle()); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/zoom.png" /></a>

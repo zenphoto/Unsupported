@@ -67,7 +67,7 @@ $minigalstat=false;
 	<meta http-equiv="content-type" content="text/html; charset=<?php echo getOption('charset'); ?>" />
 	<?php printRSSHeaderLink( "Gallery",gettext('Gallery RSS') ); ?>
 	<?php if (in_context(ZP_ALBUM)) { printRSSHeaderLink( "Collection",gettext('This Album Collection') ); } ?> 
-	<?php if (function_exists("printZenpageRSSHeaderLink")) { printZenpageRSSHeaderLink("News","", gettext('News RSS'), ""); } ?>
+	<?php if (function_exists("printRSSHeaderLink")) { printRSSHeaderLink("News","", gettext('News RSS'), ""); } ?>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/css/<?php echo $zpgal_contrast; ?>.css" type="text/css" media="screen"/>
 	<style>
 	a,a:active
@@ -369,13 +369,13 @@ $minigalstat=false;
 				<ul>
 					<?php if (getOption('zp_plugin_zenpage')) { ?>
 					<?php if ( ($zpgal_homepage) == (gettext('none')) ) { ?>
-					<li <?php if ($galleryactive) { ?>class="active" <?php } ?>><a href="<?php echo getGalleryIndexURL(false);?>"><?php echo gettext('Gallery'); ?></a></li>
+					<li <?php if ($galleryactive) { ?>class="active" <?php } ?>><a href="<?php echo getGalleryIndexURL();?>"><?php echo gettext('Gallery'); ?></a></li>
 					<?php } else { ?>
-					<li><a href="<?php echo getGalleryIndexURL(false);?>"><?php echo gettext('Home'); ?></a></li>
+					<li><a href="<?php echo getGalleryIndexURL();?>"><?php echo gettext('Home'); ?></a></li>
 					<li <?php if (($galleryactive) && ($_zp_gallery_page != "index.php")) { ?>class="active" <?php } ?>><?php printCustomPageURL(gettext('Gallery'),"gallery"); ?></li>
 					<?php } ?>
 					<?php } else { ?>
-					<li <?php if ($galleryactive) { ?>class="active" <?php } ?>><a href="<?php echo getGalleryIndexURL(false);?>"><?php echo gettext('Gallery'); ?></a></li>
+					<li <?php if ($galleryactive) { ?>class="active" <?php } ?>><a href="<?php echo getGalleryIndexURL();?>"><?php echo gettext('Gallery'); ?></a></li>
 					<?php } ?>
 					
 					<?php if (function_exists('getNewsIndexURL')) { ?>

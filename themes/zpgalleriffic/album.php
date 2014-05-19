@@ -32,8 +32,8 @@
 					<?php $x=1; while (next_album($listall)): $lastcol=""; 
 					if ($x==$lastcolnum) {$lastcol=" class='lastcol'"; $x=0;} ?>
 					<li<?php echo $lastcol; ?>>	
-						<a class="album-thumb" href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(),NULL,238,100,238,100); ?></a>
-						<h4><a href="<?php echo htmlspecialchars(getAlbumLinkURL());?>" title="<?php echo getBareAlbumTitle().' ('.getAlbumDate().') - '.getAlbumDesc(); ?>"><?php echo shortenContent(getBareAlbumTitle(),30,'...'); ?></a></h4>				
+						<a class="album-thumb" href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(),NULL,238,100,238,100); ?></a>
+						<h4><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo getBareAlbumTitle().' ('.getAlbumDate().') - '.getAlbumDesc(); ?>"><?php echo shortenContent(getBareAlbumTitle(),30,'...'); ?></a></h4>				
 					</li>
 					<?php $x++; endwhile; ?>				
 				</ul>

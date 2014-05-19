@@ -129,7 +129,7 @@
 			$inContext = ($this->context & ZP_IMAGE) || in_context(ZP_SEARCH);
 			if ( $inContext && $_zp_current_image ) :
 				$fileName = $_zp_current_image->getFileName();
-				$folder = $_zp_current_image->album->getFolder();
+				$folder = $_zp_current_image->album->getFilename();
 			endif;
 			$u = 0;
 			$initialHeight = 0;
@@ -145,7 +145,7 @@
 				if ( (!$inContext && $u == 0) || ($inContext && !$fileName && $u == 0 ) ||
 					 ($inContext && $_zp_current_image && 
 					  $fileName == $_zp_current_image->getFileName() && 
-					  $folder == $_zp_current_image->album->getFolder()) ) :
+					  $folder == $_zp_current_image->album->getFilename()) ) :
 					$cls = 'force-selection'; 
 					$image = $_zp_current_image;
 				endif;
@@ -240,7 +240,7 @@
 				$desc = $a->getDesc();
 				$customThumb = $thumb->getCustomImage(NULL, 104, 56, 104, 56, NULL, NULL, false);
 				$subalbums .= "<span class='subalbum' id='subalbum-$u' width='104' height='56' >" . 
-							  "<a href='" . getAlbumLinkURL($a) . "' >" . 
+							  "<a href='" . getAlbumURL($a) . "' >" . 
 							  "<img width='104' height='56' src='$customThumb'/></a></span>";
 				$i++;
 			endfor; 
@@ -329,7 +329,7 @@
 					$customThumb = ($thumb->getCustomImage(NULL, 90, 90, 90, 90, NULL, NULL, false));
 				endif;
 			
-				if ( isset($top) && method_exists($top, 'getFolder') && $folder == $top->getFolder() ):
+				if ( isset($top) && method_exists($top, 'getFolder') && $folder == $top->getFilename() ):
 					$cls = ' over';
 				endif;
 
@@ -374,7 +374,7 @@
 			$i .= isset($this->image) ? ('image=' . $this->image->getFileName() . '&') : '';
 			$mw = getOption('mod_rewrite');
 			setOption('mod_rewrite', FALSE, FALSE);
-			$url = getCustomPageURL('slideshow', $i . "album=" . urlencode($this->album->getFolder()));
+			$url = getCustomPageURL('slideshow', $i . "album=" . urlencode($this->album->getFilename()));
 			setOption('mod_rewrite', $mw, FALSE);
 			return $url;
 		}
@@ -411,7 +411,7 @@
 
 		protected function getImageThumbLink() {
 			global $_zp_current_image;
-			return $_zp_current_image->getImageLink();
+			return $_zp_current_image->getLink();
 		}
 
 		protected function setAlbum($album) {
@@ -425,7 +425,7 @@
 				$albums = $_zp_gallery->getAlbums();	
 				$idx = 0;
 				foreach ( $albums as $a ):
-					if ( $a == $alb->getFolder() ) :
+					if ( $a == $alb->getFilename() ) :
 						break;
 					endif;
 					$idx++;
@@ -519,7 +519,7 @@
 			$sa = method_exists($a, 'getSubalbums') ? $a->getSubalbums() : $a->getAlbums();
 			foreach ( $sa as $_s ) :
 				$s = new Album($_z_gallery, $_s);
-				$list[] = $s->getAlbumId();
+				$list[] = $s->$_zp_current_album->getID();
 				$list = array_merge($list, $this->collectAlbumChildrenIds($s));
 			endforeach;
 			

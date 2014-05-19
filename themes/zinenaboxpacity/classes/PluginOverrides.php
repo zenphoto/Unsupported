@@ -171,12 +171,12 @@
 						if ($activeImage !== false) {
 							$commentadded = $activeImage->addComment($p_name, $p_email,	$p_website, $p_comment,
 																									$code1, $code2,	$p_server, $p_private, $p_anon);
-							$redirectTo = $activeImage->getImageLink();
+							$redirectTo = $activeImage->getLink();
 							}
 					} else {
 						if (in_context(ZP_IMAGE) AND in_context(ZP_ALBUM)) {
 							$commentobject = $_zp_current_image;
-							$redirectTo = $_zp_current_image->getImageLink();
+							$redirectTo = $_zp_current_image->getLink();
 						} else if (!in_context(ZP_IMAGE) AND in_context(ZP_ALBUM)){
 							$commentobject = $_zp_current_album;
 							$redirectTo = $_zp_current_album->getAlbumLink();

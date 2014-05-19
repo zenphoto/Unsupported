@@ -30,7 +30,7 @@ getHitcounter($_zp_current_album);
 				<div id="leftbox">
 					<ul class="list c">
 	<?php while (next_album()): ?>
-						<li id="<?php echo 'album-'.getAlbumID(); ?>" class="album"><a title="<?php echo html_encode(getAlbumDesc()); ?>" href="<?php echo getAlbumURL(); ?>">
+						<li id="<?php echo 'album-'.$_zp_current_album->getID(); ?>" class="album"><a title="<?php echo html_encode(getAlbumDesc()); ?>" href="<?php echo getAlbumURL(); ?>">
 							<img src="<?php echo getCustomAlbumThumb(298, NULL, NULL, 298, 178, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle().' ('.getAlbumDate(getOption('date_format')).')'); ?>" />
 							<span><?php echo getAlbumTitle().'<br /> ('.getAlbumDate(getOption('date_format')).')'; ?></span>
 						</a></li>
@@ -38,7 +38,7 @@ getHitcounter($_zp_current_album);
 						<div class="clear"></div>
 						<div id="images">
 	<?php while (next_image()): ?>
-							<li id="<?php echo ' image-'.getImageID(); ?>" class="image">
+							<li id="<?php echo ' image-'.$_zp_current_image->getID(); ?>" class="image">
 								<a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo getImageURL(); ?>">
 									<img src="<?php echo getCustomImageURL(298, NULL, NULL, 298, 178, NULL, NULL, true); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
 								</a>

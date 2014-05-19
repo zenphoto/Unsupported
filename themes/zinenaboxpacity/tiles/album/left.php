@@ -52,7 +52,7 @@
 			?>
 			<div class="subalbum-wrapper  opa60">
 				<div class="subalbum-link" id="subalbum-<?= $u ?>">
-					<a href="<?= getAlbumLinkURL() ?>"><img width="202" height="56" src="<?= $customThumb ?>"/></a>
+					<a href="<?= getAlbumURL() ?>"><img width="202" height="56" src="<?= $customThumb ?>"/></a>
 				</div>
 			<?php 
 					if ( isset($title) && trim($title) != '') : 

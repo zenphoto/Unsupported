@@ -28,7 +28,7 @@ if (!empty($searchdate)) {
 					<div id="albums-wrap">
 						<?php $c=0; while (next_album()): $c++; ?>
 						<div class="album-maxspace">
-							<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo strip_tags(shortenContent(getBareAlbumDesc(),300,'...')); ?>">
+							<a class="thumb-link" href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo strip_tags(shortenContent(getBareAlbumDesc(),300,'...')); ?>">
 								<?php if ($zpmin_thumb_crop) {
 								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$zpmin_album_thumb_size,$zpmin_album_thumb_size,$zpmin_album_thumb_size,$zpmin_album_thumb_size);
 								} else {
@@ -75,7 +75,7 @@ if (!empty($searchdate)) {
 					while (($zpc < $zpmin_zpsearchcount) && (next_news())) {
 						$zpc++; $c++; ?>
 						<div class="news-truncate"> 
-							<h2><?php printNewsTitleLink(); ?></h2>	
+							<h2><?php printNewsURL(); ?></h2>	
 							<div class="newsarticlecredit">
 								<span><?php printNewsDate();?> &sdot; <?php printNewsCategories(", ",gettext("Categories: "),"taglist"); ?><?php if (function_exists('printCommentForm')) { ?> &sdot; <?php echo gettext("Comments:"); ?> <?php echo getCommentCount(); ?> <?php } ?></span>
 							</div>	
