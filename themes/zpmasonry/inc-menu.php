@@ -18,7 +18,6 @@
 								<?php if (getOption('RSS_album_image')) { ?><li><?php printRSSLink('AlbumsRSS','', gettext('Latest Albums'),'',false); ?></li><?php } ?>
 								<?php if (($zenpage) && ($zpmas_usenews)) { ?>
 								<?php if (getOption('RSS_articles')) { ?><li><?php printRSSLink('News','','',gettext('Latest News'),'',false); ?></li><?php } ?>
-								<?php if (getOption('RSS_articles')) { ?><li><?php printRSSLink('NewsWithImages','','',gettext('Latest News and Images'),'',false); ?></li><?php } ?>
 								<?php if (getOption('RSS_article_comments')) { ?><li><?php printRSSLink('Comments-all','','',gettext('Latest Comments'),'',false); ?></li><?php } ?>
 								<?php } else { ?>
 								<?php if (getOption('RSS_comments')) { ?><li><?php printRSSLink('Comments','', gettext('Latest Comments'),'',false); ?></li><?php } ?>

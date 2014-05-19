@@ -45,7 +45,7 @@
 								$i--;
 							} else {
 								$randomList = $randomList .' '. $imageName;
-								$randomImageURL = html_encode(getURL($randomImage));
+								$randomImageURL = html_encode($randomImage->getLink());
 								echo '<li><a href="' . $randomImageURL . '" title="'.sprintf(gettext('View image: %s'), html_encode($randomImage->getTitle())) . '">';
 								$html =  "<img src=\"".html_encode($randomImage->getCustomImage(null,$zpmas_ss_size_w,$zpmas_ss_size_h,$zpmas_ss_size_w,$zpmas_ss_size_h,null,null,true))."\" alt=\"" . html_encode($randomImage->getTitle()) . "\" />\n";
 								echo zp_apply_filter('custom_image_html', $html, false);
@@ -66,7 +66,7 @@
 				<?php while (next_album()): ?>
 				<div class="box <?php echo $zpmas_col_album; ?> album">
 					<h3><?php echo getAlbumTitle(); ?></h3>
-					<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
+					<a class="thumb-link" href="<?php echo html_encode(getAlbumURL());?>" title="<?php echo getAnnotatedAlbumTitle(); ?>">
 						<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$zpmas_album_size_w,$zpmas_album_size_h,$zpmas_album_size_w,$zpmas_album_size_h); ?>
 					</a>
 					<?php $singletag = getTags(); $tagstring = implode(', ', $singletag); ?>

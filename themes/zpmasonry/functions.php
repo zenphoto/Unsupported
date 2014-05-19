@@ -28,7 +28,7 @@
 		if (!is_null(getOption('zpmas_cbssspeed'))) { $zpmas_cbssspeed = getOption('zpmas_cbssspeed'); } else { $zpmas_cbssspeed = 3000; }
 		if (!is_null(getOption('zpmas_usenews'))) { $zpmas_usenews = getOption('zpmas_usenews'); } else { $zpmas_usenews = 3000; }
 		
-		if ($zpmas_infscroll) { $zpmas_homelink = html_encode(getGalleryIndexURL(false)); } else { $zpmas_homelink = html_encode(getGalleryIndexURL()); }
+		if ($zpmas_infscroll) { $zpmas_homelink = html_encode(getGalleryIndexURL()); } else { $zpmas_homelink = html_encode(getGalleryIndexURL()); }
 		
 		if ($zpmas_thumbsize == 'small') {
 			$zpmas_col_ss = 'colsss';

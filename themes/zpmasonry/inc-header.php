@@ -87,7 +87,6 @@
 		if (getOption('RSS_album_image')) { printRSSHeaderLink('AlbumsRSS',gettext('Latest Albums'))."\n"; }
 		if (getOption('zp_plugin-zenpage') && getOption('zpmas_usenews')) {
 			if (getOption('RSS_articles')) { printRSSHeaderLink('News','',gettext('Latest News'))."\n"; }
-			if (getOption('RSS_articles')) { printRSSHeaderLink('NewsWithImages','',gettext('Latest News and Images'))."\n"; }
 			if ((function_exists('printCommentForm')) && (getOption('RSS_article_comments'))) { printRSSHeaderLink('Comments-all','',gettext('Latest Comments'))."\n"; }
 		} else {
 		if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { printRSSHeaderLink('Comments',gettext('Latest Comments'))."\n"; }
