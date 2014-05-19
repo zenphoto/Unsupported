@@ -54,9 +54,7 @@
 			<?php
 			$latest = getLatestNews(3);
 			foreach ($latest as $item) {
-				$title = htmlspecialchars($item['title']);
-				if (empty($title))
-					$title = htmlspecialchars(get_language_string($item['albumname']));
+				$title = htmlspecialchars(get_language_string($item['title']));
 				$link = getNewsURL($item['titlelink']);
 				echo "<li><a href=\"" . $link . "\" title=\"" . strip_tags(htmlspecialchars($title, ENT_QUOTES)) . "\">" . htmlspecialchars($title) . "</a></li>";
 			}
