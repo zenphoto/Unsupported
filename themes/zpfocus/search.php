@@ -95,7 +95,7 @@
 					<li class="<?php echo $css; ?>">
 						<h4><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View Album:'); ?> <?php echo getBareAlbumTitle();?>"><?php echo truncate_string(getBareAlbumTitle(),25,'...'); ?></a></h4>
 						<a class="thumb" href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View Album:'); ?> <?php echo getBareAlbumTitle();?>">
-							<?php if (isLandscape(true)) {
+							<?php if (isLandscape()) {
 							printCustomAlbumThumbImage(getBareAlbumTitle(),null,160,120,160,120);
 							} else {
 							printCustomAlbumThumbImage(getBareAlbumTitle(),null,120,160,120,160);
@@ -128,15 +128,15 @@
 			<div class="image-wrap">
 				<ul>
 					<?php while (next_image()): $c++; ?>
-					<?php if (isLandscape(true)) { ?>
+					<?php if (isLandscape()) { ?>
 					<li class="thumb-landscape">
 						<div class="album-tools-landscape">
 								<?php if ( ($zpfocus_use_colorbox) &&  (!isImageVideo()) ) { ?><a class="album-tool" rel="zoom" href="<?php if ($zpfocus_cbtarget) { echo htmlspecialchars(getDefaultSizedImage()); } else { echo htmlspecialchars(getUnprotectedImageURL()); } ?>" title="<?php echo getBareImageTitle();?>"><img src="<?php echo $_zp_themeroot; ?>/images/search.png" alt="Zoom Image" /></a><?php } ?>
 								<?php if ((getCommentCount()) > 0) { ?>
-								<a class="album-tool" href="<?php echo htmlspecialchars(getImageLinkURL());?>" title="<?php echo getCommentCount();?> Comments"><img src="<?php echo $_zp_themeroot; ?>/images/shout.png" alt="Comments" /></a>
+								<a class="album-tool" href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getCommentCount();?> Comments"><img src="<?php echo $_zp_themeroot; ?>/images/shout.png" alt="Comments" /></a>
 								<?php } ?>
 						</div>
-						<a class="thumb" href="<?php echo htmlspecialchars(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>">
+						<a class="thumb" href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getBareImageTitle();?>">
 							<?php printCustomSizedImage(getBareImageTitle(),null,160,120,160,120,null,null,'thumb',null,true); ?>	
 						</a>	
 					<?php } else { ?>
@@ -144,10 +144,10 @@
 						<div class="album-tools-portrait">
 								<?php if ( ($zpfocus_use_colorbox) &&  (!isImageVideo()) ) { ?><a class="album-tool" rel="zoom" href="<?php if ($zpfocus_cbtarget) { echo htmlspecialchars(getDefaultSizedImage()); } else { echo htmlspecialchars(getUnprotectedImageURL()); } ?>" title="<?php echo getBareImageTitle();?>"><img src="<?php echo $_zp_themeroot; ?>/images/search.png" alt="Zoom Image" /></a><?php } ?>
 								<?php if ((getCommentCount()) > 0) { ?>
-								<a class="album-tool" href="<?php echo htmlspecialchars(getImageLinkURL());?>" title="<?php echo getCommentCount();?> Comments"><img src="<?php echo $_zp_themeroot; ?>/images/shout.png" alt="Comments" /></a>
+								<a class="album-tool" href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getCommentCount();?> Comments"><img src="<?php echo $_zp_themeroot; ?>/images/shout.png" alt="Comments" /></a>
 								<?php } ?>
 						</div>
-						<a class="thumb" href="<?php echo htmlspecialchars(getImageLinkURL());?>" title="<?php echo getBareImageTitle();?>">
+						<a class="thumb" href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getBareImageTitle();?>">
 							<?php printCustomSizedImage(getBareImageTitle(),null,120,160,120,160,null,null,'thumb',null,true); ?>	
 						</a>
 					<?php } ?>

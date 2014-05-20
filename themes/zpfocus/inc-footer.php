@@ -1,5 +1,6 @@
-	</div> <!-- END WRAP -->
+</div> <!-- END WRAP -->
 	<div class="footerwrap">
+	<?php if ( getOption('zpfocus_center_site') ) echo "<div class=\"center\">"; ?>
 		<div class="left">
 			<div id="copyright">
 				<p>&copy; <?php echo getBareGalleryTitle(); ?>, <?php echo gettext('all rights reserved'); ?></p>
@@ -23,13 +24,13 @@
 				<?php } ?>
 				<?php } ?>	
 			</ul>
-			<?php if ((getOption('RSS_album_image')) || (getOption('RSS_articles'))) { ?>
+			<?php if ((getOption('RSS_items_albums')) || (getOption('RSS_zenpage_items'))) { ?>
 			<div id="rsslinks">
 				<span><?php echo gettext('Subscribe: '); ?></span>
 				<?php 
 				if ((in_context(ZP_ALBUM)) && (getOption('RSS_album_image'))) { printRSSLink( "Collection","",gettext('This Album'),"  |  ", false,"rsslink" ); }
-				if (getOption('RSS_album_image')) { printRSSLink( "Gallery","",(gettext('Gallery Images')),"",false,"rsslink" ); }
-				if ((function_exists('getBarePageTitle')) && (getOption('RSS_articles'))) { printRSSLink( "News",'','  |  ',gettext('News'),'',false ); }		
+				if (getOption('RSS_items_albums')) { printRSSLink( "Gallery","",(gettext('Gallery Images')),"",false,"rsslink" ); }
+				if ((function_exists('getBarePageTitle')) && (getOption('RSS_zenpage_items'))) { printRSSLink( "News", ' | ', gettext('News'),'',false ); }		
 				?>
 			</div>
 			<br />

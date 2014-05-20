@@ -65,7 +65,7 @@ class ThemeOptions {
 	
 	function getOptionsSupported() {
 		return array(	
-			gettext('Tagline') => array('order'=>1, 'key' => 'zpfocus_tagline', 'type' => OPTION_TYPE_TEXTBOX, 'multilingual' => 1, 'desc' => gettext('The text above the sitename on the home page.')),
+			gettext('Tagline') => array('order'=>1.1, 'key' => 'zpfocus_tagline', 'type' => OPTION_TYPE_TEXTBOX, 'multilingual' => 1, 'desc' => gettext('The text above the sitename on the home page.')),
 			gettext('Album Menu Type') => array('order'=>2, 'key' => 'zpfocus_menutype', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose whether to show a dropdown menu item in the main menu for all your albums or a jump menu next to the search input. For sites with a lot of albums, the jump menu is recommended.')),
 			gettext('Show Archive Link') => array('order'=>3, 'key' => 'zpfocus_show_archive', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Display a menu link drop down for the dated archive of images.')),
 			gettext('Allow search') => array('order'=>4, 'key' => 'zpfocus_allow_search', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to enable search form.')),
@@ -79,7 +79,7 @@ class ThemeOptions {
 			gettext('Colorbox Target Sized Image') => array('order'=>12, 'key' => 'zpfocus_cbtarget', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Click to enable colorbox targeting a sized image of 800px (longest side), instead of the full original image. This is usefull if you upload large images as you can set Colorbox to target a smaller, resized version.')),
 			gettext('Colorbox Transition Type') => array('order'=>13, 'key' => 'zpfocus_cbtransition', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('The colorbox transition type. Can be set to elastic, fade, or none.')),						
 			gettext('Use Colorbox Slideshow') => array('order'=>14, 'key' => 'zpfocus_use_colorbox_slideshow', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to utilize the jQuery script colorbox to display a slideshow on the album page.')),
-			gettext('Colorbox Slideshow Speed') => array('order'=>15, 'key' => 'zpfocus_cbssspeed', 'type' => OPTION_TYPE_TEXTBOX, 'multilingual' => 1, 'desc' => gettext('Enter a number here in milliseconds that determines the colorbox slideshow speed. Default is \'2500\'.')),
+			gettext('Colorbox Slideshow Speed') => array('order'=>15, 'key' => 'zpfocus_cbssspeed', 'type' => OPTION_TYPE_TEXTBOX, 'desc' => gettext('Enter a number here in milliseconds that determines the colorbox slideshow speed. Default is \'2500\'.')),
 			gettext('Random Image Option?') => array('order'=>16, 'key' => 'zpfocus_showrandom', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose how to display random image(s), top left. Or select none to not display.')),
 			gettext('Rotator Transition Effect?') => array('order'=>17, 'key' => 'zpfocus_rotatoreffect', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose the transition effect, if rotator is selected above.')),
 			gettext('Rotator Speed?') => array('order'=>18, 'key' => 'zpfocus_rotatorspeed', 'type' => OPTION_TYPE_TEXTBOX, 'desc' => gettext('Choose the delay of each rotation in milliseconds.')),

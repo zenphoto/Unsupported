@@ -12,7 +12,7 @@
 			
 			<?php if (($zenpage) && (($zpfocus_spotlight) == 'latest') && (getLatestNews()) ) { ?>
 			<a id="latest-news-link" href="<?php echo getNewsIndexURL(); ?>"><?php echo gettext('Latest News'); ?></a>
-			<?php printLatestNewsCustom(1,'none','',true,true,500,true); ?>
+			<?php printLatestNewsCustom(1,'',true,true,500,true); ?>
 			<?php } ?>
 			<?php if ($zpfocus_spotlight == 'manual') { ?><div id="manual-spotlight"><?php echo $zpfocus_spotlight_text; ?></div> <?php } ?>
 			
@@ -46,4 +46,3 @@
 		</div>
 		
 <?php include("inc-footer.php"); ?>
-	

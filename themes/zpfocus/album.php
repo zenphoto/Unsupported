@@ -21,19 +21,20 @@
 			<div class="subalbum-wrap">
 				<h4 class="blockhead"><span><?php echo gettext('SubAlbums in '); echo getBareAlbumTitle(); ?> (<?php echo getNumAlbums(); ?>)</span></h4>
 				<ul>
-					<?php $x=1; while (next_album()):
-					if( $odd = $x%2 ) {
-					$css = 'goleft';
-					} else {
-					$css = 'goright';
-					} ?>
+					<?php $x = 1; 
+						while (next_album()):
+						if( $odd = $x%2 ) {
+							$css = 'goleft';
+							} else {
+							$css = 'goright';
+						} ?>
 					<li class="<?php echo $css; ?>">	
 						<h4><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View SubAlbum:'); ?> <?php echo getBareAlbumTitle();?>"><?php echo truncate_string(getBareAlbumTitle(),20,'...'); ?></a></h4>
 						<a class="thumb" href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View SubAlbum:'); ?> <?php echo getBareAlbumTitle();?>">
-							<?php if (isLandscape(true)) {
-							printCustomAlbumThumbImage(getBareAlbumTitle(),null,160,120,160,120);
-							} else {
-							printCustomAlbumThumbImage(getBareAlbumTitle(),null,120,160,120,160);
+							<?php if (isLandscape()) {
+								printCustomAlbumThumbImage(getBareAlbumTitle(),null,160,120,160,120);
+								} else {
+								printCustomAlbumThumbImage(getBareAlbumTitle(),null,120,160,120,160);
 							} ?>
 						</a>					
 						<span class="front-date"><?php printAlbumDate(); ?></span>
@@ -42,7 +43,8 @@
 							<a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View SubAlbum:'); ?> <?php echo getBareAlbumTitle();?>">&raquo;</a>
 						</p>
 					</li>
-					<?php $x=$x+1; endwhile; ?>			
+					<?php $x = $x+1; 
+					endwhile; ?>			
 				</ul>
 			</div>
 			<?php } ?>
@@ -66,7 +68,7 @@
 			<div class="image-wrap">
 				<ul>
 					<?php while (next_image()): ?>
-					<?php if (isLandscape(true)) { ?>
+					<?php if (isLandscape()) { ?>
 					<li class="thumb-landscape">
 						<div class="album-tools-landscape">
 								<?php if ( ($zpfocus_use_colorbox) &&  (!isImageVideo()) ) { ?><a class="album-tool" rel="zoom" href="<?php if ($zpfocus_cbtarget) { echo htmlspecialchars(getDefaultSizedImage()); } else { echo htmlspecialchars(getUnprotectedImageURL()); } ?>" title="<?php echo getBareImageTitle();?>"><img src="<?php echo $_zp_themeroot; ?>/images/search.png" alt="Zoom Image" /></a><?php } ?>

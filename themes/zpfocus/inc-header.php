@@ -81,14 +81,13 @@
 			break;
 	}
 	// Finish out header RSS links for inc-header.php
-	if (getOption('RSS_album_image')) { printRSSHeaderLink('Gallery',gettext('Latest Images'))."\n"; }
-	if (getOption('RSS_album_image')) { printRSSHeaderLink('AlbumsRSS',gettext('Latest Albums'))."\n"; }
+	if (getOption('RSS_items')) { printRSSHeaderLink('Gallery',gettext('Latest Images'))."\n"; }
+	if (getOption('RSS_items_albums')) { printRSSHeaderLink('AlbumsRSS',gettext('Latest Albums'))."\n"; }
 	if ($zenpage) {
-		if (getOption('RSS_articles')) { printRSSHeaderLink('News','',gettext('Latest News'))."\n"; }
-		if ((function_exists('printCommentForm')) && (getOption('RSS_article_comments'))) { printRSSHeaderLink('Comments-all','',gettext('Latest Comments'))."\n"; }
-	} else {
-	if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { printRSSHeaderLink('Comments',gettext('Latest Comments'))."\n"; }
-	} ?>
+		if (getOption('RSS_zenpage_items')) { printRSSHeaderLink('News','',gettext('Latest News'))."\n"; }
+		if (function_exists('printCommentForm')) { printRSSHeaderLink('Comments','',gettext('Latest Comments'))."\n"; }
+		}
+	?>
 	
 	<title><?php echo $zpfocus_metatitle; ?></title>
 	<meta name="description" content="<?php echo $zpfocus_metadesc; ?>" />
@@ -96,6 +95,9 @@
 	<?php require_once(ZENFOLDER."/zp-extensions/print_album_menu.php"); ?>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/css/main.css" />
+	<?php if ( getOption('zpfocus_center_site') ) { ?>
+		<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/css/center.css" />
+	<?php } ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/css/print.css" media="print" />
 	<!--[if lte IE 6]>
 	<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/css/ie6.css" />
@@ -106,7 +108,7 @@
 	<script type="text/javascript">
 		jQuery(function(){
 			jQuery('ul.sf-menu').superfish();
-		}); 
+		});
 		<?php if (getOption('zp_plugin_reCaptcha')) { ?>
 		var RecaptchaOptions = {
 			theme : 'white'
@@ -211,4 +213,3 @@
 		</div>
 	</div>
 	<div class="wrap">
-	
