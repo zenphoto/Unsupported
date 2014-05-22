@@ -4,34 +4,28 @@
 		<?php if ($zpmas_infscroll) { ?><script src="<?php echo $_zp_themeroot; ?>/js/jquery.infinitescroll.min.js"></script><?php } ?>
 		<script>
 			$(function(){
-			var $wall = $('#mason');
-			$wall.masonry({
-				columnWidth: 20, 
-				itemSelector: '.box:visible',
-				animate: false,
-					animationOptions: {
-					duration: 750,
-					easing: 'linear',
-					queue: false
-				}
+			var container = document.querySelector('#mason');
+			var $wall = new Masonry( container, {
+				columnWidth: 20,
+				itemSelector: '.box'
 			});
 			<?php if ($zpmas_infscroll) { ?>
 			$wall.infinitescroll({
-				navSelector  : '#page_nav',  // selector for the paged navigation 
+				navSelector  : '#page_nav',  // selector for the paged navigation
 				nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
 				itemSelector : '.box',     // selector for all items you'll retrieve
 				loadingText  : '<?php echo gettext('Loading additional pages...'); ?>',
 				loadingImg : '<?php echo $_zp_themeroot; ?>/images/arrow-alt-down<?php if ($zpmas_css == 'dark') echo "-inv"; ?>.png',
 				donetext  : '<?php echo gettext('No more pages to load...'); ?>',
 				debug: false,
-				errorCallback: function() { 
+				errorCallback: function() {
 				// fade out the error message after 2 seconds
-				$('#infscr-loading').animate({opacity: 1},2000).fadeOut('normal');   
+				$('#infscr-loading').animate({opacity: 1},2000).fadeOut('normal');
 				}
 			},
 				// call masonry and colorbox as a callback.
-				function( newElements ) { 
-					$(this).masonry({ appendedContent: $(newElements) }); 
+				function( newElements ) {
+					$(this).masonry({ appendedContent: $(newElements) });
 					$("a.zpmas-cb").colorbox({
 						slideshow:false,
 						slideshowStart:'<?php echo gettext('start slideshow'); ?>',
