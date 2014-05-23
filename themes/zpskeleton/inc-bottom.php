@@ -39,7 +39,6 @@
 				<div class="eight columns latest-list<?php echo $class; ?>">
 					<h3><?php echo gettext('Latest Comments'); ?></h3>
 				<?php printLatestComments(2, '125', 'all'); ?>
-				<?php printLatestZenpageComments(1, '125', '', 'all'); ?>
 				</div>
 	<?php } ?>
 <?php } ?>
@@ -52,7 +51,7 @@
 				<?php } ?>
 				<?php if (($zenpage) && ($zpskel_usenews) && (getOption('RSS_articles'))) { ?>
 					<li><?php printRSSLink('News', '', gettext('News'), '', false); ?></li>
-						<?php if ((function_exists('printCommentForm')) && getOption('RSS_article_comments')) { ?><li><?php printRSSLink('Comments-all', '', '', gettext('Comments'), '', false); ?></li><?php } ?>
+						<?php if ((function_exists('printCommentForm')) && getOption('RSS_article_comments')) { ?><li><?php printRSSLink('Comments-all', '', gettext('Comments'), '', false); ?></li><?php } ?>
 					<?php } else { ?>
 	<?php if ((function_exists('printCommentForm')) && getOption('RSS_comments')) { ?><li><?php printRSSLink('Comments', '', gettext('Comments'), '', false); ?></li><?php } ?>
 <?php } ?>

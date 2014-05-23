@@ -85,11 +85,11 @@
 					<?php if (!ZP_COMBINEWS) { ?>
 					<div class="news-nav">
 						<?php
-						$next_article_url = getNextPrevNews('next', 'date', 'desc');
+						$next_article_url = array (getNextPrevNews('next', 'date', 'desc'));
 						if (array_key_exists('link', $next_article_url) && $next_article_url['link'] != "") {
 							echo "<a class=\"button\" href=\"" . html_encode($next_article_url['link']) . "\" title=\"" . html_encode(strip_tags($next_article_url['title'])) . "\">" . $next_article_url['title'] . " &raquo;</a> ";
 						}
-						$prev_article_url = getNextPrevNews('prev', 'date', 'desc');
+						$prev_article_url = array (getNextPrevNews('prev', 'date', 'desc'));
 						if (array_key_exists('link', $prev_article_url) && $prev_article_url['link'] != "") {
 							echo "<a class=\"button\" href=\"" . html_encode($prev_article_url['link']) . "\" title=\"" . html_encode(strip_tags($prev_article_url['title'])) . "\">&laquo; " . $prev_article_url['title'] . "</a> ";
 						}
@@ -108,7 +108,7 @@
 			<div class="sixteen columns">
 	<?php if (function_exists('printAlbumMenu')) { ?><div class="jump-menu"><?php printAlbumMenu('jump'); ?></div><?php } ?>
 				<ul class="taglist rss">
-	<?php if ((function_exists('printCommentForm')) && (getOption('RSS_article_comments'))) { ?><li><?php printRSSLink('Comments-news', '', '', gettext('Comments of this article'), '', false); ?></li><?php } ?>
+	<?php if ((function_exists('printCommentForm')) && (getOption('RSS_article_comments'))) { ?><li><?php printRSSLink('Comments-news', '', gettext('Comments of this article'), '', false); ?></li><?php } ?>
 				</ul>
 			</div>
 		</div>

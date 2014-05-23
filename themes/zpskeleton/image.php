@@ -1,10 +1,10 @@
 <?php include ("inc-header.php"); ?>
 	<div class="wrapper contrast top">
-		<div class="container">	
+		<div class="container">
 			<div class="sixteen columns">
 				<?php include ("inc-search.php"); ?>
 				<h5>
-					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>&nbsp;&raquo;&nbsp; 
+					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext("Gallery"); ?></a>&nbsp;&raquo;&nbsp;
 					<?php printParentBreadcrumb('',' » ',' » '); printAlbumBreadcrumb(' ', ' » '); ?>
 					<span> (<?php echo imageNumber()."/".getNumImages(); ?>)</span>
 				</h5>
@@ -22,7 +22,7 @@
 	</div>
 	<div class="wrapper">
 		<div class="container">
-			<?php 
+			<?php
 			$nextimg = $_zp_current_image->getNextImage();
 			$previmg = $_zp_current_image->getPrevImage();
 			?>
@@ -38,7 +38,7 @@
 					<?php } ?>
 					<br class="clear" />
 				</div>
-				<?php if ((function_exists('printGoogleMap')) && (hasMapData())) { ?>
+				<?php if (function_exists('printGoogleMap')) { ?>
 				<div id="map">
 					<?php printGoogleMap(); ?>
 				</div>
@@ -89,5 +89,5 @@
 			</div>
 		</div>
 	</div>
-	<?php } ?>	
+	<?php } ?>
 <?php include ("inc-footer.php"); ?>
