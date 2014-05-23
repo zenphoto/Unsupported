@@ -4,8 +4,8 @@
 		<?php if ($zpmas_infscroll) { ?><script src="<?php echo $_zp_themeroot; ?>/js/jquery.infinitescroll.min.js"></script><?php } ?>
 		<script>
 			$(function(){
-			var container = document.querySelector('#mason');
-			var $wall = new Masonry( container, {
+			var $wall = $('#mason');
+			$wall.masonry({
 				columnWidth: 20,
 				itemSelector: '.box'
 			});
