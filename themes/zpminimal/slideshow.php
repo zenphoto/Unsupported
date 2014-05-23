@@ -34,7 +34,6 @@ if (!defined('WEBPATH')) die(); // are we in the Zenphoto environment? if not, k
 <?php zp_apply_filter('theme_head'); ?>
 <title><?php printBareGalleryTitle(); ?> <?php echo gettext("Slideshow"); ?></title>
 <meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
-<?php printSlideShowJS(); ?>
 
 </head>
 <body>

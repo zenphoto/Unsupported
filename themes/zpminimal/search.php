@@ -1,6 +1,6 @@
-<?php include ("inc-header.php"); 
-					
-$numimages = getNumImages(); 
+<?php include ("inc-header.php");
+
+$numimages = getNumImages();
 $numalbums = getNumAlbums();
 $total = $numimages + $numalbums;
 if ($zenpage && !isArchive()) {
@@ -18,7 +18,7 @@ if (!empty($searchdate)) {
 	}
 	$searchwords .= $searchdate;
 } ?>
-							
+
 				<div id="breadcrumbs">
 					<h2><a href="<?php echo html_encode(getGalleryIndexURL());?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a> &raquo; <a href="<?php echo getCustomPageURL('gallery'); ?>" title="<?php echo gettext('Gallery Index'); ?>"><?php echo gettext('Gallery Index'); ?></a> &raquo; <?php echo gettext("Search"); ?> &rarr; <?php echo  html_encode($searchwords).' ('.$total.' '.gettext('items').')'; ?></h2>
 				</div>
@@ -42,11 +42,11 @@ if (!empty($searchdate)) {
 					<div id="thumbs-wrap">
 						<?php while (next_image()): $c++; ?>
 						<div class="thumb-maxspace">
-							<a class="thumb-link" href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle(); ?>"><?php printImageThumb(getAnnotatedImageTitle()); ?></a>
+							<a class="thumb-link" href="<?php echo html_encode(getImageURL());?>" title="<?php echo getBareImageTitle(); ?>"><?php printImageThumb(getAnnotatedImageTitle()); ?></a>
 							<?php if (($zpmin_colorbox) && ($cbscript) && (!isImageVideo())) { ?>
 							<div class="cblinks">
 								<a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/zoom.png" /></a>
-								<a href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/details.png" /></a>
+								<a href="<?php echo html_encode(getImageURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/details.png" /></a>
 							</div>
 							<?php } ?>
 						</div>
@@ -58,13 +58,13 @@ if (!empty($searchdate)) {
 					</div>
 					<?php } ?>
 					<?php if (function_exists('printGoogleMap')) { ?><div class="section"><?php setOption('gmap_width',550,false); printGoogleMap(); ?></div><?php } ?>
-					
+
 					<?php if ($_zp_page == 1) { //test of zenpage searches
 					if ($numpages > 0) {
 					$zpc = 0;
 					while (($zpc < $zpmin_zpsearchcount) && (next_page())) {
 						$zpc++; $c++; ?>
-						<div class="news-truncate"> 
+						<div class="news-truncate">
 							<h2><?php printPageTitlelink(); ?></h2>
 							<p><?php echo shortenContent(strip_tags(getPageContent()),200,getOption("zenpage_textshorten_indicator")); ?></p>
 						</div>
@@ -74,16 +74,16 @@ if (!empty($searchdate)) {
 					$zpc = 0;
 					while (($zpc < $zpmin_zpsearchcount) && (next_news())) {
 						$zpc++; $c++; ?>
-						<div class="news-truncate"> 
-							<h2><?php printNewsURL(); ?></h2>	
+						<div class="news-truncate">
+							<h2><?php printNewsURL(); ?></h2>
 							<div class="newsarticlecredit">
 								<span><?php printNewsDate();?> &sdot; <?php printNewsCategories(", ",gettext("Categories: "),"taglist"); ?><?php if (function_exists('printCommentForm')) { ?> &sdot; <?php echo gettext("Comments:"); ?> <?php echo getCommentCount(); ?> <?php } ?></span>
-							</div>	
+							</div>
 							<p><?php echo shortenContent(strip_tags(getNewsContent()),200,getOption("zenpage_textshorten_indicator")); ?></p>
-						</div>	
-					<?php } 
+						</div>
+					<?php }
 					}
-					} ?>	
+					} ?>
 					<?php if ($c == 0) { echo "<h3>".gettext("Sorry, no matches found.")."</h3>"; } ?>
 				</div>
 				<div id="sidebar"<?php if ($zpmin_switch) echo ' class="switch"'; ?>>
@@ -95,4 +95,4 @@ if (!empty($searchdate)) {
 				</div>
 			</div>
 
-<?php include ("inc-footer.php"); ?>			
+<?php include ("inc-footer.php"); ?>

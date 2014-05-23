@@ -6,7 +6,7 @@
 			</div> <!-- close #header -->
 			<div id="content">
 				<div id="main"<?php if ($zpmin_switch) echo ' class="switch"'; ?>>
-					<?php if (function_exists('printjCarouselThumbNav')) { printjCarouselThumbNav(2,77,77,77,77); } ?>
+					<?php if (function_exists('printThumbNav')) { printThumbNav(2, NULL, 77, 77, 77, 77); } ?>
 					<div id="image-wrap">
 						<div id="full-image">
 							<?php if (($zpmin_finallink)=='colorbox') { ?><a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),550); ?></a><?php } ?>
@@ -41,4 +41,4 @@
 				</div>
 			</div>
 
-<?php include ("inc-footer.php"); ?>			
+<?php include ("inc-footer.php"); ?>
