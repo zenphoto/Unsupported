@@ -1,5 +1,5 @@
 
-		<?php if (function_exists('printLanguageSelector')) { printLanguageSelector("langselector"); } ?>
+		<?php if (function_exists('printLanguageSelector')) { printLanguageSelector(); } ?>
 		<script src="<?php echo $_zp_themeroot; ?>/js/jquery.masonry.min.js"></script>
 		<?php if ($zpmas_infscroll) { ?><script src="<?php echo $_zp_themeroot; ?>/js/jquery.infinitescroll.min.js"></script><?php } ?>
 		<script>

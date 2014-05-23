@@ -1,5 +1,6 @@
 
 html{height:101%;} /* Safeguard for infinite scroll on short pages */
+* {outline:none;}
 a img{text-decoration:none!important;}
 body{font:11px/18px Georgia,Times,"Times New Roman",serif;}
 a:link,a:active,a:visited{text-decoration:none;}
@@ -98,8 +99,8 @@ input[type="checkbox"]{border:0;}
 .thumb-link{display:block;}
 .album-info{margin-top:3px;}
 .album-info li{line-height:18px;}
-.date{background-repeat:no-repeat;background-position:0 3px;padding:3px 0 3px 20px;}
-.tags{background-repeat:no-repeat;background-position:1px 4px;padding:3px 0 3px 20px;}
+.date{background-repeat:no-repeat;background-position:0 4px;padding:3px 0 3px 20px;}
+.tags{background-repeat:no-repeat;background-position:1px 6px;padding:3px 0 3px 20px;}
 .taglist,.taglist li{display:inline;}
 .counts{float:right;background-repeat:no-repeat;background-position:0 3px;padding:3px 0 3px 21px;}
 .counts.smallthumbs{float:none;}
@@ -156,6 +157,8 @@ li.year{margin-bottom:7px;}
 .newsarticlecredit{margin:0 0 10px 0;clear:both;width:100%;border-top:1px solid;overflow:hidden;}
 .newsarticlecredit span{display:block;float:left;margin-right:2px;padding:3px 7px;font-style:italic;}
 .newsarticlecredit ul{margin:0;padding:0;}
+span.beforetext{margin:0;padding:0 5px 0 0;}
+span.betweentext{float:none;display:inline;}
 .readmorelink{display:none;}
 
 .zenpage_sizedimage,.zenpage_customimage,.zenpage_thumb,.zenpage_customthumb{margin:5px auto;clear:both;}

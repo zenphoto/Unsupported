@@ -87,7 +87,7 @@
 				echo getNumImages() . ' ' . gettext('images');
 			} ?>
 					</li>
-		<?php if (strlen(getAlbumDate()) > 0) { ?><li class="date"><?php printAlbumDate('', '', null, true); ?></li><?php } ?>
+		<?php if (strlen(getAlbumDate()) > 0) { ?><li class="date"><?php printAlbumDate(''); ?></li><?php } ?>
 			<?php if (strlen(getAlbumDesc()) > 0) { ?><li class="desc"><?php echo shortenContent(getAlbumDesc(), 150, '...'); ?></li><?php } ?>
 			<?php if (strlen($tagstring) > 0) { ?><li class="tags"><?php printTags('links', ' ', 'taglist', ', '); ?></li><?php } ?>
 				</ul>

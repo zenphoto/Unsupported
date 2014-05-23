@@ -23,7 +23,7 @@
 							printLatestDisqus(3);
 							} else {
 							printLatestComments(1);
-							printLatestComments(1); 
+							printLatestComments(1);
 							} ?>
 						</div>
 						<?php } ?>
@@ -43,7 +43,7 @@
 				<div id="pagination">
 					<?php if(getPrevNewsURL()) { ?><div class="prev"><?php printPrevNewsLink('«'); ?></div><?php } ?>
 					<?php if(getNextNewsURL()) { ?><div class="next"><?php printNextNewsLink('»'); ?></div><?php } ?>
-				</div>	
+				</div>
 				<?php if (function_exists('printRating')) { ?><div class="post"><?php printRating(); ?></div><?php } ?>
 				<?php if (function_exists('printCommentForm')) { ?><div class="post"><?php printCommentForm(); ?></div><?php } ?>
 			</div>
@@ -59,34 +59,34 @@
 					<?php if (strlen(getNewsCategoryDesc()) > 0) { ?>
 					<div><?php echo getNewsCategoryDesc(); ?></div><br />
 					<?php } ?>
-					
+
 					<div id="mason">
-					<?php while (next_news()): ;?> 
-					<div class="news-truncate box"> 
-						<h2><?php printNewsURL(); ?></h2>	
+					<?php while (next_news()):;?>
+					<div class="news-truncate box">
+						<h2><?php printNewsURL(); ?></h2>
 						<div class="newsarticlecredit">
-							<span><?php printNewsDate();?></span><span><?php printNewsCategories(", ",gettext("Categories: "),"taglist"); ?></span><?php if (function_exists('printCommentForm')) { ?><span><?php echo gettext("Comments:"); ?> <?php echo getCommentCount(); ?></span><?php } ?>
-						</div>	
+							<span><?php printNewsDate();?></span><span><?php printNewsCategories(", ", gettext("Categories: "), "taglist"); ?></span><?php if (function_exists('printCommentForm')) { ?><span><?php echo gettext("Comments:"); ?> <?php echo getCommentCount(); ?></span><?php } ?>
+						</div>
 						<?php echo preg_replace("/<img[^>]+\>/i", " [image removed] ", getNewsContent()); printCodeblock(); ?>
-					</div>	
+					</div>
 					<?php endwhile; ?>
 					</div>
 				</div>
-				
+
 				<?php if ($zpmas_infscroll) { ?>
 				<div id="page_nav">
 					<?php if (getNextNewsPageURL())  { ?><a href="<?php echo getNextNewsPageURL(); ?>">Next Page</a> <?php } ?>
 				</div>
 				<?php } else {
-				if ((getNextNewsPageURL()) || (getPrevNewsPageURL()))	{ ?>	
+				if ((getNextNewsPageURL()) || (getPrevNewsPageURL()))	{ ?>
 				<div id="pagination">
 					<?php printNewsPageListWithNav( gettext('Next »'),gettext('« Prev'),true,'' ); ?>
 				</div>
 				<?php } ?>
 				<?php } ?>
-			
-			</div>
-			<?php } ?> 
-		</div>	
 
-<?php include ("inc-footer.php"); ?>	
+			</div>
+			<?php } ?>
+		</div>
+
+<?php include ("inc-footer.php"); ?>
