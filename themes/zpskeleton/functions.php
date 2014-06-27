@@ -1,5 +1,6 @@
 <?php
 // Check some settings
+$_zp_page_check = 'my_checkPageValidity';
 $zenpage = getOption('zp_plugin_zenpage');
 $thumbcrop = getOption('thumb_crop');
 $zpskel_disablewarning = getOption('zpskel_disablewarning'); // test is disable warning is checked
@@ -263,5 +264,37 @@ function printZDToggleClass($option, $c, $number_to_show) {
 	if ($c > $number_to_show) {
 		echo ' class="' . $option . '_extrashow" style="display:none;"';
 	}
+}
+
+/**
+* Mandatory since 1.4.6 and copied from the Zenpage theme -> functions.php
+*
+*/
+function my_checkPageValidity($request, $gallery_page, $page) {
+	switch ($gallery_page) {
+		case 'gallery.php':
+			$gallery_page = 'index.php'; //	same as an album gallery index
+			break;
+		case 'index.php':
+			if (extensionEnabled('zenpage')) {
+				if (getOption('zenpage_zp_index_news')) {
+					$gallery_page = 'news.php'; //	really a news page
+					break;
+				}
+				if (getOption('zenpage_homepage')) {
+					return $page == 1; // only one page if zenpage enabled.
+				}
+			}
+			break;
+		case 'news.php':
+		case 'album.php':
+		case 'search.php':
+			break;
+		default:
+			if ($page != 1) {
+				return false;
+			}
+	}
+	return checkPageValidity($request, $gallery_page, $page);
 }
 ?>
