@@ -267,7 +267,7 @@ function printZDToggleClass($option, $c, $number_to_show) {
 }
 
 /**
-* Mandatory since 1.4.6 and copied from the Zenpage theme -> functions.php
+* Mandatory since 1.4.6. Copied from the Zenpage theme -> functions.php and modified
 *
 */
 function my_checkPageValidity($request, $gallery_page, $page) {
@@ -276,16 +276,6 @@ function my_checkPageValidity($request, $gallery_page, $page) {
 			$gallery_page = 'index.php'; //	same as an album gallery index
 			break;
 		case 'index.php':
-			if (extensionEnabled('zenpage')) {
-				if (getOption('zenpage_zp_index_news')) {
-					$gallery_page = 'news.php'; //	really a news page
-					break;
-				}
-				if (getOption('zenpage_homepage')) {
-					return $page == 1; // only one page if zenpage enabled.
-				}
-			}
-			break;
 		case 'news.php':
 		case 'album.php':
 		case 'search.php':
