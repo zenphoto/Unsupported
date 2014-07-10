@@ -4,6 +4,10 @@ Many of these are third party, older and have been abandoned by their original d
 
 We of course welcome any contribution or even taking over a certain theme: http://www.zenphoto.org/news/general-contributor-guidelines#providing-themes-and-plugins
 
+##License
+Most of the contents is **GPL v2 or later** licensed, e.g. those created by current or former Zenphoto team members. But since there are also third party solutions collected *see each tool for its exact licensing*.
+
+
 Plugins
 -------
 
@@ -26,3 +30,5 @@ Misc
 ------
 
 You will find miscellaneous other extensions that do not exactly fit the above categories. Readme files or script comments will describe their use.
+
+
