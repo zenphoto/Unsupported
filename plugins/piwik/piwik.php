@@ -25,7 +25,7 @@
 $plugin_is_filter = 9|THEME_PLUGIN;
 $plugin_description = gettext('A plugin to insert your Piwik JavaScript tag into your theme pages.');
 $plugin_author = "Stephen Billard (sbillard)";
-$plugin_version = '1.4.3';
+$plugin_version = '1.4.7';
 
 $option_interface = 'piwik_tag';
 
@@ -57,17 +57,17 @@ class piwik_tag {
 			$piwik_id = getOption('piwik_id');
 			?>
 			<!-- Piwik -->
-			<script type="text/javascript">
-				var pkBaseURL = (("https:" == document.location.protocol) ? "https://<?php echo $piwik_url ?>/" : "http://<?php echo $piwik_url ?>/");
-				document.write(unescape("%3Cscript src=\'" + pkBaseURL + "piwik.js\' type=\'text/javascript\'%3E%3C/script%3E"));
-	    </script>
-	    <script type="text/javascript">
-				try {
-					var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", <?php echo $piwik_id ?>);
-					piwikTracker.trackPageView();
-					piwikTracker.enableLinkTracking();
-				} catch( err ) {
-				}
+				<script type="text/javascript">
+  				var _paq = _paq || [];
+  				_paq.push(['trackPageView']);
+  				_paq.push(['enableLinkTracking']);
+  				(function() {
+    				var u=(("https:" == document.location.protocol) ? "https" : "http") + "<?php echo $piwik_url ?>/";
+    				_paq.push(['setTrackerUrl', u+'piwik.php']);
+    				_paq.push(['setSiteId', 1]);
+    				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+    				g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  				})();
 			</script>
 			<noscript><p><img src="http://<?php echo $piwik_url ?>/piwik.php?idsite=<?php echo $piwik_id ?>" style="border:0" alt="" /></p></noscript>
 			<!-- End Piwik Tag -->
