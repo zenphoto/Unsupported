@@ -9,10 +9,10 @@
 		<meta name="keywords" content="<?php echo html_encode(getMainSiteName().', '.getGalleryTitle().', '.getAlbumTitle()); ?>" />
 		<meta name="description" content="<?php echo html_encode(getAlbumTitle().' / '.getAlbumDesc()); ?>" />
 	</head>
-	
+
 	<body id="gallery-album" class="<?php echo 'album-'.$_zp_current_album->getID().' page-'.getCurrentPage(); ?>">
 	<?php zp_apply_filter('theme_body_open'); ?>
-	
+
 		<div id="wrapper">
 			<div id="header">
 				<ul class="path c">
@@ -26,7 +26,7 @@
 				<ul class="move">
 					<li><?php if (hasPrevPage()): ?><a href="<?php echo htmlspecialchars(getPrevPageURL()); ?>">Prev</a><?php else: ?><span>Prev</span><?php endif; ?></li>
 					<li><?php if (hasNextPage()): ?><a href="<?php echo htmlspecialchars(getNextPageURL()); ?>">Next</a><?php else: ?><span>Next</span><?php endif; ?></li>
-				</ul>	
+				</ul>
 			</div>
 			<div id="content" class="c">
 				<ul class="list c">
@@ -36,10 +36,23 @@
 						<span><?php echo getAlbumTitle(); ?></span>
 					</a></li>
 <?php endwhile; ?>
-<?php while (next_image()): ?>
-					<li id="<?php echo ' image-'.$_zp_current_image->getID(); ?>" class="image"><a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo getImageURL(); ?>">
-						<img src="<?php echo getCustomSizedImageThumbMaxSpace($width="298", $height="187"); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
-					</a></li>
+
+<?php while (next_image()):
+				if ( isImagePhoto() && extensionEnabled('colorbox_js') && zp_has_filter('theme_head', 'colorbox::css') ) {
+					$imgURL = getFullImageURL();
+					$boxclass = " class=\"fullimage\"";
+					$cbRel = " data-rel=\"gallery\"";
+				} else {
+					$imgURL = getImageURL();
+					$boxclass = "";
+					$cbRel = "";
+				}
+				?>
+					<li id="<?php echo ' image-'.$_zp_current_image->getID(); ?>" class="image">
+						<a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo html_encode(pathurlencode($imgURL)); ?>"<?php echo $boxclass . $cbRel; ?>>
+							<img src="<?php echo getCustomSizedImageThumbMaxSpace($width="298", $height="187"); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
+						</a>
+					</li>
 <?php endwhile; ?>
 				</ul>
 				<div class="data">
@@ -55,6 +68,20 @@
 <?php
 zp_apply_filter('theme_body_close');
 ?>
-
-	</body>
+<?php
+if ( extensionEnabled('colorbox_js') && zp_has_filter('theme_head', 'colorbox::css') ) { ?>
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".fullimage").colorbox({
+		maxWidth: "98%",
+		maxHeight: "98%",
+		rel: function() { return $(this).data('rel') },
+		current: "{current}/{total}",
+		photo: true,
+		close: '<?php echo gettext("close"); ?>'
+	});
+})
+</script>
+<?php } ?>
+</body>
 </html>
