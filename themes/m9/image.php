@@ -41,7 +41,7 @@
 				<div class="view c">
 					<?php
 					if ( $cb == true ) { ?>
-						<a href="<?php echo html_encode(pathurlencode($imgURL)); ?>"<?php echo $boxclass; ?> title="<?php printBareImageTitle(); ?>">
+						<a href="<?php echo html_encode($imgURL); ?>"<?php echo $boxclass; ?> title="<?php printBareImageTitle(); ?>">
 							<?php printDefaultSizedImage(html_encode(getImageTitle()), 'image', 'player'); ?>
 						</a>
 					<?php

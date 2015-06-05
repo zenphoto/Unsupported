@@ -49,7 +49,7 @@
 				}
 				?>
 					<li id="<?php echo ' image-'.$_zp_current_image->getID(); ?>" class="image">
-						<a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo html_encode(pathurlencode($imgURL)); ?>"<?php echo $boxclass . $cbRel; ?>>
+						<a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo html_encode($imgURL); ?>"<?php echo $boxclass . $cbRel; ?>>
 							<img src="<?php echo getCustomSizedImageThumbMaxSpace($width="298", $height="187"); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
 						</a>
 					</li>
