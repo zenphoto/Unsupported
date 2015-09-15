@@ -49,7 +49,7 @@
 	</div>
 	<?php } ?>
 
-	<?php if ((getNumImages()) > 0) { ?>
+	<?php if (getNumImages() > 0) { ?>
 
 	<h4 class="blockhead">
 		<?php if ($useGslideshow) { ?>
