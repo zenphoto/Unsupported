@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Zenphoto theme definition file
 $theme_description['name'] = 'ZP-M9';
 $theme_description['author'] = '<a href="http://www.michalrusina.sk/" target="_blank">Michal Rusina</a>';

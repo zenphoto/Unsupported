@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Zenphoto theme definition file
 $theme_description['name'] = 'FacedOut';
 $theme_description['author'] = 'Micheal Luttrull (micheall)';

@@ -1,83 +1,83 @@
 <?php
 setOption('zp_plugin_colorbox',false,false);
-$zenpage = getOption('zp_plugin_zenpage'); 
-if ((function_exists('printGslideshow')) && (function_exists('printSlideShow'))) { 
-		$useGslideshow = true; 
-} else { 
-		$useGslideshow = false; 
-}
-		
-if (function_exists('printAddThis')) { 
-		$zpfocus_social = true; 
-} else { 
-		$zpfocus_social = false; 
+$zenpage = getOption('zp_plugin_zenpage');
+if ((function_exists('printGslideshow')) && (function_exists('printSlideShow'))) {
+		$useGslideshow = true;
+} else {
+		$useGslideshow = false;
 }
 
-$zpfocus_tagline = getOption('zpfocus_tagline'); 
-if (is_null($zpfocus_tagline)) 
+if (function_exists('printAddThis')) {
+		$zpfocus_social = true;
+} else {
+		$zpfocus_social = false;
+}
+
+$zpfocus_tagline = getOption('zpfocus_tagline');
+if (is_null($zpfocus_tagline))
 		$zpfocus_tagline = 'A ZenPhoto / ZenPage Powered Theme';
-$zpfocus_allow_search = getOption('zpfocus_allow_search'); 
-if (is_null($zpfocus_allow_search)) 
+$zpfocus_allow_search = getOption('zpfocus_allow_search');
+if (is_null($zpfocus_allow_search))
 		$zpfocus_allow_search = true;
-$zpfocus_show_archive = getOption('zpfocus_show_archive'); 
-if (is_null($zpfocus_show_archive)) 
+$zpfocus_show_archive = getOption('zpfocus_show_archive');
+if (is_null($zpfocus_show_archive))
 		$zpfocus_show_archive = true;
-$zpfocus_use_colorbox = getOption('zpfocus_use_colorbox'); 
-if (is_null($zpfocus_use_colorbox)) 
+$zpfocus_use_colorbox = getOption('zpfocus_use_colorbox');
+if (is_null($zpfocus_use_colorbox))
 		$zpfocus_use_colorbox = true;
-$zpfocus_use_colorbox_slideshow = getOption('zpfocus_use_colorbox_slideshow'); 
-if (is_null($zpfocus_use_colorbox_slideshow)) 
+$zpfocus_use_colorbox_slideshow = getOption('zpfocus_use_colorbox_slideshow');
+if (is_null($zpfocus_use_colorbox_slideshow))
 		$zpfocus_use_colorbox_slideshow = true;
-$zpfocus_homepage = getOption('zpfocus_homepage'); 
-if (is_null($zpfocus_homepage)) 
+$zpfocus_homepage = getOption('zpfocus_homepage');
+if (is_null($zpfocus_homepage))
 		$zpfocus_homepage = 'none';
-$zpfocus_spotlight = getOption('zpfocus_spotlight'); 
-if (is_null($zpfocus_spotlight)) 
+$zpfocus_spotlight = getOption('zpfocus_spotlight');
+if (is_null($zpfocus_spotlight))
 		$zpfocus_spotlight = 'manual';
-$zpfocus_spotlight_text = getOption('zpfocus_spotlight_text'); 
-if (is_null($zpfocus_spotlight_text)) 
+$zpfocus_spotlight_text = getOption('zpfocus_spotlight_text');
+if (is_null($zpfocus_spotlight_text))
 		$zpfocus_spotlight_text = '<p>This is the <span class="spotlight-span">spotlight</span> area that can be set in the theme options.  You can either enter the text manually in the options or set it to display the latest news if ZenPage is being used. If you want nothing to appear here, set the spotlight to none.</p>';
-$zpfocus_show_credit = getOption('zpfocus_show_credit'); 
-if (is_null($zpfocus_show_credit)) 
+$zpfocus_show_credit = getOption('zpfocus_show_credit');
+if (is_null($zpfocus_show_credit))
 		$zpfocus_show_credit = false;
-$zpfocus_menutype = getOption('zpfocus_menutype'); 
-if (is_null($zpfocus_menutype)) 
-		$zpfocus_menutype = 'dropdown';	
-$zpfocus_logotype = getOption('zpfocus_logotype'); 
-if (is_null($zpfocus_logotype)) 
+$zpfocus_menutype = getOption('zpfocus_menutype');
+if (is_null($zpfocus_menutype))
+		$zpfocus_menutype = 'dropdown';
+$zpfocus_logotype = getOption('zpfocus_logotype');
+if (is_null($zpfocus_logotype))
 		$zpfocus_logotype = true;
-$zpfocus_logofile = getOption('zpfocus_logofile'); 
-if (is_null($zpfocus_logofile)) 
+$zpfocus_logofile = getOption('zpfocus_logofile');
+if (is_null($zpfocus_logofile))
 		$zpfocus_logofile = 'logo.jpg';
-$zpfocus_showrandom = getOption('zpfocus_showrandom'); 
-if (is_null($zpfocus_showrandom)) 
+$zpfocus_showrandom = getOption('zpfocus_showrandom');
+if (is_null($zpfocus_showrandom))
 		$zpfocus_showrandom = 'rotator';
-$zpfocus_cbtarget = getOption('zpfocus_cbtarget'); 
-if (is_null($zpfocus_cbtarget)) 
+$zpfocus_cbtarget = getOption('zpfocus_cbtarget');
+if (is_null($zpfocus_cbtarget))
 		$zpfocus_cbtarget = true;
-$zpfocus_cbstyle = getOption('zpfocus_cbstyle'); 
-if (is_null($zpfocus_cbstyle)) 
-		$zpfocus_cbstyle = 'example3';	
-$zpfocus_cbtransition = getOption('zpfocus_cbtransition'); 
-if (is_null($zpfocus_cbtransition)) 
+$zpfocus_cbstyle = getOption('zpfocus_cbstyle');
+if (is_null($zpfocus_cbstyle))
+		$zpfocus_cbstyle = 'example3';
+$zpfocus_cbtransition = getOption('zpfocus_cbtransition');
+if (is_null($zpfocus_cbtransition))
 		$zpfocus_cbtransition = 'fade';
-$zpfocus_cbssspeed = getOption('zpfocus_cbssspeed'); 
-if (is_null($zpfocus_cbssspeed)) 
+$zpfocus_cbssspeed = getOption('zpfocus_cbssspeed');
+if (is_null($zpfocus_cbssspeed))
 		$zpfocus_cbssspeed = '2500';
-$zpfocus_final_link = getOption('zpfocus_final_link'); 
-if (is_null($zpfocus_final_link)) 
+$zpfocus_final_link = getOption('zpfocus_final_link');
+if (is_null($zpfocus_final_link))
 		$zpfocus_final_link = 'nolink';
-$zpfocus_rotatorcount = getOption('zpfocus_rotatorcount'); 
-if (is_null($zpfocus_rotatorcount)) 
+$zpfocus_rotatorcount = getOption('zpfocus_rotatorcount');
+if (is_null($zpfocus_rotatorcount))
 		$zpfocus_rotatorcount = '5';
-$zpfocus_rotatoreffect = getOption('zpfocus_rotatoreffect'); 
-if (is_null($zpfocus_rotatoreffect)) 
+$zpfocus_rotatoreffect = getOption('zpfocus_rotatoreffect');
+if (is_null($zpfocus_rotatoreffect))
 		$zpfocus_rotatoreffect = 'fade';
-$zpfocus_rotatorspeed = getOption('zpfocus_rotatorspeed'); 
-if (is_null($zpfocus_rotatorspeed)) 
+$zpfocus_rotatorspeed = getOption('zpfocus_rotatorspeed');
+if (is_null($zpfocus_rotatorspeed))
 		$zpfocus_rotatorspeed = '3000';
-$zpfocus_news = getOption('zpfocus_news'); 
-if (is_null($zpfocus_news)) 
+$zpfocus_news = getOption('zpfocus_news');
+if (is_null($zpfocus_news))
 		$zpfocus_news = true;
 
 // Sets expanded titles (breadcrumbs) for Title meta
@@ -108,7 +108,7 @@ function getTitleBreadcrumb($before = ' ( ', $between = ' | ', $after = ' ) ') {
 		$titlebreadcrumb .= $before;
 		$i = 0;
 		foreach($parents as $parent) {
-			if ($i > 0) 
+			if ($i > 0)
 					$titlebreadcrumb .= $between;
 			$titlebreadcrumb .= $parent->getTitle();
 			$i++;
@@ -119,7 +119,7 @@ function getTitleBreadcrumb($before = ' ( ', $between = ' | ', $after = ' ) ') {
 }
 
 /* Prints jQuery JS to enable the toggling of search results of Zenpage  items */
-function printZDSearchToggleJS() { 
+function printZDSearchToggleJS() {
 		?>
 		<script type="text/javascript">
 		function toggleExtraElements(category, show) {
@@ -162,8 +162,8 @@ function printZDToggleClass($option, $c,$number_to_show) {
 	$option = strtolower(sanitize($option));
 	$c = sanitize_numeric($c);
 	$number_to_show = sanitize_numeric($number_to_show);
-	if ($c > $number_to_show) { 
-			echo ' class="'.$option.'_extrashow" style="display:none;"'; 
+	if ($c > $number_to_show) {
+			echo ' class="'.$option.'_extrashow" style="display:none;"';
 	}
 }
 
@@ -191,7 +191,7 @@ function printLatestNewsCustom($number=5, $category = '', $showdate = true, $sho
 			}
 		$content = strip_tags($obj->getContent());
 		$date = zpFormattedDate(getOption('date_format'), strtotime($item['date']));
-		$type = 'news';	
+		$type = 'news';
 		echo "<div>";
 		echo "<h3><a href=\"" . $link . "\" title=\"".strip_tags(htmlspecialchars($title, ENT_QUOTES))."\">" . htmlspecialchars($title) . "</a></h3>\n";;
 		echo "<div class=\"newsarticlecredit\">\n";
@@ -207,4 +207,40 @@ function printLatestNewsCustom($number=5, $category = '', $showdate = true, $sho
 	echo "</div>\n";
 }
 
+function my_checkPageValidity($request, $gallery_page, $page) {
+	switch ($gallery_page) {
+		case 'gallery.php':
+			$gallery_page = 'index.php'; //	same as an album gallery index
+			break;
+		case 'index.php':
+			if (extensionEnabled('zenpage')) {
+				if (getOption('zenpage_zp_index_news')) {
+					$gallery_page = 'news.php'; //	really a news page
+					break;
+				}
+				if (getOption('zenpage_homepage')) {
+					return $page == 1; // only one page if zenpage enabled.
+				}
+			}
+			break;
+		case 'news.php':
+		case 'album.php':
+		case 'search.php':
+			break;
+		default:
+			if ($page != 1) {
+				return false;
+			}
+	}
+	return checkPageValidity($request, $gallery_page, $page);
+}
+
+if (!OFFSET_PATH) {
+	enableExtension('print_album_menu', 1 | THEME_PLUGIN, false);
+	setOption('user_logout_login_form', 2, false);
+	$_zp_page_check = 'my_checkPageValidity';
+	if (extensionEnabled('zenpage') && getOption('zenpage_zp_index_news')) { // only one index page if zenpage plugin is enabled & displaying
+		zp_register_filter('getLink', 'newsOnIndex');
+	}
+}
 ?>

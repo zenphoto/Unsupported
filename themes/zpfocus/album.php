@@ -105,7 +105,7 @@
 	<?php } ?>
 
 	<?php if ( (getPrevPageURL()) || (getNextPageURL()) ) {
-			printPageListWithNav('« '.gettext('Prev'), gettext('Next').' »',false,'true','page-nav','',true,'5' ); ?>
+			printPageListWithNav('« '.gettext('Prev'), gettext('Next').' »',false,'true','page-nav','',true,'5' );
 	 }
 	 ?>
 
