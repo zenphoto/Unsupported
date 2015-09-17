@@ -1,3 +1,4 @@
+<div class="push"></div>
 </div> <!-- END WRAP -->
 	<div class="footerwrap">
 		<div class="left">
@@ -14,22 +15,22 @@
 				if (!zp_loggedin() && function_exists('printRegistrationForm')) { ?>
 				<li><a href="<?php echo getCustomPageURL('register'); ?>" title="<?php echo gettext('Register'); ?>"><?php echo gettext('Register'); ?></a></li>
 				<?php } ?>
-				
+
 				<?php if(function_exists("printUserLogin_out")) {
 				if (zp_loggedin()) { ?>
 				<li><?php printUserLogin_out("",""); ?></li>
 				<?php } else { ?>
 				<li> | <a href="<?php echo getCustomPageURL('password'); ?>"><?php echo gettext('Login'); ?></a></li>
 				<?php } ?>
-				<?php } ?>	
+				<?php } ?>
 			</ul>
 			<?php if ((getOption('RSS_items_albums')) || (getOption('RSS_zenpage_items'))) { ?>
 			<div id="rsslinks">
 				<span><?php echo gettext('Subscribe: '); ?></span>
-				<?php 
+				<?php
 				if ((in_context(ZP_ALBUM)) && (getOption('RSS_album_image'))) { printRSSLink( "Collection","",gettext('This Album'),"  |  ", false,"rsslink" ); }
 				if (getOption('RSS_items_albums')) { printRSSLink( "Gallery","",(gettext('Gallery Images')),"",false,"rsslink" ); }
-				if ((function_exists('getBarePageTitle')) && (getOption('RSS_zenpage_items'))) { printRSSLink( "News", ' | ', gettext('News'),'',false ); }		
+				if ((function_exists('getBarePageTitle')) && (getOption('RSS_zenpage_items'))) { printRSSLink( "News", ' | ', gettext('News'),'',false ); }
 				?>
 			</div>
 			<br />
@@ -37,6 +38,6 @@
 			<?php if (function_exists('printLanguageSelector')) { printLanguageSelector("langselector"); } ?>
 		</div>
 	</div>
-	<?php zp_apply_filter('theme_body_close'); ?>	
+	<?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

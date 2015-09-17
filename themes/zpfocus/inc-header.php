@@ -179,7 +179,7 @@
 				<?php } else { ?>
 				<li><?php printCustomPageURL(gettext('Gallery'),"gallery"); ?>
 				<?php } ?>
-					<?php printAlbumMenuList('list','','','active','','active','',true,false,true,true,null); ?>
+					<?php printAlbumMenuList('list', false, '', 'active', '', 'active', '', null, false, true, true, null); ?>
 				</li>
 				<?php } ?>
 				<?php if(function_exists("printNestedMenu")) { ?>
