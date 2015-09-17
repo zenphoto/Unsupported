@@ -18,7 +18,7 @@
 			$zpfocus_metadesc = truncate_string(getBareAlbumDesc(),150,'...');
 			$galleryactive = true;
 			if (getOption('RSS_album_image')) { printRSSHeaderLink('Collection',getBareAlbumTitle().' - '.gettext('Latest Images'), $lang='')."\n"; }
-			if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { printRSSHeaderLink('Comments-album',getBareAlbumTitle().' - '.gettext('Latest Comments'), $lang='')."\n"; }		
+			if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { printRSSHeaderLink('Comments-album',getBareAlbumTitle().' - '.gettext('Latest Comments'), $lang='')."\n"; }
 			break;
 		case 'image.php':
 			if (!$_zp_current_album->isDynamic()) { $titlebreadcrumb = getTitleBreadcrumb(); } else { $titlebreadcrumb = ''; }
@@ -88,11 +88,11 @@
 		if (function_exists('printCommentForm')) { printRSSHeaderLink('Comments','',gettext('Latest Comments'))."\n"; }
 		}
 	?>
-	
+
 	<title><?php echo $zpfocus_metatitle; ?></title>
 	<meta name="description" content="<?php echo $zpfocus_metadesc; ?>" />
 
-	<?php require_once(ZENFOLDER."/zp-extensions/print_album_menu.php"); ?>
+	<?php require_once(SERVERPATH . '/' . ZENFOLDER . "/zp-extensions/print_album_menu.php"); ?>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/css/main.css" />
 	<?php if ( getOption('zpfocus_center_site') ) { ?>
@@ -102,8 +102,8 @@
 	<!--[if lte IE 6]>
 	<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/css/ie6.css" />
 	<![endif]-->
-	<link rel="shortcut icon" href="<?php echo $_zp_themeroot; ?>/images/favicon.ico" /> 
-	<?php zp_apply_filter('theme_head'); ?>	
+	<link rel="shortcut icon" href="<?php echo $_zp_themeroot; ?>/images/favicon.ico" />
+	<?php zp_apply_filter('theme_head'); ?>
 	<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/js/superfish.js"></script>
 	<script type="text/javascript">
 		jQuery(function(){
@@ -195,7 +195,7 @@
 				<?php if (function_exists('printContactForm')) { ?>
 				<li><?php printCustomPageURL(gettext('Contact'),"contact"); ?></li>
 				<?php } ?>
-				
+
 				<?php if ($zpfocus_show_archive) { ?>
 				<li><?php printCustomPageURL(gettext('Archive'),"archive"); ?>
 				<?php } ?>
@@ -204,12 +204,12 @@
 			<div>
 				<?php printSearchForm( '','searchform','',gettext('SEARCH'),"$_zp_themeroot/images/search-drop.jpg",null,null,null ); ?>
 			</div>
-			<?php } ?>	
+			<?php } ?>
 			<?php if (($zpfocus_menutype) == 'jump') { ?>
 			<div id="jumpmenu">
 				<?php printAlbumMenu('jump'); ?>
 			</div>
-			<?php } ?>		
+			<?php } ?>
 		</div>
 	</div>
 	<div class="wrap">

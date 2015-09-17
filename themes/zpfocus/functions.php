@@ -1,7 +1,7 @@
 <?php
 setOption('zp_plugin_colorbox',false,false);
 $zenpage = getOption('zp_plugin_zenpage');
-if ((function_exists('printGslideshow')) && (function_exists('printSlideShow'))) {
+if (extensionEnabled('gslideshow') && !getOption('zpfocus_use_colorbox_slideshow')) {
 		$useGslideshow = true;
 } else {
 		$useGslideshow = false;
