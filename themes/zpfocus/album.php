@@ -59,7 +59,7 @@
 			$x=0;
 			while (next_image()):
 				if ($x>=1) {
-					$show='style="display:none;"';
+					$show=' style="display:none;"';
 				} else {
 					$show='';
 				}
