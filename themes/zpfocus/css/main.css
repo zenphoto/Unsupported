@@ -170,6 +170,9 @@ a.album-tool{font-size:9px;font-family:verdana,arial,helvetica;text-decoration:n
 a.album-tool img{margin:0;padding:0;border:0;}
 div.album-tools-portrait a.album-tool{display:block;}
 
+/* OVERRIDE POSITION FLAG_THUMBNAIL ON THUMBS */
+.imageasflag{top:10px;right:10px !important;}
+
 /* RATINGS */
 #rating{margin-bottom:10px;}
 #rating input[type=button]{margin-left:10px;}

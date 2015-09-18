@@ -79,7 +79,7 @@
 			<li class="thumb-landscape">
 				<div class="album-tools-landscape">
 						<?php if ( ($zpfocus_use_colorbox) &&  (!isImageVideo()) ) { ?><a class="album-tool" rel="zoom" href="<?php if ($zpfocus_cbtarget) { echo htmlspecialchars(getDefaultSizedImage()); } else { echo htmlspecialchars(getUnprotectedImageURL()); } ?>" title="<?php echo getBareImageTitle();?>"><img src="<?php echo $_zp_themeroot; ?>/images/search.png" alt="Zoom Image" /></a><?php } ?>
-						<?php if ((getCommentCount()) > 0) { ?>
+						<?php if ( function_exists('printCommentForm') && $_zp_current_image->getCommentsAllowed() && $_zp_current_image->getCommentCount() > 0 ) { ?>
 						<a class="album-tool" href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getCommentCount();?> Comments"><img src="<?php echo $_zp_themeroot; ?>/images/shout.png" alt="Comments" /></a>
 						<?php } ?>
 				</div>
@@ -90,7 +90,7 @@
 			<li class="thumb-portrait">
 				<div class="album-tools-portrait">
 						<?php if ( ($zpfocus_use_colorbox) &&  (!isImageVideo()) ) { ?><a class="album-tool" rel="zoom" href="<?php if ($zpfocus_cbtarget) { echo htmlspecialchars(getDefaultSizedImage()); } else { echo htmlspecialchars(getUnprotectedImageURL()); } ?>" title="<?php echo getBareImageTitle();?>"><img src="<?php echo $_zp_themeroot; ?>/images/search.png" alt="Zoom Image" /></a><?php } ?>
-						<?php if ((getCommentCount()) > 0) { ?>
+						<?php if ( function_exists('printCommentForm') && $_zp_current_image->getCommentsAllowed() && $_zp_current_image->getCommentCount() > 0 ) { ?>
 						<a class="album-tool" href="<?php echo htmlspecialchars(getImageURL());?>" title="<?php echo getCommentCount();?> Comments"><img src="<?php echo $_zp_themeroot; ?>/images/shout.png" alt="Comments" /></a>
 						<?php } ?>
 				</div>
