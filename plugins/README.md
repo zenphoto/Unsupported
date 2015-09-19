@@ -8,6 +8,10 @@ Note that what should be copied is the content of the folder. This will typicall
 These plugins are also listed on our site's themes section:
 http://www.zenphoto.org/news/category/extensions
 
+##Installation instructions:
+
+http://www.zenphoto.org/news/using-plugins-and-third-party-features#installing-third-party-plugins
+
 
 Note
 -----
