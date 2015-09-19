@@ -4,14 +4,10 @@ Plugins
 Plugins are folders found in the `plugins` folder. They would be placed in the `plugins` folder of your installation. 
 
 Note that what should be copied is the content of the folder. This will typically be a PHP script and a like-named folder with other content. The PHP script needs to be in the root of the "plugins" folder.
+http://www.zenphoto.org/news/using-plugins-and-third-party-features#installing-third-party-plugins
 
 These plugins are also listed on our site's themes section:
 http://www.zenphoto.org/news/category/extensions
-
-##Installation instructions:
-
-http://www.zenphoto.org/news/using-plugins-and-third-party-features#installing-third-party-plugins
-
 
 Note
 -----
