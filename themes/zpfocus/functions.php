@@ -13,7 +13,7 @@ if (function_exists('printAddThis')) {
 		$zpfocus_social = false;
 }
 
-$zpfocus_tagline = getOption('zpfocus_tagline');
+$zpfocus_tagline = get_language_string(getOption('zpfocus_tagline'));
 if (is_null($zpfocus_tagline))
 		$zpfocus_tagline = 'A ZenPhoto / ZenPage Powered Theme';
 $zpfocus_allow_search = getOption('zpfocus_allow_search');
@@ -34,7 +34,7 @@ if (is_null($zpfocus_homepage))
 $zpfocus_spotlight = getOption('zpfocus_spotlight');
 if (is_null($zpfocus_spotlight))
 		$zpfocus_spotlight = 'manual';
-$zpfocus_spotlight_text = getOption('zpfocus_spotlight_text');
+$zpfocus_spotlight_text = get_language_string(getOption('zpfocus_spotlight_text'));
 if (is_null($zpfocus_spotlight_text))
 		$zpfocus_spotlight_text = '<p>This is the <span class="spotlight-span">spotlight</span> area that can be set in the theme options.  You can either enter the text manually in the options or set it to display the latest news if ZenPage is being used. If you want nothing to appear here, set the spotlight to none.</p>';
 $zpfocus_show_credit = getOption('zpfocus_show_credit');

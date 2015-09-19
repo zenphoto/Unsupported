@@ -27,14 +27,16 @@ class ThemeOptions {
 		setThemeOptionDefault('thumb_transition',2);
 
 		// set theme option defaults
-		setThemeOptionDefault('zpfocus_tagline', 'A ZenPhoto / ZenPage Powered Theme');
+		setOptionDefault('zpfocus_tagline', getAllTranslations($str));
+		gettext($str = 'A ZenPhoto / ZenPage Powered Theme');
 		setThemeOptionDefault('zpfocus_allow_search', true);
 		setThemeOptionDefault('zpfocus_show_archive', true);
 		setThemeOptionDefault('zpfocus_use_colorbox', true);
 		setThemeOptionDefault('zpfocus_use_colorbox_slideshow', true);
 		setThemeOptionDefault('zpfocus_homepage', 'none');
 		setThemeOptionDefault('zpfocus_spotlight', 'manual');
-		setThemeOptionDefault('zpfocus_spotlight_text', '<p>This is the <span class="spotlight-span">spotlight</span> area that can be set in the theme options.  You can either enter the text manually in the options or set it to display the latest news if ZenPage is being used. If you want nothing to appear here, set the spotlight to none.</p>');
+		setOptionDefault('zpfocus_spotlight_text', getAllTranslations($str));
+		gettext($str = '<p>This is the <span class="spotlight-span">spotlight</span> area that can be set in the theme options.  You can either enter the text manually in the options or set it to display the latest news if ZenPage is being used. If you want nothing to appear here, set the spotlight to none.</p>');
 		setThemeOptionDefault('zpfocus_show_credit', false);
 		setThemeOptionDefault('zpfocus_menutype', 'dropdown');
 		setThemeOptionDefault('zpfocus_logotype', true);
@@ -65,12 +67,12 @@ class ThemeOptions {
 
 	function getOptionsSupported() {
 		return array(
-			gettext('Tagline') => array('order'=>1.1, 'key' => 'zpfocus_tagline', 'type' => OPTION_TYPE_TEXTBOX, 'multilingual' => 1, 'desc' => gettext('The text above the sitename on the home page.')),
+			gettext('Tagline') => array('order'=>1, 'key' => 'zpfocus_tagline', 'type' => OPTION_TYPE_TEXTBOX, 'multilingual' => 1, 'desc' => gettext('The text above the sitename on the home page.')),
 			gettext('Album Menu Type') => array('order'=>2, 'key' => 'zpfocus_menutype', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose whether to show a dropdown menu item in the main menu for all your albums or a jump menu next to the search input. For sites with a lot of albums, the jump menu is recommended.')),
 			gettext('Show Archive Link') => array('order'=>3, 'key' => 'zpfocus_show_archive', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Display a menu link drop down for the dated archive of images.')),
 			gettext('Allow search') => array('order'=>4, 'key' => 'zpfocus_allow_search', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to enable search form.')),
 			gettext('Use Image as Logo?') => array('order'=>5, 'key' => 'zpfocus_logotype', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to use an image file instead of text as your logo.')),
-			gettext('Use Image as Logo Filename:') => array('order'=>6, 'key' => 'zpfocus_logofile', 'type' => OPTION_TYPE_TEXTBOX, 'multilingual' => 1, 'desc' => gettext('If checked above, enter full file name of logo file including file extension (image must be located within the images folder of the zpFocus theme folder).')),
+			gettext('Use Image as Logo Filename:') => array('order'=>6, 'key' => 'zpfocus_logofile', 'type' => OPTION_TYPE_TEXTBOX, 'desc' => gettext('If checked above, enter full file name of logo file including file extension (image must be located within the images folder of the zpFocus theme folder).')),
 			gettext('Homepage') => array('order'=>7, 'key' => 'zpfocus_homepage', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext("Choose here any <em>unpublished Zenpage page</em> (listed by <em>titlelink</em>) to act as your site's homepage instead the normal gallery index.")),
 			gettext('Spotlight') => array('order'=>8, 'key' => 'zpfocus_spotlight', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Select what to use in the spotlight area. Latest News obviously requires ZenPage.')),
 			gettext('Spotlight Text') => array('order'=>9, 'key' => 'zpfocus_spotlight_text', 'type' => OPTION_TYPE_TEXTAREA, 'desc' => gettext('Enter "Spotlight Text" if option above for the spotlight area is set to manual.  If Latest News is selected above this text will NOT be displayed.')),
@@ -85,7 +87,7 @@ class ThemeOptions {
 			gettext('Rotator Speed?') => array('order'=>18, 'key' => 'zpfocus_rotatorspeed', 'type' => OPTION_TYPE_TEXTBOX, 'desc' => gettext('Choose the delay of each rotation in milliseconds.')),
 			gettext('Image Final Link Option') => array('order'=>19, 'key' => 'zpfocus_final_link', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Select the final image link option as viewed on image.php.  Default is no link, but choose standard (or new to open in new window) if you want to take advantage of some of the core image link options (such as automatic download).')),
 			gettext('Show ZenPhoto Credit') => array('order'=>22, 'key' => 'zpfocus_show_credit', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to display the Powered by ZenPhoto link in the footer.')),
-			gettext('Custom CSS') => array('order'=>21, 'key' => 'zpfocus_customcss', 'type' => OPTION_TYPE_TEXTAREA, 'desc' => gettext('Enter any custom CSS, safely carries over upon theme upgrade.')),
+			gettext('Custom CSS') => array('order'=>21, 'key' => 'zpfocus_customcss', 'type' => OPTION_TYPE_TEXTAREA, 'multilingual' => 0, 'desc' => gettext('Enter any custom CSS, safely carries over upon theme upgrade.')),
 			gettext('Enable Zenpage News') => array('order'=>20, 'key' => 'zpfocus_news', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to enable the news function of Zenpage (default). Uncheck to use pages only (hides menu items and search results of news).'))
 
 			);
