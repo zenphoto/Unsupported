@@ -170,7 +170,7 @@ function printZDToggleClass($option, $c,$number_to_show) {
 function printLatestNewsCustom($number=5, $category = '', $showdate = true, $showcontent = true, $contentlength = 70, $showcat = true){
 	global $_zp_gallery, $_zp_current_zenpage_news;
 	$latest = getLatestNews($number, $category);
-	echo "\n<div id=\"latestnews-spotlight\">\n";
+	echo "\n<div class=\"latestnews-spotlight\">\n";
 	$count = "";
 	foreach ($latest as $item) {
 		$count++;

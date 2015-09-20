@@ -94,17 +94,16 @@ a.placeholder{cursor:pointer;}
 /* LAYOUT */
 div.wrap{width:100%;min-width:1000px;min-height:100%;margin: 0 auto -100px;background:url(../images/line1.jpg) repeat-x;}
 div.left,div.right{float:left;}
-div.right{width:600px;padding:25px 15px;background:#fff url(../images/line3.jpg) repeat-x;border-right:1px solid #fff;}
-div.left{width:300px;margin-left:15px;padding:25px 15px;background:#fff url(../images/line2.jpg) repeat-x;border-left:1px solid #fff;border-right:1px solid #F2F2F2;}
+div.right{width:600px;padding:25px 15px;margin-right:15px;background:#fff url(../images/line3.jpg) repeat-x;border-right:1px solid #fff;border-left:1px solid #F2F2F2;}
+div.left{width:300px;margin-left:15px;padding:25px 15px;background:#fff url(../images/line2.jpg) repeat-x;border-left:1px solid #fff;}
 div.footerwrap{width:100%;float:left;margin:0;font-size:11px;background:#fff url(../images/line1.jpg) repeat-x;font-size:11px;font-family:Verdana,Arial,Helvetica,Geneva,sans-serif;}
-div.footerwrap{height:100px;}
 div.footerwrap .left,div.footerwrap .right{padding-top:15px;}
 div.footerwrap, div.push {height: 100px;} /* .push must be the same height as .footer */
 div.push {clear:both;}
 
 /* RANDOM IMAGE */
 #random-wrap{width:300px;height:300px;position:relative;display:none;}
-#random-title{z-index:64;position:absolute;bottom:10px;left:0;width:300px;text-align:center;background:#000;color:#fff;padding:5px 0;font-size:14px;font-weight:bold;font-family:Georgia,Times New Roman,Times,serif;text-transform:uppercase;letter-spacing:2px;opacity:0.5;}
+#random-title{z-index:100;position:absolute;bottom:10px;left:0;width:300px;text-align:center;background:#000;color:#fff;padding:5px 0;font-size:14px;font-weight:bold;font-family:Georgia,Times New Roman,Times,serif;text-transform:uppercase;letter-spacing:2px;opacity:0.5;}
 
 
 /* TAGLINE & TITLE */
@@ -113,7 +112,7 @@ h2#logo{font-size:70px;text-transform:uppercase;font-variant:normal;margin-botto
 
 /* SPOTLIGHT */
 #latest-news-link{background:#F0F0F0;display:table;float:right;font-weight:bold;font-size:14px;letter-spacing:2px;margin:-3px 0 15px;padding:7px 8px 6px;text-transform:uppercase;}
-div#latestnews-spotlight h3{font-size:26px;line-height:1.2;border-bottom:1px solid #C0C0C0;}
+div.latestnews-spotlight h3{font-size:26px;line-height:1.2;border-bottom:1px solid #C0C0C0;}
 .latestnews-desc,.img-desc,#manual-spotlight{line-height:1.2;font-size:20px;margin:5px 0 25px 0;font-weight:normal;}
 
 /* SIDEBAR - LATEST NEWS */

@@ -93,7 +93,7 @@
 					$css = 'goright';
 					} ?>
 					<li class="<?php echo $css; ?>">
-						<h4><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View Album:'); ?> <?php echo getBareAlbumTitle();?>"><?php echo truncate_string(getBareAlbumTitle(),25,'...'); ?></a></h4>
+						<h4><a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View Album:'); ?> <?php echo getBareAlbumTitle();?>"><?php echo shortenContent(getBareAlbumTitle(),25,'...'); ?></a></h4>
 						<a class="thumb" href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View Album:'); ?> <?php echo getBareAlbumTitle();?>">
 							<?php if (isLandscape()) {
 							printCustomAlbumThumbImage(getBareAlbumTitle(),null,160,120,160,120);
@@ -103,7 +103,7 @@
 						</a>
 						<span class="front-date"><?php printAlbumDate(); ?></span>
 						<p class="front-desc">
-							<?php echo truncate_string(getAlbumDesc(), 175); ?>
+							<?php echo shortenContent(getAlbumDesc(), 175 , '...'); ?>
 							<a href="<?php echo htmlspecialchars(getAlbumURL());?>" title="<?php echo gettext('View album:'); ?> <?php echo getBareAlbumTitle();?>">&raquo;</a>
 						</p>
 					</li>

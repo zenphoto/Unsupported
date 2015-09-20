@@ -27,6 +27,7 @@ class ThemeOptions {
 		setThemeOptionDefault('thumb_transition',2);
 
 		// set theme option defaults
+		$str = '';
 		setOptionDefault('zpfocus_tagline', getAllTranslations($str));
 		gettext($str = 'A ZenPhoto / ZenPage Powered Theme');
 		setThemeOptionDefault('zpfocus_allow_search', true);
