@@ -206,4 +206,34 @@ function printLatestNewsCustom($number=5, $category = '', $showdate = true, $sho
 	}
 	echo "</div>\n";
 }
+
+$_zp_page_check = 'my_checkPageValidity';
+
+function my_checkPageValidity($request, $gallery_page, $page) {
+	switch ($gallery_page) {
+		case 'gallery.php':
+			$gallery_page = 'index.php'; //	same as an album gallery index
+			break;
+		case 'index.php':
+			if (extensionEnabled('zenpage')) {
+				if (getOption('zpfocus_news')) {
+					$gallery_page = 'news.php'; //	really a news page
+					break;
+				}
+				if (getOption('zpfocus_homepage')) {
+					return $page == 1; // only one page if zenpage enabled.
+				}
+			}
+			break;
+		case 'news.php':
+		case 'album.php':
+		case 'search.php':
+			break;
+		default:
+			if ($page != 1) {
+				return false;
+			}
+	}
+	return checkPageValidity($request, $gallery_page, $page);
+}
 ?>
