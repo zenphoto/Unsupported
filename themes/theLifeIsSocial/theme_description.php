@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $theme_description['name'] = 'the Life is Social';
 $theme_description['author'] = 'theWholeLifeToLearn';
 $theme_description['version'] = '1.0';

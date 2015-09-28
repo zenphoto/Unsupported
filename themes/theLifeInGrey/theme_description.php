@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $theme_description['name'] = 'the Life in Grey';
 $theme_description['author'] = 'theWholeLifeToLearn';
 $theme_description['version'] = '1.1';
