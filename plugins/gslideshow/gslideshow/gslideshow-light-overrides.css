@@ -6,15 +6,21 @@
 
 
 .galleria-thumbnails .galleria-image {
-
-    background: #fff;
-
-    border: 1px solid #111;
-
+background: #fff;
 }
-.galleria-counter {
 
-    color: #222;
+.galleria-thumbnails img {
+    padding: 0px;
+    margin: 0px 5px;
+    border: 1px solid #666;
+}
+
+.galleria-thumbnails .active img {
+    border: 1px solid #222;
+}
+
+.galleria-counter {
+color: #222;
 
 }
 .galleria-loader {
@@ -27,31 +33,26 @@
 
 }
 .galleria-info-title {
-
-    color: #000;
+	color: #000;
 
 }
 .galleria-info-description {
-
-    color: #222;
+	color: #222;
 }
 
 
 
 .notouch .galleria-thumb-nav-left:hover,
 .notouch .galleria-thumb-nav-right:hover {
-
-    background-color: #fff;
+	background-color: #fff;
 }
 .touch .galleria-thumb-nav-left:active,
 .touch .galleria-thumb-nav-right:active {
-
-    background-color: #fff;
+	background-color: #fff;
 }
 
 .galleria-thumb-nav-left,
 .galleria-thumb-nav-right,
-
 .galleria-image-nav-left,
 .galleria-image-nav-right {
     background-image: url(classic-map-invert.png);

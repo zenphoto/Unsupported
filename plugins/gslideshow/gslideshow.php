@@ -12,6 +12,7 @@
  * @subpackage media
  */
 
+$plugin_is_filter = 5 | THEME_PLUGIN;
 $plugin_description = gettext("Slideshow addon for core slideshow extension.  Uses jQuery Galleria to present a fluid/responsive, fullscreen image slideshow.");
 $plugin_author = "GJR (oswebcreations.com), code based off core cycle plugin";
 $option_interface = 'gslideshow';
@@ -81,7 +82,6 @@ class gslideshow {
 	}
 }
 
-global $_zp_gallery_page;
 $slideshow_instance = 0;
 if (($_zp_gallery_page == 'slideshow.php') || (getOption('gslideshow_always'))) zp_register_filter('theme_head','printGslideshowJS');
 if (!getOption('zp_plugin_slideshow')) setOption('zp_plugin_slideshow',1);
@@ -338,7 +338,7 @@ function printGslideshowJS() {
 	<link rel="stylesheet" href="<?php echo WEBPATH; ?>/plugins/gslideshow/galleria.classic.css" type="text/css" />
 	<link rel="stylesheet" href="<?php echo WEBPATH; ?>/plugins/gslideshow/gslideshow.css" type="text/css" />
 	<?php if ((getOption('gslideshow_style') == 'light')) { ?><link rel="stylesheet" href="<?php echo WEBPATH; ?>/plugins/gslideshow/gslideshow-light-overrides.css" type="text/css" /><?php } ?>
-	<script src="<?php echo WEBPATH; ?>/plugins/gslideshow/galleria-1.2.9.min.js"></script>
+	<script src="<?php echo WEBPATH; ?>/plugins/gslideshow/galleria-1.4.2.min.js"></script>
 	<script src="<?php echo WEBPATH; ?>/plugins/gslideshow/galleria.classic.min.js"></script>
 	<?php
 }
@@ -353,13 +353,22 @@ function printGalleriaRun($data,$linkslides,$autoplay,$embedded,$forceheight,$im
 			<div id="galleria"></div>
 			<script>
 				Galleria.run('#galleria', {
+					dataSource: <?php echo $data; ?>,
 					clicknext: <?php if ((!$linkslides) || (getOption("gslideshow_clicknext"))) { echo 'true'; } else { echo 'false'; } ?>,
 					autoplay: <?php if (($autoplay) && (is_int($autoplay))) { echo $autoplay; } elseif ($autoplay) { echo getOption("gslideshow_playspeed"); } else { echo 'false'; } ?>,
 					transition: '<?php echo getOption("gslideshow_transition"); ?>',
-					dataSource: <?php echo $data; ?>,
+					transitionSpeed: 800,
 					thumbnails: 'lazy',
-					<?php if(($embedded) || ($forceheight)) { ?>height: 0.5625,<?php } ?>
-					thumbQuality: 'auto',
+					thumbQuality: 'true',
+					imageCrop: false,
+    				//thumbCrop: true,
+    				carousel: true,
+    				showImagenav: false, // next/previous arrows
+    				showCounter: false,
+    				showInfo: false,
+    				imageMargin: 0,
+    				imagePosition: 'left top', // Works like the CSS background-position property, e.g. ‘top right’ or ‘20% 100%’.
+    				//lightbox: false,
 					touchTransition: 'slide',
 					show: <?php echo $imagenumber; ?>,
 					responsive: true,
@@ -403,6 +412,10 @@ function printGalleriaRun($data,$linkslides,$autoplay,$embedded,$forceheight,$im
 				$('.galleria-info').append('<div id="galleria-custom-controls"<?php if($embedded) { ?> class="embedded"<?php } ?>><a id="galleria-control-return" title="<?php echo html_encode($albumtitle).'&raquo; '.gettext('Return'); ?>" href="<?php echo html_encode($returnpath); ?>"><span></span></a><a id="galleria-control-play" href="#"><span></span></a><a id="galleria-control-pause" href="#"><span></span></a><a href="#" id="galleria-control-fullscreen"><span></span></a></div>');
 				Galleria.ready(function(options) {
 					this.lazyLoadChunks(5);
+					this.attachKeyboard({
+        				right: this.next,
+       				 	left: this.prev
+   					 });
 				});
 			</script>
 <?php
