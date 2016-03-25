@@ -15,7 +15,7 @@ class ThemeOptions {
 		setThemeOption('thumb_size',168,null,'zpmasonry');
 		setThemeOption('thumb_crop',1,null,'zpmasonry');
 		setThemeOption('image_use_side','longest',null,'zpmasonry');
-		setThemeOption('custom_index_page','none',null,'zpmasonry');
+		setThemeOption('custom_index_page','',null,'zpmasonry');
 
 		// set core theme option defaults
 		setThemeOptionDefault('image_size',1200);
