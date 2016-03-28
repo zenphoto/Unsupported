@@ -16,10 +16,10 @@
 			case 'album.php':
 				$galleryactive = true;
 				if ($_zp_page>1) { $metatitle = getBareAlbumTitle()." ($_zp_page)"; } else { $metatitle = getBareAlbumTitle(); }
-				$zpmas_metatitle = $metatitle.getTitleBreadcrumb().' | '.getBareGalleryTitle();
+				$zpmas_metatitle = $metatitle.' | '.getBareGalleryTitle();
 				$zpmas_metadesc = truncate_string(getBareAlbumDesc(),150,'...');
 				if (getOption('RSS_album_image')) { printRSSHeaderLink('Collection',getBareAlbumTitle().' - '.gettext('Latest Images'), $lang='')."\n"; }
-				if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { printRSSHeaderLink('Comments-album',getBareAlbumTitle().' - '.gettext('Latest Comments'), $lang='')."\n"; }		
+				if ((function_exists('printCommentForm')) && (getOption('RSS_comments'))) { printRSSHeaderLink('Comments-album',getBareAlbumTitle().' - '.gettext('Latest Comments'), $lang='')."\n"; }
 				break;
 			case 'image.php':
 				$galleryactive = true;
@@ -81,7 +81,7 @@
 				$zpmas_metatitle = getBareGalleryTitle();
 				$zpmas_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
 				break;
-		} 
+		}
 		// Finish out header RSS links for inc-header.php
 		if (getOption('RSS_album_image')) { printRSSHeaderLink('Gallery',gettext('Latest Images'))."\n"; }
 		if (getOption('RSS_album_image')) { printRSSHeaderLink('AlbumsRSS',gettext('Latest Albums'))."\n"; }
@@ -93,14 +93,14 @@
 		} ?>
 		<title><?php echo $zpmas_metatitle; ?></title>
 		<meta name="description" content="<?php echo $zpmas_metadesc; ?>" />
-		
+
 		<script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/zp-extensions/colorbox_js/jquery.colorbox-min.js" type="text/javascript"></script>
 		<?php if ($zpmas_ss) { ?>
 		<script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/zp-extensions/slideshow/jquery.cycle.all.js" type="text/javascript"></script>
 		<?php } ?>
 		<link rel="stylesheet" href="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/zp-extensions/colorbox_js/themes/<?php echo $zpmas_cbstyle; ?>/colorbox.css" type="text/css" media="screen"/>
 		<script type="text/javascript">
-		$(document).ready(function () { 
+		$(document).ready(function () {
 			$('#page_nav').css('display', 'none');
 			$("a.zpmas-cb").colorbox({
 				slideshow:false,
@@ -145,7 +145,7 @@
 				} else {
 					// otherwise remove it
 					$('#sidebar-inner').removeClass('fixed');
-				}	
+				}
 				if (sidenavHeight > winHeight) { // if sidebar is taller than viewport...
 					$('#sidebar-inner').addClass('static'); // remove fixed positioning.
 				}
@@ -162,8 +162,8 @@
 			$('#cycle ul').css('display', 'block');
 			<?php } ?>
 		});
-		</script>	
-		<?php if (strlen($zpmas_logo) > 0) { 
+		</script>
+		<?php if (strlen($zpmas_logo) > 0) {
 		if (getOption('zpmas_logoheight') < 36) { $zpmas_logoheight = 36; $fixadjust = null; } else { $zpmas_logoheight = getOption('zpmas_logoheight'); $fixadjust = ($zpmas_logoheight - 36) + 101; }
 		?>
 		<style>
@@ -187,7 +187,7 @@
 				theme : <?php if ($zpmas_css == 'dark') { echo '\'blackglass\''; } else { echo '\'white\''; } ?>
 			};
 			<?php } ?>
-		</script>		
+		</script>
 		<?php if (getOption('zpmas_customcss') != null) { ?>
 		<style>
 			<?php echo getOption('zpmas_customcss'); ?>
@@ -197,9 +197,9 @@
 	<body>
 		<?php zp_apply_filter('theme_body_open'); ?>
 		<div id="header">
-			<?php include ("inc-menu.php"); ?>	
-			<div id="header-inner">		
+			<?php include ("inc-menu.php"); ?>
+			<div id="header-inner">
 				<?php if ($zpmas_css == 'dark') { printSearchForm( '','searchform','',gettext('Search'),"$_zp_themeroot/images/media-eject-inv.png",null,null,null); } else { printSearchForm( '','searchform','',gettext('Search'),"$_zp_themeroot/images/media-eject.png",null,null,null); } ?>
 				<h1 id="logo"<?php if (strlen($zpmas_logo) > 0) echo ' class="image-logo"'; ?>><a href="<?php echo $zpmas_homelink; ?>" title="<?php echo gettext("Gallery Index"); ?>"><?php echo getGalleryTitle();?></a></h1>
 			</div>
-		</div>	
+		</div>
