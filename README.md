@@ -1,5 +1,16 @@
 Unsupported Zenphoto scripts archive
 ===========
+
+**Note: This repository is no longer used and will be eventually deleted. We have separated the parts for more convienient access into individual repositories:** 
+
+- https://github.com/zenphoto/unsupported-themes-official
+- https://github.com/zenphoto/unsupported-themes-thirdparty
+- https://github.com/zenphoto/unsupported-plugins-official
+- https://github.com/zenphoto/unsupported-plugins-thirdparty
+- https://github.com/zenphoto/unsupported-misc
+
+--
+
 Many of these are third party, older and have been abandoned by their original developers. Please remember that these scripts are provided for your use and education but are not supported and maintained by the Zenphoto team. This is an This is true even if a team member originally created them. They may not work correctly with current Zenphoto versions.
 
 We of course welcome any contribution or even taking over a certain theme: http://www.zenphoto.org/news/general-contributor-guidelines#providing-themes-and-plugins
