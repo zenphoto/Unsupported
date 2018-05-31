@@ -12,25 +12,25 @@ $plugin_author = "Stephen Billard (sbillard)";
 $plugin_version = '1.4.3';
 
 if (!OFFSET_PATH) {
-	zp_register_filter('album_instantiate', 'no_show_hideAlbum');
-	zp_register_filter('image_instantiate', 'no_show_hideImage');
+    zp_register_filter('album_instantiate', 'no_show_hideAlbum');
+    zp_register_filter('image_instantiate', 'no_show_hideImage');
 }
 
-function no_show_hideImage($imageObj) {
-	$album = $imageObj->getAlbum();
-	$check = checkAlbumPassword($album);
-	if ($check == 'zp_public_access') {
-		$imageObj->exists = $imageObj->getShow();
-	}
-	return $imageObj;
+function no_show_hideImage($imageObj)
+{
+    $album = $imageObj->getAlbum();
+    $check = checkAlbumPassword($album);
+    if ($check == 'zp_public_access') {
+        $imageObj->exists = $imageObj->getShow();
+    }
+    return $imageObj;
 }
 
-function no_show_hideAlbum($albumObj) {
-	$check = checkAlbumPassword($albumObj);
-	if ($check == 'zp_public_access') {
-		$albumObj->exists = $albumObj->getShow();
-	}
-	return $albumObj;
+function no_show_hideAlbum($albumObj)
+{
+    $check = checkAlbumPassword($albumObj);
+    if ($check == 'zp_public_access') {
+        $albumObj->exists = $albumObj->getShow();
+    }
+    return $albumObj;
 }
-
-?>

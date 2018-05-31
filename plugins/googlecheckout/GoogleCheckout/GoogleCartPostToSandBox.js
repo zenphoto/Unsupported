@@ -1,4 +1,6 @@
-function googlecartConfigure() {
+function googlecartConfigure()
+{
   // set the cart to post to the Checkout sandbox
-  googlecart.configuration.postCartToSandbox = true;
+    googlecart.configuration.postCartToSandbox = true;
 }
+

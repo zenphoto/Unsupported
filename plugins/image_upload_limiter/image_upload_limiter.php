@@ -13,50 +13,53 @@
 $plugin_is_filter = 5|ADMIN_PLUGIN;
 $plugin_description = gettext("Limits the number of images that can be uploaded to an album via the Zenphoto upload.");
 $plugin_author = "Malte Müller (acrylian)";
-$plugin_disable = (zp_has_filter('get_upload_header_text') && !getoption('zp_plugin_image_upload_limiter'))?sprintf(gettext('<a href="#%1$s"><code>%1$s</code></a> is already enabled.'),stripSuffix(get_filterScript('get_upload_header_text'))):'';
+$plugin_disable = (zp_has_filter('get_upload_header_text') && !getoption('zp_plugin_image_upload_limiter'))?sprintf(gettext('<a href="#%1$s"><code>%1$s</code></a> is already enabled.'), stripSuffix(get_filterScript('get_upload_header_text'))):'';
 
 $option_interface = 'uploadlimit';
 
 if ($plugin_disable) {
-	setOption('zp_plugin_image_upload_limiter', 0);
+    setOption('zp_plugin_image_upload_limiter', 0);
 } else {
-	zp_register_filter('upload_helper_js', 'uploadLimiterJS');
-	zp_register_filter('get_upload_header_text', 'uploadLimiterHeaderMessage');
-	zp_register_filter('upload_filetypes','limitUploadFiletypes');
-	zp_register_filter('upload_handlers','limitUploadHandlers',0);
+    zp_register_filter('upload_helper_js', 'uploadLimiterJS');
+    zp_register_filter('get_upload_header_text', 'uploadLimiterHeaderMessage');
+    zp_register_filter('upload_filetypes', 'limitUploadFiletypes');
+    zp_register_filter('upload_handlers', 'limitUploadHandlers', 0);
 }
 
 /**
  * Option handler class
  *
  */
-class uploadlimit {
-	/**
-	 * class instantiation function
-	 *
-	 */
-	function uploadlimit() {
-		setOptionDefault('imageuploadlimit', 999);
-		setOptionDefault('imageuploadlimit_newalbum', 0);
-	}
+class uploadlimit
+{
+    /**
+     * class instantiation function
+     *
+     */
+    function uploadlimit()
+    {
+        setOptionDefault('imageuploadlimit', 999);
+        setOptionDefault('imageuploadlimit_newalbum', 0);
+    }
 
 
-	/**
-	 * Reports the supported options
-	 *
-	 * @return array
-	 */
-	function getOptionsSupported() {
-		return array(	gettext('Upload limit') => array('key' => 'imageuploadlimit', 'type' => OPTION_TYPE_TEXTBOX,
-										'desc' => gettext('The maximum number of images per album if uploading via the multifile upload.')),
-		gettext('Disable new album creation') => array('key' => 'imageuploadlimit_newalbum', 'type' => OPTION_TYPE_CHECKBOX,
-										'desc' => gettext('If checked users cannot create new albums.'))
-		);
-	}
+    /**
+     * Reports the supported options
+     *
+     * @return array
+     */
+    function getOptionsSupported()
+    {
+        return array(   gettext('Upload limit') => array('key' => 'imageuploadlimit', 'type' => OPTION_TYPE_TEXTBOX,
+                                        'desc' => gettext('The maximum number of images per album if uploading via the multifile upload.')),
+        gettext('Disable new album creation') => array('key' => 'imageuploadlimit_newalbum', 'type' => OPTION_TYPE_CHECKBOX,
+                                        'desc' => gettext('If checked users cannot create new albums.'))
+        );
+    }
 
-	function handleOption($option, $currentValue) {
-	}
-
+    function handleOption($option, $currentValue)
+    {
+    }
 }
 
 
@@ -65,35 +68,36 @@ class uploadlimit {
  *
  * @return string
  */
-function uploadLimiterJS($defaultJS) {
-	$js = '';
-	if(!zp_loggedin(MANAGE_ALL_ALBUM_RIGHTS)) {
-		$target = 'function uploadify_onSelectOnce(event, data) {';
-		$i = strpos($defaultJS,$target);
-		if ($i !== false) {
-			$j = strpos($defaultJS,'}', $i+strlen($target));
-			$body = trim(substr($defaultJS, $i+strlen($target),$j));
-			if (!empty($dody)) {
-				echo gettext("There is a plugin conflict with <em>image_upload_limiter</em>");
-			}
-			$js = substr($defaultJS,0,$i).substr($defaultJS,$j+1);
-		}
+function uploadLimiterJS($defaultJS)
+{
+    $js = '';
+    if (!zp_loggedin(MANAGE_ALL_ALBUM_RIGHTS)) {
+        $target = 'function uploadify_onSelectOnce(event, data) {';
+        $i = strpos($defaultJS, $target);
+        if ($i !== false) {
+            $j = strpos($defaultJS, '}', $i+strlen($target));
+            $body = trim(substr($defaultJS, $i+strlen($target), $j));
+            if (!empty($dody)) {
+                echo gettext("There is a plugin conflict with <em>image_upload_limiter</em>");
+            }
+            $js = substr($defaultJS, 0, $i).substr($defaultJS, $j+1);
+        }
 
-		$albumlist = array();
-		genAlbumList($albumlist);
-		$rootrights = accessAllAlbums(UPLOAD_RIGHTS);
-		$limitalbums = getUploadLimitedAlbums($albumlist);
-		$imagenumber = getUploadImagesInAlbum($albumlist);
-		$js .= "$(document).ready(function() {
+        $albumlist = array();
+        genAlbumList($albumlist);
+        $rootrights = accessAllAlbums(UPLOAD_RIGHTS);
+        $limitalbums = getUploadLimitedAlbums($albumlist);
+        $imagenumber = getUploadImagesInAlbum($albumlist);
+        $js .= "$(document).ready(function() {
 									$('#uploadswitch').hide();
 						});";
-		if(getOption('imageuploadlimit_newalbum')) {
-			$js .= "
+        if (getOption('imageuploadlimit_newalbum')) {
+            $js .= "
 				jQuery(document).ready(function() {
 					$('#newalbumbox,#albumtext').hide();
 				});";
-		}
-	$js .= "
+        }
+        $js .= "
 	function generateUploadlimit(selectedalbum,limitalbums) {
 		$('#uploadlimitmessage').remove();
 		var imagenumber = new Array(".$imagenumber.");
@@ -124,16 +128,16 @@ function uploadLimiterJS($defaultJS) {
 		return queuelimit;
 	}";
 
-	$js .= "var limitalbums = new Array(".$limitalbums.");";
-	if(isset($_GET['album']) && !empty($_GET['album'])) { // if we upload
-		$selectedalbum = sanitize($_GET['album']);
-		$js .= "var selectedalbum = '".$selectedalbum."';";
-	} else if($rootrights) {
-		$js .= "var selectedalbum = '';"; // choose the first entry of the select list if nothing is selected and the user has root rights (so root no message...)
-	} else {
-		$js .= "var selectedalbum = limitalbums[0];"; // choose the first entry of the select list if nothing is selected and no rootrights
-	}
-	$js .= "
+        $js .= "var limitalbums = new Array(".$limitalbums.");";
+        if (isset($_GET['album']) && !empty($_GET['album'])) { // if we upload
+            $selectedalbum = sanitize($_GET['album']);
+            $js .= "var selectedalbum = '".$selectedalbum."';";
+        } elseif ($rootrights) {
+            $js .= "var selectedalbum = '';"; // choose the first entry of the select list if nothing is selected and the user has root rights (so root no message...)
+        } else {
+            $js .= "var selectedalbum = limitalbums[0];"; // choose the first entry of the select list if nothing is selected and no rootrights
+        }
+        $js .= "
 	var queuelimit = generateUploadlimit(selectedalbum,limitalbums);
 	var value = '';
 	var newalbum = '';
@@ -162,15 +166,16 @@ function uploadLimiterJS($defaultJS) {
 		$('#fileUpload').uploadifySettings('queueSizeLimit',".getOption('imageuploadlimit').");
 	});
 	";
-	}
-return $js;
+    }
+    return $js;
 }
 
-function uploadLimiterHeaderMessage($default) {
-	if (zp_loggedin(MANAGE_ALL_ALBUM_RIGHTS)) {
-		return $default;
-	}
-	return sprintf(gettext("You can upload a maximum of %s images to each album."),getOption('imageuploadlimit'));
+function uploadLimiterHeaderMessage($default)
+{
+    if (zp_loggedin(MANAGE_ALL_ALBUM_RIGHTS)) {
+        return $default;
+    }
+    return sprintf(gettext("You can upload a maximum of %s images to each album."), getOption('imageuploadlimit'));
 }
 
 /*
@@ -179,26 +184,26 @@ function uploadLimiterHeaderMessage($default) {
  * @param array $albumslist the array of the albums as generated by genAlbumList()
  * @return string
  */
-function getUploadLimitedAlbums($albumlist) {
-	$limitedalbums = array();
-	foreach($albumlist as $key => $value) {
-		$obj = newAlbum($key);
-		$limitedalbums[] = $obj->name;
-	}
-	$numalbums = count($limitedalbums);
-	$content = $count = '';
-	foreach($limitedalbums as $album) {
-		$content .= "'";
-		$count++;
-		$content .= $album;
-		if($count < $numalbums) {
-			$content .= "',"; // js array entry end
-		} else {
-			$content .= "'"; // js array end
-		}
-
-	}
-	return $content;
+function getUploadLimitedAlbums($albumlist)
+{
+    $limitedalbums = array();
+    foreach ($albumlist as $key => $value) {
+        $obj = newAlbum($key);
+        $limitedalbums[] = $obj->name;
+    }
+    $numalbums = count($limitedalbums);
+    $content = $count = '';
+    foreach ($limitedalbums as $album) {
+        $content .= "'";
+        $count++;
+        $content .= $album;
+        if ($count < $numalbums) {
+            $content .= "',"; // js array entry end
+        } else {
+            $content .= "'"; // js array end
+        }
+    }
+    return $content;
 }
 
 /*
@@ -207,25 +212,26 @@ function getUploadLimitedAlbums($albumlist) {
  * @param array $albumslist the array of the albums as generated by genAlbumList()
  * @return string
  */
-function getUploadImagesInAlbum($albumlist) {
-	$numbers = array();
-	foreach($albumlist as $key => $value) {
-		$obj = newAlbum($key);
-		$numbers[] = $obj->getNumImages();
-	}
-	$numimages = count($numbers);
-	$content = $count = '';
-	foreach($numbers as $number) {
-		$content .= "'";
-		$count++;
-		$content .= $number;
-		if($count < $numimages) {
-			$content .= "',"; // js array entry end
-		} else {
-			$content .= "'"; // js array end
-		}
-	}
-	return $content;
+function getUploadImagesInAlbum($albumlist)
+{
+    $numbers = array();
+    foreach ($albumlist as $key => $value) {
+        $obj = newAlbum($key);
+        $numbers[] = $obj->getNumImages();
+    }
+    $numimages = count($numbers);
+    $content = $count = '';
+    foreach ($numbers as $number) {
+        $content .= "'";
+        $count++;
+        $content .= $number;
+        if ($count < $numimages) {
+            $content .= "',"; // js array entry end
+        } else {
+            $content .= "'"; // js array end
+        }
+    }
+    return $content;
 }
 
 /**
@@ -233,13 +239,14 @@ function getUploadImagesInAlbum($albumlist) {
  * @param array $types
  * @return array
  */
-function limitUploadFiletypes($types) {
-	if (zp_loggedin(MANAGE_ALL_ALBUM_RIGHTS)) {
-		return $types;
-	}
-	$key = array_search('ZIP', $types);
-	unset($types[$key]);
-	return $types;
+function limitUploadFiletypes($types)
+{
+    if (zp_loggedin(MANAGE_ALL_ALBUM_RIGHTS)) {
+        return $types;
+    }
+    $key = array_search('ZIP', $types);
+    unset($types[$key]);
+    return $types;
 }
 
 /**
@@ -248,42 +255,43 @@ function limitUploadFiletypes($types) {
  * @param array $handlers
  * @return array
  */
-function limitUploadHandlers($handlers) {
-	global $zenphoto_tabs;
-	if (!zp_loggedin(MANAGE_ALL_ALBUM_RIGHTS)) {
-		$keys = array_keys($handlers);
-		foreach ($zenphoto_tabs['upload']['subtabs'] as $tab) {
-			if (preg_match('|&amp;tab=([^&]*)|', $tab, $handler)) {
-				if (preg_match('|.*\((.*)\)|', $handler[1], $matches)) {
-					if ($matches[1]=='flash') {
-						$flash = $handler[1];
-					} else if (in_array($handler[1], $keys)) {
-						unset ($zenphoto_tabs['upload']['subtabs'][$handler[1]]);
-						unset($handlers[$handler[1]]);
-					}
-				}
-			}
-		}
-		if (isset($flash)) {
-			$zenphoto_tabs['upload']['default'] = $flash;
-			$zenphoto_tabs['upload']['link'] = WEBPATH."/".ZENFOLDER.'/'.$zenphoto_tabs['upload']['subtabs'][$flash];
-		} else {
-			$c = 0;
-			foreach ($zenphoto_tabs['upload']['subtabs'] as $key=>$link) {
-				$zenphoto_tabs['upload']['link'] = $link;
-				$zenphoto_tabs['upload']['default'] = $key;
-				$c++;
-				break;
-			}
-			switch($c) {
-				case 0:
-					$zenphoto_tabs['upload']['link'] = WEBPATH."/".ZENFOLDER.'/admin-upload.php';
-					$zenphoto_tabs['upload']['default'] = NULL;
-				case 1:
-					$zenphoto_tabs['upload']['subtabs'] = NULL;
-					break;
-			}
-		}
-	}
-	return $handlers;
+function limitUploadHandlers($handlers)
+{
+    global $zenphoto_tabs;
+    if (!zp_loggedin(MANAGE_ALL_ALBUM_RIGHTS)) {
+        $keys = array_keys($handlers);
+        foreach ($zenphoto_tabs['upload']['subtabs'] as $tab) {
+            if (preg_match('|&amp;tab=([^&]*)|', $tab, $handler)) {
+                if (preg_match('|.*\((.*)\)|', $handler[1], $matches)) {
+                    if ($matches[1]=='flash') {
+                        $flash = $handler[1];
+                    } elseif (in_array($handler[1], $keys)) {
+                        unset($zenphoto_tabs['upload']['subtabs'][$handler[1]]);
+                        unset($handlers[$handler[1]]);
+                    }
+                }
+            }
+        }
+        if (isset($flash)) {
+            $zenphoto_tabs['upload']['default'] = $flash;
+            $zenphoto_tabs['upload']['link'] = WEBPATH."/".ZENFOLDER.'/'.$zenphoto_tabs['upload']['subtabs'][$flash];
+        } else {
+            $c = 0;
+            foreach ($zenphoto_tabs['upload']['subtabs'] as $key => $link) {
+                $zenphoto_tabs['upload']['link'] = $link;
+                $zenphoto_tabs['upload']['default'] = $key;
+                $c++;
+                break;
+            }
+            switch ($c) {
+                case 0:
+                    $zenphoto_tabs['upload']['link'] = WEBPATH."/".ZENFOLDER.'/admin-upload.php';
+                    $zenphoto_tabs['upload']['default'] = null;
+                case 1:
+                    $zenphoto_tabs['upload']['subtabs'] = null;
+                    break;
+            }
+        }
+    }
+    return $handlers;
 }

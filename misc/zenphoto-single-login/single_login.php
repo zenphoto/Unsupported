@@ -21,15 +21,15 @@ require_once(ZENFOLDER . "/template-functions.php");
 checkInstall();
 
 if (!is_null($_zp_current_admin_obj)) {
-	if ($_zp_loggedin & ADMIN_RIGHTS) {
-		header("Location: " . WEBPATH . "/");
-	} else {
-		$albums = getManagedAlbumList();
-		$album = array_shift($albums);
-		header("Location: " . WEBPATH . "/".$album.'/');
-	}
+    if ($_zp_loggedin & ADMIN_RIGHTS) {
+        header("Location: " . WEBPATH . "/");
+    } else {
+        $albums = getManagedAlbumList();
+        $album = array_shift($albums);
+        header("Location: " . WEBPATH . "/".$album.'/');
+    }
 }
-header ('Content-Type: text/html; charset=' . getOption('charset'));
+header('Content-Type: text/html; charset=' . getOption('charset'));
 ?>
 <html>
 <head>
