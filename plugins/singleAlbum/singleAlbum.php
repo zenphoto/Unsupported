@@ -14,11 +14,11 @@ $plugin_author = "Stephen Billard (sbillard)";
 
 zp_register_filter('load_request', 'forceAlbum');
 
-function forceAlbum($success) {
-	// we presume that the site only serves the one album.
-	$gallery = new Gallery();
-	$albums = $gallery->getAlbums();
-	$_GET['album'] = array_shift($albums);
-	return $success;
+function forceAlbum($success)
+{
+    // we presume that the site only serves the one album.
+    $gallery = new Gallery();
+    $albums = $gallery->getAlbums();
+    $_GET['album'] = array_shift($albums);
+    return $success;
 }
-?>

@@ -48,7 +48,7 @@ left: 0;
 /*The column of the item list in which a shopping cart preview image optionally appears */
 }
 .override .googlecart-widget-img {
-/*A picture of a shopping cart item which appears in the item list */ 
+/*A picture of a shopping cart item which appears in the item list */
 }
 .override .googlecart-widget-price-column {
 /*The column of the item list in which the price appears */
@@ -84,5 +84,5 @@ left: 0;
 /*The graphical button on which the customer can click to post his or her cart to Checkout */
 }
 .override .googlecart-add-button{
-	padding-top: 20px;
+    padding-top: 20px;
 }
